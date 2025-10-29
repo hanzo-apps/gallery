@@ -33,65 +33,10 @@ export function TemplatePageClient({ variants, prevTemplate, nextTemplate, curre
     }
   }
 
-  // Check for available pages when preview is built
-  const checkAvailablePages = useCallback(async () => {
-    try {
-      const response = await fetch(`/api/list-pages?template=${selectedVariant.name}`);
-      if (response.ok) {
-        const data = await response.json();
-        setAvailablePages(data.pages || []);
-      }
-    } catch {
-      // Preview not built yet
-      setAvailablePages([]);
-    }
-  }, [selectedVariant.name]);
-
-  useEffect(() => {
-    checkAvailablePages();
-  }, [checkAvailablePages]);
-
-  async function buildAndPreview() {
-    setIsBuilding(true);
-    setBuildProgress('Checking if template is already built...');
-
-    try {
-      const response = await fetch('/api/build-template', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          templateName: selectedVariant.name,
-          templatePath: selectedVariant.path,
-          framework: selectedVariant.framework,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (data.success) {
-        if (data.cached) {
-          setBuildProgress('✅ Using cached build');
-        } else {
-          setBuildProgress('✅ Build complete!');
-        }
-
-        // Check for available pages
-        await checkAvailablePages();
-
-        // Open preview
-        setTimeout(() => {
-          window.open(`/previews/${selectedVariant.name}/${selectedPage}`, '_blank');
-          setIsBuilding(false);
-        }, 500);
-      } else {
-        setBuildProgress(`❌ Build failed: ${data.error}`);
-        setTimeout(() => setIsBuilding(false), 3000);
-      }
-    } catch (error: unknown) {
-      const message = error instanceof Error ? error.message : 'Unknown error';
-      setBuildProgress(`❌ Error: ${message}`);
-      setTimeout(() => setIsBuilding(false), 3000);
-    }
+  // Open GitHub repository
+  function openGitHubRepo() {
+    const repoUrl = `https://github.com/hanzo-apps/template-${selectedVariant.slug}`;
+    window.open(repoUrl, '_blank');
   }
 
   return (
@@ -174,11 +119,10 @@ export function TemplatePageClient({ variants, prevTemplate, nextTemplate, curre
             )}
 
             <button
-              onClick={buildAndPreview}
-              disabled={isBuilding}
-              className="px-4 py-2 border border-neutral-700 rounded-full hover:bg-neutral-800 transition-all text-xs font-medium text-neutral-300 whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+              onClick={openGitHubRepo}
+              className="px-4 py-2 border border-neutral-700 rounded-full hover:bg-neutral-800 transition-all text-xs font-medium text-neutral-300 whitespace-nowrap"
             >
-              {isBuilding ? '⏳ Building...' : '▶️ Live Preview'}
+              📦 View on GitHub
             </button>
             <button
               onClick={() => {
@@ -406,11 +350,10 @@ export function TemplatePageClient({ variants, prevTemplate, nextTemplate, curre
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <button
-                onClick={buildAndPreview}
-                disabled={isBuilding}
-                className="px-8 py-4 bg-green-500 text-white text-lg font-bold rounded-xl hover:bg-green-600 transition-all shadow-lg shadow-green-500/50 hover:shadow-green-500/70 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                onClick={openGitHubRepo}
+                className="px-8 py-4 bg-neutral-700 text-white text-lg font-bold rounded-xl hover:bg-neutral-600 transition-all shadow-lg shadow-neutral-700/50 hover:shadow-neutral-600/70 hover:scale-105"
               >
-                {isBuilding ? '⏳ Building...' : '▶️ Live Preview'}
+                📦 View on GitHub
               </button>
               <button
                 onClick={() => {

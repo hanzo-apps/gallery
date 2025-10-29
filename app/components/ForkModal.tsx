@@ -133,9 +133,10 @@ export function ForkModal({ template, onClose }: ForkModalProps) {
         await new Promise(resolve => setTimeout(resolve, 2000));
         alert('🚀 Deployment initiated!\n\nYour template is being deployed to Hanzo Cloud.\nYou will receive a deployment URL shortly.');
       } else if (selectedOption === 'local') {
-        // Trigger download
-        window.location.href = `/api/download/${encodeURIComponent(template.name)}`;
-        alert('⬇️ Download started!\n\nExtract the ZIP and follow the setup commands below.');
+        // Direct link to GitHub repo
+        const repoUrl = `https://github.com/hanzo-apps/template-${template.slug}`;
+        window.open(repoUrl, '_blank');
+        alert('📦 Opening GitHub repository!\n\nClone the repo and follow the setup commands.');
       } else if (selectedOption === 'github') {
         // Simulate GitHub fork
         await new Promise(resolve => setTimeout(resolve, 1500));
