@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Contacts Profile 02</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#fff">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="Page description"><!-- Twitter Card data-->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@publisher_handle">
+    <meta name="twitter:title" content="Page Title">
+    <meta name="twitter:description" content="Page description less than 200 characters">
+    <meta name="twitter:creator" content="@author_handle">
+    <meta name="twitter:image" content="http://www.example.com/image.jpg"><!-- Open Graph data-->
+    <meta property="og:title" content="Title Here">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://www.example.com/">
+    <meta property="og:image" content="http://example.com/image.jpg">
+    <meta property="og:description" content="Description Here">
+    <meta property="og:site_name" content="Site Name, i.e. Moz">
+    <meta property="fb:admins" content="Facebook numeric ID">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" media="all" href="css/app.css"><!-- favicon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="manifest" href="img/site.webmanifest">
+    <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+  </head>
+  <body>
+    <!-- page-->
+    <div class="page">
+      <!-- sidebar-->
+      <div class="sidebar sidebar_info js-sidebar">
+        <div class="sidebar__nav">
+          <!-- nav-->
+          <nav class="nav js-nav"><a class="nav__link nav__link_head" href="/">
+              <div class="nav__preview"><img class="nav__pic" src="img/logo.svg" alt="Logo"></div>
+              <div class="nav__title"><img class="nav__pic" src="img/betaCRM.svg" alt="betaCRM"></div>
+            </a>
+            <div class="nav__list">
+              <!-- mobile primary menu-->
+              <div class="nav__primary js-nav-primary">
+                <div class="nav__group"><a class="nav__link active" href="#" title="Dashboard">
+                    <div class="nav__preview"><i class="la la-tachometer-alt "></i></div>
+                    <div class="nav__title">Dashboard</div>
+                  </a><a class="nav__link" href="#" title="Projects">
+                    <div class="nav__preview"><i class="la la-toolbox "></i></div>
+                    <div class="nav__title">Projects</div>
+                  </a><a class="nav__link" href="#" title="Tasks">
+                    <div class="nav__preview"><i class="la la-clipboard-check "></i></div>
+                    <div class="nav__title">Tasks</div>
+                  </a><a class="nav__link" href="#" title="Kanban">
+                    <div class="nav__preview"><i class="la la-images "></i></div>
+                    <div class="nav__title">Kanban</div>
+                  </a><a class="nav__link" href="#" title="Calendar">
+                    <div class="nav__preview"><i class="la la-calendar-week "></i></div>
+                    <div class="nav__title">Calendar</div>
+                  </a><a class="nav__link nav__link_menu js-nav-link-menu" href="#">
+                    <div class="nav__preview"><i class="la la-bars "></i></div>
+                  </a></div>
+              </div><!-- mobile secondary menu-->
+              <div class="nav__secondary js-nav-secondary">
+                <div class="nav__group"><a class="nav__link" href="#" title="Contacts">
+                    <div class="nav__preview"><i class="la la-user-lock "></i></div>
+                    <div class="nav__title">Contacts</div>
+                  </a><a class="nav__link" href="#" title="Messages">
+                    <div class="nav__preview"><i class="la la-comments "></i>
+                      <div class="nav__online online"></div>
+                    </div>
+                    <div class="nav__title">Messages</div>
+                  </a><a class="nav__link" href="#" title="Products">
+                    <div class="nav__preview"><i class="la la-cube "></i></div>
+                    <div class="nav__title">Products</div>
+                  </a><a class="nav__link" href="#" title="Invoices">
+                    <div class="nav__preview"><i class="la la-calculator "></i></div>
+                    <div class="nav__title">Invoices</div>
+                  </a><a class="nav__link" href="#" title="File Browser">
+                    <div class="nav__preview"><i class="la la-folder-open "></i></div>
+                    <div class="nav__title">File Browser</div>
+                  </a><a class="nav__link" href="#" title="Notifications">
+                    <div class="nav__preview"><i class="la la-bullseye "></i>
+                      <div class="nav__online online bg-red-raw"></div>
+                    </div>
+                    <div class="nav__title">Notifications</div>
+                  </a><a class="nav__link" href="#" title="Reports">
+                    <div class="nav__preview"><i class="la la-chart-area "></i></div>
+                    <div class="nav__title">Reports</div>
+                  </a><a class="nav__link" href="#" title="Help Center">
+                    <div class="nav__preview"><i class="la la-question "></i></div>
+                    <div class="nav__title">Help Center</div>
+                  </a><a class="nav__link nav__link_user" href="#" title="John Doe">
+                    <div class="nav__preview"><img class="nav__pic" src="img/user-1.jpg" alt="User">
+                      <div class="nav__online online"></div>
+                    </div>
+                    <div class="nav__title">John Doe</div>
+                  </a></div>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div class="sidebar__container js-sidebar-container">
+          <div class="sidebar__head">
+            <div class="sidebar__preview"><img class="sidebar__pic" src="img/user-1.jpg" alt="User"></div>
+            <div class="sidebar__wrap">
+              <div class="sidebar__title">Vincent Moody</div>
+              <div class="sidebar__text">UI/UX Designer</div>
+            </div><button class="sidebar__action sidebar__action_toggle action js-sidebar-toggle"><i class="la la-angle-left "></i></button>
+          </div>
+          <div class="sidebar__inner">
+            <div class="sidebar__section">
+              <!-- info-->
+              <div class="info">
+                <div class="info__section">
+                  <div class="info__title">About</div>
+                  <div class="info__body">
+                    <div class="info__text">Color is so powerful that it can persuade, motivate, inspire and touch people’s soft spot the heart. This is the reason why understanding colors is pretty crucial in relating.</div>
+                  </div>
+                </div>
+                <div class="info__section">
+                  <div class="info__title">Members</div>
+                  <div class="info__body">
+                    <div class="members">
+                      <div class="members__item"><img class="members__pic" src="img/user-1.jpg" alt="User" /></div>
+                      <div class="members__item"><img class="members__pic" src="img/user-2.jpg" alt="User" /></div>
+                      <div class="members__item"><img class="members__pic" src="img/user-3.jpg" alt="User" /></div>
+                      <div class="members__item"><button class="action action_stroke"><i class="la la-plus "></i></button></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="info__section">
+                  <div class="info__title">Contact details</div>
+                  <div class="info__body">
+                    <!-- contacts-->
+                    <div class="contacts">
+                      <div class="contacts__item">
+                        <div class="contacts__icon"><i class="la la-envelope-open "></i></div>
+                        <div class="contacts__detail">johanna.stevens<wbr>@gmail.com</div>
+                      </div>
+                      <div class="contacts__item">
+                        <div class="contacts__icon"><i class="la la-fax "></i></div>
+                        <div class="contacts__detail">402-001-4477</div>
+                      </div>
+                      <div class="contacts__item">
+                        <div class="contacts__icon"><i class="la la-globe-americas "></i></div>
+                        <div class="contacts__detail">05 Otilia Brook Apt. 181</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="info__section">
+                  <div class="info__title">Categories</div>
+                  <div class="info__body">
+                    <!-- tag group-->
+                    <div class="tag-group">
+                      <div class="tag gray">Designers</div>
+                      <div class="tag gray">Employees</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="info__section">
+                  <div class="info__title">Overall progress</div>
+                  <div class="info__body">
+                    <div class="info__cover">
+                      <div class="info__stats">
+                        <div class="info__subtitle">Tasks</div>
+                        <div class="info__values"><strong>96</strong> / 148</div>
+                      </div><!-- progress-->
+                      <div class="info__progress progress">
+                        <div class="progress__value bg-red-raw" style="width: 30%"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sidebar__section mobile-hide">
+              <div class="history">
+                <div class="history__container">
+                  <div class="history__head">
+                    <div class="history__wrap">
+                      <div class="history__title title title_sm">Conversion history</div>
+                      <div class="history__text">Week to week performance</div>
+                    </div><a class="history__link" href="#"><i class="la la-chart-area "></i></a>
+                  </div>
+                  <div class="history__chart">
+                    <div id="chart-history-area"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- container-->
+      <div class="container js-container">
+        <div class="container__head"><button class="container__action container__action_menu action js-container-toggle"><i class="la la-bars "></i></button>
+          <div class="container__title title title_md">Profile Overview</div><!-- search-->
+          <div class="container__search search js-search"><button class="search__action action js-search-open"><i class="la la-search "></i></button>
+            <div class="search__dropdown js-search-dropdown">
+              <div class="search__field"><input class="search__input js-search-input" type="search" placeholder="Start typing…">
+                <div class="search__icon"><i class="la la-search "></i></div>
+              </div>
+              <div class="search__results js-search-results"><a class="search__result" href="#">
+                  <div class="search__cell">
+                    <div class="search__preview color-red"><i class="lab la-dribbble "></i></div>
+                  </div>
+                  <div class="search__cell">
+                    <div class="search__title">Dribble Redesign</div>
+                    <div class="search__text">Webdesign</div>
+                  </div>
+                  <div class="search__cell mobile-hide">
+                    <!-- tag-->
+                    <div class="search__tag tag gray">24 Feb 2019</div>
+                  </div>
+                </a><a class="search__result" href="#">
+                  <div class="search__cell">
+                    <div class="search__preview color-green"><i class="lab la-evernote "></i></div>
+                  </div>
+                  <div class="search__cell">
+                    <div class="search__title">New HTML Theme</div>
+                    <div class="search__text">Theme</div>
+                  </div>
+                  <div class="search__cell mobile-hide">
+                    <!-- tag-->
+                    <div class="search__tag tag gray">20 May 2019</div>
+                  </div>
+                </a><a class="search__result" href="#">
+                  <div class="search__cell">
+                    <div class="search__preview"><img class="search__pic" src="img/user-1.jpg" alt="User"></div>
+                  </div>
+                  <div class="search__cell">
+                    <div class="search__title">Bradley Wilkins</div>
+                    <div class="search__text">b.wilkins@gmail.com</div>
+                  </div>
+                  <div class="search__cell mobile-hide">
+                    <!-- tag-->
+                    <div class="search__tag tag gray">Designer</div>
+                  </div>
+                </a></div>
+            </div>
+            <div class="search__backdrop backdrop js-search-backdrop"></div>
+          </div><!-- new-->
+          <div class="container__new new js-new"><button class="new__action action js-new-open"><i class="la la-plus-circle "></i></button>
+            <div class="new__dropdown js-new-dropdown"><a class="new__item" href="#">
+                <div class="new__icon"><i class="la la-toolbox "></i></div>
+                <div class="new__title">New Project</div>
+              </a><a class="new__item" href="#">
+                <div class="new__icon"><i class="la la-clipboard-check "></i></div>
+                <div class="new__title">New Task</div>
+              </a><a class="new__item" href="#">
+                <div class="new__icon"><i class="la la-user-lock "></i></div>
+                <div class="new__title">New Contact</div>
+              </a><a class="new__item" href="#">
+                <div class="new__icon"><i class="la la-calendar-week "></i></div>
+                <div class="new__title">New Event</div>
+              </a><a class="new__item" href="#">
+                <div class="new__icon"><i class="la la-cube "></i></div>
+                <div class="new__title">New Product</div>
+              </a><a class="new__item" href="#">
+                <div class="new__icon"><i class="la la-calculator "></i></div>
+                <div class="new__title">New Invoice</div>
+              </a></div>
+            <div class="new__backdrop backdrop js-new-backdrop"></div>
+          </div>
+        </div>
+        <div class="container__body">
+          <!-- layout-->
+          <div class="layout js-layout">
+            <div class="layout__tabs"><button class="layout__action action action_title js-layout-action active">Sales</button><button class="layout__action action action_title js-layout-action">Events</button><button class="layout__action action action_title js-layout-action">Income</button></div>
+            <div class="layout__row">
+              <div class="layout__col">
+                <!-- panel-->
+                <div class="layout__panel layout__panel_tab panel js-layout-tab visible">
+                  <div class="panel__head mobile-hide">
+                    <div class="panel__group">
+                      <div class="panel__title title">Latest Sales</div>
+                    </div>
+                  </div>
+                  <div class="panel__map mobile-hide"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28729.78098667922!2d-118.24954081765127!3d34.076586171043544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c6f954005675%3A0x9e94554f839c09df!2sDodger%20Stadium!5e0!3m2!1sen!2sua!4v1587186957332!5m2!1sen!2sua" width="100%" height="340" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
+                  <div class="panel__body">
+                    <!-- grid-->
+                    <div class="grid">
+                      <div class="grid__table">
+                        <div class="grid__body">
+                          <div class="grid__row">
+                            <div class="grid__cell">
+                              <!-- tag-->
+                              <div class="tag blue">Paid</div>
+                            </div>
+                            <div class="grid__cell">
+                              <div class="grid__text">4255 Murazik Trace Apt. 998</div>
+                            </div>
+                            <div class="grid__cell">
+                              <div class="grid__text-right"><strong>$2400.0</strong></div>
+                            </div>
+                            <div class="grid__cell grid__cell_action text-right">
+                              <!-- action--><button class="action action_stroke"><i class="la la-ellipsis-h "></i></button></div>
+                          </div>
+                          <div class="grid__row">
+                            <div class="grid__cell">
+                              <!-- tag-->
+                              <div class="tag yellow">Pending</div>
+                            </div>
+                            <div class="grid__cell">
+                              <div class="grid__text">4255 Murazik Trace Apt. 998</div>
+                            </div>
+                            <div class="grid__cell">
+                              <div class="grid__text-right"><strong>$2400.0</strong></div>
+                            </div>
+                            <div class="grid__cell grid__cell_action text-right">
+                              <!-- action--><button class="action action_stroke"><i class="la la-ellipsis-h "></i></button></div>
+                          </div>
+                          <div class="grid__row">
+                            <div class="grid__cell">
+                              <!-- tag-->
+                              <div class="tag blue">Paid</div>
+                            </div>
+                            <div class="grid__cell">
+                              <div class="grid__text">4255 Murazik Trace Apt. 998</div>
+                            </div>
+                            <div class="grid__cell">
+                              <div class="grid__text-right"><strong>$2400.0</strong></div>
+                            </div>
+                            <div class="grid__cell grid__cell_action text-right">
+                              <!-- action--><button class="action action_stroke"><i class="la la-ellipsis-h "></i></button></div>
+                          </div>
+                          <div class="grid__row">
+                            <div class="grid__cell">
+                              <!-- tag-->
+                              <div class="tag yellow">Pending</div>
+                            </div>
+                            <div class="grid__cell">
+                              <div class="grid__text">4255 Murazik Trace Apt. 998</div>
+                            </div>
+                            <div class="grid__cell">
+                              <div class="grid__text-right"><strong>$2400.0</strong></div>
+                            </div>
+                            <div class="grid__cell grid__cell_action text-right">
+                              <!-- action--><button class="action action_stroke"><i class="la la-ellipsis-h "></i></button></div>
+                          </div>
+                          <div class="grid__row">
+                            <div class="grid__cell">
+                              <!-- tag-->
+                              <div class="tag blue">Paid</div>
+                            </div>
+                            <div class="grid__cell">
+                              <div class="grid__text">4255 Murazik Trace Apt. 998</div>
+                            </div>
+                            <div class="grid__cell">
+                              <div class="grid__text-right"><strong>$2400.0</strong></div>
+                            </div>
+                            <div class="grid__cell grid__cell_action text-right">
+                              <!-- action--><button class="action action_stroke"><i class="la la-ellipsis-h "></i></button></div>
+                          </div>
+                          <div class="grid__row">
+                            <div class="grid__cell">
+                              <!-- tag-->
+                              <div class="tag yellow">Pending</div>
+                            </div>
+                            <div class="grid__cell">
+                              <div class="grid__text">4255 Murazik Trace Apt. 998</div>
+                            </div>
+                            <div class="grid__cell">
+                              <div class="grid__text-right"><strong>$2400.0</strong></div>
+                            </div>
+                            <div class="grid__cell grid__cell_action text-right">
+                              <!-- action--><button class="action action_stroke"><i class="la la-ellipsis-h "></i></button></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="layout__col">
+                <!-- panel-->
+                <div class="layout__panel layout__panel_tab panel js-layout-tab">
+                  <div class="panel__head mobile-hide">
+                    <div class="panel__group">
+                      <div class="panel__title title">Latest Events</div>
+                    </div><!-- action group-->
+                    <div class="panel__group action-group"><button class="action action_title active">View All</button></div>
+                  </div>
+                  <div class="panel__body">
+                    <!-- grid-->
+                    <div class="grid">
+                      <div class="grid__table">
+                        <div class="grid__head">
+                          <div class="grid__row">
+                            <div class="grid__cell">Product</div>
+                            <div class="grid__cell text-right">Details</div>
+                          </div>
+                        </div>
+                        <div class="grid__body">
+                          <div class="grid__row">
+                            <div class="grid__cell">
+                              <div class="grid__flex">
+                                <div class="grid__preview"><i class="la la-file-invoice-dollar "></i></div>
+                                <div class="grid__wrap">
+                                  <div class="grid__bold">Invoice #AA-04-19-1890678</div>
+                                  <div class="grid__text">New Madieton LLC.</div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="grid__cell text-right">
+                              <div class="grid__bold">$118.00</div>
+                            </div>
+                          </div>
+                          <div class="grid__row">
+                            <div class="grid__cell">
+                              <div class="grid__flex">
+                                <div class="grid__preview"><i class="la la-user-clock "></i></div>
+                                <div class="grid__wrap">
+                                  <div class="grid__bold">Client Bernard Stanley</div>
+                                  <div class="grid__text">bernard.stanley<wbr>@gmail.com</div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="grid__cell text-right">
+                              <div class="grid__bold">$3208.00</div>
+                            </div>
+                          </div>
+                          <div class="grid__row">
+                            <div class="grid__cell">
+                              <div class="grid__flex">
+                                <div class="grid__preview"><i class="la la-map-marked-alt "></i></div>
+                                <div class="grid__wrap">
+                                  <div class="grid__bold">Meeting with the client</div>
+                                  <div class="grid__text">24 Vandervort Springs</div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="grid__cell text-right">
+                              <div class="grid__bold">29 Oct 2019</div>
+                            </div>
+                          </div>
+                          <div class="grid__row">
+                            <div class="grid__cell">
+                              <div class="grid__flex">
+                                <div class="grid__preview"><i class="la la-file-invoice-dollar "></i></div>
+                                <div class="grid__wrap">
+                                  <div class="grid__bold">Invoice #AA-04-19-1890243</div>
+                                  <div class="grid__text">Tyriquemouth LLC.</div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="grid__cell text-right">
+                              <div class="grid__bold">$578.00</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div><!-- panel-->
+                <div class="layout__panel layout__panel_tab panel js-layout-tab">
+                  <div class="panel__head">
+                    <div class="panel__group mobile-hide">
+                      <div class="panel__title title">Income Details</div>
+                    </div><!-- action group-->
+                    <div class="panel__group action-group"><button class="action action_title active">Day</button><button class="action action_title">Week</button><button class="action action_title">Month</button><button class="action"><i class="la la-calendar-week "></i></button></div>
+                  </div>
+                  <div class="panel__body panel__body_bg">
+                    <div class="panel__info">
+                      <div class="panel__title title title_lg">$142.000<i class="la la-undo color-green"></i></div>
+                      <div class="panel__text">Total income</div>
+                    </div>
+                    <div class="panel__chart">
+                      <div id="chart-income-details"></div>
+                    </div>
+                    <div class="panel__stats">
+                      <div class="panel__stat">
+                        <div class="panel__title title">$342.000</div>
+                        <div class="panel__text">Total sales</div>
+                      </div>
+                      <div class="panel__stat">
+                        <div class="panel__title title">$200.000</div>
+                        <div class="panel__text">Spendings</div>
+                      </div>
+                      <div class="panel__stat">
+                        <div class="panel__title title">$142.000</div>
+                        <div class="panel__text">Income</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- modals-->
+    <!-- scripts-->
+    <script src="js/lib/jquery.min.js"></script>
+    <script src="js/lib/datepicker.min.js"></script>
+    <script src="js/lib/datepicker.en.js"></script>
+    <script src="js/lib/select2.min.js"></script>
+    <script src="js/lib/wNumb.min.js"></script>
+    <script src="js/lib/nouislider.min.js"></script>
+    <script src="js/lib/apexcharts.min.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

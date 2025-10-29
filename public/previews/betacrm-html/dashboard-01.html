@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dashboard 01</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#fff">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="Page description"><!-- Twitter Card data-->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@publisher_handle">
+    <meta name="twitter:title" content="Page Title">
+    <meta name="twitter:description" content="Page description less than 200 characters">
+    <meta name="twitter:creator" content="@author_handle">
+    <meta name="twitter:image" content="http://www.example.com/image.jpg"><!-- Open Graph data-->
+    <meta property="og:title" content="Title Here">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://www.example.com/">
+    <meta property="og:image" content="http://example.com/image.jpg">
+    <meta property="og:description" content="Description Here">
+    <meta property="og:site_name" content="Site Name, i.e. Moz">
+    <meta property="fb:admins" content="Facebook numeric ID">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" media="all" href="css/app.css"><!-- favicon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="manifest" href="img/site.webmanifest">
+    <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+  </head>
+  <body>
+    <!-- page-->
+    <div class="page">
+      <!-- sidebar-->
+      <div class="sidebar js-sidebar">
+        <div class="sidebar__nav">
+          <!-- nav-->
+          <nav class="nav js-nav"><a class="nav__link nav__link_head" href="/">
+              <div class="nav__preview"><img class="nav__pic" src="img/logo.svg" alt="Logo"></div>
+              <div class="nav__title"><img class="nav__pic" src="img/betaCRM.svg" alt="betaCRM"></div>
+            </a>
+            <div class="nav__list">
+              <!-- mobile primary menu-->
+              <div class="nav__primary js-nav-primary">
+                <div class="nav__group"><a class="nav__link active" href="#" title="Dashboard">
+                    <div class="nav__preview"><i class="la la-tachometer-alt "></i></div>
+                    <div class="nav__title">Dashboard</div>
+                  </a><a class="nav__link" href="#" title="Projects">
+                    <div class="nav__preview"><i class="la la-toolbox "></i></div>
+                    <div class="nav__title">Projects</div>
+                  </a><a class="nav__link" href="#" title="Tasks">
+                    <div class="nav__preview"><i class="la la-clipboard-check "></i></div>
+                    <div class="nav__title">Tasks</div>
+                  </a><a class="nav__link" href="#" title="Kanban">
+                    <div class="nav__preview"><i class="la la-images "></i></div>
+                    <div class="nav__title">Kanban</div>
+                  </a><a class="nav__link" href="#" title="Calendar">
+                    <div class="nav__preview"><i class="la la-calendar-week "></i></div>
+                    <div class="nav__title">Calendar</div>
+                  </a><a class="nav__link nav__link_menu js-nav-link-menu" href="#">
+                    <div class="nav__preview"><i class="la la-bars "></i></div>
+                  </a></div>
+              </div><!-- mobile secondary menu-->
+              <div class="nav__secondary js-nav-secondary">
+                <div class="nav__group"><a class="nav__link" href="#" title="Contacts">
+                    <div class="nav__preview"><i class="la la-user-lock "></i></div>
+                    <div class="nav__title">Contacts</div>
+                  </a><a class="nav__link" href="#" title="Messages">
+                    <div class="nav__preview"><i class="la la-comments "></i>
+                      <div class="nav__online online"></div>
+                    </div>
+                    <div class="nav__title">Messages</div>
+                  </a><a class="nav__link" href="#" title="Products">
+                    <div class="nav__preview"><i class="la la-cube "></i></div>
+                    <div class="nav__title">Products</div>
+                  </a><a class="nav__link" href="#" title="Invoices">
+                    <div class="nav__preview"><i class="la la-calculator "></i></div>
+                    <div class="nav__title">Invoices</div>
+                  </a><a class="nav__link" href="#" title="File Browser">
+                    <div class="nav__preview"><i class="la la-folder-open "></i></div>
+                    <div class="nav__title">File Browser</div>
+                  </a><a class="nav__link" href="#" title="Notifications">
+                    <div class="nav__preview"><i class="la la-bullseye "></i>
+                      <div class="nav__online online bg-red-raw"></div>
+                    </div>
+                    <div class="nav__title">Notifications</div>
+                  </a><a class="nav__link" href="#" title="Reports">
+                    <div class="nav__preview"><i class="la la-chart-area "></i></div>
+                    <div class="nav__title">Reports</div>
+                  </a><a class="nav__link" href="#" title="Help Center">
+                    <div class="nav__preview"><i class="la la-question "></i></div>
+                    <div class="nav__title">Help Center</div>
+                  </a><a class="nav__link nav__link_user" href="#" title="John Doe">
+                    <div class="nav__preview"><img class="nav__pic" src="img/user-1.jpg" alt="User">
+                      <div class="nav__online online"></div>
+                    </div>
+                    <div class="nav__title">John Doe</div>
+                  </a></div>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div class="sidebar__container js-sidebar-container">
+          <div class="sidebar__head">
+            <div class="sidebar__preview"><img class="sidebar__pic" src="img/white-ui-store.png" alt="WhiteUI.store"></div>
+            <div class="sidebar__wrap">
+              <div class="sidebar__title">WHITEUI.STORE LLC</div>
+              <div class="sidebar__text">8484 Ross Wells</div>
+            </div><button class="sidebar__action sidebar__action_toggle action js-sidebar-toggle"><i class="la la-angle-left "></i></button>
+          </div>
+          <div class="sidebar__inner">
+            <div class="sidebar__section">
+              <!-- widget-->
+              <div class="widget">
+                <div class="widget__head widget__head_line">
+                  <div class="widget__title title">Messages</div>
+                  <div class="widget__badge badge green">5</div><a class="widget__all" href="#">View all</a>
+                </div>
+                <div class="widget__body">
+                  <!-- item-->
+                  <div class="items"><a class="items__item" href="#">
+                      <div class="items__preview"><img class="items__pic" src="img/user-2.jpg" alt="User">
+                        <div class="items__online online"></div>
+                      </div>
+                      <div class="items__wrap">
+                        <div class="items__details">
+                          <div class="items__name">Nicholas Gordon</div>
+                          <div class="items__time">10m</div>
+                        </div>
+                        <div class="items__content">Moreover the striking, brilliant and vivid colors</div>
+                      </div>
+                    </a><a class="items__item" href="#">
+                      <div class="items__preview"><img class="items__pic" src="img/user-3.jpg" alt="User">
+                        <div class="items__online online bg-red-raw"></div>
+                      </div>
+                      <div class="items__wrap">
+                        <div class="items__details">
+                          <div class="items__name">Nina Perkins</div>
+                          <div class="items__time">1hr</div>
+                        </div>
+                        <div class="items__content">In the history of modern astronomy, there is small</div>
+                      </div>
+                    </a><a class="items__item" href="#">
+                      <div class="items__preview"><img class="items__pic" src="img/user-4.jpg" alt="User">
+                        <div class="items__online online bg-yellow-raw"></div>
+                      </div>
+                      <div class="items__wrap">
+                        <div class="items__details">
+                          <div class="items__name">Daniel Holland</div>
+                          <div class="items__time">2hr</div>
+                        </div>
+                        <div class="items__content">Advertising on a budget with a monthly frequency</div>
+                      </div>
+                    </a><a class="items__item" href="#">
+                      <div class="items__preview"><img class="items__pic" src="img/user-5.jpg" alt="User">
+                        <div class="items__online online"></div>
+                      </div>
+                      <div class="items__wrap">
+                        <div class="items__details">
+                          <div class="items__name">Franklin Thomas</div>
+                          <div class="items__time">3hrs</div>
+                        </div>
+                        <div class="items__content">In the history of modern astronomy, there is small</div>
+                      </div>
+                    </a></div>
+                </div>
+              </div>
+            </div>
+            <div class="sidebar__section">
+              <div class="history">
+                <div class="history__container">
+                  <div class="history__head">
+                    <div class="history__wrap">
+                      <div class="history__title title title_sm">Conversion history</div>
+                      <div class="history__text">Week to week performance</div>
+                    </div><a class="history__link" href="#"><i class="la la-chart-area "></i></a>
+                  </div>
+                  <div class="history__chart">
+                    <div id="chart-history-area"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- container-->
+      <div class="container js-container">
+        <div class="container__head"><button class="container__action container__action_menu action js-container-toggle"><i class="la la-bars "></i></button>
+          <div class="container__title title title_md">Dashboard</div><!-- search-->
+          <div class="container__search search js-search"><button class="search__action action js-search-open"><i class="la la-search "></i></button>
+            <div class="search__dropdown js-search-dropdown">
+              <div class="search__field"><input class="search__input js-search-input" type="search" placeholder="Start typing…">
+                <div class="search__icon"><i class="la la-search "></i></div>
+              </div>
+              <div class="search__results js-search-results"><a class="search__result" href="#">
+                  <div class="search__cell">
+                    <div class="search__preview color-red"><i class="lab la-dribbble "></i></div>
+                  </div>
+                  <div class="search__cell">
+                    <div class="search__title">Dribble Redesign</div>
+                    <div class="search__text">Webdesign</div>
+                  </div>
+                  <div class="search__cell mobile-hide">
+                    <!-- tag-->
+                    <div class="search__tag tag gray">24 Feb 2019</div>
+                  </div>
+                </a><a class="search__result" href="#">
+                  <div class="search__cell">
+                    <div class="search__preview color-green"><i class="lab la-evernote "></i></div>
+                  </div>
+                  <div class="search__cell">
+                    <div class="search__title">New HTML Theme</div>
+                    <div class="search__text">Theme</div>
+                  </div>
+                  <div class="search__cell mobile-hide">
+                    <!-- tag-->
+                    <div class="search__tag tag gray">20 May 2019</div>
+                  </div>
+                </a><a class="search__result" href="#">
+                  <div class="search__cell">
+                    <div class="search__preview"><img class="search__pic" src="img/user-1.jpg" alt="User"></div>
+                  </div>
+                  <div class="search__cell">
+                    <div class="search__title">Bradley Wilkins</div>
+                    <div class="search__text">b.wilkins@gmail.com</div>
+                  </div>
+                  <div class="search__cell mobile-hide">
+                    <!-- tag-->
+                    <div class="search__tag tag gray">Designer</div>
+                  </div>
+                </a></div>
+            </div>
+            <div class="search__backdrop backdrop js-search-backdrop"></div>
+          </div><!-- new-->
+          <div class="container__new new js-new"><button class="new__action action js-new-open"><i class="la la-plus-circle "></i></button>
+            <div class="new__dropdown js-new-dropdown"><a class="new__item" href="#">
+                <div class="new__icon"><i class="la la-toolbox "></i></div>
+                <div class="new__title">New Project</div>
+              </a><a class="new__item" href="#">
+                <div class="new__icon"><i class="la la-clipboard-check "></i></div>
+                <div class="new__title">New Task</div>
+              </a><a class="new__item" href="#">
+                <div class="new__icon"><i class="la la-user-lock "></i></div>
+                <div class="new__title">New Contact</div>
+              </a><a class="new__item" href="#">
+                <div class="new__icon"><i class="la la-calendar-week "></i></div>
+                <div class="new__title">New Event</div>
+              </a><a class="new__item" href="#">
+                <div class="new__icon"><i class="la la-cube "></i></div>
+                <div class="new__title">New Product</div>
+              </a><a class="new__item" href="#">
+                <div class="new__icon"><i class="la la-calculator "></i></div>
+                <div class="new__title">New Invoice</div>
+              </a></div>
+            <div class="new__backdrop backdrop js-new-backdrop"></div>
+          </div>
+        </div>
+        <div class="container__body">
+          <!-- overview-->
+          <div class="overview overview_line overview_compact">
+            <div class="overview__item">
+              <div class="overview__row">
+                <div class="overview__col">
+                  <div class="overview__label">New sales</div>
+                  <div class="overview__value">1.345</div>
+                </div>
+                <div class="overview__col">
+                  <div class="overview__preview blue"><i class="la la-chart-area "></i></div>
+                </div>
+              </div>
+            </div>
+            <div class="overview__item">
+              <div class="overview__row">
+                <div class="overview__col">
+                  <div class="overview__label">New leads</div>
+                  <div class="overview__value">2.890</div>
+                </div>
+                <div class="overview__col">
+                  <div class="overview__preview yellow"><i class="la la-user-clock "></i></div>
+                </div>
+              </div>
+            </div>
+            <div class="overview__item">
+              <div class="overview__row">
+                <div class="overview__col">
+                  <div class="overview__label">Conversion rate</div>
+                  <div class="overview__value">$1.870</div>
+                </div>
+                <div class="overview__col">
+                  <div class="overview__preview purple"><i class="la la-wallet "></i></div>
+                </div>
+              </div>
+            </div>
+            <div class="overview__item">
+              <div class="overview__row">
+                <div class="overview__col">
+                  <div class="overview__label">New sales</div>
+                  <div class="overview__value">5.10%</div>
+                </div>
+                <div class="overview__col">
+                  <div class="overview__preview red"><i class="la la-chart-line "></i></div>
+                </div>
+              </div>
+            </div>
+          </div><!-- layout-->
+          <div class="layout">
+            <div class="layout__row">
+              <!-- panel-->
+              <div class="layout__panel panel">
+                <div class="panel__head">
+                  <div class="panel__group">
+                    <div class="panel__title title">Latest sales</div>
+                  </div><!-- action group-->
+                  <div class="panel__group action-group"><button class="action action_title active">Day</button><button class="action action_title">Week</button><button class="action action_title">Month</button><button class="action"><i class="la la-calendar-week "></i></button></div>
+                </div>
+                <div class="panel__body">
+                  <!-- grid-->
+                  <div class="grid">
+                    <div class="grid__table" style="min-width: 884px">
+                      <div class="grid__head">
+                        <div class="grid__row">
+                          <div class="grid__cell">Product</div>
+                          <div class="grid__cell">Customer</div>
+                          <div class="grid__cell">Delivery</div>
+                          <div class="grid__cell"></div>
+                          <div class="grid__cell text-right">Subtotal</div>
+                          <div class="grid__cell text-right">Shipping</div>
+                          <div class="grid__cell text-right">Total</div>
+                        </div>
+                      </div>
+                      <div class="grid__body">
+                        <div class="grid__row">
+                          <div class="grid__cell">
+                            <div class="grid__flex">
+                              <div class="grid__preview"><img class="grid__pic" src="img/product-1.jpg" alt="Product"></div>
+                              <div class="grid__wrap">
+                                <div class="grid__bold">Macbook Pro</div>
+                                <div class="grid__text">ID 10-3290-08</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="grid__cell mobile-hide">
+                            <div class="grid__bold">Rodney Cannon</div>
+                            <div class="grid__text">rodney.cannon<wbr>@gmail.com</div>
+                          </div>
+                          <div class="grid__cell mobile-hide">
+                            <div class="grid__bold">United Kingdom</div>
+                            <div class="grid__text">193 Cole Plains Suite 649, 891203</div>
+                          </div>
+                          <div class="grid__cell mobile-hide">
+                            <!-- tag-->
+                            <div class="tag blue">Shipped</div>
+                          </div>
+                          <div class="grid__cell text-right mobile-hide">
+                            <div class="grid__bold">$100.00</div>
+                          </div>
+                          <div class="grid__cell text-right mobile-hide">
+                            <div class="grid__bold">$18.00</div>
+                          </div>
+                          <div class="grid__cell text-right">
+                            <div class="grid__bold">$118.00</div>
+                          </div>
+                        </div>
+                        <div class="grid__row">
+                          <div class="grid__cell">
+                            <div class="grid__flex">
+                              <div class="grid__preview"><img class="grid__pic" src="img/product-2.jpg" alt="Product"></div>
+                              <div class="grid__wrap">
+                                <div class="grid__bold">Dell Laptop</div>
+                                <div class="grid__text">ID 10-3456-18</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="grid__cell mobile-hide">
+                            <div class="grid__bold">Mike Franklin</div>
+                            <div class="grid__text">mike.franklin<wbr>@gmail.com</div>
+                          </div>
+                          <div class="grid__cell mobile-hide">
+                            <div class="grid__bold">United States</div>
+                            <div class="grid__text">619 Jeffrey Freeway Apt. 273</div>
+                          </div>
+                          <div class="grid__cell mobile-hide">
+                            <!-- tag-->
+                            <div class="tag yellow">Processing</div>
+                          </div>
+                          <div class="grid__cell text-right mobile-hide">
+                            <div class="grid__bold">$180.00</div>
+                          </div>
+                          <div class="grid__cell text-right mobile-hide">
+                            <div class="grid__bold">$28.00</div>
+                          </div>
+                          <div class="grid__cell text-right">
+                            <div class="grid__bold">$208.00</div>
+                          </div>
+                        </div>
+                        <div class="grid__row">
+                          <div class="grid__cell">
+                            <div class="grid__flex">
+                              <div class="grid__preview"><img class="grid__pic" src="img/product-3.jpg" alt="Product"></div>
+                              <div class="grid__wrap">
+                                <div class="grid__bold">Macbook Air</div>
+                                <div class="grid__text">ID 10-3786-23</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="grid__cell mobile-hide">
+                            <div class="grid__bold">Louis Franklin</div>
+                            <div class="grid__text">louis.franklin<wbr>@gmail.com</div>
+                          </div>
+                          <div class="grid__cell mobile-hide">
+                            <div class="grid__bold">Germany</div>
+                            <div class="grid__text">200 Davis Estates Suite 621</div>
+                          </div>
+                          <div class="grid__cell mobile-hide">
+                            <!-- tag-->
+                            <div class="tag yellow">Processing</div>
+                          </div>
+                          <div class="grid__cell text-right mobile-hide">
+                            <div class="grid__bold">$100.00</div>
+                          </div>
+                          <div class="grid__cell text-right mobile-hide">
+                            <div class="grid__bold">$18.00</div>
+                          </div>
+                          <div class="grid__cell text-right">
+                            <div class="grid__bold">$128.00</div>
+                          </div>
+                        </div>
+                        <div class="grid__row">
+                          <div class="grid__cell">
+                            <div class="grid__flex">
+                              <div class="grid__preview"><img class="grid__pic" src="img/product-4.jpg" alt="Product"></div>
+                              <div class="grid__wrap">
+                                <div class="grid__bold">Macbook</div>
+                                <div class="grid__text">ID 10-4570-15</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="grid__cell mobile-hide">
+                            <div class="grid__bold">Dominic Love</div>
+                            <div class="grid__text">dominic.love<wbr>@gmail.com</div>
+                          </div>
+                          <div class="grid__cell mobile-hide">
+                            <div class="grid__bold">Spain</div>
+                            <div class="grid__text">742 Rau Summit Suite 407</div>
+                          </div>
+                          <div class="grid__cell mobile-hide">
+                            <!-- tag-->
+                            <div class="tag blue">Shipped</div>
+                          </div>
+                          <div class="grid__cell text-right mobile-hide">
+                            <div class="grid__bold">$560.00</div>
+                          </div>
+                          <div class="grid__cell text-right mobile-hide">
+                            <div class="grid__bold">$18.00</div>
+                          </div>
+                          <div class="grid__cell text-right">
+                            <div class="grid__bold">$578.00</div>
+                          </div>
+                        </div>
+                        <div class="grid__row">
+                          <div class="grid__cell">
+                            <div class="grid__flex">
+                              <div class="grid__preview"><img class="grid__pic" src="img/product-5.jpg" alt="Product"></div>
+                              <div class="grid__wrap">
+                                <div class="grid__bold">LG Laptop</div>
+                                <div class="grid__text">ID 10-5468-19</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="grid__cell mobile-hide">
+                            <div class="grid__bold">Adrian Drake</div>
+                            <div class="grid__text">adrian.drake<wbr>@gmail.com</div>
+                          </div>
+                          <div class="grid__cell mobile-hide">
+                            <div class="grid__bold">United Kingdom</div>
+                            <div class="grid__text">166 Corkery Vista Apt. 293</div>
+                          </div>
+                          <div class="grid__cell mobile-hide">
+                            <!-- tag-->
+                            <div class="tag red">Cancelled</div>
+                          </div>
+                          <div class="grid__cell text-right mobile-hide">
+                            <div class="grid__bold">$340.00</div>
+                          </div>
+                          <div class="grid__cell text-right mobile-hide">
+                            <div class="grid__bold">$34.00</div>
+                          </div>
+                          <div class="grid__cell text-right">
+                            <div class="grid__bold">$374.00</div>
+                          </div>
+                        </div>
+                        <div class="grid__row">
+                          <div class="grid__cell">
+                            <div class="grid__flex">
+                              <div class="grid__preview"><img class="grid__pic" src="img/product-6.jpg" alt="Product"></div>
+                              <div class="grid__wrap">
+                                <div class="grid__bold">Macbook Pro</div>
+                                <div class="grid__text">ID 10-4890-14</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="grid__cell mobile-hide">
+                            <div class="grid__bold">Walter Quinn</div>
+                            <div class="grid__text">walter.quinn<wbr>@gmail.com</div>
+                          </div>
+                          <div class="grid__cell mobile-hide">
+                            <div class="grid__bold">United States</div>
+                            <div class="grid__text">7613 Wilfredo Rapids Apt. 715</div>
+                          </div>
+                          <div class="grid__cell mobile-hide">
+                            <!-- tag-->
+                            <div class="tag blue">Shipped</div>
+                          </div>
+                          <div class="grid__cell text-right mobile-hide">
+                            <div class="grid__bold">$180.00</div>
+                          </div>
+                          <div class="grid__cell text-right mobile-hide">
+                            <div class="grid__bold">$40.00</div>
+                          </div>
+                          <div class="grid__cell text-right">
+                            <div class="grid__bold">$220.00</div>
+                          </div>
+                        </div>
+                        <div class="grid__row">
+                          <div class="grid__cell">
+                            <div class="grid__flex">
+                              <div class="grid__preview"><img class="grid__pic" src="img/product-7.jpg" alt="Product"></div>
+                              <div class="grid__wrap">
+                                <div class="grid__bold">Macbook Pro</div>
+                                <div class="grid__text">ID 10-3290-08</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="grid__cell mobile-hide">
+                            <div class="grid__bold">Victor Roberson</div>
+                            <div class="grid__text">victor.roberson<wbr>@gmail.com</div>
+                          </div>
+                          <div class="grid__cell mobile-hide">
+                            <div class="grid__bold">Germany</div>
+                            <div class="grid__text">357 Hoeger Bypass Apt. 593</div>
+                          </div>
+                          <div class="grid__cell mobile-hide">
+                            <!-- tag-->
+                            <div class="tag blue">Shipped</div>
+                          </div>
+                          <div class="grid__cell text-right mobile-hide">
+                            <div class="grid__bold">$680.00</div>
+                          </div>
+                          <div class="grid__cell text-right mobile-hide">
+                            <div class="grid__bold">$18.00</div>
+                          </div>
+                          <div class="grid__cell text-right">
+                            <div class="grid__bold">$698.00</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel__foot">
+                  <div class="pager"><a class="pager__arrow action action_icon_before" href="#"><i class="la la-angle-left "></i>Prev</a>
+                    <div class="pager__list"><a class="pager__link action" href="#">1</a><a class="pager__link action" href="#">2</a><a class="pager__link action active" href="#">3</a><a class="pager__link action" href="#">4</a><a class="pager__link action" href="#">5</a></div><a class="pager__arrow action action_icon_after" href="#">Next<i class="la la-angle-right "></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- modals-->
+    <!-- scripts-->
+    <script src="js/lib/jquery.min.js"></script>
+    <script src="js/lib/datepicker.min.js"></script>
+    <script src="js/lib/datepicker.en.js"></script>
+    <script src="js/lib/select2.min.js"></script>
+    <script src="js/lib/wNumb.min.js"></script>
+    <script src="js/lib/nouislider.min.js"></script>
+    <script src="js/lib/apexcharts.min.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

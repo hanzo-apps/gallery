@@ -1,0 +1,83 @@
+$black: #000;
+$white: #fff;
+$grey: #828894;
+$transition: .3s ease-in-out;
+$borderColor: rgba(66, 66, 66, 0.125);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    width: 100%;
+    font-family: satoshiR;
+    overflow-x: hidden;
+    color: $black;
+    background: $white;
+}
+
+html.has-scroll-smooth {
+    overflow: hidden;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+#main {
+    height: 100%;
+    width: 100%
+}
+
+.c-scrollbar_thumb {
+    opacity: 1;
+}
+
+/*- breakpoints -*/
+@mixin breaks ($breakpoint) {
+
+    @if $breakpoint ==1680px {
+        @media only screen and (max-width: 1680px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint ==1440px {
+        @media only screen and (max-width: 1440px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint ==1120px {
+        @media only screen and (max-width: 1120px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint ==870px {
+        @media only screen and (max-width: 870px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint ==550px {
+        @media only screen and (max-width: 550px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint ==390px {
+        @media only screen and (max-width: 390px) {
+            @content;
+        }
+    }
+}
+
+// Import CSS Files
+@import "Utilities/utilities";
+@import "Components/component";
+@import "pages/pages";

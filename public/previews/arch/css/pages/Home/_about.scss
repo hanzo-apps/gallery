@@ -1,0 +1,25 @@
+.about {
+    display: flex;
+    gap: 100px;
+
+    @include breaks (1680px) {
+        gap: 8.3vw;
+
+        @include breaks (1120px) {
+            flex-direction: column;
+            gap: 2vw;
+
+            @include breaks (870px) {
+                gap: 5vw;
+
+                @include breaks (390px) {
+                    gap: 10vw;
+                }
+            }
+        }
+    }
+
+    >div {
+        width: 100%;
+    }
+}

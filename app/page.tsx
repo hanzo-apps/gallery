@@ -1,0 +1,392 @@
+'use client';
+
+import Image from 'next/image';
+import Link from 'next/link';
+import { templates } from './templates-data';
+
+interface TemplateCardProps {
+  template: typeof templates[0];
+}
+
+function TemplateCard({ template }: TemplateCardProps) {
+  return (
+    <Link href={`/templates/${template.slug}`}>
+      <div className="group relative bg-white/5 backdrop-blur-lg rounded-xl border border-white/10 overflow-hidden hover:border-white/20 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-2 cursor-pointer">
+        <div className="relative aspect-video bg-gray-900/50 overflow-hidden">
+          <Image
+            src={`/screenshots/${template.screenshot}.png`}
+            alt={template.displayName}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
+          {/* Tier badge */}
+          <div className={`absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold ${
+            template.tier === 1 ? 'bg-green-500' :
+            template.tier === 2 ? 'bg-blue-500' : 'bg-purple-500'
+          }`}>
+            Tier {template.tier}
+          </div>
+          {/* Category badge */}
+          <div className="absolute top-3 right-3 px-3 py-1 bg-purple-500/90 backdrop-blur-sm rounded-full text-xs font-bold">
+            {template.category}
+          </div>
+        </div>
+        <div className="p-6">
+          <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">
+            {template.displayName}
+          </h3>
+          <p className="text-sm text-blue-400 mb-2">{template.framework}</p>
+          <p className="text-sm text-gray-400 italic mb-3">{template.useCase}</p>
+          <div className="flex">
+            {[...Array(5)].map((_, i) => (
+              <span key={i} className={i < template.rating ? 'text-yellow-400' : 'text-gray-600'}>
+                ★
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </Link>
+  );
+}
+
+interface TechBadgeProps {
+  icon: string;
+  name: string;
+  count: string;
+}
+
+function TechBadge({ icon, name, count }: TechBadgeProps) {
+  return (
+    <div className="bg-white/5 backdrop-blur-lg p-6 rounded-xl border border-white/10 hover:bg-white/10 transition-all hover:scale-105 cursor-pointer">
+      <div className="text-5xl mb-3 text-center">{icon}</div>
+      <div className="text-center">
+        <div className="text-xl font-bold text-white mb-1">{name}</div>
+        <div className="text-gray-400 text-sm">{count} templates</div>
+      </div>
+    </div>
+  );
+}
+
+interface UseCaseCardProps {
+  icon: string;
+  title: string;
+  description: string;
+  templates: number;
+}
+
+function UseCaseCard({ icon, title, description, templates }: UseCaseCardProps) {
+  return (
+    <div className="bg-white/5 backdrop-blur-lg p-8 rounded-xl border border-white/10 hover:bg-white/10 transition-all hover:scale-105 cursor-pointer">
+      <div className="text-6xl mb-4">{icon}</div>
+      <h3 className="text-2xl font-bold text-white mb-3">{title}</h3>
+      <p className="text-gray-400 mb-4">{description}</p>
+      <div className="text-purple-400 font-bold">{templates} templates →</div>
+    </div>
+  );
+}
+
+export default function GalleryHome() {
+  const tier1Templates = templates.filter(t => t.tier === 1);
+  const featuredTemplates = tier1Templates.slice(0, 6);
+
+  // Calculate component count
+  const totalComponents = templates.reduce((sum, t) => {
+    const match = t.components.match(/(\d+)/);
+    return sum + (match ? parseInt(match[1]) : 0);
+  }, 0);
+
+  return (
+    <div className="min-h-screen bg-black text-white">
+      {/* Hero Section */}
+      <section className="relative py-24 px-4 overflow-hidden">
+        {/* Animated background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-pink-900/20" />
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        </div>
+
+        <div className="relative max-w-6xl mx-auto text-center">
+          <h1 className="text-7xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient">
+            Hanzo Templates Gallery
+          </h1>
+          <p className="text-2xl md:text-3xl text-gray-300 mb-4 font-light">
+            Premium UI/UX templates for your next project
+          </p>
+          <p className="text-xl text-gray-400 mb-8">
+            <span className="text-blue-400 font-bold">{templates.length}</span> Premium Templates
+          </p>
+          <div className="flex gap-4 justify-center flex-wrap">
+            <Link href="/gallery">
+              <button className="px-10 py-5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl font-bold text-lg hover:from-purple-600 hover:to-pink-600 transition-all hover:scale-105 shadow-xl shadow-purple-500/50">
+                Browse Templates
+              </button>
+            </Link>
+            <Link href="/docs">
+              <button className="px-10 py-5 bg-white/10 backdrop-blur-lg rounded-xl font-bold text-lg border border-white/20 hover:bg-white/20 transition-all hover:scale-105">
+                Documentation
+              </button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section className="stats py-16 px-4 bg-gradient-to-b from-white/5 to-transparent border-y border-white/10">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="stat text-center group hover:scale-110 transition-transform cursor-pointer">
+            <div className="text-6xl font-bold text-blue-400 mb-2 group-hover:text-blue-300 transition-colors">
+              {templates.length}
+            </div>
+            <div className="text-gray-400 text-lg">Premium Templates</div>
+          </div>
+          <div className="stat text-center group hover:scale-110 transition-transform cursor-pointer">
+            <div className="text-6xl font-bold text-purple-400 mb-2 group-hover:text-purple-300 transition-colors">
+              14
+            </div>
+            <div className="text-gray-400 text-lg">Categories</div>
+          </div>
+          <div className="stat text-center group hover:scale-110 transition-transform cursor-pointer">
+            <div className="text-6xl font-bold text-pink-400 mb-2 group-hover:text-pink-300 transition-colors">
+              {totalComponents}+
+            </div>
+            <div className="text-gray-400 text-lg">Components</div>
+          </div>
+          <div className="stat text-center group hover:scale-110 transition-transform cursor-pointer">
+            <div className="text-6xl font-bold text-green-400 mb-2 group-hover:text-green-300 transition-colors">
+              100%
+            </div>
+            <div className="text-gray-400 text-lg">Production Ready</div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Templates */}
+      <section className="featured py-24 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              Featured Templates
+            </h2>
+            <p className="text-gray-400 text-xl">Our highest-rated Tier 1 templates</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {featuredTemplates.map(template => (
+              <TemplateCard key={template.id} template={template} />
+            ))}
+          </div>
+          <div className="text-center">
+            <Link href="/gallery">
+              <button className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl font-bold text-lg hover:from-blue-600 hover:to-purple-600 transition-all hover:scale-105">
+                View All Templates →
+              </button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Technology Stacks */}
+      <section className="tech-stacks py-24 px-4 bg-gradient-to-b from-white/5 to-transparent border-y border-white/10">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              Technology Stacks
+            </h2>
+            <p className="text-gray-400 text-xl">Built with modern web technologies</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <TechBadge
+              icon="⚡"
+              name="Next.js"
+              count={templates.filter(t => t.framework.toLowerCase().includes('next')).length.toString()}
+            />
+            <TechBadge
+              icon="⚛️"
+              name="React"
+              count={templates.filter(t => t.framework.toLowerCase().includes('react')).length.toString()}
+            />
+            <TechBadge
+              icon="🎨"
+              name="TypeScript"
+              count={templates.filter(t => t.framework.toLowerCase().includes('typescript') || t.framework.toLowerCase().includes('ts')).length.toString()}
+            />
+            <TechBadge
+              icon="🌈"
+              name="HTML/CSS"
+              count={templates.filter(t => t.framework.toLowerCase().includes('html') || t.framework.toLowerCase().includes('gulp')).length.toString()}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Use Cases */}
+      <section className="use-cases py-24 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              Perfect For
+            </h2>
+            <p className="text-gray-400 text-xl">Whatever you are building, we have a template</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <UseCaseCard
+              icon="🚀"
+              title="SaaS Startups"
+              description="Launch faster with production-ready templates"
+              templates={templates.filter(t => t.useCase.toLowerCase().includes('saas')).length}
+            />
+            <UseCaseCard
+              icon="🎨"
+              title="Creative Agencies"
+              description="Beautiful portfolios and agency sites"
+              templates={templates.filter(t =>
+                t.useCase.toLowerCase().includes('portfolio') ||
+                t.useCase.toLowerCase().includes('agency') ||
+                t.useCase.toLowerCase().includes('creative')
+              ).length}
+            />
+            <UseCaseCard
+              icon="📱"
+              title="Mobile Apps"
+              description="Modern app landing pages"
+              templates={templates.filter(t =>
+                t.useCase.toLowerCase().includes('app') ||
+                t.useCase.toLowerCase().includes('mobile')
+              ).length}
+            />
+            <UseCaseCard
+              icon="📊"
+              title="Dashboards"
+              description="Admin panels and analytics platforms"
+              templates={templates.filter(t => t.useCase.toLowerCase().includes('dashboard')).length}
+            />
+            <UseCaseCard
+              icon="🛒"
+              title="E-commerce"
+              description="Online stores and marketplaces"
+              templates={templates.filter(t =>
+                t.useCase.toLowerCase().includes('commerce') ||
+                t.useCase.toLowerCase().includes('store')
+              ).length}
+            />
+            <UseCaseCard
+              icon="💬"
+              title="Social Platforms"
+              description="Community and social networking"
+              templates={templates.filter(t => t.useCase.toLowerCase().includes('social')).length}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="features py-24 px-4 bg-gradient-to-b from-white/5 to-transparent border-y border-white/10">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              Why Choose Hanzo Templates?
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="p-8 bg-white/5 backdrop-blur-lg rounded-xl border border-white/10">
+              <div className="text-4xl mb-4">⚡</div>
+              <h3 className="text-2xl font-bold mb-3">Lightning Fast</h3>
+              <p className="text-gray-400">Built with Next.js 14+ for optimal performance and SEO</p>
+            </div>
+            <div className="p-8 bg-white/5 backdrop-blur-lg rounded-xl border border-white/10">
+              <div className="text-4xl mb-4">🎨</div>
+              <h3 className="text-2xl font-bold mb-3">Beautiful Design</h3>
+              <p className="text-gray-400">Premium UI/UX from top designers worldwide</p>
+            </div>
+            <div className="p-8 bg-white/5 backdrop-blur-lg rounded-xl border border-white/10">
+              <div className="text-4xl mb-4">📱</div>
+              <h3 className="text-2xl font-bold mb-3">Fully Responsive</h3>
+              <p className="text-gray-400">Perfect on mobile, tablet, and desktop devices</p>
+            </div>
+            <div className="p-8 bg-white/5 backdrop-blur-lg rounded-xl border border-white/10">
+              <div className="text-4xl mb-4">🔧</div>
+              <h3 className="text-2xl font-bold mb-3">Easy to Customize</h3>
+              <p className="text-gray-400">Clean code with TypeScript and modern best practices</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="cta py-24 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600" />
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
+        </div>
+        <div className="relative max-w-4xl mx-auto text-center">
+          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+            Deploy Instantly with Hanzo AI
+          </h2>
+          <p className="text-xl md:text-2xl mb-8 text-purple-100">
+            One-click deployment to global edge network
+          </p>
+          <div className="flex gap-4 justify-center flex-wrap">
+            <a href="https://hanzo.ai" target="_blank" rel="noopener noreferrer">
+              <button className="px-12 py-5 bg-white text-purple-600 rounded-xl font-bold text-xl hover:bg-gray-100 transition-all hover:scale-105 shadow-2xl">
+                Get Started Free
+              </button>
+            </a>
+            <Link href="/gallery">
+              <button className="px-12 py-5 bg-white/20 backdrop-blur-lg border-2 border-white rounded-xl font-bold text-xl hover:bg-white/30 transition-all hover:scale-105">
+                Browse Gallery
+              </button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-12 px-4 bg-black border-t border-white/10">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                Hanzo Templates
+              </h3>
+              <p className="text-gray-400 text-sm">
+                Premium UI/UX templates for modern web applications
+              </p>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Product</h4>
+              <ul className="space-y-2 text-gray-400 text-sm">
+                <li><Link href="/gallery" className="hover:text-white transition-colors">Templates</Link></li>
+                <li><Link href="/docs" className="hover:text-white transition-colors">Documentation</Link></li>
+                <li><Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Company</h4>
+              <ul className="space-y-2 text-gray-400 text-sm">
+                <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
+                <li><a href="https://hanzo.ai" className="hover:text-white transition-colors">Hanzo AI</a></li>
+                <li><a href="https://github.com/hanzoai" className="hover:text-white transition-colors">GitHub</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Legal</h4>
+              <ul className="space-y-2 text-gray-400 text-sm">
+                <li><Link href="/terms" className="hover:text-white transition-colors">Terms</Link></li>
+                <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link></li>
+                <li><Link href="/license" className="hover:text-white transition-colors">License</Link></li>
+              </ul>
+            </div>
+          </div>
+          <div className="text-center pt-8 border-t border-white/10">
+            <p className="text-gray-400 text-sm">
+              © 2025 Hanzo AI Inc. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}

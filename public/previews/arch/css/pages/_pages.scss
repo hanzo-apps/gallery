@@ -1,0 +1,27 @@
+@import "Home/home";
+@import "About/about";
+@import "Contact/contact";
+@import "Work/work";
+@import "Home02/home02";
+
+.subPage_header {
+    padding-top: 250px;
+    width: 100%;
+
+    @include breaks (1120px) {
+        padding-top: 200px;
+
+        @include breaks (550px) {
+            padding-top: 130px;
+        }
+    }
+
+    h1,
+    p {
+        width: 70%;
+
+        @include breaks (1120px) {
+            width: 100%;
+        }
+    }
+}

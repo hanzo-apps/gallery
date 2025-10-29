@@ -1,0 +1,121 @@
+@import "slider";
+
+.team {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 50px;
+
+    @include breaks (1440px) {
+        grid-template-columns: 1fr 1fr 1fr;
+
+        @include breaks (870px) {
+            gap: 30px;
+
+            @include breaks (550px) {
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+            }
+        }
+    }
+
+    .card {
+        img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+
+            @include breaks (1440px) {
+                height: 500px;
+
+                @include breaks (1120px) {
+                    height: 400px;
+
+                    @include breaks (870px) {
+                        height: 350px;
+
+                        @include breaks (550px) {
+                            height: 300px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .txt {
+            padding: 0 20px;
+
+            @include breaks (550px) {
+                padding: 0 10px;
+            }
+        }
+    }
+}
+
+.about_block {
+    .wrapper {
+        display: flex;
+        gap: 180px;
+        align-items: last baseline;
+
+        @include breaks (1680px) {
+            gap: 8.3vw;
+
+            @include breaks (1120px) {
+                flex-direction: column;
+                align-items: center;
+
+                @include breaks (550px) {
+                   gap: 15vw;
+                }
+            }
+        }
+
+        >div {
+            &:nth-child(1) {
+                width: 60%;
+
+                @include breaks (1120px) {
+                    width: 100%;
+                }
+            }
+
+            &:nth-child(2) {
+                width: 40%;
+
+                @include breaks (1120px) {
+                    width: 70%;
+
+                    img {
+                        height: 700px;
+                    }
+
+                    @include breaks (550px) {
+                        width: 100%;
+
+                        img {
+                            height: 70vh;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .blockImage {
+        margin-top: 180px;
+        padding-left: 180px;
+
+        @include breaks (1120px) {
+            padding-left: 0;
+
+            @include breaks (870px) {
+                padding-top: 150px;
+
+                @include breaks (550px) {
+                    padding-top: 100px;
+                }
+            }
+        }
+    }
+}

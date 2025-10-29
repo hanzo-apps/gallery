@@ -1,0 +1,125 @@
+@font-face {
+    font-family: satoshiR;
+    src: url(../../assests/fonts/Satoshi-Regular.woff2);
+}
+
+@font-face {
+    font-family: satoshiM;
+    src: url(../../assests/fonts/Satoshi-Medium.woff2);
+}
+
+@font-face {
+    font-family: satoshiB;
+    src: url(../../assests/fonts/Satoshi-Bold.woff2);
+}
+
+.grey {
+    color: $grey;
+}
+
+.font_M {
+    font-family: satoshiM;
+}
+
+.font_B {
+    font-family: satoshiB;
+}
+
+.font18 {
+    font-size: 18px;
+
+    @include breaks (870px) {
+        font-size: 16px;
+    }
+}
+
+.font20 {
+    font-size: 20px;
+
+    @include breaks (870px) {
+        font-size: 18px;
+    }
+}
+
+.font26 {
+    font-size: 26px;
+
+    @include breaks (870px) {
+        font-size: 20px;
+    }
+}
+
+.font32 {
+    font-size: 32px;
+    line-height: 170%;
+
+    @include breaks (1440px) {
+        font-size: 26px;
+        line-height: 180%;
+
+        @include breaks (870px) {
+            font-size: 22px;
+
+            @include breaks (550px) {
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+.font64 {
+    font-size: 64px;
+    font-family: satoshiB;
+    letter-spacing: -2px;
+    line-height: 120%;
+    word-spacing: -3px;
+
+    @include breaks (1680px) {
+        font-size: 56px;
+        line-height: 140%;
+
+        @include breaks (1440px) {
+            font-size: 52px;
+            line-height: 140%;
+
+            @include breaks (870px) {
+                font-size: 44px;
+
+                @include breaks (550px) {
+                    font-size: 38px;
+                    letter-spacing: -.5px;
+                    word-spacing: 0px;
+
+                    @include breaks (390px) {
+                        font-size: 30px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.font96 {
+    font-size: 96px;
+    font-family: satoshiB;
+    letter-spacing: -4px;
+    line-height: 100%;
+
+    @include breaks (1440px) {
+        font-size: 82px;
+
+        @include breaks (870px) {
+            font-size: 72px;
+
+            @include breaks (550px) {
+                font-size: 58px;
+                letter-spacing: -2px;
+                line-height: 120%;
+
+                @include breaks (390px) {
+                    font-size: 44px;
+                }
+            }
+        }
+    }
+}

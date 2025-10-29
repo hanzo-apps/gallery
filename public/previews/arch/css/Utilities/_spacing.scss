@@ -1,0 +1,58 @@
+.container {
+    padding-left: 180px;
+    padding-right: 180px;
+
+    @include breaks (1680px) {
+        padding-left: 8.3vw;
+        padding-right: 8.3vw;
+
+        @include breaks (550px) {
+            padding-left: 5vw;
+            padding-right: 5vw;
+        }
+    }
+}
+
+.containerPR {
+    padding-right: 180px;
+
+    @include breaks (1680px) {
+        padding-right: 8.3vw;
+    }
+}
+
+.containerV {
+    padding-top: 240px;
+
+    @include breaks (870px) {
+        padding-top: 150px;
+    }
+}
+
+.mT20 {
+    margin-top: 20px;
+}
+
+.mT50 {
+    margin-top: 50px;
+
+    @include breaks (1120px) {
+        margin-top: 35px;
+    }
+}
+
+.mT80 {
+    margin-top: 80px;
+
+    @include breaks (1120px) {
+        margin-top: 60px;
+    }
+}
+
+.mT120 {
+    margin-top: 120px;
+
+    @include breaks (870px) {
+        margin-top: 80px;
+    }
+}

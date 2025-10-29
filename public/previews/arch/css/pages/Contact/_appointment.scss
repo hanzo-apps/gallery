@@ -1,0 +1,102 @@
+.appointment_cnt {
+    width: 60%;
+    height: 100%;
+    overflow-y: scroll;
+    background: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 15;
+    padding: 130px 100px;
+    visibility: hidden;
+    transform: translateX(-20vw);
+
+    @include breaks (1120px) {
+        padding: 100px 70px;
+        width: 70%;
+
+        @include breaks (870px) {
+            padding: 100px 50px;
+            width: 80%;
+
+            @include breaks (550px) {
+                padding: 100px 30px;
+                width: 100%;
+            }
+        }
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    .close_app {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        cursor: pointer;
+        padding: 20px;
+
+        @include breaks (550px) {
+            right: 15px;
+            top: 15px;
+        }
+
+        i {
+            font-size: 20px;
+        }
+    }
+
+    form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        input[type=text],
+        input[type=email],
+        input[type=tel] {
+            width: 50%;
+            padding: 20px 0;
+            outline: none;
+            border: none;
+            border-bottom: 1.5px solid #dad9d9;
+            background: none;
+            font-size: 18px;
+            margin-top: 60px;
+
+            &::placeholder {
+                color: #c0c0c0;
+                font-size: 18px;
+            }
+
+            @include breaks (1120px) {
+                width: 100%;
+            }
+        }
+
+        input[type=submit] {
+            width: fit-content;
+            margin-top: 80px;
+            outline: none;
+            border: 1px solid $black;
+            background: none;
+            padding: 20px 55px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-family: satoshiM;
+            transition: all $transition;
+            cursor: pointer;
+
+            &:hover {
+                background: $black;
+                color: $white;
+                scale: 1.1;
+            }
+        }
+    }
+
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+}

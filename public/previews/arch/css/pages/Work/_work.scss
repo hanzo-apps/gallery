@@ -1,0 +1,36 @@
+.brands {
+    .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 80px;
+
+        img {
+            width: 180px;
+            filter: grayscale(100%);
+
+            @include breaks (1680px) {
+                width: 140px;
+
+                @include breaks (1120px) {
+                    margin: 0 50px;
+                    width: 120px;
+
+                    @include breaks (870px) {
+                        width: 100px;
+                        margin: 0 30px;
+
+                        @include breaks (390px) {
+                            width: 80px;
+                            margin: 0 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .Row1 {
+        margin-top: 120px;
+    }
+}

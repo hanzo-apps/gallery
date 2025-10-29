@@ -1,0 +1,46 @@
+footer {
+    padding: 100px 0;
+
+    @include breaks (1440px) {
+        padding: 80px 0;
+
+        @include breaks (550px) {
+            padding: 50px 0;
+        }
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include breaks (550px) {
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .footer_social {
+            display: flex;
+            gap: 30px;
+
+            @include breaks (1440px) {
+                gap: 50px;
+            }
+
+            i {
+                font-size: 36px;
+                cursor: pointer;
+                transition: color $transition;
+                color: $black;
+
+                @include breaks (550px) {
+                    font-size: 28px;
+                }
+
+                &:hover {
+                    color: $grey;
+                }
+            }
+        }
+    }
+}

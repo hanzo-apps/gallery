@@ -1,0 +1,634 @@
+{
+  "buildDate": "2025-10-21T18:31:32.915Z",
+  "results": {
+    "total": 69,
+    "success": 0,
+    "failed": 69,
+    "skipped": 0,
+    "errors": [
+      {
+        "name": "brainwave-update-May2024",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "simple-social-code",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "bruddle",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "kael-donovan",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "fusion-v2-saas-nft",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "streamline-shadcn",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "fofood-store",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "flowmint-portfolio",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "bento-v2-ai-react",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "bento-v1-multipurpose-react",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "xora-react",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "bento-v2-ai",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "bento-v1-multipurpose",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "fitnesspro-react",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "bitcloud-react",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "teaser-saas-landing",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "garuda",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "code-app",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "code-landing",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "bento-3",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "bento-3-2",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "zuzu-next-app",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "rebel-main",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "webCanvas",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "arch",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "digiversestudio",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "kalli-html",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "innovise",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "carsova",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "carsova-html-final",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "hidden-oasis-html-final",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "solo-saas",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "xora-html",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "square-dashboard",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "bitcloud-main",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "betacrm-html",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "betacrm-duplicate",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "hygge-html",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "hygge-bootstrap",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "fitnesspro",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "bento-v3-html-final",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "bento-v4-html",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "bento-v4-react",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "folio-html",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "folio-full",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "folio-main",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "folio-about",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "folio-contact",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "folio-creative-agency-1",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "folio-creative-agency-2",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "folio-creative-designer-1",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "folio-creative-designer-2",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "folio-creative-developer-1",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "folio-creative-developer-2",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "folio-creative-photography-1",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "folio-creative-photography-2",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "folio-grid-2",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "folio-grid-3",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "folio-grid-3-fluid",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "folio-grid-4",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "folio-grid-4-fluid",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "folio-masonry-2",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "folio-masonry-3",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "folio-masonry-3-fluid",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "folio-masonry-4",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "folio-masonry-4-fluid",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "folio-portfolio-details",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "folio-portfolio-details-2",
+        "reason": "path_not_found"
+      },
+      {
+        "name": "folio-portfolio-details-3",
+        "reason": "path_not_found"
+      }
+    ]
+  },
+  "templates": [
+    {
+      "name": "brainwave-update-May2024",
+      "framework": "Next.js 14.2 + TS",
+      "previewPath": "/previews/brainwave-update-May2024/index.html"
+    },
+    {
+      "name": "simple-social-code",
+      "framework": "Next.js 14.2 + TS",
+      "previewPath": "/previews/simple-social-code/index.html"
+    },
+    {
+      "name": "bruddle",
+      "framework": "Next.js 13.3 + TS",
+      "previewPath": "/previews/bruddle/index.html"
+    },
+    {
+      "name": "kael-donovan",
+      "framework": "Next.js 14.2 + TS",
+      "previewPath": "/previews/kael-donovan/index.html"
+    },
+    {
+      "name": "fusion-v2-saas-nft",
+      "framework": "Next.js 14.1",
+      "previewPath": "/previews/fusion-v2-saas-nft/index.html"
+    },
+    {
+      "name": "streamline-shadcn",
+      "framework": "Next.js 14 + shadcn",
+      "previewPath": "/previews/streamline-shadcn/index.html"
+    },
+    {
+      "name": "fofood-store",
+      "framework": "Next.js 14.2 + TS",
+      "previewPath": "/previews/fofood-store/index.html"
+    },
+    {
+      "name": "flowmint-portfolio",
+      "framework": "Next.js 14 + TS",
+      "previewPath": "/previews/flowmint-portfolio/index.html"
+    },
+    {
+      "name": "bento-v2-ai-react",
+      "framework": "Next.js 14.2 + TS",
+      "previewPath": "/previews/bento-v2-ai-react/index.html"
+    },
+    {
+      "name": "bento-v1-multipurpose-react",
+      "framework": "Next.js 14.2 + TS",
+      "previewPath": "/previews/bento-v1-multipurpose-react/index.html"
+    },
+    {
+      "name": "xora-react",
+      "framework": "React 18 + Vite",
+      "previewPath": "/previews/xora-react/index.html"
+    },
+    {
+      "name": "bento-v2-ai",
+      "framework": "React 18",
+      "previewPath": "/previews/bento-v2-ai/index.html"
+    },
+    {
+      "name": "bento-v1-multipurpose",
+      "framework": "React 18 + CRA",
+      "previewPath": "/previews/bento-v1-multipurpose/index.html"
+    },
+    {
+      "name": "fitnesspro-react",
+      "framework": "React 18 + CRA",
+      "previewPath": "/previews/fitnesspro-react/index.html"
+    },
+    {
+      "name": "bitcloud-react",
+      "framework": "React 17",
+      "previewPath": "/previews/bitcloud-react/index.html"
+    },
+    {
+      "name": "teaser-saas-landing",
+      "framework": "Next.js 13",
+      "previewPath": "/previews/teaser-saas-landing/index.html"
+    },
+    {
+      "name": "garuda",
+      "framework": "Next.js 13",
+      "previewPath": "/previews/garuda/index.html"
+    },
+    {
+      "name": "code-app",
+      "framework": "Next.js 14",
+      "previewPath": "/previews/code-app/index.html"
+    },
+    {
+      "name": "code-landing",
+      "framework": "Next.js 14",
+      "previewPath": "/previews/code-landing/index.html"
+    },
+    {
+      "name": "bento-3",
+      "framework": "React 18",
+      "previewPath": "/previews/bento-3/index.html"
+    },
+    {
+      "name": "bento-3-2",
+      "framework": "React 18",
+      "previewPath": "/previews/bento-3-2/index.html"
+    },
+    {
+      "name": "zuzu-next-app",
+      "framework": "Next.js 14 + TS",
+      "previewPath": "/previews/zuzu-next-app/index.html"
+    },
+    {
+      "name": "rebel-main",
+      "framework": "HTML/SCSS + GSAP",
+      "previewPath": "/previews/rebel-main/index.html"
+    },
+    {
+      "name": "webCanvas",
+      "framework": "HTML/SCSS + GSAP",
+      "previewPath": "/previews/webCanvas/index.html"
+    },
+    {
+      "name": "arch",
+      "framework": "HTML/CSS/JS",
+      "previewPath": "/previews/arch/index.html"
+    },
+    {
+      "name": "digiversestudio",
+      "framework": "HTML/CSS/JS",
+      "previewPath": "/previews/digiversestudio/index.html"
+    },
+    {
+      "name": "kalli-html",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/kalli-html/index.html"
+    },
+    {
+      "name": "innovise",
+      "framework": "HTML/CSS",
+      "previewPath": "/previews/innovise/index.html"
+    },
+    {
+      "name": "carsova",
+      "framework": "HTML/CSS",
+      "previewPath": "/previews/carsova/index.html"
+    },
+    {
+      "name": "carsova-html-final",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/carsova-html-final/index.html"
+    },
+    {
+      "name": "hidden-oasis-html-final",
+      "framework": "HTML/CSS",
+      "previewPath": "/previews/hidden-oasis-html-final/index.html"
+    },
+    {
+      "name": "solo-saas",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/solo-saas/index.html"
+    },
+    {
+      "name": "xora-html",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/xora-html/index.html"
+    },
+    {
+      "name": "square-dashboard",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/square-dashboard/index.html"
+    },
+    {
+      "name": "bitcloud-main",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/bitcloud-main/index.html"
+    },
+    {
+      "name": "betacrm-html",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/betacrm-html/index.html"
+    },
+    {
+      "name": "betacrm-duplicate",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/betacrm-duplicate/index.html"
+    },
+    {
+      "name": "hygge-html",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/hygge-html/index.html"
+    },
+    {
+      "name": "hygge-bootstrap",
+      "framework": "HTML/Gulp + Bootstrap 5",
+      "previewPath": "/previews/hygge-bootstrap/index.html"
+    },
+    {
+      "name": "fitnesspro",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/fitnesspro/index.html"
+    },
+    {
+      "name": "bento-v3-html-final",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/bento-v3-html-final/index.html"
+    },
+    {
+      "name": "bento-v4-html",
+      "framework": "HTML/CSS",
+      "previewPath": "/previews/bento-v4-html/index.html"
+    },
+    {
+      "name": "bento-v4-react",
+      "framework": "React 18",
+      "previewPath": "/previews/bento-v4-react/index.html"
+    },
+    {
+      "name": "folio-html",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/folio-html/index.html"
+    },
+    {
+      "name": "folio-full",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/folio-full/index.html"
+    },
+    {
+      "name": "folio-main",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/folio-main/index.html"
+    },
+    {
+      "name": "folio-about",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/folio-about/index.html"
+    },
+    {
+      "name": "folio-contact",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/folio-contact/index.html"
+    },
+    {
+      "name": "folio-creative-agency-1",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/folio-creative-agency-1/index.html"
+    },
+    {
+      "name": "folio-creative-agency-2",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/folio-creative-agency-2/index.html"
+    },
+    {
+      "name": "folio-creative-designer-1",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/folio-creative-designer-1/index.html"
+    },
+    {
+      "name": "folio-creative-designer-2",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/folio-creative-designer-2/index.html"
+    },
+    {
+      "name": "folio-creative-developer-1",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/folio-creative-developer-1/index.html"
+    },
+    {
+      "name": "folio-creative-developer-2",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/folio-creative-developer-2/index.html"
+    },
+    {
+      "name": "folio-creative-photography-1",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/folio-creative-photography-1/index.html"
+    },
+    {
+      "name": "folio-creative-photography-2",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/folio-creative-photography-2/index.html"
+    },
+    {
+      "name": "folio-grid-2",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/folio-grid-2/index.html"
+    },
+    {
+      "name": "folio-grid-3",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/folio-grid-3/index.html"
+    },
+    {
+      "name": "folio-grid-3-fluid",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/folio-grid-3-fluid/index.html"
+    },
+    {
+      "name": "folio-grid-4",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/folio-grid-4/index.html"
+    },
+    {
+      "name": "folio-grid-4-fluid",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/folio-grid-4-fluid/index.html"
+    },
+    {
+      "name": "folio-masonry-2",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/folio-masonry-2/index.html"
+    },
+    {
+      "name": "folio-masonry-3",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/folio-masonry-3/index.html"
+    },
+    {
+      "name": "folio-masonry-3-fluid",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/folio-masonry-3-fluid/index.html"
+    },
+    {
+      "name": "folio-masonry-4",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/folio-masonry-4/index.html"
+    },
+    {
+      "name": "folio-masonry-4-fluid",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/folio-masonry-4-fluid/index.html"
+    },
+    {
+      "name": "folio-portfolio-details",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/folio-portfolio-details/index.html"
+    },
+    {
+      "name": "folio-portfolio-details-2",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/folio-portfolio-details-2/index.html"
+    },
+    {
+      "name": "folio-portfolio-details-3",
+      "framework": "HTML/Gulp",
+      "previewPath": "/previews/folio-portfolio-details-3/index.html"
+    }
+  ]
+}

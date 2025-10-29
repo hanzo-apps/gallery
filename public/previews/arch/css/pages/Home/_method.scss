@@ -1,0 +1,59 @@
+.method {
+    display: flex;
+    align-items: center;
+    gap: 180px;
+
+    @include breaks (1680px) {
+        gap: 8.3vw;
+    }
+
+    .left {
+        width: 35%;
+
+        .image {
+            img {
+                width: 100%;
+                object-fit: cover;
+
+                @include breaks (1440px) {
+                    width: 180%;
+                }
+            }
+        }
+
+        @include breaks (1120px) {
+            display: none;
+        }
+    }
+
+    .right {
+        width: 65%;
+
+        @include breaks (1120px) {
+            width: 100%;
+        }
+
+        .image {
+            img {
+                width: 100%;
+                object-fit: cover;
+
+                @include breaks (1120px) {
+                    width: 120%;
+                }
+            }
+        }
+
+        .containerPR {
+            @include breaks (1120px) {
+                padding-left: 8.3vw;
+                padding-right: 8.3vw;
+
+                @include breaks (550px) {
+                    padding-left: 5vw;
+                    padding-right: 5vw;
+                }
+            }
+        }
+    }
+}

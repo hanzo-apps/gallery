@@ -1,0 +1,51 @@
+.awwards {
+    .awwards_cnt {
+        .row {
+            display: flex;
+            align-items: center;
+            gap: 200px;
+            padding: 40px 0;
+
+            @include breaks (1440px) {
+                gap: 150px;
+
+                @include breaks (870px) {
+                    gap: 80px;
+
+                    @include breaks (550px) {
+                        flex-direction: column;
+                        text-align: center;
+                        gap: 30px;
+                        padding: 60px 0;
+                    }
+                }
+            }
+
+            &:nth-child(2) {
+                border-bottom: 1px solid $borderColor;
+                border-top: 1px solid $borderColor;
+            }
+
+            img {
+                width: 250px;
+                filter: grayscale(100%);
+
+                @include breaks (1440px) {
+                    width: 200px;
+
+                    @include breaks (870px) {
+                        width: 150px;
+                    }
+                }
+            }
+
+            p {
+                width: 50%;
+
+                @include breaks (870px) {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

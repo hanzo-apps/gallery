@@ -1,0 +1,75 @@
+@import "appointment";
+
+.contact {
+    padding-top: 250px;
+    display: flex;
+    gap: 180px;
+
+    @include breaks (1680px) {
+        gap: 7.8vw;
+
+        @include breaks (550px) {
+            flex-direction: column;
+            gap: 15vw;
+            padding-top: 150px;
+        }
+    }
+
+    img {
+        height: 100vh;
+
+        @include breaks (1440px) {
+            height: 80vh;
+
+            @include breaks (1120px) {
+                height: 600px;
+
+                @include breaks (550px) {
+                    height: 80vh;
+                }
+            }
+        }
+    }
+
+    .left {
+        width: 100%;
+    }
+
+    .right {
+        width: 100%;
+        margin-top: 20vw;
+
+        @include breaks (1120px) {
+            margin-top: 30vw;
+
+            @include breaks (550px) {
+                margin-top: 0;
+            }
+        }
+
+        a {
+            font-size: 20px;
+            color: $black;
+            position: relative;
+            transition: color $transition;
+
+            &::before {
+                content: '';
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+                height: 1px;
+                background: $black;
+                transition: scale $transition;
+            }
+
+            &:hover {
+                color: $grey;
+
+                &::before {
+                    scale: 0;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>UI Kit</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#fff">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="Page description"><!-- Twitter Card data-->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@publisher_handle">
+    <meta name="twitter:title" content="Page Title">
+    <meta name="twitter:description" content="Page description less than 200 characters">
+    <meta name="twitter:creator" content="@author_handle">
+    <meta name="twitter:image" content="http://www.example.com/image.jpg"><!-- Open Graph data-->
+    <meta property="og:title" content="Title Here">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://www.example.com/">
+    <meta property="og:image" content="http://example.com/image.jpg">
+    <meta property="og:description" content="Description Here">
+    <meta property="og:site_name" content="Site Name, i.e. Moz">
+    <meta property="fb:admins" content="Facebook numeric ID">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" media="all" href="css/app.css"><!-- favicon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="manifest" href="img/site.webmanifest">
+    <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+  </head>
+  <body>
+    <style>.demo {
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 40px 20px;
+	flex-wrap: wrap;
+}
+.demo .btn,
+.demo .action {
+	margin: 0 4px 4px 0;
+}
+.demo .field,
+.demo .switch {
+	margin-bottom: 20px;
+}
+.demo__section {
+	margin: 0 20px 40px;
+	border: 1px solid #e1e1e1;
+}
+.demo__title {
+	padding: 20px;
+	border-bottom: 1px solid #e1e1e1;
+	font-size: 20px;
+}
+.demo__body {
+	padding: 20px;
+}
+.demo__row {
+	display: flex;
+	flex-wrap: wrap;
+}
+.demo__col {
+	margin-right: 60px;
+}
+@media screen and (max-width: 1023px) {
+	.demo {
+		display: block;
+	}
+}</style>
+    <div class="demo">
+      <div class="demo__section">
+        <div class="demo__title">Titles</div>
+        <div class="demo__body">
+          <h1 class="title title_xl">lorem</h1>
+          <h2 class="title title_lg">lorem</h2>
+          <h3 class="title title_md">lorem</h3>
+          <h4 class="title">lorem</h4>
+          <h5 class="title title_sm">lorem</h5>
+        </div>
+      </div>
+      <div class="demo__section">
+        <div class="demo__title">Buttons</div>
+        <div class="demo__body"><button class="btn">Button</button><a class="btn btn_light" href="#">Button Light</a><button class="btn" disabled>Button Disabled</button><button class="btn btn_light" disabled>Button Light Disabled</button><a class="btn btn_light btn_stroke" href="#">Button Light Stroke</a><button class="btn btn_light btn_stroke" disabled>Button Light Stroke Disabled</button><button class="btn btn_icon"><i class="la la-user-plus "></i>Button Icon</button><a class="btn btn_icon btn_light" href="#"><i class="la la-user-plus "></i>Button Icon Light</a><button class="btn btn_only_icon"><i class="la la-user-plus"></i></button></div>
+      </div>
+      <div class="demo__section">
+        <div class="demo__title">Actions</div>
+        <div class="demo__body"><button class="action"><i class="la la-user-plus "></i></button><button class="action action_title">Action Title</button><button class="action action_title active">Action Title Active</button></div>
+      </div>
+      <div class="demo__section">
+        <div class="demo__title">Fields</div>
+        <div class="demo__body">
+          <div class="field">
+            <div class="field__label">Field Title</div>
+            <div class="field__wrap"><input class="field__input" type="text" placeholder="Start typing…">
+              <div class="field__icon"><i class="la la-ban "></i></div>
+            </div>
+          </div>
+          <div class="field success">
+            <div class="field__label">Field Success</div>
+            <div class="field__wrap"><input class="field__input" type="text" placeholder="Start typing…">
+              <div class="field__icon"><i class="la la-check "></i></div>
+            </div>
+          </div>
+          <div class="field error">
+            <div class="field__label">Field Error</div>
+            <div class="field__wrap"><input class="field__input" type="text" placeholder="Start typing…">
+              <div class="field__icon"><i class="la la-ban "></i></div>
+            </div>
+          </div>
+          <div class="field">
+            <div class="field__label">Datepicker</div>
+            <div class="field__wrap"><input class="field__input datepicker-here" type="text" placeholder="Start typing…" data-language="en" data-range="true">
+              <div class="field__icon"><i class="la la-calendar-week "></i></div>
+            </div>
+          </div>
+          <div class="field">
+            <div class="field__label">Native select</div>
+            <div class="field__wrap"><select class="field__select">
+                <option disabled selected>Select Item</option>
+                <option value="1">Select Item 1</option>
+                <option value="2">Select Item 2</option>
+                <option value="3">Select Item 3</option>
+                <option value="4">Select Item 4</option>
+                <option value="5">Select Item 5</option>
+                <option value="6">Select Item 6</option>
+              </select>
+              <div class="field__icon"><i class="la la-angle-down "></i></div>
+            </div>
+          </div>
+          <div class="field">
+            <div class="field__label">Select 2 Default</div>
+            <div class="field__wrap">
+              <div class="field__inner"><select class="field__select js-select-2" data-placeholder="Select Item">
+                  <option></option>
+                  <option val="1">Item 1</option>
+                  <option val="2">Item 2</option>
+                  <option val="3">Item 3</option>
+                  <option val="4">Item 4</option>
+                  <option val="5">Item 5</option>
+                </select></div>
+              <div class="field__icon"><i class="la la-angle-down "></i></div>
+            </div>
+          </div>
+          <div class="field">
+            <div class="field__label">Select 2 No Search</div>
+            <div class="field__wrap">
+              <div class="field__inner"><select class="field__select js-select-2-no-search" data-placeholder="Select Item">
+                  <option></option>
+                  <option val="1">Item 1</option>
+                  <option val="2">Item 2</option>
+                  <option val="3">Item 3</option>
+                  <option val="4">Item 4</option>
+                  <option val="5">Item 5</option>
+                </select></div>
+              <div class="field__icon"><i class="la la-angle-down "></i></div>
+            </div>
+          </div>
+          <div class="field">
+            <div class="field__label">Select 2 With Dropdown Icons</div>
+            <div class="field__wrap">
+              <div class="field__inner"><select class="field__select js-select-2-with-icons" data-placeholder="Select Item">
+                  <option></option>
+                  <option val="1" data-icon="user-plus">Item 1</option>
+                  <option val="2" data-icon="user-plus">Item 2</option>
+                  <option val="3" data-icon="user-plus">Item 3</option>
+                  <option val="4" data-icon="user-plus">Item 4</option>
+                  <option val="5" data-icon="user-plus">Item 5</option>
+                </select></div>
+              <div class="field__icon"><i class="la la-angle-down "></i></div>
+            </div>
+          </div>
+          <div class="field">
+            <div class="field__label">Select 2 Multiple</div>
+            <div class="field__wrap">
+              <div class="field__inner"><select class="field__select js-select-2" data-placeholder="Select Item" multiple>
+                  <option></option>
+                  <option val="1" data-icon="user-plus">Item 1</option>
+                  <option val="2" data-icon="user-plus">Item 2</option>
+                  <option val="3" data-icon="user-plus">Item 3</option>
+                  <option val="4" data-icon="user-plus">Item 4</option>
+                  <option val="5" data-icon="user-plus">Item 5</option>
+                </select></div>
+              <div class="field__icon"><i class="la la-angle-down "></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="demo__section">
+        <div class="demo__title">Sliders</div>
+        <div class="demo__body">
+          <div class="slider">
+            <div class="slider__el js-slider" data-min="10" data-max="1000" data-start="100" data-step="10"></div>
+            <div class="slider__scales">
+              <div class="slider__cell">10</div>
+              <div class="slider__cell">1000</div>
+            </div>
+          </div><br><br>
+          <div class="slider">
+            <div class="slider__el js-slider" data-min="10" data-max="1000" data-start="100" data-end="900" data-step="10"></div>
+            <div class="slider__scales">
+              <div class="slider__cell">10</div>
+              <div class="slider__cell">1000</div>
+            </div>
+          </div><br><br>
+          <div class="slider">
+            <div class="slider__el js-slider" data-min="10" data-max="1000" data-start="100" data-end="900" data-step="10" data-tooltips="true"></div>
+            <div class="slider__scales">
+              <div class="slider__cell">10</div>
+              <div class="slider__cell">1000</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="demo__section">
+        <div class="demo__title">Switches</div>
+        <div class="demo__body">
+          <div class="demo__row">
+            <div class="demo__col"><label class="switch"><input class="switch__input" type="checkbox" checked><span class="switch__content">Checkbox</span></label><label class="switch"><input class="switch__input" type="checkbox"><span class="switch__content">Checkbox</span></label><label class="switch"><input class="switch__input" type="checkbox" disabled checked><span class="switch__content">Checkbox</span></label><label class="switch"><input class="switch__input" type="checkbox" disabled><span class="switch__content">Checkbox</span></label><label class="switch"><input class="switch__input error" type="checkbox"><span class="switch__content">Checkbox</span></label><label class="switch"><input class="switch__input success" type="checkbox"><span class="switch__content">Checkbox</span></label></div>
+            <div class="demo__col"><label class="switch"><input class="switch__input" type="radio" name="radio" checked><span class="switch__content">Radio</span></label><label class="switch"><input class="switch__input" type="radio" name="radio"><span class="switch__content">Radio</span></label><label class="switch"><input class="switch__input" type="radio" name="radio" disabled checked><span class="switch__content">Radio</span></label><label class="switch"><input class="switch__input" type="radio" name="radio" disabled><span class="switch__content">Radio</span></label><label class="switch"><input class="switch__input error" type="radio" name="radio"><span class="switch__content">Radio</span></label><label class="switch"><input class="switch__input success" type="radio" name="radio"><span class="switch__content">Radio</span></label></div>
+            <div class="demo__col"><label class="switch switch_toggle"><input class="switch__input" type="checkbox"><span class="switch__content">Toggle</span></label><label class="switch switch_toggle"><input class="switch__input" type="checkbox" checked><span class="switch__content">Toggle</span></label><label class="switch switch_toggle"><input class="switch__input" type="checkbox" disabled><span class="switch__content">Toggle</span></label><label class="switch switch_toggle"><input class="switch__input error" type="checkbox"><span class="switch__content">Toggle</span></label><label class="switch switch_toggle"><input class="switch__input success" type="checkbox"><span class="switch__content">Toggle</span></label></div>
+          </div>
+        </div>
+      </div>
+    </div><!-- scripts-->
+    <script src="js/lib/jquery.min.js"></script>
+    <script src="js/lib/datepicker.min.js"></script>
+    <script src="js/lib/datepicker.en.js"></script>
+    <script src="js/lib/select2.min.js"></script>
+    <script src="js/lib/wNumb.min.js"></script>
+    <script src="js/lib/nouislider.min.js"></script>
+    <script src="js/lib/apexcharts.min.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
