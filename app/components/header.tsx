@@ -10,7 +10,7 @@ export function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
           <HanzoLogo variant="white" size={32} />
-          <span className="text-xl font-bold">Templates</span>
+          <span className="text-xl font-bold text-white">Templates</span>
         </Link>
 
         {/* Navigation */}
@@ -39,7 +39,7 @@ export function Header() {
             href="https://hanzo.ai"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-semibold hover:from-purple-600 hover:to-pink-600 transition-all hover:scale-105"
+            className="px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-semibold text-white hover:from-purple-600 hover:to-pink-600 transition-all hover:scale-105"
           >
             Hanzo AI
           </a>
