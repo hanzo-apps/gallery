@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useEffect, useCallback } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import type { Template } from '../../templates-data';
 
@@ -18,10 +18,6 @@ interface TemplatePageClientProps {
 export function TemplatePageClient({ variants, prevTemplate, nextTemplate, currentIndex, totalTemplates, allTemplates }: TemplatePageClientProps) {
   const router = useRouter();
   const [selectedVariant, setSelectedVariant] = useState<Template>(variants[0]);
-  const [isBuilding, setIsBuilding] = useState(false);
-  const [buildProgress, setBuildProgress] = useState('');
-  const [availablePages, setAvailablePages] = useState<string[]>([]);
-  const [selectedPage, setSelectedPage] = useState<string>('index.html');
 
   // Navigate to random template
   function goToRandomTemplate() {
@@ -103,21 +99,6 @@ export function TemplatePageClient({ variants, prevTemplate, nextTemplate, curre
         {/* Action Buttons - Airbnb Style */}
         <div className="container mx-auto px-4 py-2 overflow-x-auto scrollbar-hide">
           <div className="flex gap-2 min-w-max items-center">
-            {/* Page Selector (if multiple pages available) */}
-            {availablePages.length > 1 && (
-              <select
-                value={selectedPage}
-                onChange={(e) => setSelectedPage(e.target.value)}
-                className="px-3 py-2 bg-neutral-900 border border-neutral-700 rounded-full hover:bg-neutral-800 transition-all text-xs font-medium text-neutral-300 outline-none cursor-pointer"
-              >
-                {availablePages.map((page) => (
-                  <option key={page} value={page}>
-                    {page.replace('.html', '').replace(/-/g, ' ')}
-                  </option>
-                ))}
-              </select>
-            )}
-
             <button
               onClick={openGitHubRepo}
               className="px-4 py-2 border border-neutral-700 rounded-full hover:bg-neutral-800 transition-all text-xs font-medium text-neutral-300 whitespace-nowrap"
@@ -157,19 +138,6 @@ export function TemplatePageClient({ variants, prevTemplate, nextTemplate, curre
           </div>
         </div>
       </nav>
-
-      {/* Build Progress Modal */}
-      {isBuilding && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center">
-          <div className="bg-neutral-900 border border-neutral-700 rounded-2xl p-8 max-w-md w-full mx-4">
-            <div className="flex flex-col items-center gap-4">
-              <div className="w-16 h-16 border-4 border-neutral-700 border-t-blue-500 rounded-full animate-spin"></div>
-              <h3 className="text-xl font-bold">Building Template</h3>
-              <p className="text-neutral-400 text-center">{buildProgress}</p>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Hero */}
       <section className="container mx-auto px-4 py-16">
