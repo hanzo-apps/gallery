@@ -7,6 +7,14 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+// Generate static params for all templates at build time
+export async function generateStaticParams() {
+  const uniqueTemplates = getUniqueTemplates(templates);
+  return uniqueTemplates.map((template) => ({
+    slug: template.slug,
+  }));
+}
+
 export default async function TemplatePage({ params }: PageProps) {
   const { slug } = await params;
   const allVariants = getTemplateVariants(templates, slug);
