@@ -11,36 +11,36 @@ interface TemplateCardProps {
 function TemplateCard({ template }: TemplateCardProps) {
   return (
     <Link href={`/templates/${template.slug}`}>
-      <div className="group relative bg-white/5 backdrop-blur-lg rounded-xl border border-white/10 overflow-hidden hover:border-white/20 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-2 cursor-pointer">
-        <div className="relative aspect-video bg-gray-900/50 overflow-hidden">
+      <div className="group relative bg-neutral-900/50 rounded-xl border border-neutral-800 overflow-hidden hover:border-neutral-700 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer">
+        <div className="relative aspect-video bg-neutral-900 overflow-hidden">
           <Image
             src={`/screenshots/${template.screenshot}.png`}
             alt={template.displayName}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-110"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
           {/* Tier badge */}
-          <div className={`absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold ${
-            template.tier === 1 ? 'bg-green-500' :
-            template.tier === 2 ? 'bg-blue-500' : 'bg-purple-500'
+          <div className={`absolute top-3 left-3 px-2.5 py-1 rounded-full text-xs font-medium ${
+            template.tier === 1 ? 'bg-[#fd4444] text-white' :
+            template.tier === 2 ? 'bg-neutral-700 text-white' : 'bg-neutral-800 text-neutral-300'
           }`}>
             Tier {template.tier}
           </div>
           {/* Category badge */}
-          <div className="absolute top-3 right-3 px-3 py-1 bg-purple-500/90 backdrop-blur-sm rounded-full text-xs font-bold">
+          <div className="absolute top-3 right-3 px-2.5 py-1 bg-neutral-900/80 backdrop-blur-sm rounded-full text-xs font-medium text-neutral-300">
             {template.category}
           </div>
         </div>
-        <div className="p-6">
-          <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">
+        <div className="p-5">
+          <h3 className="text-lg font-medium text-white mb-1.5 group-hover:text-[#fd4444] transition-colors">
             {template.displayName}
           </h3>
-          <p className="text-sm text-blue-400 mb-2">{template.framework}</p>
-          <p className="text-sm text-gray-400 italic mb-3">{template.useCase}</p>
+          <p className="text-sm text-neutral-500 mb-1.5">{template.framework}</p>
+          <p className="text-sm text-neutral-600 mb-3">{template.useCase}</p>
           <div className="flex">
             {[...Array(5)].map((_, i) => (
-              <span key={i} className={i < template.rating ? 'text-yellow-400' : 'text-gray-600'}>
+              <span key={i} className={i < template.rating ? 'text-[#fd4444]' : 'text-neutral-700'}>
                 ★
               </span>
             ))}
@@ -59,11 +59,11 @@ interface TechBadgeProps {
 
 function TechBadge({ icon, name, count }: TechBadgeProps) {
   return (
-    <div className="bg-white/5 backdrop-blur-lg p-6 rounded-xl border border-white/10 hover:bg-white/10 transition-all hover:scale-105 cursor-pointer">
-      <div className="text-5xl mb-3 text-center">{icon}</div>
+    <div className="bg-neutral-900/50 p-6 rounded-xl border border-neutral-800 hover:border-neutral-700 transition-all hover:-translate-y-1 cursor-pointer">
+      <div className="text-4xl mb-3 text-center">{icon}</div>
       <div className="text-center">
-        <div className="text-xl font-bold text-white mb-1">{name}</div>
-        <div className="text-gray-400 text-sm">{count} templates</div>
+        <div className="text-lg font-medium text-white mb-1">{name}</div>
+        <div className="text-neutral-500 text-sm">{count} templates</div>
       </div>
     </div>
   );
@@ -78,11 +78,11 @@ interface UseCaseCardProps {
 
 function UseCaseCard({ icon, title, description, templates }: UseCaseCardProps) {
   return (
-    <div className="bg-white/5 backdrop-blur-lg p-8 rounded-xl border border-white/10 hover:bg-white/10 transition-all hover:scale-105 cursor-pointer">
-      <div className="text-6xl mb-4">{icon}</div>
-      <h3 className="text-2xl font-bold text-white mb-3">{title}</h3>
-      <p className="text-gray-400 mb-4">{description}</p>
-      <div className="text-purple-400 font-bold">{templates} templates →</div>
+    <div className="bg-neutral-900/50 p-6 rounded-xl border border-neutral-800 hover:border-neutral-700 transition-all hover:-translate-y-1 cursor-pointer">
+      <div className="text-4xl mb-4">{icon}</div>
+      <h3 className="text-xl font-medium text-white mb-2">{title}</h3>
+      <p className="text-neutral-500 text-sm mb-4">{description}</p>
+      <div className="text-[#fd4444] text-sm font-medium">{templates} templates →</div>
     </div>
   );
 }
@@ -98,34 +98,34 @@ export default function GalleryHome() {
   }, 0);
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-[#0a0a0a] text-white">
       {/* Hero Section */}
-      <section className="relative py-24 px-4 overflow-hidden">
-        {/* Animated background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-pink-900/20" />
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-        </div>
+      <section className="relative py-32 px-4 overflow-hidden">
+        {/* Subtle gradient glow */}
+        <div className="hero-glow" />
 
-        <div className="relative max-w-6xl mx-auto text-center">
-          <h1 className="text-7xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient">
-            Hanzo Templates Gallery
+        <div className="relative max-w-5xl mx-auto text-center">
+          <p className="text-sm text-neutral-500 mb-4 tracking-wide uppercase">Open Source Templates</p>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-medium mb-6 tracking-tight">
+            <span className="text-gradient">Hanzo Templates</span>
           </h1>
-          <p className="text-2xl md:text-3xl text-gray-300 mb-4 font-light">
+          <p className="text-lg md:text-xl text-neutral-400 mb-4 max-w-2xl mx-auto">
             Premium UI/UX templates for your next project
           </p>
-          <p className="text-xl text-gray-400 mb-8">
-            <span className="text-blue-400 font-bold">{templates.length}</span> Premium Templates
+          <p className="text-base text-neutral-500 mb-10">
+            <span className="text-white font-medium">{templates.length}</span> Production-ready templates
           </p>
-          <div className="flex gap-4 justify-center flex-wrap">
+          <div className="flex gap-3 justify-center flex-wrap">
             <Link href="/gallery">
-              <button className="px-10 py-5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl font-bold text-lg hover:from-purple-600 hover:to-pink-600 transition-all hover:scale-105 shadow-xl shadow-purple-500/50">
+              <button className="px-6 py-3 bg-[#fd4444] hover:bg-[#e03e3e] rounded-full font-medium text-white transition-colors flex items-center gap-2">
                 Browse Templates
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
               </button>
             </Link>
             <Link href="/docs">
-              <button className="px-10 py-5 bg-white/10 backdrop-blur-lg rounded-xl font-bold text-lg border border-white/20 hover:bg-white/20 transition-all hover:scale-105">
+              <button className="px-6 py-3 bg-transparent border border-neutral-700 hover:border-neutral-600 hover:bg-white/5 rounded-full font-medium text-white transition-colors">
                 Documentation
               </button>
             </Link>
@@ -134,52 +134,52 @@ export default function GalleryHome() {
       </section>
 
       {/* Stats */}
-      <section className="stats py-16 px-4 bg-gradient-to-b from-white/5 to-transparent border-y border-white/10">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="stat text-center group hover:scale-110 transition-transform cursor-pointer">
-            <div className="text-6xl font-bold text-blue-400 mb-2 group-hover:text-blue-300 transition-colors">
+      <section className="py-16 px-4 border-y border-neutral-800">
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="text-center">
+            <div className="text-4xl font-medium text-white mb-1">
               {templates.length}
             </div>
-            <div className="text-gray-400 text-lg">Premium Templates</div>
+            <div className="text-neutral-500 text-sm">Premium Templates</div>
           </div>
-          <div className="stat text-center group hover:scale-110 transition-transform cursor-pointer">
-            <div className="text-6xl font-bold text-purple-400 mb-2 group-hover:text-purple-300 transition-colors">
+          <div className="text-center">
+            <div className="text-4xl font-medium text-white mb-1">
               14
             </div>
-            <div className="text-gray-400 text-lg">Categories</div>
+            <div className="text-neutral-500 text-sm">Categories</div>
           </div>
-          <div className="stat text-center group hover:scale-110 transition-transform cursor-pointer">
-            <div className="text-6xl font-bold text-pink-400 mb-2 group-hover:text-pink-300 transition-colors">
+          <div className="text-center">
+            <div className="text-4xl font-medium text-white mb-1">
               {totalComponents}+
             </div>
-            <div className="text-gray-400 text-lg">Components</div>
+            <div className="text-neutral-500 text-sm">Components</div>
           </div>
-          <div className="stat text-center group hover:scale-110 transition-transform cursor-pointer">
-            <div className="text-6xl font-bold text-green-400 mb-2 group-hover:text-green-300 transition-colors">
+          <div className="text-center">
+            <div className="text-4xl font-medium text-white mb-1">
               100%
             </div>
-            <div className="text-gray-400 text-lg">Production Ready</div>
+            <div className="text-neutral-500 text-sm">Production Ready</div>
           </div>
         </div>
       </section>
 
       {/* Featured Templates */}
-      <section className="featured py-24 px-4">
+      <section className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-medium mb-3 text-white">
               Featured Templates
             </h2>
-            <p className="text-gray-400 text-xl">Our highest-rated Tier 1 templates</p>
+            <p className="text-neutral-500">Our highest-rated Tier 1 templates</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {featuredTemplates.map(template => (
               <TemplateCard key={template.id} template={template} />
             ))}
           </div>
           <div className="text-center">
             <Link href="/gallery">
-              <button className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl font-bold text-lg hover:from-blue-600 hover:to-purple-600 transition-all hover:scale-105">
+              <button className="px-6 py-3 bg-neutral-900 border border-neutral-800 hover:border-neutral-700 rounded-full font-medium text-white transition-colors">
                 View All Templates →
               </button>
             </Link>
@@ -188,15 +188,15 @@ export default function GalleryHome() {
       </section>
 
       {/* Technology Stacks */}
-      <section className="tech-stacks py-24 px-4 bg-gradient-to-b from-white/5 to-transparent border-y border-white/10">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+      <section className="py-24 px-4 border-y border-neutral-800">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-medium mb-3 text-white">
               Technology Stacks
             </h2>
-            <p className="text-gray-400 text-xl">Built with modern web technologies</p>
+            <p className="text-neutral-500">Built with modern web technologies</p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <TechBadge
               icon="⚡"
               name="Next.js"
@@ -222,15 +222,15 @@ export default function GalleryHome() {
       </section>
 
       {/* Use Cases */}
-      <section className="use-cases py-24 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+      <section className="py-24 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-medium mb-3 text-white">
               Perfect For
             </h2>
-            <p className="text-gray-400 text-xl">Whatever you are building, we have a template</p>
+            <p className="text-neutral-500">Whatever you are building, we have a template</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <UseCaseCard
               icon="🚀"
               title="SaaS Startups"
@@ -282,111 +282,67 @@ export default function GalleryHome() {
       </section>
 
       {/* Features Section */}
-      <section className="features py-24 px-4 bg-gradient-to-b from-white/5 to-transparent border-y border-white/10">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+      <section className="py-24 px-4 border-y border-neutral-800">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-medium mb-3 text-white">
               Why Choose Hanzo Templates?
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="p-8 bg-white/5 backdrop-blur-lg rounded-xl border border-white/10">
-              <div className="text-4xl mb-4">⚡</div>
-              <h3 className="text-2xl font-bold mb-3">Lightning Fast</h3>
-              <p className="text-gray-400">Built with Next.js 14+ for optimal performance and SEO</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="p-6 bg-neutral-900/50 rounded-xl border border-neutral-800">
+              <div className="text-3xl mb-3">⚡</div>
+              <h3 className="text-lg font-medium text-white mb-2">Lightning Fast</h3>
+              <p className="text-neutral-500 text-sm">Built with Next.js 14+ for optimal performance and SEO</p>
             </div>
-            <div className="p-8 bg-white/5 backdrop-blur-lg rounded-xl border border-white/10">
-              <div className="text-4xl mb-4">🎨</div>
-              <h3 className="text-2xl font-bold mb-3">Beautiful Design</h3>
-              <p className="text-gray-400">Premium UI/UX from top designers worldwide</p>
+            <div className="p-6 bg-neutral-900/50 rounded-xl border border-neutral-800">
+              <div className="text-3xl mb-3">🎨</div>
+              <h3 className="text-lg font-medium text-white mb-2">Beautiful Design</h3>
+              <p className="text-neutral-500 text-sm">Premium UI/UX from top designers worldwide</p>
             </div>
-            <div className="p-8 bg-white/5 backdrop-blur-lg rounded-xl border border-white/10">
-              <div className="text-4xl mb-4">📱</div>
-              <h3 className="text-2xl font-bold mb-3">Fully Responsive</h3>
-              <p className="text-gray-400">Perfect on mobile, tablet, and desktop devices</p>
+            <div className="p-6 bg-neutral-900/50 rounded-xl border border-neutral-800">
+              <div className="text-3xl mb-3">📱</div>
+              <h3 className="text-lg font-medium text-white mb-2">Fully Responsive</h3>
+              <p className="text-neutral-500 text-sm">Perfect on mobile, tablet, and desktop devices</p>
             </div>
-            <div className="p-8 bg-white/5 backdrop-blur-lg rounded-xl border border-white/10">
-              <div className="text-4xl mb-4">🔧</div>
-              <h3 className="text-2xl font-bold mb-3">Easy to Customize</h3>
-              <p className="text-gray-400">Clean code with TypeScript and modern best practices</p>
+            <div className="p-6 bg-neutral-900/50 rounded-xl border border-neutral-800">
+              <div className="text-3xl mb-3">🔧</div>
+              <h3 className="text-lg font-medium text-white mb-2">Easy to Customize</h3>
+              <p className="text-neutral-500 text-sm">Clean code with TypeScript and modern best practices</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="cta py-24 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600" />
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
-        </div>
-        <div className="relative max-w-4xl mx-auto text-center">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            Deploy Instantly with Hanzo AI
+      <section className="py-24 px-4 relative overflow-hidden">
+        {/* Subtle glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#fd4444] opacity-10 blur-[120px] rounded-full" />
+
+        <div className="relative max-w-3xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-medium mb-4 text-white">
+            Deploy Instantly
           </h2>
-          <p className="text-xl md:text-2xl mb-8 text-purple-100">
-            One-click deployment to global edge network
+          <p className="text-lg text-neutral-400 mb-10">
+            One-click deployment to Hanzo Cloud
           </p>
-          <div className="flex gap-4 justify-center flex-wrap">
+          <div className="flex gap-3 justify-center flex-wrap">
             <a href="https://hanzo.ai" target="_blank" rel="noopener noreferrer">
-              <button className="px-12 py-5 bg-white text-purple-600 rounded-xl font-bold text-xl hover:bg-gray-100 transition-all hover:scale-105 shadow-2xl">
+              <button className="px-6 py-3 bg-[#fd4444] hover:bg-[#e03e3e] rounded-full font-medium text-white transition-colors flex items-center gap-2">
                 Get Started Free
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
               </button>
             </a>
             <Link href="/gallery">
-              <button className="px-12 py-5 bg-white/20 backdrop-blur-lg border-2 border-white rounded-xl font-bold text-xl hover:bg-white/30 transition-all hover:scale-105">
+              <button className="px-6 py-3 bg-transparent border border-neutral-700 hover:border-neutral-600 hover:bg-white/5 rounded-full font-medium text-white transition-colors">
                 Browse Gallery
               </button>
             </Link>
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="py-12 px-4 bg-black border-t border-white/10">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Hanzo Templates
-              </h3>
-              <p className="text-gray-400 text-sm">
-                Premium UI/UX templates for modern web applications
-              </p>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4">Product</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><Link href="/gallery" className="hover:text-white transition-colors">Templates</Link></li>
-                <li><Link href="/docs" className="hover:text-white transition-colors">Documentation</Link></li>
-                <li><Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4">Company</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
-                <li><a href="https://hanzo.ai" className="hover:text-white transition-colors">Hanzo AI</a></li>
-                <li><a href="https://github.com/hanzoai" className="hover:text-white transition-colors">GitHub</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4">Legal</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><Link href="/terms" className="hover:text-white transition-colors">Terms</Link></li>
-                <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link></li>
-                <li><Link href="/license" className="hover:text-white transition-colors">License</Link></li>
-              </ul>
-            </div>
-          </div>
-          <div className="text-center pt-8 border-t border-white/10">
-            <p className="text-gray-400 text-sm">
-              © 2025 Hanzo AI Inc. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
