@@ -3,7 +3,10 @@
 # Two stages: build the export, then re-serve it through the canonical static server.
 
 # 1) Build the Next.js static export -> /app/out
-FROM node:22-bookworm-slim AS build
+# node:24 (LTS) has stable TypeScript type-stripping so the `prebuild` step can
+# `import` app/templates-data.ts directly to emit public/templates.json (the SoT
+# -> canonical catalog API). No flags needed.
+FROM node:24-bookworm-slim AS build
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci --no-audit --no-fund
