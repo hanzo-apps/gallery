@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "gen-templates-json": "node scripts/gen-templates-json.mjs",
+    "prebuild": "node scripts/gen-templates-json.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
