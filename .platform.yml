@@ -1,0 +1,13 @@
+# gallery.hanzo.ai — the Hanzo template gallery.
+# ONE-WAY build: push a vX.Y.Z git tag -> platform (platform.hanzo.ai) BuildKit
+# builds ghcr.io/hanzoai/gallery:X.Y.Z from ./Dockerfile and pushes to GHCR.
+# Deploy is via the operator Service CR (universe: crs/gallery-site.yaml); bump
+# that CR's image tag to roll. amd64 only (DOKS has no arm64 yet).
+build:
+  matrix:
+    - { os: linux, arch: amd64 }
+  dockerfile: ./Dockerfile
+  context: .
+  image: ghcr.io/hanzoai/gallery
+  tag-pattern: "{{git.tag}}"
+  push: true
