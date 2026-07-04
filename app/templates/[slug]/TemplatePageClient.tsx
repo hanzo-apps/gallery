@@ -19,6 +19,10 @@ export function TemplatePageClient({ variants, prevTemplate, nextTemplate, curre
   const router = useRouter();
   const [selectedVariant, setSelectedVariant] = useState<Template>(variants[0]);
 
+  // Canonical repo URL for the selected variant (single source of truth).
+  const repoUrl = `https://github.com/hanzo-apps/template-${selectedVariant.slug}`;
+  const deployUrl = `https://hanzo.app/new?template=${encodeURIComponent(repoUrl)}`;
+
   // Navigate to random template
   function goToRandomTemplate() {
     const currentSlug = variants[0].slug;
@@ -31,7 +35,6 @@ export function TemplatePageClient({ variants, prevTemplate, nextTemplate, curre
 
   // Open GitHub repository
   function openGitHubRepo() {
-    const repoUrl = `https://github.com/hanzo-apps/template-${selectedVariant.slug}`;
     window.open(repoUrl, '_blank');
   }
 
@@ -113,6 +116,16 @@ export function TemplatePageClient({ variants, prevTemplate, nextTemplate, curre
             >
               🚀 Deploy
             </button>
+            <a
+              href={deployUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Deploy on Hanzo"
+              className="inline-flex items-center whitespace-nowrap"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="https://hanzo.app/deploy-badge.svg" alt="Deploy on Hanzo" className="h-9" />
+            </a>
             <button
               onClick={() => {
                 navigator.clipboard.writeText(selectedVariant.path);
