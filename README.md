@@ -36,3 +36,5 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 [![Deploy on Hanzo](https://hanzo.app/deploy-badge.svg)](https://hanzo.app/new?template=https://github.com/hanzoai/gallery)
 
 One click provisions this app on Hanzo Cloud; every template in the gallery carries the same badge on its page.
+
+Licensed under **MIT OR Apache-2.0**, per [HIP-0137](https://github.com/hanzoai/hips/blob/main/HIPs/hip-0137-one-license.md).
