@@ -35,3 +35,10 @@ gallery/
 ## Key Files
 - `README.md` -- Project documentation
 - `package.json` -- Dependencies and scripts
+
+## License
+
+Dual-licensed **MIT OR Apache-2.0** (`LICENSE-MIT`, `LICENSE-APACHE`), replacing the
+previous BSD-3-Clause declaration. Original Hanzo work standardises on this pair per
+HIP-0137 "One License" (`hanzoai/hips`, `HIPs/hip-0137-one-license.md`); forks keep
+their upstream licence unchanged.
