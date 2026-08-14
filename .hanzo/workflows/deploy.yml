@@ -1,21 +1,17 @@
 name: deploy
 
-# gallery.hanzo.ai is a SITE: a static export with no compute. It ships on the
-# Sites plane, like every other static surface in the fleet.
+# gallery.hanzo.ai is a static export with no compute, served from the Sites
+# plane at s3://hanzo-sites/hanzo/gallery.
 #
 #   npm run build -> out/  ->  sitedeploy
 #
-# The publish mechanics are NOT here — they are bin/sitedeploy in hanzoai/ci,
-# reached through its action: ensure-project, enqueue, presigned per-file upload,
-# complete. One script, every site, so the contract cannot drift into one
-# transcription per repo. It self-provisions, so this file is enough to stand the
-# site up.
+# sitedeploy is bin/sitedeploy in hanzoai/ci, reached through its action:
+# ensure-project, enqueue, presigned per-file upload, complete. It creates the
+# project itself.
 #
-# CUTOVER ORDER, because this file cannot perform it: the lane publishes to
-# `s3://hanzo-sites/hanzo/gallery`, the prefix the upload grant writes to and the
-# one every other site in charts/app/values/hanzo/static-sites.yaml already reads.
-# Flip the gallery's `root:` in universe only AFTER a run has landed content
-# there — an empty prefix serves 404s.
+# The host is routed in hanzo/universe,
+# charts/app/values/hanzo/static-sites.yaml.
+
 on:
   push:
     branches: [main]
@@ -49,8 +45,8 @@ jobs:
       # no longer parses fails here rather than shipping a blank card.
       - run: npm run build
 
-      # The export is what the plane serves; an empty one would prune the live
-      # site down to nothing, so refuse before publishing rather than after.
+      # complete prunes whatever the build did not emit, so an empty export
+      # would empty the live site.
       - name: Refuse an empty export
         run: |
           set -euo pipefail
