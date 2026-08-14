@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { shot } from './lib/shot';
 import { templates } from './templates-data';
 
 interface TemplateCardProps {
@@ -14,7 +15,7 @@ function TemplateCard({ template }: TemplateCardProps) {
       <div className="group relative bg-white/5 backdrop-blur-lg rounded-xl border border-white/10 overflow-hidden hover:border-white/20 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-2 cursor-pointer">
         <div className="relative aspect-video bg-gray-900/50 overflow-hidden">
           <Image
-            src={`/screenshots/${template.screenshot}.png`}
+            src={shot(template.screenshot)}
             alt={template.displayName}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-110"

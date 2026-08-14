@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { templates as templateData, CATEGORIES, type Template } from '../templates-data';
 import { ForkModal } from '../components/ForkModal';
+import { shot } from '../lib/shot';
 import { getUniqueTemplates, groupTemplatesByFamily } from '../lib/template-utils';
 
 type SortOption = 'name-asc' | 'name-desc' | 'rating-high' | 'rating-low' | 'framework' | 'updated';
@@ -266,7 +267,7 @@ export default function Gallery() {
                 {/* Template Screenshot */}
                 <div className="relative aspect-video bg-neutral-900 overflow-hidden border-b border-neutral-800">
                   <Image
-                    src={`/screenshots/${t.screenshot}.png`}
+                    src={shot(t.screenshot)}
                     alt={t.displayName}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -333,7 +334,7 @@ export default function Gallery() {
                       {/* Screenshot */}
                       <div className="relative aspect-video bg-neutral-900 overflow-hidden rounded-xl border border-neutral-800">
                         <Image
-                          src={`/screenshots/${t.screenshot}.png`}
+                          src={shot(t.screenshot)}
                           alt={family.displayName}
                           fill
                           className="object-cover transition-transform duration-500 group-hover:scale-105"
