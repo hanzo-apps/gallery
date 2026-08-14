@@ -15,19 +15,15 @@ npm test
 ## Structure
 ```
 gallery/
-  DEPLOYMENT_READY.md
-  ENHANCEMENTS.md
-  GALLERY_IMPROVEMENTS.md
   LICENSE
   README.md
-  TEST_FORK_FUNCTIONALITY.md
-  TEST_RESULTS.md
-  app/
+  app/                  # the gallery itself; app/lib/shot.ts addresses a capture
+  public/screenshots/   # <name>.webp, <name>-tablet.webp, <name>-mobile.webp
+  scripts/              # gen-templates-json.mjs runs on prebuild
+  .hanzo/workflows/     # deploy.yml publishes out/ to the Sites plane
   eslint.config.mjs
-  generate-template-pages.js
   next-env.d.ts
   next.config.ts
-  out/
   package-lock.json
   package.json
 ```
