@@ -5,7 +5,7 @@ export const sizes = ['desktop', 'tablet', 'mobile'] as const;
 export type Size = (typeof sizes)[number];
 
 export function shot(name: string, size: Size = 'desktop'): string {
-  return `/screenshots/${name}${size === 'desktop' ? '' : `-${size}`}.png`;
+  return `/screenshots/${name}${size === 'desktop' ? '' : `-${size}`}.webp`;
 }
 
 // Frames at the real capture geometry: 16:9, 834x1112, 390x844. The widths
