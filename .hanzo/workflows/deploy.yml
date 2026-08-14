@@ -1,0 +1,80 @@
+name: deploy
+
+# gallery.hanzo.ai is a SITE: a static export with no compute. It ships on the
+# Sites plane, like every other static surface in the fleet.
+#
+#   npm run build -> out/  ->  sitedeploy
+#
+# The publish mechanics are NOT here — they are bin/sitedeploy in hanzoai/ci,
+# reached through its action: ensure-project, enqueue, presigned per-file upload,
+# complete. One script, every site, so the contract cannot drift into one
+# transcription per repo. It self-provisions, so this file is enough to stand the
+# site up.
+#
+# CUTOVER ORDER, because this file cannot perform it: the lane publishes to
+# `s3://hanzo-sites/hanzo/gallery`, the prefix the upload grant writes to and the
+# one every other site in charts/app/values/hanzo/static-sites.yaml already reads.
+# Flip the gallery's `root:` in universe only AFTER a run has landed content
+# there — an empty prefix serves 404s.
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - '**.md'
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  site:
+    # NOT ubuntu-latest. Every runner carrying this label is registered to
+    # git.hanzo.ai, which is what reads .hanzo/workflows; a job asking for
+    # ubuntu-latest is never assigned and cancels at the 24h timeout.
+    runs-on: hanzo-build-linux-amd64
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # `prebuild` regenerates templates.json from templates-data.ts, and
+      # `output: 'export'` renders every template page from it. A template that
+      # no longer parses fails here rather than shipping a blank card.
+      - run: npm run build
+
+      # The export is what the plane serves; an empty one would prune the live
+      # site down to nothing, so refuse before publishing rather than after.
+      - name: Refuse an empty export
+        run: |
+          set -euo pipefail
+          n=$(find out -type f | wc -l | tr -d ' ')
+          [ "$n" -gt 50 ] || { echo "::error::out/ holds $n files — that is not a built gallery"; exit 1; }
+          test -f out/index.html || { echo "::error::out/index.html is missing"; exit 1; }
+          echo "export holds $n files"
+
+      # ONE credential, and this file does not name it. The deploy key lives in
+      # KMS and the action opens it there, so all that rides here is the client
+      # identity. Passing secrets.HANZO_DEPLOY_TOKEN — one unreadable copy per
+      # org — is the form the fleet moved off: a secret nobody can read back is
+      # a secret nobody can tell has stopped resolving.
+      #
+      # The grant the 202 hands back is scoped to this site's prefix and expires,
+      # so nothing here holds a bucket key. Do NOT add SITES_S3_* — that is the
+      # standing shared credential the grant replaced, and it reaches every org's
+      # site, not just this one.
+      - name: Publish to the Sites plane
+        uses: hanzoai/ci/.github/actions/sitedeploy@v1
+        with:
+          slug: gallery
+          dir: out
+          jobs: '48'
+        env:
+          KMS_CLIENT_ID: ${{ secrets.KMS_CLIENT_ID }}
+          KMS_CLIENT_SECRET: ${{ secrets.KMS_CLIENT_SECRET }}
