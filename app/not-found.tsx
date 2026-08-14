@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { templates } from './templates-data';
+import { shot } from './lib/shot';
 import { getUniqueTemplates } from './lib/template-utils';
 import type { Template } from './templates-data';
 
@@ -76,7 +77,7 @@ export default function NotFound() {
             {/* Screenshot */}
             <div className="relative aspect-video rounded-xl overflow-hidden border border-white/10 shadow-lg">
               <Image
-                src={`/screenshots/${randomTemplate.screenshot}.png`}
+                src={shot(randomTemplate.screenshot)}
                 alt={randomTemplate.displayName}
                 fill
                 unoptimized
