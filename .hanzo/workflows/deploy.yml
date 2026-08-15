@@ -3,9 +3,9 @@ name: deploy
 # gallery.hanzo.ai is a static export with no compute, served from the Sites
 # plane at s3://hanzo-sites/hanzo/gallery.
 #
-#   npm run build -> out/  ->  sitedeploy
+#   npm run build -> out/  ->  site
 #
-# sitedeploy is bin/sitedeploy in hanzoai/ci, reached through its action:
+# site is bin/site in hanzoai/ci, reached through its action:
 # ensure-project, enqueue, presigned per-file upload, complete. It creates the
 # project itself.
 #
