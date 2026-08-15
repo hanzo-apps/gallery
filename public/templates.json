@@ -1,9 +1,9 @@
 {
   "version": 1,
   "origin": "https://gallery.hanzo.ai",
-  "count": 72,
-  "screenshots": 71,
-  "generatedAt": "2026-07-03T05:08:29.648Z",
+  "count": 66,
+  "screenshots": 0,
+  "generatedAt": "2026-08-14T16:16:13.829Z",
   "templates": [
     {
       "id": 1,
@@ -31,7 +31,7 @@
       "port": 3001,
       "family": "synapse",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/synapse.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/synapse",
       "repo": "https://github.com/hanzo-apps/synapse"
     },
@@ -59,7 +59,7 @@
       "port": 3002,
       "family": "circle",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/circle.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/circle",
       "repo": "https://github.com/hanzo-apps/circle"
     },
@@ -87,7 +87,7 @@
       "port": 3003,
       "family": "metrics",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/metrics.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/metrics",
       "repo": "https://github.com/hanzo-apps/metrics"
     },
@@ -114,7 +114,7 @@
       "port": 3004,
       "family": "kinetic",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/kinetic.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/kinetic",
       "repo": "https://github.com/hanzo-apps/kinetic"
     },
@@ -141,7 +141,7 @@
       "port": 3005,
       "family": "quantum",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/quantum.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/quantum",
       "repo": "https://github.com/hanzo-apps/quantum"
     },
@@ -168,7 +168,7 @@
       "port": 3008,
       "family": "blocks",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/blocks.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/blocks",
       "repo": "https://github.com/hanzo-apps/blocks"
     },
@@ -195,7 +195,7 @@
       "port": 3009,
       "family": "savor",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/savor.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/savor",
       "repo": "https://github.com/hanzo-apps/savor"
     },
@@ -222,7 +222,7 @@
       "port": 3010,
       "family": "mint",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/mint.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/mint",
       "repo": "https://github.com/hanzo-apps/mint"
     },
@@ -249,7 +249,7 @@
       "port": 3006,
       "family": "bento-cards",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/matrix.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/matrix",
       "repo": "https://github.com/hanzo-apps/matrix"
     },
@@ -276,7 +276,7 @@
       "port": 3007,
       "family": "bento-cards",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/mosaic.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/mosaic",
       "repo": "https://github.com/hanzo-apps/mosaic"
     },
@@ -303,7 +303,7 @@
       "port": 3021,
       "family": "prism",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/prism-react.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/prism-react",
       "repo": "https://github.com/hanzo-apps/prism-react"
     },
@@ -330,7 +330,7 @@
       "port": 3022,
       "family": "bento-cards",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/matrix.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/matrix-react",
       "repo": "https://github.com/hanzo-apps/matrix-react"
     },
@@ -357,7 +357,7 @@
       "port": 3023,
       "family": "bento-cards",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/mosaic.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/mosaic-react",
       "repo": "https://github.com/hanzo-apps/mosaic-react"
     },
@@ -384,7 +384,7 @@
       "port": 3024,
       "family": "soar",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/soar.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/soar",
       "repo": "https://github.com/hanzo-apps/soar"
     },
@@ -411,7 +411,7 @@
       "port": 3025,
       "family": "cipher",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/cipher-react.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/cipher-react",
       "repo": "https://github.com/hanzo-apps/cipher-react"
     },
@@ -438,7 +438,7 @@
       "port": 3026,
       "family": "launch",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/launch.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/launch",
       "repo": "https://github.com/hanzo-apps/launch"
     },
@@ -465,7 +465,7 @@
       "port": 3028,
       "family": "construct",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/construct.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/construct",
       "repo": "https://github.com/hanzo-apps/construct"
     },
@@ -492,7 +492,7 @@
       "port": 3029,
       "family": "deploy",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/deploy.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/deploy",
       "repo": "https://github.com/hanzo-apps/deploy"
     },
@@ -519,36 +519,9 @@
       "port": 3030,
       "family": "bento-cards",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/loop.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/loop",
       "repo": "https://github.com/hanzo-apps/loop"
-    },
-    {
-      "id": 21,
-      "name": "unfixed",
-      "displayName": "Unfixed",
-      "slug": "unfixed",
-      "category": "Bento Cards",
-      "screenshot": "unfixed",
-      "path": "apps/unfixed",
-      "framework": "React 18",
-      "rating": 4,
-      "features": [
-        "Bento Layout",
-        "v3",
-        "Variant",
-        "Responsive"
-      ],
-      "components": "30 layouts",
-      "easeOfSetup": 4,
-      "useCase": "Bento card layouts v3 alternative",
-      "tier": 2,
-      "port": 3031,
-      "family": "bento-cards",
-      "screenshotUrl": "https://gallery.hanzo.ai/screenshots/unfixed.png",
-      "hasScreenshot": true,
-      "templateUrl": "https://gallery.hanzo.ai/templates/unfixed",
-      "repo": "https://github.com/hanzo-apps/unfixed"
     },
     {
       "id": 22,
@@ -573,7 +546,7 @@
       "port": 3101,
       "family": "unity",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/unity.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/unity",
       "repo": "https://github.com/hanzo-apps/unity"
     },
@@ -600,7 +573,7 @@
       "port": 3041,
       "family": "prism",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/prism.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/prism",
       "repo": "https://github.com/hanzo-apps/prism"
     },
@@ -627,7 +600,7 @@
       "port": 3042,
       "family": "canvas",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/canvas.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/canvas",
       "repo": "https://github.com/hanzo-apps/canvas"
     },
@@ -654,7 +627,7 @@
       "port": 3044,
       "family": "vault",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/vault.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/vault",
       "repo": "https://github.com/hanzo-apps/vault"
     },
@@ -681,7 +654,7 @@
       "port": 3057,
       "family": "studio",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/studio.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/studio",
       "repo": "https://github.com/hanzo-apps/studio"
     },
@@ -707,35 +680,9 @@
       "tier": 3,
       "port": 3053,
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/kalli-html.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/kalli",
       "repo": "https://github.com/hanzo-apps/kalli"
-    },
-    {
-      "id": 28,
-      "name": "innovise",
-      "displayName": "Innovise",
-      "slug": "innovise",
-      "category": "Business",
-      "screenshot": "innovise",
-      "path": "apps/innovise",
-      "framework": "HTML/CSS",
-      "rating": 3,
-      "features": [
-        "Agency",
-        "Business",
-        "Modern",
-        "Responsive"
-      ],
-      "components": "15+ comp",
-      "easeOfSetup": 3,
-      "useCase": "Agency websites",
-      "tier": 3,
-      "port": 3054,
-      "screenshotUrl": "https://gallery.hanzo.ai/screenshots/innovise.png",
-      "hasScreenshot": false,
-      "templateUrl": "https://gallery.hanzo.ai/templates/innovise",
-      "repo": "https://github.com/hanzo-apps/innovise"
     },
     {
       "id": 29,
@@ -760,7 +707,7 @@
       "port": 3055,
       "family": "drive",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/drive.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/drive",
       "repo": "https://github.com/hanzo-apps/drive"
     },
@@ -787,7 +734,7 @@
       "port": 3055,
       "family": "drive",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/drive.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/drive-html",
       "repo": "https://github.com/hanzo-apps/drive-html"
     },
@@ -814,7 +761,7 @@
       "port": 3056,
       "family": "oasis",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/oasis.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/oasis",
       "repo": "https://github.com/hanzo-apps/oasis"
     },
@@ -841,7 +788,7 @@
       "port": 3043,
       "family": "solo",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/solo.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/solo",
       "repo": "https://github.com/hanzo-apps/solo"
     },
@@ -868,7 +815,7 @@
       "port": 3046,
       "family": "prism",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/prism.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/prism-html",
       "repo": "https://github.com/hanzo-apps/prism-html"
     },
@@ -895,7 +842,7 @@
       "port": 3048,
       "family": "forge",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/forge.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/forge",
       "repo": "https://github.com/hanzo-apps/forge"
     },
@@ -922,7 +869,7 @@
       "port": 3045,
       "family": "cipher",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/cipher-html.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/cipher-html",
       "repo": "https://github.com/hanzo-apps/cipher-html"
     },
@@ -949,7 +896,7 @@
       "port": 3047,
       "family": "beta",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/beta.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/beta",
       "repo": "https://github.com/hanzo-apps/beta"
     },
@@ -976,7 +923,7 @@
       "port": 3047,
       "family": "beta",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/beta.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/beta-variant",
       "repo": "https://github.com/hanzo-apps/beta-variant"
     },
@@ -1003,7 +950,7 @@
       "port": 3049,
       "family": "hygge",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/hygge.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/hygge-html",
       "repo": "https://github.com/hanzo-apps/hygge-html"
     },
@@ -1030,7 +977,7 @@
       "port": 3049,
       "family": "hygge",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/hygge.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/hygge-bootstrap",
       "repo": "https://github.com/hanzo-apps/hygge-bootstrap"
     },
@@ -1057,7 +1004,7 @@
       "port": 3100,
       "family": "soar",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/soar.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/soar-html",
       "repo": "https://github.com/hanzo-apps/soar-html"
     },
@@ -1084,7 +1031,7 @@
       "port": 3090,
       "family": "bento-cards",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/loop.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/loop-html",
       "repo": "https://github.com/hanzo-apps/loop-html"
     },
@@ -1111,7 +1058,7 @@
       "port": 3091,
       "family": "bento-cards",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/cipher-html.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/cipher-cards-html",
       "repo": "https://github.com/hanzo-apps/cipher-cards-html"
     },
@@ -1138,87 +1085,9 @@
       "port": 3092,
       "family": "bento-cards",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/cipher-react.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/cipher-cards-react",
       "repo": "https://github.com/hanzo-apps/cipher-cards-react"
-    },
-    {
-      "id": 44,
-      "name": "folio-html",
-      "displayName": "Folio Main",
-      "slug": "folio-main",
-      "category": "Folio Portfolio",
-      "screenshot": "folio-html",
-      "path": "apps/Folio - HTML Templates/02-Folio HTML",
-      "framework": "HTML/Gulp",
-      "rating": 3,
-      "features": [
-        "Portfolio",
-        "Multi-layout",
-        "Creative",
-        "Responsive"
-      ],
-      "components": "20+ comp",
-      "easeOfSetup": 3,
-      "useCase": "Creative portfolios",
-      "tier": 3,
-      "port": 3050,
-      "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-html.png",
-      "hasScreenshot": true,
-      "templateUrl": "https://gallery.hanzo.ai/templates/folio-main",
-      "repo": "https://github.com/hanzo-apps/folio-main"
-    },
-    {
-      "id": 45,
-      "name": "folio-full",
-      "displayName": "Folio Full",
-      "slug": "folio-full",
-      "category": "Folio Portfolio",
-      "screenshot": "folio-full",
-      "path": "apps/Folio - HTML Templates/02-Folio HTML",
-      "framework": "HTML/Gulp",
-      "rating": 3,
-      "features": [
-        "Portfolio",
-        "Full-width",
-        "Creative",
-        "Responsive"
-      ],
-      "components": "20+ comp",
-      "easeOfSetup": 3,
-      "useCase": "Creative portfolios",
-      "tier": 3,
-      "port": 3050,
-      "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-full.png",
-      "hasScreenshot": true,
-      "templateUrl": "https://gallery.hanzo.ai/templates/folio-full",
-      "repo": "https://github.com/hanzo-apps/folio-full"
-    },
-    {
-      "id": 46,
-      "name": "folio-main",
-      "displayName": "Folio Index",
-      "slug": "folio-index",
-      "category": "Folio Portfolio",
-      "screenshot": "folio-main",
-      "path": "apps/Folio - HTML Templates/02-Folio HTML",
-      "framework": "HTML/Gulp",
-      "rating": 3,
-      "features": [
-        "Portfolio",
-        "Index",
-        "Hub",
-        "Responsive"
-      ],
-      "components": "20+ comp",
-      "easeOfSetup": 3,
-      "useCase": "Portfolio hub page",
-      "tier": 3,
-      "port": 3050,
-      "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-main.png",
-      "hasScreenshot": true,
-      "templateUrl": "https://gallery.hanzo.ai/templates/folio-index",
-      "repo": "https://github.com/hanzo-apps/folio-index"
     },
     {
       "id": 47,
@@ -1242,7 +1111,7 @@
       "tier": 3,
       "port": 3060,
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-about.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-about",
       "repo": "https://github.com/hanzo-apps/folio-about"
     },
@@ -1268,7 +1137,7 @@
       "tier": 3,
       "port": 3061,
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-contact.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-contact",
       "repo": "https://github.com/hanzo-apps/folio-contact"
     },
@@ -1294,7 +1163,7 @@
       "tier": 3,
       "port": 3062,
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-creative-agency-1.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-creative-agency-1",
       "repo": "https://github.com/hanzo-apps/folio-creative-agency-1"
     },
@@ -1320,7 +1189,7 @@
       "tier": 3,
       "port": 3063,
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-creative-agency-2.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-creative-agency-2",
       "repo": "https://github.com/hanzo-apps/folio-creative-agency-2"
     },
@@ -1346,7 +1215,7 @@
       "tier": 3,
       "port": 3064,
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-creative-designer-1.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-creative-designer-1",
       "repo": "https://github.com/hanzo-apps/folio-creative-designer-1"
     },
@@ -1372,7 +1241,7 @@
       "tier": 3,
       "port": 3065,
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-creative-designer-2.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-creative-designer-2",
       "repo": "https://github.com/hanzo-apps/folio-creative-designer-2"
     },
@@ -1398,7 +1267,7 @@
       "tier": 3,
       "port": 3066,
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-creative-developer-1.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-creative-developer-1",
       "repo": "https://github.com/hanzo-apps/folio-creative-developer-1"
     },
@@ -1424,7 +1293,7 @@
       "tier": 3,
       "port": 3067,
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-creative-developer-2.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-creative-developer-2",
       "repo": "https://github.com/hanzo-apps/folio-creative-developer-2"
     },
@@ -1450,7 +1319,7 @@
       "tier": 3,
       "port": 3068,
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-creative-photography-1.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-photography-1",
       "repo": "https://github.com/hanzo-apps/folio-photography-1"
     },
@@ -1476,7 +1345,7 @@
       "tier": 3,
       "port": 3069,
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-creative-photography-2.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-photography-2",
       "repo": "https://github.com/hanzo-apps/folio-photography-2"
     },
@@ -1502,7 +1371,7 @@
       "tier": 3,
       "port": 3070,
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-grid-2.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-grid-2-columns",
       "repo": "https://github.com/hanzo-apps/folio-grid-2-columns"
     },
@@ -1528,7 +1397,7 @@
       "tier": 3,
       "port": 3071,
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-grid-3.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-grid-3-columns",
       "repo": "https://github.com/hanzo-apps/folio-grid-3-columns"
     },
@@ -1554,7 +1423,7 @@
       "tier": 3,
       "port": 3072,
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-grid-3-fluid.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-grid-3-fluid",
       "repo": "https://github.com/hanzo-apps/folio-grid-3-fluid"
     },
@@ -1580,7 +1449,7 @@
       "tier": 3,
       "port": 3073,
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-grid-4.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-grid-4-columns",
       "repo": "https://github.com/hanzo-apps/folio-grid-4-columns"
     },
@@ -1606,7 +1475,7 @@
       "tier": 3,
       "port": 3074,
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-grid-4-fluid.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-grid-4-fluid",
       "repo": "https://github.com/hanzo-apps/folio-grid-4-fluid"
     },
@@ -1632,7 +1501,7 @@
       "tier": 3,
       "port": 3075,
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-masonry-2.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-masonry-2-columns",
       "repo": "https://github.com/hanzo-apps/folio-masonry-2-columns"
     },
@@ -1658,7 +1527,7 @@
       "tier": 3,
       "port": 3076,
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-masonry-3.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-masonry-3-columns",
       "repo": "https://github.com/hanzo-apps/folio-masonry-3-columns"
     },
@@ -1684,7 +1553,7 @@
       "tier": 3,
       "port": 3077,
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-masonry-3-fluid.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-masonry-3-fluid",
       "repo": "https://github.com/hanzo-apps/folio-masonry-3-fluid"
     },
@@ -1710,7 +1579,7 @@
       "tier": 3,
       "port": 3078,
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-masonry-4.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-masonry-4-columns",
       "repo": "https://github.com/hanzo-apps/folio-masonry-4-columns"
     },
@@ -1736,7 +1605,7 @@
       "tier": 3,
       "port": 3079,
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-masonry-4-fluid.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-masonry-4-fluid",
       "repo": "https://github.com/hanzo-apps/folio-masonry-4-fluid"
     },
@@ -1762,7 +1631,7 @@
       "tier": 3,
       "port": 3080,
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-portfolio-details.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-details-1",
       "repo": "https://github.com/hanzo-apps/folio-details-1"
     },
@@ -1788,35 +1657,9 @@
       "tier": 3,
       "port": 3081,
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-portfolio-details-2.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-details-2",
       "repo": "https://github.com/hanzo-apps/folio-details-2"
-    },
-    {
-      "id": 69,
-      "name": "folio-portfolio-details-3",
-      "displayName": "Folio Details 3",
-      "slug": "folio-details-3",
-      "category": "Folio Portfolio",
-      "screenshot": "folio-portfolio-details-3",
-      "path": "apps/Folio - HTML Templates/portfolio-details-3",
-      "framework": "HTML/Gulp",
-      "rating": 3,
-      "features": [
-        "Details",
-        "Project",
-        "Alt Variant",
-        "Responsive"
-      ],
-      "components": "8+ comp",
-      "easeOfSetup": 3,
-      "useCase": "Portfolio detail pages",
-      "tier": 3,
-      "port": 3082,
-      "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-portfolio-details-3.png",
-      "hasScreenshot": true,
-      "templateUrl": "https://gallery.hanzo.ai/templates/folio-details-3",
-      "repo": "https://github.com/hanzo-apps/folio-details-3"
     },
     {
       "id": 71,
@@ -1841,7 +1684,7 @@
       "port": 3102,
       "family": "jobfinder",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/jobfinder.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/jobfinder",
       "repo": "https://github.com/hanzo-apps/jobfinder"
     },
@@ -1868,7 +1711,7 @@
       "port": 3103,
       "family": "pixel",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/pixel.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/pixel",
       "repo": "https://github.com/hanzo-apps/pixel"
     },
@@ -1895,7 +1738,7 @@
       "port": 3104,
       "family": "saas-landing",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/saas-landing.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/saas-landing",
       "repo": "https://github.com/hanzo-apps/saas-landing"
     },
@@ -1922,7 +1765,7 @@
       "port": 3106,
       "family": "serif",
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/serif.png",
-      "hasScreenshot": true,
+      "hasScreenshot": false,
       "templateUrl": "https://gallery.hanzo.ai/templates/serif",
       "repo": "https://github.com/hanzo-apps/serif"
     }

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { frame, shot, sizes, type Size } from '../../lib/shot';
 import type { Template } from '../../templates-data';
 
 interface TemplatePageClientProps {
@@ -18,10 +19,16 @@ interface TemplatePageClientProps {
 export function TemplatePageClient({ variants, prevTemplate, nextTemplate, currentIndex, totalTemplates, allTemplates }: TemplatePageClientProps) {
   const router = useRouter();
   const [selectedVariant, setSelectedVariant] = useState<Template>(variants[0]);
+  const [size, setSize] = useState<Size>('desktop');
+  const [missing, setMissing] = useState<Set<string>>(new Set());
 
   // Canonical repo URL for the selected variant (single source of truth).
   const repoUrl = `https://github.com/hanzo-apps/template-${selectedVariant.slug}`;
   const deployUrl = `https://hanzo.app/new?template=${encodeURIComponent(repoUrl)}`;
+
+  // Templates without a capture at this size fall back to the desktop one.
+  const src = shot(selectedVariant.screenshot, size);
+  const shown = missing.has(src) ? shot(selectedVariant.screenshot) : src;
 
   // Navigate to random template
   function goToRandomTemplate() {
@@ -216,15 +223,33 @@ export function TemplatePageClient({ variants, prevTemplate, nextTemplate, curre
           </div>
 
           {/* Screenshot */}
-          <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 mb-16 shadow-2xl shadow-blue-500/20">
-            <Image
-              src={`/screenshots/${selectedVariant.screenshot}.png`}
-              alt={selectedVariant.displayName}
-              fill
-              unoptimized
-              className="object-cover"
-              priority
-            />
+          <div className="mb-16">
+            <div className="flex flex-wrap gap-3 mb-4">
+              {sizes.map((s) => (
+                <button
+                  key={s}
+                  onClick={() => setSize(s)}
+                  className={`px-6 py-3 rounded-lg font-medium capitalize transition-all ${
+                    size === s
+                      ? 'bg-blue-500 text-white border-2 border-blue-400'
+                      : 'bg-white/5 text-gray-300 border-2 border-white/10 hover:border-blue-500/50 hover:bg-white/10'
+                  }`}
+                >
+                  {s}
+                </button>
+              ))}
+            </div>
+            <div className={`relative mx-auto rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-blue-500/20 ${frame[size]}`}>
+              <Image
+                src={shown}
+                alt={selectedVariant.displayName}
+                fill
+                unoptimized
+                onError={() => setMissing(prev => new Set(prev).add(src))}
+                className={shown === src ? 'object-cover' : 'object-contain'}
+                priority
+              />
+            </div>
           </div>
         </div>
       </section>

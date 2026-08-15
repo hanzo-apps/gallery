@@ -1,0 +1,21 @@
+# Canonical CI/CD config for hanzoai/gallery — the one file both the hanzoai/ci
+# reusable (.hanzo/workflows/cicd.yml) and platform.hanzo.ai read.
+#
+# No `images:` and no `deploy:`: next.config sets `output: 'export'`, so what
+# this repo produces is a static tree, and the rollout is not a Service CR this
+# file can name honestly today. Build-only is the correct claim until it is.
+#
+# The gate is the full static export, which is unusually complete here because
+# the site is GENERATED: `prebuild` runs scripts/gen-templates-json.mjs, and
+# `next build` with output:export then renders every template page from that
+# JSON. A template that no longer parses, a route that cannot be statically
+# rendered, or a generator that writes malformed JSON all fail the build —
+# none of them are visible from a typecheck alone, which is why tsc runs first
+# but not instead.
+test:
+  - name: build
+    run: |
+      set -e
+      npm ci
+      npx tsc --noEmit
+      npm run build
