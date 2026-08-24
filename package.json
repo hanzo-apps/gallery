@@ -15,6 +15,7 @@
     "capture-screenshots": "node scripts/capture-all-screenshots.js"
   },
   "dependencies": {
+    "@hanzo/font": "^1.8.8",
     "@hanzo/logo": "^1.0.2",
     "archiver": "^7.0.1",
     "next": "15.5.6",
