@@ -1,18 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+// THE FACES. Zen is the Hanzo family and `@hanzo/font` is where it is authored;
+// this entry is @font-face and nothing else, plus --font-zen-sans/--font-zen-mono
+// on :root, which globals.css binds to --font-sans/--font-mono. First, so the
+// faces are declared before anything reads them.
+//
+// It replaced `next/font/google`, which fetched a third-party family at build
+// time and minted a per-build family name that every element then had to carry
+// as a class. The faces ship in the package; nothing to remember to apply.
+import "@hanzo/font/css";
 import "./globals.css";
 import { Header } from "./components/header";
 import { Footer } from "./components/footer";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://gallery.hanzo.ai'),
@@ -96,9 +94,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0a0a0a] text-white`}
-      >
+      <body className="antialiased bg-[#0a0a0a] text-white">
         <Header />
         <main className="pt-16">
           {children}
