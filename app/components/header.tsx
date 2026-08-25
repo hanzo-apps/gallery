@@ -2,56 +2,99 @@
 
 import Link from 'next/link';
 import { HanzoLogo } from '@hanzo/logo/react';
+import { XStack, YStack, Anchor, Text } from '@hanzo/ui';
+import { c, t } from '../lib/design';
+
+const link = {
+  transition: 'quickest',
+  color: c.gray300,
+  ...t.base,
+  textDecorationLine: 'none',
+  hoverStyle: { color: '#fff' },
+} as const;
 
 export function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-lg border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+    <YStack
+      render="header"
+      position="fixed"
+      top={0}
+      left={0}
+      right={0}
+      zIndex={50}
+      backgroundColor="rgba(0,0,0,0.8)"
+      backdropFilter="blur(16px)"
+      borderBottomWidth={1}
+      borderColor={c.white10}
+    >
+      <XStack
+        width="100%"
+        maxWidth={1280}
+        marginLeft="auto"
+        marginRight="auto"
+        paddingLeft={16}
+        paddingRight={16}
+        height={64}
+        alignItems="center"
+        justifyContent="space-between"
+      >
+        <XStack
+          render={<Link href="/" />}
+          transition="quickest"
+          alignItems="center"
+          gap={12}
+          hoverStyle={{ opacity: 0.8 }}
+        >
           <HanzoLogo variant="white" size={32} />
-          <span className="text-xl font-bold text-white">Templates</span>
-        </Link>
+          <Text {...t.xl} fontWeight={700} color="#fff">
+            Templates
+          </Text>
+        </XStack>
 
-        {/* Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
-          <Link
-            href="/gallery"
-            className="text-gray-300 hover:text-white transition-colors"
-          >
+        <XStack render="nav" display="none" $md={{ display: 'flex' }} alignItems="center" gap={32}>
+          <Anchor render={<Link href="/gallery" />} {...link}>
             Browse
-          </Link>
-          <Link
-            href="/docs"
-            className="text-gray-300 hover:text-white transition-colors"
-          >
+          </Anchor>
+          <Anchor render={<Link href="/docs" />} {...link}>
             Docs
-          </Link>
-          <a
-            href="https://github.com/hanzoai"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-300 hover:text-white transition-colors"
-          >
+          </Anchor>
+          <Anchor href="https://github.com/hanzoai" target="_blank" rel="noopener noreferrer" {...link}>
             GitHub
-          </a>
-          <a
+          </Anchor>
+          <Anchor
             href="https://hanzo.ai"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-semibold text-white hover:from-purple-600 hover:to-pink-600 transition-all hover:scale-105"
+            transition="quickest"
+            paddingLeft={24}
+            paddingRight={24}
+            paddingTop={8}
+            paddingBottom={8}
+            borderRadius={8}
+            {...t.base}
+            fontWeight={600}
+            color="#fff"
+            textDecorationLine="none"
+            backgroundImage={c.brand}
+            hoverStyle={{ backgroundImage: c.brandHover, scale: 1.05 }}
           >
             Hanzo AI
-          </a>
-        </nav>
+          </Anchor>
+        </XStack>
 
-        {/* Mobile menu button */}
-        <button className="md:hidden p-2 text-gray-300 hover:text-white">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <Text
+          render="button"
+          $md={{ display: 'none' }}
+          padding={8}
+          color={c.gray300}
+          cursor="pointer"
+          hoverStyle={{ color: '#fff' }}
+        >
+          <svg width={24} height={24} fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           </svg>
-        </button>
-      </div>
-    </header>
+        </Text>
+      </XStack>
+    </YStack>
   );
 }
