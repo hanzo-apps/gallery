@@ -1,108 +1,98 @@
 import Link from 'next/link';
 import { HanzoLogo } from '@hanzo/logo/react';
+import { YStack, XStack, Anchor, Text, H4 } from '@hanzo/ui';
+import { Grid } from '@hanzo/ui/grid';
+import { c, t, clip } from '../lib/design';
+
+const rule = { borderColor: c.white10 } as const;
+
+const item = {
+  transition: 'quickest',
+  color: c.gray400,
+  ...t.sm,
+  textDecorationLine: 'none',
+  hoverStyle: { color: '#fff' },
+} as const;
+
+function Column({ head, links }: { head: string; links: [string, string][] }) {
+  return (
+    <YStack>
+      <H4 {...t.base} fontWeight={700} color="#fff" marginBottom={16}>
+        {head}
+      </H4>
+      <YStack gap={8}>
+        {links.map(([label, href]) =>
+          href.startsWith('http') ? (
+            <Anchor key={label} href={href} target="_blank" rel="noopener noreferrer" {...item}>
+              {label}
+            </Anchor>
+          ) : (
+            <Anchor key={label} render={<Link href={href} />} {...item}>
+              {label}
+            </Anchor>
+          ),
+        )}
+      </YStack>
+    </YStack>
+  );
+}
 
 export function Footer() {
   return (
-    <footer className="py-12 px-4 bg-black border-t border-white/10">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* Brand */}
-          <div>
-            <div className="flex items-center gap-3 mb-4">
+    <YStack
+      render="footer"
+      paddingVertical={48}
+      paddingHorizontal={16}
+      backgroundColor="#000"
+      borderTopWidth={1}
+      {...rule}
+    >
+      <YStack width="100%" maxWidth={1152} marginLeft="auto" marginRight="auto">
+        <Grid columns={{ min: 160, max: 4 }} gap={32} style={{ marginBottom: 32 }}>
+          <YStack>
+            <XStack alignItems="center" gap={12} marginBottom={16}>
               <HanzoLogo variant="white" size={28} />
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <Text {...t.xl} fontWeight={700} {...clip(c.washShort)}>
                 Templates
-              </span>
-            </div>
-            <p className="text-gray-400 text-sm">
+              </Text>
+            </XStack>
+            <Text color={c.gray400} {...t.sm}>
               Premium UI/UX templates for modern web applications
-            </p>
-          </div>
+            </Text>
+          </YStack>
 
-          {/* Product */}
-          <div>
-            <h4 className="font-bold mb-4">Product</h4>
-            <ul className="space-y-2 text-gray-400 text-sm">
-              <li>
-                <Link href="/gallery" className="hover:text-white transition-colors">
-                  Templates
-                </Link>
-              </li>
-              <li>
-                <Link href="/docs" className="hover:text-white transition-colors">
-                  Documentation
-                </Link>
-              </li>
-              <li>
-                <Link href="/pricing" className="hover:text-white transition-colors">
-                  Pricing
-                </Link>
-              </li>
-            </ul>
-          </div>
+          <Column
+            head="Product"
+            links={[
+              ['Templates', '/gallery'],
+              ['Documentation', '/docs'],
+              ['Pricing', '/pricing'],
+            ]}
+          />
+          <Column
+            head="Company"
+            links={[
+              ['About', '/about'],
+              ['Hanzo AI', 'https://hanzo.ai'],
+              ['GitHub', 'https://github.com/hanzoai'],
+            ]}
+          />
+          <Column
+            head="Legal"
+            links={[
+              ['Terms', '/terms'],
+              ['Privacy', '/privacy'],
+              ['License', '/license'],
+            ]}
+          />
+        </Grid>
 
-          {/* Company */}
-          <div>
-            <h4 className="font-bold mb-4">Company</h4>
-            <ul className="space-y-2 text-gray-400 text-sm">
-              <li>
-                <Link href="/about" className="hover:text-white transition-colors">
-                  About
-                </Link>
-              </li>
-              <li>
-                <a
-                  href="https://hanzo.ai"
-                  className="hover:text-white transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Hanzo AI
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://github.com/hanzoai"
-                  className="hover:text-white transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h4 className="font-bold mb-4">Legal</h4>
-            <ul className="space-y-2 text-gray-400 text-sm">
-              <li>
-                <Link href="/terms" className="hover:text-white transition-colors">
-                  Terms
-                </Link>
-              </li>
-              <li>
-                <Link href="/privacy" className="hover:text-white transition-colors">
-                  Privacy
-                </Link>
-              </li>
-              <li>
-                <Link href="/license" className="hover:text-white transition-colors">
-                  License
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Bottom bar */}
-        <div className="text-center pt-8 border-t border-white/10">
-          <p className="text-gray-400 text-sm">
+        <YStack alignItems="center" paddingTop={32} borderTopWidth={1} {...rule}>
+          <Text color={c.gray400} {...t.sm}>
             © 2025 Hanzo AI Inc. All rights reserved.
-          </p>
-        </div>
-      </div>
-    </footer>
+          </Text>
+        </YStack>
+      </YStack>
+    </YStack>
   );
 }

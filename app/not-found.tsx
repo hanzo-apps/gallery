@@ -3,169 +3,262 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { YStack, XStack, H1, H2, H3, H4, Text, Button, Spinner } from '@hanzo/ui';
+import { Grid } from '@hanzo/ui/grid';
 import { templates } from './templates-data';
 import { shot } from './lib/shot';
 import { getUniqueTemplates } from './lib/template-utils';
 import type { Template } from './templates-data';
+import { c, t, at, clip, hue, tint } from './lib/design';
+import { Stars } from './components/stars';
+
+const pulse = { animation: 'pulse 2s cubic-bezier(.4,0,.6,1) infinite' };
+
+/** A rounded chip: the framework, the category, the tier. */
+function Chip({ children, ...rest }: { children: React.ReactNode; [k: string]: unknown }) {
+  return (
+    <Text
+      paddingHorizontal={12}
+      paddingVertical={4}
+      borderRadius="var(--radius-lg, 0.75rem)"
+      borderWidth={1}
+      {...t.sm}
+      fontWeight={500}
+      {...rest}
+    >
+      {children}
+    </Text>
+  );
+}
 
 export default function NotFound() {
-  const [randomTemplate, setRandomTemplate] = useState<Template | null>(null);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [pick, setPick] = useState<Template | null>(null);
+  const [fading, setFading] = useState(false);
+  const unique = getUniqueTemplates(templates);
 
-  // Get a random template
-  function getRandomTemplate(): Template {
-    const uniqueTemplates = getUniqueTemplates(templates);
-    return uniqueTemplates[Math.floor(Math.random() * uniqueTemplates.length)];
-  }
+  const another = () => unique[Math.floor(Math.random() * unique.length)];
 
-  // Initialize with a random template
   useEffect(() => {
-    setRandomTemplate(getRandomTemplate());
+    setPick(another());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Generate new random template
-  function generateNewRandom() {
-    setIsAnimating(true);
+  function reroll() {
+    setFading(true);
     setTimeout(() => {
-      setRandomTemplate(getRandomTemplate());
-      setIsAnimating(false);
+      setPick(another());
+      setFading(false);
     }, 200);
   }
 
-  if (!randomTemplate) {
+  if (!pick) {
     return (
-      <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
-        <div className="w-16 h-16 border-4 border-neutral-700 border-t-blue-500 rounded-full animate-spin"></div>
-      </div>
+      <YStack minHeight="100vh" backgroundColor={c.ink} alignItems="center" justifyContent="center">
+        <Spinner size={64} color={c.blue500} />
+      </YStack>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white flex flex-col items-center justify-center p-4">
-      {/* Animated Background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }}></div>
-      </div>
+    <YStack
+      minHeight="100vh"
+      backgroundColor={c.ink}
+      alignItems="center"
+      justifyContent="center"
+      padding={16}
+    >
+      <YStack position="absolute" top={0} left={0} right={0} bottom={0} overflow="hidden" pointerEvents="none">
+        <YStack
+          position="absolute"
+          top="25%"
+          left="25%"
+          width={384}
+          height={384}
+          borderRadius={9999}
+          backgroundColor={at(c.blue500, 0.1)}
+          filter="blur(120px)"
+          style={pulse}
+        />
+        <YStack
+          position="absolute"
+          bottom="25%"
+          right="25%"
+          width={384}
+          height={384}
+          borderRadius={9999}
+          backgroundColor={at(c.purple500, 0.1)}
+          filter="blur(120px)"
+          style={{ animation: 'pulse 2s cubic-bezier(.4,0,.6,1) 1s infinite' }}
+        />
+      </YStack>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-4xl w-full">
-        {/* 404 Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-9xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-4 animate-pulse">
+      <YStack position="relative" zIndex={10} width="100%" maxWidth={896}>
+        <YStack alignItems="center" marginBottom={48}>
+          <H1 {...t.xl9} fontWeight={700} marginBottom={16} style={pulse} {...clip(c.wash)}>
             404
-          </h1>
-          <h2 className="text-3xl font-bold text-neutral-300 mb-3">
+          </H1>
+          <H2 {...t.xl3} fontWeight={700} color={c.neutral300} marginBottom={12} textAlign="center">
             Oops! Template Not Found
-          </h2>
-          <p className="text-lg text-neutral-500 mb-8">
-            The template you&apos;re looking for doesn&apos;t exist. But don&apos;t worry—we&apos;ve got plenty more!
-          </p>
-        </div>
+          </H2>
+          <Text {...t.lg} color={c.neutral500} marginBottom={32} textAlign="center">
+            The template you&apos;re looking for doesn&apos;t exist. But don&apos;t worry—we&apos;ve got plenty
+            more!
+          </Text>
+        </YStack>
 
-        {/* Random Template Suggestion */}
-        <div className={`bg-gradient-to-br from-neutral-900/50 to-neutral-800/50 backdrop-blur-xl rounded-3xl border border-white/10 p-8 shadow-2xl transition-all duration-300 ${
-          isAnimating ? 'scale-95 opacity-50' : 'scale-100 opacity-100'
-        }`}>
-          <div className="flex items-center gap-3 mb-6">
-            <div className="text-3xl">✨</div>
-            <h3 className="text-2xl font-bold">How about this instead?</h3>
-          </div>
+        <YStack
+          transition="quick"
+          backgroundImage={`linear-gradient(to bottom right, ${at(c.neutral900, 0.5)}, ${at(c.neutral800, 0.5)})`}
+          backdropFilter="blur(24px)"
+          borderRadius="var(--radius-3xl, 1.5rem)"
+          borderWidth={1}
+          borderColor={c.white10}
+          padding={32}
+          boxShadow="0 25px 50px rgb(0 0 0 / .25)"
+          opacity={fading ? 0.5 : 1}
+          scale={fading ? 0.95 : 1}
+        >
+          <XStack alignItems="center" gap={12} marginBottom={24}>
+            <Text {...t.xl3}>✨</Text>
+            <H3 {...t.xl2} fontWeight={700} color="#fff">
+              How about this instead?
+            </H3>
+          </XStack>
 
-          {/* Template Preview Card */}
-          <div className="grid md:grid-cols-2 gap-6 mb-6">
-            {/* Screenshot */}
-            <div className="relative aspect-video rounded-xl overflow-hidden border border-white/10 shadow-lg">
+          <Grid columns={{ min: 280, max: 2 }} gap={24} style={{ marginBottom: 24 }}>
+            <YStack
+              position="relative"
+              aspectRatio={16 / 9}
+              borderRadius="var(--radius-xl, 1rem)"
+              overflow="hidden"
+              borderWidth={1}
+              borderColor={c.white10}
+              boxShadow="0 10px 15px rgb(0 0 0 / .1), 0 4px 6px rgb(0 0 0 / .05)"
+            >
               <Image
-                src={shot(randomTemplate.screenshot)}
-                alt={randomTemplate.displayName}
+                src={shot(pick.screenshot)}
+                alt={pick.displayName}
                 fill
                 unoptimized
-                className="object-cover"
+                style={{ objectFit: 'cover' }}
               />
-            </div>
+            </YStack>
 
-            {/* Template Info */}
-            <div className="flex flex-col justify-center">
-              <h4 className="text-3xl font-bold mb-3 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                {randomTemplate.displayName}
-              </h4>
-              <p className="text-neutral-400 mb-4 line-clamp-3">
-                {randomTemplate.description || `Premium ${randomTemplate.displayName} template with modern design and functionality.`}
-              </p>
+            <YStack justifyContent="center">
+              <H4 {...t.xl3} fontWeight={700} marginBottom={12} {...clip(c.washShort)}>
+                {pick.displayName}
+              </H4>
+              <Text
+                color={c.neutral400}
+                marginBottom={16}
+                style={{
+                  display: '-webkit-box',
+                  WebkitLineClamp: 3,
+                  WebkitBoxOrient: 'vertical',
+                  overflow: 'hidden',
+                }}
+              >
+                {pick.description ||
+                  `Premium ${pick.displayName} template with modern design and functionality.`}
+              </Text>
 
-              {/* Badges */}
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className="px-3 py-1 bg-blue-500/20 border border-blue-500/30 rounded-lg text-blue-300 text-sm font-medium">
-                  {randomTemplate.framework}
-                </span>
-                <span className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-lg text-purple-300 text-sm font-medium">
-                  {randomTemplate.category}
-                </span>
-                <span className={`px-3 py-1 rounded-lg text-sm font-medium ${
-                  randomTemplate.tier === 1 ? 'bg-green-500/20 border border-green-500/30 text-green-300' :
-                  randomTemplate.tier === 2 ? 'bg-blue-500/20 border border-blue-500/30 text-blue-300' :
-                  'bg-purple-500/20 border border-purple-500/30 text-purple-300'
-                }`}>
-                  Tier {randomTemplate.tier}
-                </span>
-              </div>
+              <XStack flexWrap="wrap" gap={8} marginBottom={16}>
+                <Chip {...tint('blue')}>{pick.framework}</Chip>
+                <Chip {...tint('purple')}>{pick.category}</Chip>
+                <Chip {...tint(hue(pick.tier))}>Tier {pick.tier}</Chip>
+              </XStack>
 
-              {/* Rating */}
-              <div className="flex items-center gap-2">
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className={`text-xl ${i < randomTemplate.rating ? 'text-yellow-400' : 'text-gray-600'}`}>
-                      ★
-                    </span>
-                  ))}
-                </div>
-                <span className="text-sm text-neutral-500">({randomTemplate.rating}/5)</span>
-              </div>
-            </div>
-          </div>
+              <XStack alignItems="center" gap={8}>
+                <Stars n={pick.rating} size={t.xl} />
+                <Text {...t.sm} color={c.neutral500}>
+                  ({pick.rating}/5)
+                </Text>
+              </XStack>
+            </YStack>
+          </Grid>
 
-          {/* Action Buttons */}
-          <div className="flex flex-wrap gap-3 justify-center">
-            <Link
-              href={`/templates/${randomTemplate.slug}`}
-              className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-lg font-bold rounded-xl hover:from-blue-600 hover:to-purple-600 transition-all shadow-lg shadow-blue-500/50 hover:shadow-blue-500/70 hover:scale-105"
+          <XStack flexWrap="wrap" gap={12} justifyContent="center">
+            <Button
+              render={<Link href={`/templates/${pick.slug}`} />}
+              transition="quickest"
+              height="auto"
+              paddingHorizontal={32}
+              paddingVertical={16}
+              borderRadius="var(--radius-xl, 1rem)"
+              backgroundImage={c.cool}
+              boxShadow={`0 10px 15px ${at(c.blue500, 0.5)}`}
+              hoverStyle={{
+                backgroundImage: c.coolHover,
+                scale: 1.05,
+                boxShadow: `0 10px 15px ${at(c.blue500, 0.7)}`,
+              }}
             >
-              🚀 View This Template
-            </Link>
-            <button
-              onClick={generateNewRandom}
-              disabled={isAnimating}
-              className="px-8 py-4 bg-white/5 border border-white/20 text-white text-lg font-bold rounded-xl hover:bg-white/10 transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+              <Text {...t.lg} fontWeight={700} color="#fff">
+                🚀 View This Template
+              </Text>
+            </Button>
+            <Button
+              onPress={reroll}
+              disabled={fading}
+              transition="quickest"
+              height="auto"
+              paddingHorizontal={32}
+              paddingVertical={16}
+              borderRadius="var(--radius-xl, 1rem)"
+              backgroundColor={c.white5}
+              borderWidth={1}
+              borderColor={c.white20}
+              hoverStyle={{ backgroundColor: 'rgba(255,255,255,0.1)', scale: 1.05 }}
+              disabledStyle={{ opacity: 0.5, cursor: 'not-allowed' }}
             >
-              🎲 Show Another Random
-            </button>
-          </div>
-        </div>
+              <Text {...t.lg} fontWeight={700} color="#fff">
+                🎲 Show Another Random
+              </Text>
+            </Button>
+          </XStack>
+        </YStack>
 
-        {/* Navigation Links */}
-        <div className="flex flex-wrap gap-4 justify-center mt-12">
-          <Link
-            href="/gallery"
-            className="px-6 py-3 bg-neutral-800/50 border border-neutral-700 text-neutral-300 font-medium rounded-xl hover:bg-neutral-700/50 hover:border-neutral-600 transition-all"
+        <XStack flexWrap="wrap" gap={16} justifyContent="center" marginTop={48}>
+          <Button
+            render={<Link href="/gallery" />}
+            transition="quickest"
+            height="auto"
+            paddingHorizontal={24}
+            paddingVertical={12}
+            borderRadius="var(--radius-xl, 1rem)"
+            backgroundColor={at(c.neutral800, 0.5)}
+            borderWidth={1}
+            borderColor={c.neutral700}
+            hoverStyle={{ backgroundColor: at(c.neutral700, 0.5), borderColor: c.neutral600 }}
           >
-            ← Browse All Templates
-          </Link>
-          <Link
-            href="/"
-            className="px-6 py-3 bg-neutral-800/50 border border-neutral-700 text-neutral-300 font-medium rounded-xl hover:bg-neutral-700/50 hover:border-neutral-600 transition-all"
+            <Text fontWeight={500} color={c.neutral300}>
+              ← Browse All Templates
+            </Text>
+          </Button>
+          <Button
+            render={<Link href="/" />}
+            transition="quickest"
+            height="auto"
+            paddingHorizontal={24}
+            paddingVertical={12}
+            borderRadius="var(--radius-xl, 1rem)"
+            backgroundColor={at(c.neutral800, 0.5)}
+            borderWidth={1}
+            borderColor={c.neutral700}
+            hoverStyle={{ backgroundColor: at(c.neutral700, 0.5), borderColor: c.neutral600 }}
           >
-            🏠 Go Home
-          </Link>
-        </div>
+            <Text fontWeight={500} color={c.neutral300}>
+              🏠 Go Home
+            </Text>
+          </Button>
+        </XStack>
 
-        {/* Fun Facts */}
-        <div className="text-center mt-12">
-          <p className="text-sm text-neutral-600">
-            💡 Fun fact: We have {getUniqueTemplates(templates).length} amazing templates waiting for you!
-          </p>
-        </div>
-      </div>
-    </div>
+        <YStack alignItems="center" marginTop={48}>
+          <Text {...t.sm} color={c.neutral600}>
+            💡 Fun fact: We have {unique.length} amazing templates waiting for you!
+          </Text>
+        </YStack>
+      </YStack>
+    </YStack>
   );
 }

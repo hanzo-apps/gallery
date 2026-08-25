@@ -2,392 +2,485 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { YStack, XStack, H1, H2, H3, Text, Button } from '@hanzo/ui';
+import { Grid } from '@hanzo/ui/grid';
 import { shot } from './lib/shot';
 import { templates } from './templates-data';
+import { c, t, at, clip, hue, fill } from './lib/design';
+import { Stars } from './components/stars';
 
-interface TemplateCardProps {
-  template: typeof templates[0];
-}
-
-function TemplateCard({ template }: TemplateCardProps) {
+/** A section of the page: full-bleed ground, centred column. */
+function Band({
+  children,
+  width = 1152,
+  banded,
+}: {
+  children: React.ReactNode;
+  width?: number;
+  banded?: boolean;
+}) {
   return (
-    <Link href={`/templates/${template.slug}`}>
-      <div className="group relative bg-white/5 backdrop-blur-lg rounded-xl border border-white/10 overflow-hidden hover:border-white/20 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-2 cursor-pointer">
-        <div className="relative aspect-video bg-gray-900/50 overflow-hidden">
-          <Image
-            src={shot(template.screenshot)}
-            alt={template.displayName}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-110"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
-          {/* Tier badge */}
-          <div className={`absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold ${
-            template.tier === 1 ? 'bg-green-500' :
-            template.tier === 2 ? 'bg-blue-500' : 'bg-purple-500'
-          }`}>
-            Tier {template.tier}
-          </div>
-          {/* Category badge */}
-          <div className="absolute top-3 right-3 px-3 py-1 bg-purple-500/90 backdrop-blur-sm rounded-full text-xs font-bold">
-            {template.category}
-          </div>
-        </div>
-        <div className="p-6">
-          <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">
-            {template.displayName}
-          </h3>
-          <p className="text-sm text-blue-400 mb-2">{template.framework}</p>
-          <p className="text-sm text-gray-400 italic mb-3">{template.useCase}</p>
-          <div className="flex">
-            {[...Array(5)].map((_, i) => (
-              <span key={i} className={i < template.rating ? 'text-yellow-400' : 'text-gray-600'}>
-                ★
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-    </Link>
+    <YStack
+      render="section"
+      paddingVertical={96}
+      paddingHorizontal={16}
+      {...(banded
+        ? {
+            backgroundImage: `linear-gradient(to bottom, ${c.white5}, transparent)`,
+            borderTopWidth: 1,
+            borderBottomWidth: 1,
+            borderColor: c.white10,
+          }
+        : {})}
+    >
+      <YStack width="100%" maxWidth={width} marginLeft="auto" marginRight="auto">
+        {children}
+      </YStack>
+    </YStack>
   );
 }
 
-interface TechBadgeProps {
-  icon: string;
-  name: string;
-  count: string;
-}
-
-function TechBadge({ icon, name, count }: TechBadgeProps) {
+/** A band's heading and its line of explanation. */
+function Title({ text, note, image }: { text: string; note?: string; image: string }) {
   return (
-    <div className="bg-white/5 backdrop-blur-lg p-6 rounded-xl border border-white/10 hover:bg-white/10 transition-all hover:scale-105 cursor-pointer">
-      <div className="text-5xl mb-3 text-center">{icon}</div>
-      <div className="text-center">
-        <div className="text-xl font-bold text-white mb-1">{name}</div>
-        <div className="text-gray-400 text-sm">{count} templates</div>
-      </div>
-    </div>
+    <YStack alignItems="center" marginBottom={64}>
+      <H2 {...t.xl5} fontWeight={700} marginBottom={16} textAlign="center" {...clip(image)}>
+        {text}
+      </H2>
+      {note ? (
+        <Text color={c.gray400} {...t.xl} textAlign="center">
+          {note}
+        </Text>
+      ) : null}
+    </YStack>
   );
 }
 
-interface UseCaseCardProps {
+function TemplateCard({ template }: { template: (typeof templates)[0] }) {
+  return (
+    <YStack
+      render={<Link href={`/templates/${template.slug}`} />}
+      group
+      transition="quick"
+      position="relative"
+      backgroundColor={c.white5}
+      backdropFilter="blur(16px)"
+      borderRadius="var(--radius-xl, 1rem)"
+      borderWidth={1}
+      borderColor={c.white10}
+      overflow="hidden"
+      cursor="pointer"
+      hoverStyle={{
+        borderColor: c.white20,
+        y: -8,
+        boxShadow: `0 25px 50px ${at(c.purple500, 0.2)}`,
+      }}
+    >
+      <YStack position="relative" aspectRatio={16 / 9} backgroundColor={at(c.gray900, 0.5)} overflow="hidden">
+        <Image
+          src={shot(template.screenshot)}
+          alt={template.displayName}
+          fill
+          style={{ objectFit: 'cover' }}
+          data-zoom=""
+        />
+        <YStack
+          position="absolute"
+          top={0}
+          left={0}
+          right={0}
+          bottom={0}
+          opacity={0.6}
+          backgroundImage="linear-gradient(to top, #000, transparent, transparent)"
+        />
+        <Text
+          position="absolute"
+          top={12}
+          left={12}
+          paddingHorizontal={12}
+          paddingVertical={4}
+          borderRadius={9999}
+          {...t.xs}
+          fontWeight={700}
+          color="#fff"
+          backgroundColor={fill(hue(template.tier))}
+        >
+          Tier {template.tier}
+        </Text>
+        <Text
+          position="absolute"
+          top={12}
+          right={12}
+          paddingHorizontal={12}
+          paddingVertical={4}
+          borderRadius={9999}
+          {...t.xs}
+          fontWeight={700}
+          color="#fff"
+          backgroundColor={at(c.purple500, 0.9)}
+          backdropFilter="blur(4px)"
+        >
+          {template.category}
+        </Text>
+      </YStack>
+
+      <YStack padding={24}>
+        <H3
+          transition="quickest"
+          {...t.xl}
+          fontWeight={700}
+          color="#fff"
+          marginBottom={8}
+          $group-hover={{ color: c.purple400 }}
+        >
+          {template.displayName}
+        </H3>
+        <Text {...t.sm} color={c.blue400} marginBottom={8}>
+          {template.framework}
+        </Text>
+        <Text {...t.sm} color={c.gray400} fontStyle="italic" marginBottom={12}>
+          {template.useCase}
+        </Text>
+        <Stars n={template.rating} />
+      </YStack>
+    </YStack>
+  );
+}
+
+function Panel({ children, pad = 24 }: { children: React.ReactNode; pad?: number }) {
+  return (
+    <YStack
+      transition="quickest"
+      backgroundColor={c.white5}
+      backdropFilter="blur(16px)"
+      padding={pad}
+      borderRadius="var(--radius-xl, 1rem)"
+      borderWidth={1}
+      borderColor={c.white10}
+      cursor="pointer"
+      hoverStyle={{ backgroundColor: 'rgba(255,255,255,0.1)', scale: 1.05 }}
+    >
+      {children}
+    </YStack>
+  );
+}
+
+function TechBadge({ icon, name, count }: { icon: string; name: string; count: string }) {
+  return (
+    <Panel>
+      <Text {...t.xl5} marginBottom={12} textAlign="center">
+        {icon}
+      </Text>
+      <YStack alignItems="center">
+        <Text {...t.xl} fontWeight={700} color="#fff" marginBottom={4}>
+          {name}
+        </Text>
+        <Text color={c.gray400} {...t.sm}>
+          {count} templates
+        </Text>
+      </YStack>
+    </Panel>
+  );
+}
+
+function UseCaseCard({
+  icon,
+  title,
+  description,
+  templates: n,
+}: {
   icon: string;
   title: string;
   description: string;
   templates: number;
-}
-
-function UseCaseCard({ icon, title, description, templates }: UseCaseCardProps) {
+}) {
   return (
-    <div className="bg-white/5 backdrop-blur-lg p-8 rounded-xl border border-white/10 hover:bg-white/10 transition-all hover:scale-105 cursor-pointer">
-      <div className="text-6xl mb-4">{icon}</div>
-      <h3 className="text-2xl font-bold text-white mb-3">{title}</h3>
-      <p className="text-gray-400 mb-4">{description}</p>
-      <div className="text-purple-400 font-bold">{templates} templates →</div>
-    </div>
+    <Panel pad={32}>
+      <Text {...t.xl6} marginBottom={16}>
+        {icon}
+      </Text>
+      <H3 {...t.xl2} fontWeight={700} color="#fff" marginBottom={12}>
+        {title}
+      </H3>
+      <Text color={c.gray400} marginBottom={16}>
+        {description}
+      </Text>
+      <Text color={c.purple400} fontWeight={700}>
+        {n} templates →
+      </Text>
+    </Panel>
   );
 }
 
-export default function GalleryHome() {
-  const tier1Templates = templates.filter(t => t.tier === 1);
-  const featuredTemplates = tier1Templates.slice(0, 6);
+/** One of the four counters under the hero. */
+function Stat({ value, label, color }: { value: string; label: string; color: string }) {
+  return (
+    <YStack alignItems="center" cursor="pointer" transition="quickest" hoverStyle={{ scale: 1.1 }}>
+      <Text {...t.xl6} fontWeight={700} color={color} marginBottom={8}>
+        {value}
+      </Text>
+      <Text color={c.gray400} {...t.lg}>
+        {label}
+      </Text>
+    </YStack>
+  );
+}
 
-  // Calculate component count
-  const totalComponents = templates.reduce((sum, t) => {
-    const match = t.components.match(/(\d+)/);
-    return sum + (match ? parseInt(match[1]) : 0);
+const has = (t: string) => (s: string) => s.toLowerCase().includes(t);
+
+export default function GalleryHome() {
+  const featured = templates.filter((x) => x.tier === 1).slice(0, 6);
+  const components = templates.reduce((sum, x) => {
+    const m = x.components.match(/(\d+)/);
+    return sum + (m ? parseInt(m[1]) : 0);
   }, 0);
+  const byFramework = (needle: string) => templates.filter((x) => has(needle)(x.framework)).length;
+  const byUse = (...needles: string[]) =>
+    templates.filter((x) => needles.some((n) => has(n)(x.useCase))).length;
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Hero Section */}
-      <section className="relative py-24 px-4 overflow-hidden">
-        {/* Animated background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-pink-900/20" />
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-        </div>
+    <YStack minHeight="100vh" backgroundColor="#000">
+      {/* Hero */}
+      <YStack render="section" position="relative" paddingVertical={96} paddingHorizontal={16} overflow="hidden">
+        <YStack
+          position="absolute"
+          top={0}
+          left={0}
+          right={0}
+          bottom={0}
+          backgroundImage={`linear-gradient(to bottom right, ${at(c.purple900, 0.2)}, ${at(c.blue900, 0.2)}, ${at(c.pink900, 0.2)})`}
+        />
+        <YStack position="absolute" top={0} left={0} right={0} bottom={0}>
+          <YStack
+            position="absolute"
+            top={0}
+            left="25%"
+            width={384}
+            height={384}
+            borderRadius={9999}
+            backgroundColor={at(c.purple500, 0.1)}
+            filter="blur(64px)"
+            style={{ animation: 'pulse 2s cubic-bezier(.4,0,.6,1) infinite' }}
+          />
+          <YStack
+            position="absolute"
+            bottom={0}
+            right="25%"
+            width={384}
+            height={384}
+            borderRadius={9999}
+            backgroundColor={at(c.blue500, 0.1)}
+            filter="blur(64px)"
+            style={{ animation: 'pulse 2s cubic-bezier(.4,0,.6,1) 1s infinite' }}
+          />
+        </YStack>
 
-        <div className="relative max-w-6xl mx-auto text-center">
-          <h1 className="text-7xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient">
+        <YStack position="relative" width="100%" maxWidth={1152} marginLeft="auto" marginRight="auto" alignItems="center">
+          <H1
+            {...t.xl7}
+            $md={t.xl8}
+            fontWeight={700}
+            marginBottom={24}
+            textAlign="center"
+            {...clip(c.wash)}
+          >
             Hanzo Templates Gallery
-          </h1>
-          <p className="text-2xl md:text-3xl text-gray-300 mb-4 font-light">
+          </H1>
+          <Text {...t.xl2} $md={t.xl3} color={c.gray300} marginBottom={16} fontWeight={300} textAlign="center">
             Premium UI/UX templates for your next project
-          </p>
-          <p className="text-xl text-gray-400 mb-8">
-            <span className="text-blue-400 font-bold">{templates.length}</span> Premium Templates
-          </p>
-          <div className="flex gap-4 justify-center flex-wrap">
-            <Link href="/gallery">
-              <button className="px-10 py-5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl font-bold text-lg hover:from-purple-600 hover:to-pink-600 transition-all hover:scale-105 shadow-xl shadow-purple-500/50">
+          </Text>
+          <Text {...t.xl} color={c.gray400} marginBottom={32} textAlign="center">
+            <Text {...t.xl} color={c.blue400} fontWeight={700}>
+              {templates.length}
+            </Text>{' '}
+            Premium Templates
+          </Text>
+          <XStack gap={16} justifyContent="center" flexWrap="wrap">
+            <Button
+              render={<Link href="/gallery" />}
+              transition="quickest"
+              height="auto"
+              paddingHorizontal={40}
+              paddingVertical={20}
+              borderRadius="var(--radius-xl, 1rem)"
+              backgroundImage={c.brand}
+              boxShadow={`0 20px 25px ${at(c.purple500, 0.5)}`}
+              hoverStyle={{ backgroundImage: c.brandHover, scale: 1.05 }}
+            >
+              <Text {...t.lg} fontWeight={700} color="#fff">
                 Browse Templates
-              </button>
-            </Link>
-            <Link href="/docs">
-              <button className="px-10 py-5 bg-white/10 backdrop-blur-lg rounded-xl font-bold text-lg border border-white/20 hover:bg-white/20 transition-all hover:scale-105">
+              </Text>
+            </Button>
+            <Button
+              render={<Link href="/docs" />}
+              transition="quickest"
+              height="auto"
+              paddingHorizontal={40}
+              paddingVertical={20}
+              borderRadius="var(--radius-xl, 1rem)"
+              backgroundColor="rgba(255,255,255,0.1)"
+              backdropFilter="blur(16px)"
+              borderWidth={1}
+              borderColor={c.white20}
+              hoverStyle={{ backgroundColor: 'rgba(255,255,255,0.2)', scale: 1.05 }}
+            >
+              <Text {...t.lg} fontWeight={700} color="#fff">
                 Documentation
-              </button>
-            </Link>
-          </div>
-        </div>
-      </section>
+              </Text>
+            </Button>
+          </XStack>
+        </YStack>
+      </YStack>
 
       {/* Stats */}
-      <section className="stats py-16 px-4 bg-gradient-to-b from-white/5 to-transparent border-y border-white/10">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="stat text-center group hover:scale-110 transition-transform cursor-pointer">
-            <div className="text-6xl font-bold text-blue-400 mb-2 group-hover:text-blue-300 transition-colors">
-              {templates.length}
-            </div>
-            <div className="text-gray-400 text-lg">Premium Templates</div>
-          </div>
-          <div className="stat text-center group hover:scale-110 transition-transform cursor-pointer">
-            <div className="text-6xl font-bold text-purple-400 mb-2 group-hover:text-purple-300 transition-colors">
-              14
-            </div>
-            <div className="text-gray-400 text-lg">Categories</div>
-          </div>
-          <div className="stat text-center group hover:scale-110 transition-transform cursor-pointer">
-            <div className="text-6xl font-bold text-pink-400 mb-2 group-hover:text-pink-300 transition-colors">
-              {totalComponents}+
-            </div>
-            <div className="text-gray-400 text-lg">Components</div>
-          </div>
-          <div className="stat text-center group hover:scale-110 transition-transform cursor-pointer">
-            <div className="text-6xl font-bold text-green-400 mb-2 group-hover:text-green-300 transition-colors">
-              100%
-            </div>
-            <div className="text-gray-400 text-lg">Production Ready</div>
-          </div>
-        </div>
-      </section>
+      <Band banded>
+        <Grid columns={{ min: 160, max: 4 }} gap={32}>
+          <Stat value={String(templates.length)} label="Premium Templates" color={c.blue400} />
+          <Stat value="14" label="Categories" color={c.purple400} />
+          <Stat value={`${components}+`} label="Components" color={c.pink400} />
+          <Stat value="100%" label="Production Ready" color={c.green400} />
+        </Grid>
+      </Band>
 
-      {/* Featured Templates */}
-      <section className="featured py-24 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Featured Templates
-            </h2>
-            <p className="text-gray-400 text-xl">Our highest-rated Tier 1 templates</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {featuredTemplates.map(template => (
-              <TemplateCard key={template.id} template={template} />
-            ))}
-          </div>
-          <div className="text-center">
-            <Link href="/gallery">
-              <button className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl font-bold text-lg hover:from-blue-600 hover:to-purple-600 transition-all hover:scale-105">
-                View All Templates →
-              </button>
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Featured */}
+      <Band width={1280}>
+        <Title text="Featured Templates" note="Our highest-rated Tier 1 templates" image={c.washShort} />
+        <Grid columns={{ min: 320, max: 3 }} gap={32} style={{ marginBottom: 48 }}>
+          {featured.map((template) => (
+            <TemplateCard key={template.id} template={template} />
+          ))}
+        </Grid>
+        <YStack alignItems="center">
+          <Button
+            render={<Link href="/gallery" />}
+            transition="quickest"
+            height="auto"
+            paddingHorizontal={32}
+            paddingVertical={16}
+            borderRadius="var(--radius-xl, 1rem)"
+            backgroundImage={c.cool}
+            hoverStyle={{ backgroundImage: c.coolHover, scale: 1.05 }}
+          >
+            <Text {...t.lg} fontWeight={700} color="#fff">
+              View All Templates →
+            </Text>
+          </Button>
+        </YStack>
+      </Band>
 
-      {/* Technology Stacks */}
-      <section className="tech-stacks py-24 px-4 bg-gradient-to-b from-white/5 to-transparent border-y border-white/10">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Technology Stacks
-            </h2>
-            <p className="text-gray-400 text-xl">Built with modern web technologies</p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <TechBadge
-              icon="⚡"
-              name="Next.js"
-              count={templates.filter(t => t.framework.toLowerCase().includes('next')).length.toString()}
-            />
-            <TechBadge
-              icon="⚛️"
-              name="React"
-              count={templates.filter(t => t.framework.toLowerCase().includes('react')).length.toString()}
-            />
-            <TechBadge
-              icon="🎨"
-              name="TypeScript"
-              count={templates.filter(t => t.framework.toLowerCase().includes('typescript') || t.framework.toLowerCase().includes('ts')).length.toString()}
-            />
-            <TechBadge
-              icon="🌈"
-              name="HTML/CSS"
-              count={templates.filter(t => t.framework.toLowerCase().includes('html') || t.framework.toLowerCase().includes('gulp')).length.toString()}
-            />
-          </div>
-        </div>
-      </section>
+      {/* Technology stacks */}
+      <Band banded>
+        <Title text="Technology Stacks" note="Built with modern web technologies" image={c.brand} />
+        <Grid columns={{ min: 200, max: 4 }} gap={32}>
+          <TechBadge icon="⚡" name="Next.js" count={String(byFramework('next'))} />
+          <TechBadge icon="⚛️" name="React" count={String(byFramework('react'))} />
+          <TechBadge
+            icon="🎨"
+            name="TypeScript"
+            count={String(templates.filter((x) => has('typescript')(x.framework) || has('ts')(x.framework)).length)}
+          />
+          <TechBadge
+            icon="🌈"
+            name="HTML/CSS"
+            count={String(templates.filter((x) => has('html')(x.framework) || has('gulp')(x.framework)).length)}
+          />
+        </Grid>
+      </Band>
 
-      {/* Use Cases */}
-      <section className="use-cases py-24 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Perfect For
-            </h2>
-            <p className="text-gray-400 text-xl">Whatever you are building, we have a template</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <UseCaseCard
-              icon="🚀"
-              title="SaaS Startups"
-              description="Launch faster with production-ready templates"
-              templates={templates.filter(t => t.useCase.toLowerCase().includes('saas')).length}
-            />
-            <UseCaseCard
-              icon="🎨"
-              title="Creative Agencies"
-              description="Beautiful portfolios and agency sites"
-              templates={templates.filter(t =>
-                t.useCase.toLowerCase().includes('portfolio') ||
-                t.useCase.toLowerCase().includes('agency') ||
-                t.useCase.toLowerCase().includes('creative')
-              ).length}
-            />
-            <UseCaseCard
-              icon="📱"
-              title="Mobile Apps"
-              description="Modern app landing pages"
-              templates={templates.filter(t =>
-                t.useCase.toLowerCase().includes('app') ||
-                t.useCase.toLowerCase().includes('mobile')
-              ).length}
-            />
-            <UseCaseCard
-              icon="📊"
-              title="Dashboards"
-              description="Admin panels and analytics platforms"
-              templates={templates.filter(t => t.useCase.toLowerCase().includes('dashboard')).length}
-            />
-            <UseCaseCard
-              icon="🛒"
-              title="E-commerce"
-              description="Online stores and marketplaces"
-              templates={templates.filter(t =>
-                t.useCase.toLowerCase().includes('commerce') ||
-                t.useCase.toLowerCase().includes('store')
-              ).length}
-            />
-            <UseCaseCard
-              icon="💬"
-              title="Social Platforms"
-              description="Community and social networking"
-              templates={templates.filter(t => t.useCase.toLowerCase().includes('social')).length}
-            />
-          </div>
-        </div>
-      </section>
+      {/* Use cases */}
+      <Band width={1280}>
+        <Title text="Perfect For" note="Whatever you are building, we have a template" image={c.washShort} />
+        <Grid columns={{ min: 300, max: 3 }} gap={32}>
+          <UseCaseCard icon="🚀" title="SaaS Startups" description="Launch faster with production-ready templates" templates={byUse('saas')} />
+          <UseCaseCard icon="🎨" title="Creative Agencies" description="Beautiful portfolios and agency sites" templates={byUse('portfolio', 'agency', 'creative')} />
+          <UseCaseCard icon="📱" title="Mobile Apps" description="Modern app landing pages" templates={byUse('app', 'mobile')} />
+          <UseCaseCard icon="📊" title="Dashboards" description="Admin panels and analytics platforms" templates={byUse('dashboard')} />
+          <UseCaseCard icon="🛒" title="E-commerce" description="Online stores and marketplaces" templates={byUse('commerce', 'store')} />
+          <UseCaseCard icon="💬" title="Social Platforms" description="Community and social networking" templates={byUse('social')} />
+        </Grid>
+      </Band>
 
-      {/* Features Section */}
-      <section className="features py-24 px-4 bg-gradient-to-b from-white/5 to-transparent border-y border-white/10">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Why Choose Hanzo Templates?
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="p-8 bg-white/5 backdrop-blur-lg rounded-xl border border-white/10">
-              <div className="text-4xl mb-4">⚡</div>
-              <h3 className="text-2xl font-bold mb-3">Lightning Fast</h3>
-              <p className="text-gray-400">Built with Next.js 14+ for optimal performance and SEO</p>
-            </div>
-            <div className="p-8 bg-white/5 backdrop-blur-lg rounded-xl border border-white/10">
-              <div className="text-4xl mb-4">🎨</div>
-              <h3 className="text-2xl font-bold mb-3">Beautiful Design</h3>
-              <p className="text-gray-400">Premium UI/UX from top designers worldwide</p>
-            </div>
-            <div className="p-8 bg-white/5 backdrop-blur-lg rounded-xl border border-white/10">
-              <div className="text-4xl mb-4">📱</div>
-              <h3 className="text-2xl font-bold mb-3">Fully Responsive</h3>
-              <p className="text-gray-400">Perfect on mobile, tablet, and desktop devices</p>
-            </div>
-            <div className="p-8 bg-white/5 backdrop-blur-lg rounded-xl border border-white/10">
-              <div className="text-4xl mb-4">🔧</div>
-              <h3 className="text-2xl font-bold mb-3">Easy to Customize</h3>
-              <p className="text-gray-400">Clean code with TypeScript and modern best practices</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Why */}
+      <Band banded>
+        <Title text="Why Choose Hanzo Templates?" image={c.brand} />
+        <Grid columns={{ min: 320, max: 2 }} gap={32}>
+          {[
+            ['⚡', 'Lightning Fast', 'Built with Next.js 14+ for optimal performance and SEO'],
+            ['🎨', 'Beautiful Design', 'Premium UI/UX from top designers worldwide'],
+            ['📱', 'Fully Responsive', 'Perfect on mobile, tablet, and desktop devices'],
+            ['🔧', 'Easy to Customize', 'Clean code with TypeScript and modern best practices'],
+          ].map(([icon, head, note]) => (
+            <YStack
+              key={head}
+              padding={32}
+              backgroundColor={c.white5}
+              backdropFilter="blur(16px)"
+              borderRadius="var(--radius-xl, 1rem)"
+              borderWidth={1}
+              borderColor={c.white10}
+            >
+              <Text {...t.xl4} marginBottom={16}>
+                {icon}
+              </Text>
+              <H3 {...t.xl2} fontWeight={700} color="#fff" marginBottom={12}>
+                {head}
+              </H3>
+              <Text color={c.gray400}>{note}</Text>
+            </YStack>
+          ))}
+        </Grid>
+      </Band>
 
-      {/* CTA */}
-      <section className="cta py-24 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600" />
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
-        </div>
-        <div className="relative max-w-4xl mx-auto text-center">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+      {/* Call to action */}
+      <YStack render="section" position="relative" paddingVertical={96} paddingHorizontal={16} overflow="hidden">
+        <YStack position="absolute" top={0} left={0} right={0} bottom={0} backgroundImage={`linear-gradient(to right, ${c.purple600}, ${c.pink600})`} />
+        <YStack position="absolute" top={0} left={0} right={0} bottom={0}>
+          <YStack position="absolute" top="25%" left="25%" width={384} height={384} borderRadius={9999} backgroundColor="rgba(255,255,255,0.1)" filter="blur(64px)" />
+          <YStack position="absolute" bottom="25%" right="25%" width={384} height={384} borderRadius={9999} backgroundColor="rgba(255,255,255,0.1)" filter="blur(64px)" />
+        </YStack>
+        <YStack position="relative" width="100%" maxWidth={896} marginLeft="auto" marginRight="auto" alignItems="center">
+          <H2 {...t.xl5} $md={t.xl6} fontWeight={700} marginBottom={24} color="#fff" textAlign="center">
             Deploy Instantly with Hanzo AI
-          </h2>
-          <p className="text-xl md:text-2xl mb-8 text-purple-100">
+          </H2>
+          <Text {...t.xl} $md={t.xl2} marginBottom={32} color={c.purple100} textAlign="center">
             One-click deployment to global edge network
-          </p>
-          <div className="flex gap-4 justify-center flex-wrap">
-            <a href="https://hanzo.ai" target="_blank" rel="noopener noreferrer">
-              <button className="px-12 py-5 bg-white text-purple-600 rounded-xl font-bold text-xl hover:bg-gray-100 transition-all hover:scale-105 shadow-2xl">
+          </Text>
+          <XStack gap={16} justifyContent="center" flexWrap="wrap">
+            <Button
+              render={<a href="https://hanzo.ai" target="_blank" rel="noopener noreferrer" />}
+              transition="quickest"
+              height="auto"
+              paddingHorizontal={48}
+              paddingVertical={20}
+              borderRadius="var(--radius-xl, 1rem)"
+              backgroundColor="#fff"
+              boxShadow="0 25px 50px rgb(0 0 0 / .25)"
+              hoverStyle={{ backgroundColor: c.gray100, scale: 1.05 }}
+            >
+              <Text {...t.xl} fontWeight={700} color={c.purple600}>
                 Get Started Free
-              </button>
-            </a>
-            <Link href="/gallery">
-              <button className="px-12 py-5 bg-white/20 backdrop-blur-lg border-2 border-white rounded-xl font-bold text-xl hover:bg-white/30 transition-all hover:scale-105">
+              </Text>
+            </Button>
+            <Button
+              render={<Link href="/gallery" />}
+              transition="quickest"
+              height="auto"
+              paddingHorizontal={48}
+              paddingVertical={20}
+              borderRadius="var(--radius-xl, 1rem)"
+              backgroundColor="rgba(255,255,255,0.2)"
+              backdropFilter="blur(16px)"
+              borderWidth={2}
+              borderColor="#fff"
+              hoverStyle={{ backgroundColor: 'rgba(255,255,255,0.3)', scale: 1.05 }}
+            >
+              <Text {...t.xl} fontWeight={700} color="#fff">
                 Browse Gallery
-              </button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="py-12 px-4 bg-black border-t border-white/10">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Hanzo Templates
-              </h3>
-              <p className="text-gray-400 text-sm">
-                Premium UI/UX templates for modern web applications
-              </p>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4">Product</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><Link href="/gallery" className="hover:text-white transition-colors">Templates</Link></li>
-                <li><Link href="/docs" className="hover:text-white transition-colors">Documentation</Link></li>
-                <li><Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4">Company</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
-                <li><a href="https://hanzo.ai" className="hover:text-white transition-colors">Hanzo AI</a></li>
-                <li><a href="https://github.com/hanzoai" className="hover:text-white transition-colors">GitHub</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4">Legal</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><Link href="/terms" className="hover:text-white transition-colors">Terms</Link></li>
-                <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link></li>
-                <li><Link href="/license" className="hover:text-white transition-colors">License</Link></li>
-              </ul>
-            </div>
-          </div>
-          <div className="text-center pt-8 border-t border-white/10">
-            <p className="text-gray-400 text-sm">
-              © 2025 Hanzo AI Inc. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
-    </div>
+              </Text>
+            </Button>
+          </XStack>
+        </YStack>
+      </YStack>
+    </YStack>
   );
 }
