@@ -4,8 +4,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { YStack, XStack, H1, H2, H3, Text, Button, Anchor, Label } from '@hanzo/ui';
+import { Grid } from '@hanzo/ui/grid';
 import { frame, shot, sizes, type Size } from '../../lib/shot';
 import type { Template } from '../../templates-data';
+import { c, t, at, clip, hue, tint } from '../../lib/design';
+import { Stars } from '../../components/stars';
 
 interface TemplatePageClientProps {
   variants: Template[];
@@ -16,386 +20,561 @@ interface TemplatePageClientProps {
   allTemplates: Template[];
 }
 
-export function TemplatePageClient({ variants, prevTemplate, nextTemplate, currentIndex, totalTemplates, allTemplates }: TemplatePageClientProps) {
+/** The pill in the action bar, in its two states. */
+const pill = {
+  transition: 'quickest',
+  height: 'auto',
+  paddingHorizontal: 16,
+  paddingVertical: 8,
+  borderRadius: 9999,
+  borderWidth: 1,
+} as const;
+
+const outline = {
+  ...pill,
+  borderColor: c.neutral700,
+  backgroundColor: 'transparent',
+  hoverStyle: { backgroundColor: c.neutral800 },
+} as const;
+
+const still = {
+  ...pill,
+  borderColor: c.neutral800,
+  backgroundColor: c.neutral900,
+} as const;
+
+/** A choice among framework variants, or among screenshot sizes. */
+function Choice({ on, children, ...rest }: { on: boolean; children: React.ReactNode; [k: string]: unknown }) {
+  return (
+    <Button
+      transition="quickest"
+      height="auto"
+      paddingHorizontal={24}
+      paddingVertical={12}
+      borderRadius="var(--radius-lg, 0.75rem)"
+      borderWidth={2}
+      {...(on
+        ? { backgroundColor: c.blue500, borderColor: c.blue400 }
+        : {
+            backgroundColor: c.white5,
+            borderColor: c.white10,
+            hoverStyle: { borderColor: at(c.blue500, 0.5), backgroundColor: 'rgba(255,255,255,0.1)' },
+          })}
+      {...rest}
+    >
+      <Text fontWeight={500} color={on ? '#fff' : c.gray300} textTransform="capitalize">
+        {children}
+      </Text>
+    </Button>
+  );
+}
+
+/** A page section: centred column, optional lift off the ground. */
+function Band({ children, lifted }: { children: React.ReactNode; lifted?: boolean }) {
+  return (
+    <YStack
+      render="section"
+      paddingHorizontal={16}
+      paddingVertical={64}
+      {...(lifted ? { backgroundColor: c.white5 } : {})}
+    >
+      <YStack width="100%" maxWidth={1024} marginLeft="auto" marginRight="auto">
+        {children}
+      </YStack>
+    </YStack>
+  );
+}
+
+const mono = { fontFamily: 'var(--font-zen-mono), monospace' } as const;
+
+export function TemplatePageClient({
+  variants,
+  prevTemplate,
+  nextTemplate,
+  currentIndex,
+  totalTemplates,
+  allTemplates,
+}: TemplatePageClientProps) {
   const router = useRouter();
-  const [selectedVariant, setSelectedVariant] = useState<Template>(variants[0]);
+  const [pick, setPick] = useState<Template>(variants[0]);
   const [size, setSize] = useState<Size>('desktop');
-  const [missing, setMissing] = useState<Set<string>>(new Set());
+  const [absent, setAbsent] = useState<Set<string>>(new Set());
 
   // Canonical repo URL for the selected variant (single source of truth).
-  const repoUrl = `https://github.com/hanzo-apps/template-${selectedVariant.slug}`;
-  const deployUrl = `https://hanzo.app/new?template=${encodeURIComponent(repoUrl)}`;
+  const repo = `https://github.com/hanzo-apps/template-${pick.slug}`;
+  const deployUrl = `https://hanzo.app/new?template=${encodeURIComponent(repo)}`;
 
   // Templates without a capture at this size fall back to the desktop one.
-  const src = shot(selectedVariant.screenshot, size);
-  const shown = missing.has(src) ? shot(selectedVariant.screenshot) : src;
+  const src = shot(pick.screenshot, size);
+  const shown = absent.has(src) ? shot(pick.screenshot) : src;
 
-  // Navigate to random template
-  function goToRandomTemplate() {
-    const currentSlug = variants[0].slug;
-    const otherTemplates = allTemplates.filter(t => t.slug !== currentSlug);
-    if (otherTemplates.length > 0) {
-      const randomTemplate = otherTemplates[Math.floor(Math.random() * otherTemplates.length)];
-      router.push(`/templates/${randomTemplate.slug}`);
-    }
+  function toRandom() {
+    const others = allTemplates.filter((x) => x.slug !== variants[0].slug);
+    if (others.length > 0) router.push(`/templates/${others[Math.floor(Math.random() * others.length)].slug}`);
   }
 
-  // Open GitHub repository
-  function openGitHubRepo() {
-    window.open(repoUrl, '_blank');
-  }
+  const openRepo = () => window.open(repo, '_blank');
+  const toFork = () => {
+    window.location.href = `/gallery?fork=${pick.id}`;
+  };
+  const copyPath = (said: string) => {
+    navigator.clipboard.writeText(pick.path);
+    alert(said);
+  };
+
+  const start = pick.framework.toLowerCase().includes('html')
+    ? 'gulp'
+    : pick.framework.toLowerCase().includes('react') && !pick.framework.toLowerCase().includes('next')
+      ? 'npm start'
+      : 'npm run dev';
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white">
-      {/* Navigation - Airbnb Style */}
-      <nav className="border-b border-neutral-800 bg-black sticky top-0 z-50">
-        {/* Top Bar */}
-        <div className="border-b border-neutral-800">
-          <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-            <Link href="/gallery" className="flex items-center gap-2 text-neutral-400 hover:text-white transition-colors text-sm">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-              Gallery
-            </Link>
+    <YStack minHeight="100vh" backgroundColor={c.ink}>
+      <YStack
+        render="nav"
+        position="sticky"
+        top={0}
+        zIndex={50}
+        backgroundColor="#000"
+        borderBottomWidth={1}
+        borderColor={c.neutral800}
+      >
+        <YStack borderBottomWidth={1} borderColor={c.neutral800}>
+          <XStack
+            width="100%"
+            maxWidth={1280}
+            marginLeft="auto"
+            marginRight="auto"
+            paddingHorizontal={16}
+            paddingVertical={12}
+            alignItems="center"
+            justifyContent="space-between"
+          >
+            <Anchor
+              render={<Link href="/gallery" />}
+              transition="quickest"
+              alignItems="center"
+              gap={8}
+              {...t.sm}
+              color={c.neutral400}
+              textDecorationLine="none"
+              hoverStyle={{ color: '#fff' }}
+            >
+              ← Gallery
+            </Anchor>
 
-            <div className="flex items-center gap-3">
-              <span className="text-xs text-neutral-500 font-medium">
+            <XStack alignItems="center" gap={12}>
+              <Text {...t.xs} color={c.neutral500} fontWeight={500}>
                 {currentIndex} / {totalTemplates}
-              </span>
-              <div className="flex gap-2">
+              </Text>
+              <XStack gap={8}>
                 {prevTemplate ? (
-                  <Link
-                    href={`/templates/${prevTemplate.slug}`}
-                    className="px-3 py-1.5 border border-neutral-700 rounded-full hover:bg-neutral-800 transition-all text-xs font-medium text-neutral-300"
-                  >
-                    ←
-                  </Link>
+                  <Button {...outline} render={<Link href={`/templates/${prevTemplate.slug}`} />} paddingVertical={6} paddingHorizontal={12}>
+                    <Text {...t.xs} fontWeight={500} color={c.neutral300}>
+                      ←
+                    </Text>
+                  </Button>
                 ) : (
-                  <button
-                    disabled
-                    className="px-3 py-1.5 border border-neutral-800 rounded-full text-neutral-700 cursor-not-allowed text-xs"
-                  >
-                    ←
-                  </button>
+                  <Button {...pill} disabled borderColor={c.neutral800} backgroundColor="transparent" paddingVertical={6} paddingHorizontal={12} cursor="not-allowed">
+                    <Text {...t.xs} color={c.neutral700}>
+                      ←
+                    </Text>
+                  </Button>
                 )}
-                <button
-                  onClick={goToRandomTemplate}
-                  className="px-3 py-1.5 border border-neutral-700 rounded-full hover:bg-neutral-800 transition-all text-xs font-medium text-neutral-300 hover:border-purple-500/50 hover:text-purple-400"
+                <Button
+                  {...outline}
+                  onPress={toRandom}
                   title="Random Template"
+                  paddingVertical={6}
+                  paddingHorizontal={12}
+                  hoverStyle={{ backgroundColor: c.neutral800, borderColor: at(c.purple500, 0.5) }}
                 >
-                  🎲
-                </button>
+                  <Text {...t.xs} fontWeight={500} color={c.neutral300}>
+                    🎲
+                  </Text>
+                </Button>
                 {nextTemplate ? (
-                  <Link
-                    href={`/templates/${nextTemplate.slug}`}
-                    className="px-3 py-1.5 border border-neutral-700 rounded-full hover:bg-neutral-800 transition-all text-xs font-medium text-neutral-300"
-                  >
-                    →
-                  </Link>
+                  <Button {...outline} render={<Link href={`/templates/${nextTemplate.slug}`} />} paddingVertical={6} paddingHorizontal={12}>
+                    <Text {...t.xs} fontWeight={500} color={c.neutral300}>
+                      →
+                    </Text>
+                  </Button>
                 ) : (
-                  <button
-                    disabled
-                    className="px-3 py-1.5 border border-neutral-800 rounded-full text-neutral-700 cursor-not-allowed text-xs"
-                  >
-                    →
-                  </button>
+                  <Button {...pill} disabled borderColor={c.neutral800} backgroundColor="transparent" paddingVertical={6} paddingHorizontal={12} cursor="not-allowed">
+                    <Text {...t.xs} color={c.neutral700}>
+                      →
+                    </Text>
+                  </Button>
                 )}
-              </div>
-            </div>
-          </div>
-        </div>
+              </XStack>
+            </XStack>
+          </XStack>
+        </YStack>
 
-        {/* Action Buttons - Airbnb Style */}
-        <div className="container mx-auto px-4 py-2 overflow-x-auto scrollbar-hide">
-          <div className="flex gap-2 min-w-max items-center">
-            <button
-              onClick={openGitHubRepo}
-              className="px-4 py-2 border border-neutral-700 rounded-full hover:bg-neutral-800 transition-all text-xs font-medium text-neutral-300 whitespace-nowrap"
-            >
-              📦 View on GitHub
-            </button>
-            <button
-              onClick={() => {
-                window.location.href = `/gallery?fork=${selectedVariant.id}`;
-              }}
-              className="px-4 py-2 border border-neutral-700 rounded-full hover:bg-neutral-800 transition-all text-xs font-medium text-neutral-300 whitespace-nowrap"
-            >
-              🚀 Deploy
-            </button>
-            <a
+        {/* Actions */}
+        <XStack
+          width="100%"
+          maxWidth={1280}
+          marginLeft="auto"
+          marginRight="auto"
+          paddingHorizontal={16}
+          paddingVertical={8}
+          overflow="scroll"
+          data-scrollbar="none"
+          style={{ scrollbarWidth: 'none' }}
+        >
+          <XStack gap={8} minWidth="max-content" alignItems="center">
+            <Button {...outline} onPress={openRepo}>
+              <Text {...t.xs} fontWeight={500} color={c.neutral300} whiteSpace="nowrap">
+                📦 View on GitHub
+              </Text>
+            </Button>
+            <Button {...outline} onPress={toFork}>
+              <Text {...t.xs} fontWeight={500} color={c.neutral300} whiteSpace="nowrap">
+                🚀 Deploy
+              </Text>
+            </Button>
+            <Anchor
               href={deployUrl}
               target="_blank"
               rel="noopener noreferrer"
-              title="Deploy on Hanzo"
-              className="inline-flex items-center whitespace-nowrap"
+              alignItems="center"
+              whiteSpace="nowrap"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://hanzo.app/deploy-badge.svg" alt="Deploy on Hanzo" className="h-9" />
-            </a>
-            <button
-              onClick={() => {
-                navigator.clipboard.writeText(selectedVariant.path);
-                alert('Path copied!');
-              }}
-              className="px-4 py-2 border border-neutral-700 rounded-full hover:bg-neutral-800 transition-all text-xs font-medium text-neutral-300 whitespace-nowrap"
+              <img src="https://hanzo.app/deploy-badge.svg" alt="Deploy on Hanzo" height={36} style={{ height: 36 }} />
+            </Anchor>
+            <Button {...outline} onPress={() => copyPath('Path copied!')}>
+              <Text {...t.xs} fontWeight={500} color={c.neutral300} whiteSpace="nowrap">
+                📋 Copy Path
+              </Text>
+            </Button>
+            <Text {...still} {...t.xs} fontWeight={500} color={c.neutral400} whiteSpace="nowrap">
+              {pick.framework}
+            </Text>
+            <Text {...still} {...t.xs} fontWeight={500} color={c.neutral400} whiteSpace="nowrap">
+              {pick.category}
+            </Text>
+            <Text
+              {...pill}
+              {...t.xs}
+              fontWeight={500}
+              whiteSpace="nowrap"
+              {...deep(pick.tier)}
             >
-              📋 Copy Path
-            </button>
-            <span className="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-full text-xs font-medium text-neutral-400 whitespace-nowrap">
-              {selectedVariant.framework}
-            </span>
-            <span className="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-full text-xs font-medium text-neutral-400 whitespace-nowrap">
-              {selectedVariant.category}
-            </span>
-            <span className={`px-4 py-2 border rounded-full text-xs font-medium whitespace-nowrap ${
-              selectedVariant.tier === 1 ? 'border-green-800 bg-green-950 text-green-400' :
-              selectedVariant.tier === 2 ? 'border-blue-800 bg-blue-950 text-blue-400' :
-              'border-purple-800 bg-purple-950 text-purple-400'
-            }`}>
-              Tier {selectedVariant.tier}
-            </span>
-          </div>
-        </div>
-      </nav>
+              Tier {pick.tier}
+            </Text>
+          </XStack>
+        </XStack>
+      </YStack>
 
       {/* Hero */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="max-w-5xl mx-auto">
-          <div className="flex items-center gap-3 mb-6">
-            <h1 className="text-6xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              {selectedVariant.displayName}
-            </h1>
-            <div className="flex">
-              {[...Array(5)].map((_, i) => (
-                <span key={i} className={`text-2xl ${i < selectedVariant.rating ? 'text-yellow-400' : 'text-gray-600'}`}>
-                  ★
-                </span>
+      <Band>
+        <XStack alignItems="center" gap={12} marginBottom={24} flexWrap="wrap">
+          <H1 {...t.xl6} fontWeight={700} {...clip(c.wash)}>
+            {pick.displayName}
+          </H1>
+          <Stars n={pick.rating} size={t.xl2} />
+        </XStack>
+        <Text {...t.xl2} color={c.gray400} marginBottom={32}>
+          {pick.description || `Premium ${pick.displayName} template with modern design and functionality.`}
+        </Text>
+
+        {variants.length > 1 && (
+          <YStack marginBottom={32}>
+            <Label {...t.sm} fontWeight={500} color={c.gray400} marginBottom={12}>
+              Choose Framework ({variants.length} variants available)
+            </Label>
+            <XStack flexWrap="wrap" gap={12}>
+              {variants.map((v) => (
+                <Choice key={v.id} on={pick.id === v.id} onPress={() => setPick(v)}>
+                  {v.framework}
+                </Choice>
               ))}
-            </div>
-          </div>
-          <p className="text-2xl text-gray-400 mb-8">
-            {selectedVariant.description || `Premium ${selectedVariant.displayName} template with modern design and functionality.`}
-          </p>
+            </XStack>
+          </YStack>
+        )}
 
-          {/* Variant Selector (if multiple variants) */}
-          {variants.length > 1 && (
-            <div className="mb-8">
-              <label className="block text-sm font-medium text-gray-400 mb-3">
-                Choose Framework ({variants.length} variants available)
-              </label>
-              <div className="flex flex-wrap gap-3">
-                {variants.map((variant, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setSelectedVariant(variant)}
-                    className={`px-6 py-3 rounded-lg font-medium transition-all ${
-                      selectedVariant.id === variant.id
-                        ? 'bg-blue-500 text-white border-2 border-blue-400'
-                        : 'bg-white/5 text-gray-300 border-2 border-white/10 hover:border-blue-500/50 hover:bg-white/10'
-                    }`}
-                  >
-                    {variant.framework}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
+        {/* Tech stack */}
+        <XStack flexWrap="wrap" gap={12} marginBottom={48}>
+          <Chip {...tint('blue')}>{pick.framework}</Chip>
+          <Chip {...tint(hue(pick.tier))}>
+            Tier {pick.tier} - {pick.tier === 1 ? 'Excellent' : pick.tier === 2 ? 'Very Good' : 'Good'}
+          </Chip>
+          <Chip {...tint('purple')}>{pick.components}</Chip>
+          <Chip backgroundColor={at(c.gray500, 0.2)} borderColor={at(c.gray500, 0.3)} color={c.gray300}>
+            {pick.category}
+          </Chip>
+        </XStack>
 
-          {/* Tech Stack Badges */}
-          <div className="flex flex-wrap gap-3 mb-12">
-            <span className="px-4 py-2 bg-blue-500/20 border border-blue-500/30 rounded-lg text-blue-300 font-medium">
-              {selectedVariant.framework}
-            </span>
-            <span className={`px-4 py-2 rounded-lg font-medium ${
-              selectedVariant.tier === 1 ? 'bg-green-500/20 border border-green-500/30 text-green-300' :
-              selectedVariant.tier === 2 ? 'bg-blue-500/20 border border-blue-500/30 text-blue-300' :
-              'bg-purple-500/20 border border-purple-500/30 text-purple-300'
-            }`}>
-              Tier {selectedVariant.tier} - {selectedVariant.tier === 1 ? 'Excellent' : selectedVariant.tier === 2 ? 'Very Good' : 'Good'}
-            </span>
-            <span className="px-4 py-2 bg-purple-500/20 border border-purple-500/30 rounded-lg text-purple-300 font-medium">
-              {selectedVariant.components}
-            </span>
-            <span className="px-4 py-2 bg-gray-500/20 border border-gray-500/30 rounded-lg text-gray-300 font-medium">
-              {selectedVariant.category}
-            </span>
-          </div>
-
-          {/* Screenshot */}
-          <div className="mb-16">
-            <div className="flex flex-wrap gap-3 mb-4">
-              {sizes.map((s) => (
-                <button
-                  key={s}
-                  onClick={() => setSize(s)}
-                  className={`px-6 py-3 rounded-lg font-medium capitalize transition-all ${
-                    size === s
-                      ? 'bg-blue-500 text-white border-2 border-blue-400'
-                      : 'bg-white/5 text-gray-300 border-2 border-white/10 hover:border-blue-500/50 hover:bg-white/10'
-                  }`}
-                >
-                  {s}
-                </button>
-              ))}
-            </div>
-            <div className={`relative mx-auto rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-blue-500/20 ${frame[size]}`}>
-              <Image
-                src={shown}
-                alt={selectedVariant.displayName}
-                fill
-                unoptimized
-                onError={() => setMissing(prev => new Set(prev).add(src))}
-                className={shown === src ? 'object-cover' : 'object-contain'}
-                priority
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+        {/* Screenshot */}
+        <YStack marginBottom={64}>
+          <XStack flexWrap="wrap" gap={12} marginBottom={16}>
+            {sizes.map((s) => (
+              <Choice key={s} on={size === s} onPress={() => setSize(s)}>
+                {s}
+              </Choice>
+            ))}
+          </XStack>
+          <YStack
+            position="relative"
+            marginLeft="auto"
+            marginRight="auto"
+            {...frame[size]}
+            borderRadius="var(--radius-2xl, 1.5rem)"
+            overflow="hidden"
+            borderWidth={1}
+            borderColor={c.white10}
+            boxShadow={`0 25px 50px ${at(c.blue500, 0.2)}`}
+          >
+            <Image
+              src={shown}
+              alt={pick.displayName}
+              fill
+              unoptimized
+              onError={() => setAbsent((prev) => new Set(prev).add(src))}
+              style={{ objectFit: shown === src ? 'cover' : 'contain' }}
+              priority
+            />
+          </YStack>
+        </YStack>
+      </Band>
 
       {/* Features */}
-      <section className="container mx-auto px-4 py-16 bg-white/5">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl font-bold mb-8">Key Features</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {selectedVariant.features.map((feature, i) => (
-              <div key={i} className="bg-white/5 backdrop-blur-lg p-6 rounded-xl border border-white/10 hover:border-blue-500/50 transition-all">
-                <div className="text-3xl mb-3">✨</div>
-                <h3 className="text-xl font-bold mb-2">{feature}</h3>
-              </div>
+      <Band lifted>
+        <H2 {...t.xl4} fontWeight={700} color="#fff" marginBottom={32}>
+          Key Features
+        </H2>
+        <Grid columns={{ min: 300, max: 2 }} gap={24}>
+          {pick.features.map((feature, i) => (
+            <YStack
+              key={i}
+              transition="quickest"
+              backgroundColor={c.white5}
+              backdropFilter="blur(16px)"
+              padding={24}
+              borderRadius="var(--radius-xl, 1rem)"
+              borderWidth={1}
+              borderColor={c.white10}
+              hoverStyle={{ borderColor: at(c.blue500, 0.5) }}
+            >
+              <Text {...t.xl3} marginBottom={12}>
+                ✨
+              </Text>
+              <H3 {...t.xl} fontWeight={700} color="#fff" marginBottom={8}>
+                {feature}
+              </H3>
+            </YStack>
+          ))}
+        </Grid>
+      </Band>
+
+      {/* Technology */}
+      <Band>
+        <H2 {...t.xl4} fontWeight={700} color="#fff" marginBottom={32}>
+          Technology Stack
+        </H2>
+        <YStack
+          backgroundImage={`linear-gradient(to right, ${at(c.blue500, 0.1)}, ${at(c.purple500, 0.1)})`}
+          backdropFilter="blur(16px)"
+          padding={32}
+          borderRadius="var(--radius-2xl, 1.5rem)"
+          borderWidth={1}
+          borderColor={c.white10}
+        >
+          <Grid columns={{ min: 200, max: 3 }} gap={24}>
+            {(
+              [
+                ['Framework', pick.framework],
+                ['Use Case', pick.useCase],
+                [
+                  'Setup Difficulty',
+                  `${pick.easeOfSetup}/5 - ${pick.easeOfSetup >= 5 ? 'Very Easy' : pick.easeOfSetup >= 4 ? 'Easy' : 'Moderate'}`,
+                ],
+              ] as [string, string][]
+            ).map(([head, body]) => (
+              <YStack key={head}>
+                <H3 {...t.lg} fontWeight={700} color={c.blue400} marginBottom={8}>
+                  {head}
+                </H3>
+                <Text color={c.gray300}>{body}</Text>
+              </YStack>
             ))}
-          </div>
-        </div>
-      </section>
+          </Grid>
+        </YStack>
+      </Band>
 
-      {/* Tech Stack */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl font-bold mb-8">Technology Stack</h2>
-          <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-lg p-8 rounded-2xl border border-white/10">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div>
-                <h3 className="text-lg font-bold text-blue-400 mb-2">Framework</h3>
-                <p className="text-gray-300">{selectedVariant.framework}</p>
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-blue-400 mb-2">Use Case</h3>
-                <p className="text-gray-300">{selectedVariant.useCase}</p>
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-blue-400 mb-2">Setup Difficulty</h3>
-                <p className="text-gray-300">
-                  {selectedVariant.easeOfSetup}/5 - {selectedVariant.easeOfSetup >= 5 ? 'Very Easy' : selectedVariant.easeOfSetup >= 4 ? 'Easy' : 'Moderate'}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Quick start */}
+      <Band lifted>
+        <H2 {...t.xl4} fontWeight={700} color="#fff" marginBottom={32}>
+          Quick Start
+        </H2>
+        <YStack
+          backgroundColor="rgba(0,0,0,0.5)"
+          backdropFilter="blur(16px)"
+          padding={32}
+          borderRadius="var(--radius-2xl, 1.5rem)"
+          borderWidth={1}
+          borderColor={c.white10}
+          {...mono}
+        >
+          {(
+            [
+              ['# Navigate to template directory', `cd ${pick.path}`],
+              ['# Install dependencies', 'npm install'],
+              ['# Start development server', start],
+              ...(pick.port ? ([['# Open in browser', `http://localhost:${pick.port}`]] as [string, string][]) : []),
+            ] as [string, string][]
+          ).map(([note, line]) => (
+            <YStack key={note}>
+              <Text {...mono} color={c.gray400} marginBottom={16}>
+                {note}
+              </Text>
+              <Text {...mono} color={c.green400} marginBottom={24}>
+                {line}
+              </Text>
+            </YStack>
+          ))}
+        </YStack>
+      </Band>
 
-      {/* Setup */}
-      <section className="container mx-auto px-4 py-16 bg-white/5">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl font-bold mb-8">Quick Start</h2>
-          <div className="bg-black/50 backdrop-blur-lg p-8 rounded-2xl border border-white/10 font-mono">
-            <div className="text-gray-400 mb-4"># Navigate to template directory</div>
-            <div className="text-green-400 mb-6">cd {selectedVariant.path}</div>
+      {/* Perfect for */}
+      <Band>
+        <H2 {...t.xl4} fontWeight={700} color="#fff" marginBottom={32}>
+          Perfect For
+        </H2>
+        <Grid columns={{ min: 260, max: 3 }} gap={24}>
+          {(
+            [
+              ['🚀', pick.useCase, 'Primary use case for this template', [c.blue500, c.purple500]],
+              ['⚡', 'Fast Development', 'Pre-built components ready to use', [c.green500, c.blue500]],
+              ['🎨', 'Modern Design', 'Beautiful UI following latest trends', [c.purple500, c.pink500]],
+            ] as [string, string, string, [string, string]][]
+          ).map(([icon, head, note, [from, to]]) => (
+            <YStack
+              key={head}
+              backgroundImage={`linear-gradient(to bottom right, ${at(from, 0.1)}, ${at(to, 0.1)})`}
+              padding={24}
+              borderRadius="var(--radius-xl, 1rem)"
+              borderWidth={1}
+              borderColor={c.white10}
+            >
+              <Text {...t.xl3} marginBottom={12}>
+                {icon}
+              </Text>
+              <H3 {...t.lg} fontWeight={700} color="#fff" marginBottom={8}>
+                {head}
+              </H3>
+              <Text {...t.sm} color={c.gray400}>
+                {note}
+              </Text>
+            </YStack>
+          ))}
+        </Grid>
+      </Band>
 
-            <div className="text-gray-400 mb-4"># Install dependencies</div>
-            <div className="text-green-400 mb-6">npm install</div>
-
-            <div className="text-gray-400 mb-4"># Start development server</div>
-            <div className="text-green-400 mb-6">
-              {selectedVariant.framework.toLowerCase().includes('html') ? 'gulp' :
-               selectedVariant.framework.toLowerCase().includes('react') && !selectedVariant.framework.toLowerCase().includes('next') ? 'npm start' :
-               'npm run dev'}
-            </div>
-
-            {selectedVariant.port && (
-              <>
-                <div className="text-gray-400 mb-4"># Open in browser</div>
-                <div className="text-green-400">http://localhost:{selectedVariant.port}</div>
-              </>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* Use Cases */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl font-bold mb-8">Perfect For</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 p-6 rounded-xl border border-white/10">
-              <div className="text-3xl mb-3">🚀</div>
-              <h3 className="text-lg font-bold mb-2">{selectedVariant.useCase}</h3>
-              <p className="text-sm text-gray-400">Primary use case for this template</p>
-            </div>
-            <div className="bg-gradient-to-br from-green-500/10 to-blue-500/10 p-6 rounded-xl border border-white/10">
-              <div className="text-3xl mb-3">⚡</div>
-              <h3 className="text-lg font-bold mb-2">Fast Development</h3>
-              <p className="text-sm text-gray-400">Pre-built components ready to use</p>
-            </div>
-            <div className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 p-6 rounded-xl border border-white/10">
-              <div className="text-3xl mb-3">🎨</div>
-              <h3 className="text-lg font-bold mb-2">Modern Design</h3>
-              <p className="text-sm text-gray-400">Beautiful UI following latest trends</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="max-w-5xl mx-auto">
-          <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-lg p-12 rounded-2xl border border-white/10 text-center">
-            <h2 className="text-4xl font-bold mb-6">Get Started with Hanzo AI</h2>
-            <p className="text-xl text-gray-400 mb-8">
-              This template is part of the Hanzo AI premium template collection
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <button
-                onClick={openGitHubRepo}
-                className="px-8 py-4 bg-neutral-700 text-white text-lg font-bold rounded-xl hover:bg-neutral-600 transition-all shadow-lg shadow-neutral-700/50 hover:shadow-neutral-600/70 hover:scale-105"
-              >
-                📦 View on GitHub
-              </button>
-              <button
-                onClick={() => {
-                  // Pass the selected variant to the fork modal
-                  window.location.href = `/gallery?fork=${selectedVariant.id}`;
-                }}
-                className="px-8 py-4 bg-purple-500 text-white text-lg font-bold rounded-xl hover:bg-purple-600 transition-all shadow-lg shadow-purple-500/50 hover:shadow-purple-500/70 hover:scale-105"
-              >
-                🚀 Deploy to Hanzo
-              </button>
-              <button
-                onClick={() => {
-                  navigator.clipboard.writeText(selectedVariant.path);
-                  alert('Path copied to clipboard!');
-                }}
-                className="px-8 py-4 bg-blue-500 text-white text-lg font-bold rounded-xl hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/50 hover:shadow-blue-500/70 hover:scale-105"
-              >
-                📋 Copy Path
-              </button>
-              <Link
-                href="/gallery"
-                className="px-8 py-4 bg-white/10 border border-white/20 text-white text-lg font-bold rounded-xl hover:bg-white/20 transition-all"
-              >
+      {/* Call to action */}
+      <Band>
+        <YStack
+          backgroundImage={`linear-gradient(to right, ${at(c.blue500, 0.2)}, ${at(c.purple500, 0.2)})`}
+          backdropFilter="blur(16px)"
+          padding={48}
+          borderRadius="var(--radius-2xl, 1.5rem)"
+          borderWidth={1}
+          borderColor={c.white10}
+          alignItems="center"
+        >
+          <H2 {...t.xl4} fontWeight={700} color="#fff" marginBottom={24} textAlign="center">
+            Get Started with Hanzo AI
+          </H2>
+          <Text {...t.xl} color={c.gray400} marginBottom={32} textAlign="center">
+            This template is part of the Hanzo AI premium template collection
+          </Text>
+          <XStack flexWrap="wrap" gap={16} justifyContent="center">
+            <Cta onPress={openRepo} ground={c.neutral700} lift={c.neutral600}>
+              📦 View on GitHub
+            </Cta>
+            <Cta onPress={toFork} ground={c.purple500} lift={c.purple600}>
+              🚀 Deploy to Hanzo
+            </Cta>
+            <Cta onPress={() => copyPath('Path copied to clipboard!')} ground={c.blue500} lift={c.blue600}>
+              📋 Copy Path
+            </Cta>
+            <Button
+              render={<Link href="/gallery" />}
+              transition="quickest"
+              height="auto"
+              paddingHorizontal={32}
+              paddingVertical={16}
+              borderRadius="var(--radius-xl, 1rem)"
+              backgroundColor="rgba(255,255,255,0.1)"
+              borderWidth={1}
+              borderColor={c.white20}
+              hoverStyle={{ backgroundColor: 'rgba(255,255,255,0.2)' }}
+            >
+              <Text {...t.lg} fontWeight={700} color="#fff">
                 Browse More Templates
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="border-t border-white/10 bg-black/50 backdrop-blur-lg py-8">
-        <div className="container mx-auto px-4 text-center text-gray-400">
-          <p>© 2025 Hanzo AI Inc. All rights reserved.</p>
-        </div>
-      </footer>
-    </div>
+              </Text>
+            </Button>
+          </XStack>
+        </YStack>
+      </Band>
+    </YStack>
   );
+}
+
+/** A rounded chip carrying a tint. */
+function Chip({ children, ...rest }: { children: React.ReactNode; [k: string]: unknown }) {
+  return (
+    <Text
+      paddingHorizontal={16}
+      paddingVertical={8}
+      borderRadius="var(--radius-lg, 0.75rem)"
+      borderWidth={1}
+      fontWeight={500}
+      {...rest}
+    >
+      {children}
+    </Text>
+  );
+}
+
+/** One of the four buttons at the foot of the page. */
+function Cta({
+  children,
+  ground,
+  lift,
+  onPress,
+}: {
+  children: React.ReactNode;
+  ground: string;
+  lift: string;
+  onPress: () => void;
+}) {
+  return (
+    <Button
+      onPress={onPress}
+      transition="quickest"
+      height="auto"
+      paddingHorizontal={32}
+      paddingVertical={16}
+      borderRadius="var(--radius-xl, 1rem)"
+      backgroundColor={ground}
+      boxShadow={`0 10px 15px ${at(ground, 0.5)}`}
+      hoverStyle={{ backgroundColor: lift, scale: 1.05, boxShadow: `0 10px 15px ${at(lift, 0.7)}` }}
+    >
+      <Text {...t.lg} fontWeight={700} color="#fff">
+        {children}
+      </Text>
+    </Button>
+  );
+}
+
+/** The action bar's tier mark: a deep ground under a bright label. */
+function deep(tier: number) {
+  const h = hue(tier);
+  const edge = { green: c.green800, blue: c.blue800, purple: c.purple800 }[h];
+  const ground = { green: c.green950, blue: c.blue950, purple: c.purple950 }[h];
+  const ink = { green: c.green400, blue: c.blue400, purple: c.purple400 }[h];
+  return { borderColor: edge, backgroundColor: ground, color: ink };
 }

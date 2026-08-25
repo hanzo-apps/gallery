@@ -11,8 +11,8 @@ export function shot(name: string, size: Size = 'desktop'): string {
 // Frames at the real capture geometry: 16:9, 834x1112, 390x844. The widths
 // give all three the same height, so switching reads as a change of device
 // rather than a change of scale.
-export const frame: Record<Size, string> = {
-  desktop: 'aspect-video w-full',
-  tablet: 'aspect-[834/1112] w-full max-w-[480px]',
-  mobile: 'aspect-[390/844] w-full max-w-[296px]',
+export const frame: Record<Size, { width: string; aspectRatio: number; maxWidth?: number }> = {
+  desktop: { width: '100%', aspectRatio: 16 / 9 },
+  tablet: { width: '100%', aspectRatio: 834 / 1112, maxWidth: 480 },
+  mobile: { width: '100%', aspectRatio: 390 / 844, maxWidth: 296 },
 };

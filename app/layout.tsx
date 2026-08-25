@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ZenMono } from "@hanzo/font/mono";
 import { ZenSans } from "@hanzo/font/sans";
+import { Hanzo, YStack } from "@hanzo/ui";
 import "./globals.css";
 import { Header } from "./components/header";
 import { Footer } from "./components/footer";
@@ -87,14 +88,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body
-        className={`${ZenSans.variable} ${ZenMono.variable} antialiased bg-[#0a0a0a] text-white`}
-      >
-        <Header />
-        <main className="pt-16">
-          {children}
-        </main>
-        <Footer />
+      <body className={`${ZenSans.variable} ${ZenMono.variable}`}>
+        <Hanzo>
+          <Header />
+          <YStack render="main" display="block" paddingTop={64}>
+            {children}
+          </YStack>
+          <Footer />
+        </Hanzo>
       </body>
     </html>
   );
