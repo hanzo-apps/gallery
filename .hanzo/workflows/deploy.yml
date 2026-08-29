@@ -33,7 +33,7 @@ jobs:
     # NOT ubuntu-latest. Every runner carrying this label is registered to
     # git.hanzo.ai, which is what reads .hanzo/workflows; a job asking for
     # ubuntu-latest is never assigned and cancels at the 24h timeout.
-    runs-on: hanzo-build-linux-amd64
+    runs-on: [hanzo-build-linux-amd64]
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
