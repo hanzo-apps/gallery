@@ -17,27 +17,28 @@
     "css-check": "node scripts/css-check.mjs out/index.html out/gallery.html out/404.html out/templates/synapse.html"
   },
   "dependencies": {
-    "@hanzo/font": "^1.8.1",
-    "@hanzo/gui": "^8.2.0",
-    "@hanzo/logo": "^1.0.2",
-    "@hanzo/ui": "^8.4.1",
-    "@react-native/assets-registry": "^0.87.0",
-    "archiver": "^7.0.1",
-    "next": "15.5.6",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8",
-    "react-native-web": "^0.21.2",
-    "zod": "^3.25.76"
+    "@hanzo/font": "catalog:",
+    "@hanzo/gui": "catalog:",
+    "@hanzo/logo": "catalog:",
+    "@hanzo/ui": "catalog:",
+    "@react-native/assets-registry": "catalog:",
+    "archiver": "catalog:",
+    "next": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "react-native-web": "catalog:",
+    "zod": "catalog:"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@types/archiver": "^6.0.3",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.5.6",
-    "playwright": "^1.56.1",
-    "typescript": "^5.9.3"
-  }
+    "@eslint/eslintrc": "catalog:",
+    "@types/archiver": "catalog:",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "eslint": "catalog:",
+    "eslint-config-next": "catalog:",
+    "playwright": "catalog:",
+    "typescript": "catalog:"
+  },
+  "packageManager": "pnpm@11.24.0"
 }
