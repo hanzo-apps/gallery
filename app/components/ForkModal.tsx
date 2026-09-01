@@ -82,7 +82,7 @@ function Well({ children }: { children: React.ReactNode }) {
   );
 }
 
-const mono = { fontFamily: 'var(--font-zen-mono), monospace' } as const;
+const mono = { fontFamily: 'var(--font-mono), monospace' } as const;
 
 export function ForkModal({ template, onClose }: ForkModalProps) {
   const [method, setMethod] = useState<Method | null>(null);

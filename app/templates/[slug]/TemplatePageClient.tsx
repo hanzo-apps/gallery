@@ -85,7 +85,7 @@ function Band({ children, lifted }: { children: React.ReactNode; lifted?: boolea
   );
 }
 
-const mono = { fontFamily: 'var(--font-zen-mono), monospace' } as const;
+const mono = { fontFamily: 'var(--font-mono), monospace' } as const;
 
 export function TemplatePageClient({
   variants,
