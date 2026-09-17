@@ -8,7 +8,7 @@ minimumReleaseAgeExclude:
 catalog:
   '@eslint/eslintrc': '^3.3.6'
   '@hanzo/font': '1.9.2'
-  '@hanzo/gui': '8.3.1'
+  '@hanzo/gui': '8.3.5'
   '@hanzo/logo': '1.0.26'
   '@hanzo/ui': '8.27.2'
   '@react-native/assets-registry': '^0.87.1'
