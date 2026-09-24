@@ -7,12 +7,14 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-// Generate static params for all templates at build time
+// Every slug a page links to: the consolidated one each group is listed under,
+// and each variant's own, which the gallery's per-variant Info links name.
 export async function generateStaticParams() {
-  const uniqueTemplates = getUniqueTemplates(templates);
-  return uniqueTemplates.map((template) => ({
-    slug: template.slug,
-  }));
+  const slugs = new Set([
+    ...getUniqueTemplates(templates).map((template) => template.slug),
+    ...templates.map((template) => template.slug),
+  ]);
+  return [...slugs].map((slug) => ({ slug }));
 }
 
 export default async function TemplatePage({ params }: PageProps) {

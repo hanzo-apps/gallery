@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { HanzoLogo } from '@hanzo/logo/react';
 import { XStack, YStack, Anchor, Text } from '@hanzo/ui';
 import { c, t } from '../lib/design';
+import { DOCS } from '../lib/links';
 
 const link = {
   transition: 'quickest',
@@ -55,7 +56,7 @@ export function Header() {
           <Anchor render={<Link href="/gallery" />} {...link}>
             Browse
           </Anchor>
-          <Anchor render={<Link href="/docs" />} {...link}>
+          <Anchor href={DOCS} {...link}>
             Docs
           </Anchor>
           <Anchor href="https://github.com/hanzoai" target="_blank" rel="noopener noreferrer" {...link}>

@@ -7,6 +7,7 @@ import { Grid } from '@hanzo/ui/grid';
 import { shot } from './lib/shot';
 import { templates } from './templates-data';
 import { c, t, at, clip, hue, fill } from './lib/design';
+import { DOCS } from './lib/links';
 import { Stars } from './components/stars';
 
 /** A section of the page: full-bleed ground, centred column. */
@@ -312,7 +313,7 @@ export default function GalleryHome() {
               </Text>
             </Button>
             <Button
-              render={<Link href="/docs" />}
+              render={<a href={DOCS} />}
               transition="quickest"
               height="auto"
               paddingHorizontal={40}

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ZenMono } from "@hanzo/font/mono";
-import { ZenSans } from "@hanzo/font/sans";
+import { Zen } from "@hanzo/font/sans";
 import { Hanzo, YStack } from "@hanzo/ui";
 import "./globals.css";
 import { Header } from "./components/header";
@@ -88,7 +88,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${ZenSans.variable} ${ZenMono.variable}`}>
+      <body className={`${Zen.variable} ${ZenMono.variable}`}>
         <Hanzo>
           <Header />
           <YStack render="main" display="block" paddingTop={64}>

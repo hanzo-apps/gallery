@@ -3,6 +3,7 @@ import { HanzoLogo } from '@hanzo/logo/react';
 import { YStack, XStack, Anchor, Text, H4 } from '@hanzo/ui';
 import { Grid } from '@hanzo/ui/grid';
 import { c, t, clip } from '../lib/design';
+import { DOCS } from '../lib/links';
 
 const rule = { borderColor: c.white10 } as const;
 
@@ -65,14 +66,14 @@ export function Footer() {
             head="Product"
             links={[
               ['Templates', '/gallery'],
-              ['Documentation', '/docs'],
-              ['Pricing', '/pricing'],
+              ['Documentation', DOCS],
+              ['Pricing', 'https://hanzo.ai/pricing'],
             ]}
           />
           <Column
             head="Company"
             links={[
-              ['About', '/about'],
+              ['About', 'https://hanzo.ai/about'],
               ['Hanzo AI', 'https://hanzo.ai'],
               ['GitHub', 'https://github.com/hanzoai'],
             ]}
@@ -80,9 +81,9 @@ export function Footer() {
           <Column
             head="Legal"
             links={[
-              ['Terms', '/terms'],
-              ['Privacy', '/privacy'],
-              ['License', '/license'],
+              ['Terms', 'https://hanzo.ai/terms'],
+              ['Privacy', 'https://hanzo.ai/privacy'],
+              ['License', 'https://github.com/hanzo-apps/gallery/blob/main/LICENSE'],
             ]}
           />
         </Grid>
