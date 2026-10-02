@@ -3,7 +3,7 @@ name: deploy
 # gallery.hanzo.ai is a static export with no compute, served from the Sites
 # plane at s3://hanzo-sites/hanzo/gallery.
 #
-#   npm run build -> out/  ->  site
+#   pnpm build -> out/  ->  site
 #
 # site is bin/site in hanzoai/ci, reached through its action:
 # ensure-project, enqueue, presigned per-file upload, complete. It creates the
@@ -41,17 +41,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # package.json's `packageManager` is the one place pnpm is pinned.
+      - uses: pnpm/action-setup@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
+          cache: pnpm
 
-      - run: npm ci
+      - run: pnpm install --frozen-lockfile
 
       # `prebuild` regenerates templates.json from templates-data.ts, and
       # `output: 'export'` renders every template page from it. A template that
       # no longer parses fails here rather than shipping a blank card.
-      - run: npm run build
+      - run: pnpm build
 
       # complete prunes whatever the build did not emit, so an empty export
       # would empty the live site.

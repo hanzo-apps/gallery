@@ -16,6 +16,6 @@ test:
   - name: build
     run: |
       set -e
-      npm ci
+      pnpm install --frozen-lockfile
       npx tsc --noEmit
-      npm run build
+      pnpm build
