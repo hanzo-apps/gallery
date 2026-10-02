@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Hanzo, YStack } from "@hanzo/ui";
+// @hanzo/ui's sheet: @hanzo/design's tokens, base and theme. Imported here,
+// because webpack leaves the import inside the package's client root out.
+import "@hanzo/ui/styles.css";
 // Zen and Zen Mono as @font-face under the names @hanzo/design's --font-sans
 // and --font-mono ask for, so body text and gui's $mono token resolve to them.
 import "@hanzo/font/css";
