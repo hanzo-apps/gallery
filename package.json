@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "gen-templates-json": "node scripts/gen-templates-json.mjs",
     "prebuild": "node scripts/gen-templates-json.mjs",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
     "export-templates": "node scripts/export-templates-json.js",
