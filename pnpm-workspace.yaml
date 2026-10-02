@@ -3,14 +3,17 @@ allowBuilds:
   unrs-resolver: true
 minimumReleaseAgeExclude:
   - '@hanzo/font@1.9.2'
-  - '@hanzo/ui@8.25.0'
+  - '@hanzo/ui@8.25.0 || 8.27.54'
+  - '@hanzo/appearance@0.2.7'
+  - '@hanzo/design@0.5.33 || 0.5.34'
 
 catalog:
   '@eslint/eslintrc': '^3.3.6'
   '@hanzo/font': '1.9.2'
   '@hanzo/gui': '8.3.5'
   '@hanzo/logo': '1.0.26'
-  '@hanzo/ui': '8.27.2'
+  '@hanzo/ui': '8.27.54'
+  '@hanzogui/shell': '8.3.20'
   '@react-native/assets-registry': '^0.87.1'
   '@types/archiver': '^8.0.0'
   '@types/node': '26.4.0'
@@ -27,5 +30,11 @@ catalog:
   'typescript': '7.0.2'
   'zod': '^4.5.2'
 overrides:
+  # Gui, and only one of it: @hanzo/data asks for the 8.3.1 icons, which bring
+  # a second @hanzogui/web, and a component rendered under one configuration
+  # then looks in the other.
+  '@hanzogui/lucide-icons-2': 8.3.5
+  # Design, and only one of it: a second copy is a second set of tokens.
+  '@hanzo/design': 0.5.34
   '@noble/hashes': '1.8.0'
   'zod': '^4.5.2'

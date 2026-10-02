@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { ZenMono } from "@hanzo/font/mono";
-import { Zen } from "@hanzo/font/sans";
 import { Hanzo, YStack } from "@hanzo/ui";
+// Zen and Zen Mono as @font-face under the names @hanzo/design's --font-sans
+// and --font-mono ask for, so body text and gui's $mono token resolve to them.
+import "@hanzo/font/css";
 import "./globals.css";
 import { Header } from "./components/header";
 import { Footer } from "./components/footer";
@@ -88,10 +89,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${Zen.variable} ${ZenMono.variable}`}>
+      <body>
         <Hanzo>
           <Header />
-          <YStack render="main" display="block" paddingTop={64}>
+          <YStack render="main" id="main" display="block">
             {children}
           </YStack>
           <Footer />

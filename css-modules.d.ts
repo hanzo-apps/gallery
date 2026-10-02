@@ -6,3 +6,6 @@
 // TypeScript module resolver, so this declares them legitimate rather than
 // giving them a shape.
 declare module '*.css';
+
+// A package stylesheet reached through an export with no extension.
+declare module '@hanzo/font/css';

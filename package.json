@@ -21,6 +21,7 @@
     "@hanzo/gui": "catalog:",
     "@hanzo/logo": "catalog:",
     "@hanzo/ui": "catalog:",
+    "@hanzogui/shell": "catalog:",
     "@react-native/assets-registry": "catalog:",
     "archiver": "catalog:",
     "next": "catalog:",

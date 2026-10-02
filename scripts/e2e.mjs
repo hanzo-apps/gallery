@@ -48,7 +48,7 @@ check('home: hero heading visible', await page.getByRole('heading', { name: 'Han
   check('home: hero leading reaches its type size', lead.line >= lead.size,
     `${lead.size}px type / ${lead.line}px leading`);
   const painted = await h1.evaluate((el) => getComputedStyle(el).backgroundImage);
-  check('home: hero carries its gradient', painted.includes('linear-gradient'));
+  check('home: hero is set in the page ink, as hanzo.ai sets it', painted === 'none', painted);
 }
 check('home: six featured cards', (await page.locator('a[href^="/templates/"]').count()) >= 6);
 {

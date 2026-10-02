@@ -1,5 +1,5 @@
 /**
- * What is left after the utility engine: the four things a style prop cannot
+ * What is left after the utility engine: the three things a style prop cannot
  * say. Everything else on this site is a gui prop.
  *
  * @hanzo/ui's own sheet arrives with <Hanzo> and carries the reset, the theme
@@ -9,13 +9,6 @@
 /* No utility engine means no preflight, and a document's default 8px gutter. */
 body {
   margin: 0;
-}
-
-/* A keyframe is a rule, not a value, so it cannot live on an element. */
-@keyframes pulse {
-  50% {
-    opacity: 0.5;
-  }
 }
 
 /* Nor can a pseudo-element: this is the WebKit half of hiding a scrollbar,

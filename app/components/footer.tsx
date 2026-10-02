@@ -1,99 +1,56 @@
-import Link from 'next/link';
-import { HanzoLogo } from '@hanzo/logo/react';
-import { YStack, XStack, Anchor, Text, H4 } from '@hanzo/ui';
-import { Grid } from '@hanzo/ui/grid';
-import { c, t, clip } from '../lib/design';
+'use client';
+
+import { Anchor } from '@hanzo/ui';
+import { Footer as Foot, type FooterColumn, type FooterLink } from '@hanzo/ui/marketing';
+import { HanzoWordmark } from '@hanzogui/shell';
+import { HANZO_FOOTER_BOTTOM } from '@hanzogui/shell/registry';
 import { DOCS } from '../lib/links';
 
-const rule = { borderColor: c.white10 } as const;
+/**
+ * hanzo.ai's footer — the same component, gutter and copyright line — carrying
+ * the gallery's own links: each column's title is the page its subject lives on.
+ */
+const COLUMNS: FooterColumn[] = [
+  {
+    id: 'product',
+    title: 'Product',
+    href: '/gallery',
+    links: [
+      { label: 'Templates', href: '/gallery' },
+      { label: 'Documentation', href: DOCS, out: true },
+      { label: 'Pricing', href: 'https://hanzo.ai/pricing' },
+    ],
+  },
+  {
+    id: 'company',
+    title: 'Company',
+    href: 'https://hanzo.ai/about',
+    links: [
+      { label: 'About', href: 'https://hanzo.ai/about' },
+      { label: 'Hanzo AI', href: 'https://hanzo.ai' },
+      { label: 'GitHub', href: 'https://github.com/hanzoai', out: true },
+    ],
+  },
+];
 
-const item = {
-  transition: 'quickest',
-  color: c.gray400,
-  ...t.sm,
-  textDecorationLine: 'none',
-  hoverStyle: { color: '#fff' },
-} as const;
-
-function Column({ head, links }: { head: string; links: [string, string][] }) {
-  return (
-    <YStack>
-      <H4 {...t.base} fontWeight={700} color="#fff" marginBottom={16}>
-        {head}
-      </H4>
-      <YStack gap={8}>
-        {links.map(([label, href]) =>
-          href.startsWith('http') ? (
-            <Anchor key={label} href={href} target="_blank" rel="noopener noreferrer" {...item}>
-              {label}
-            </Anchor>
-          ) : (
-            <Anchor key={label} render={<Link href={href} />} {...item}>
-              {label}
-            </Anchor>
-          ),
-        )}
-      </YStack>
-    </YStack>
-  );
-}
+const LEGAL: FooterLink[] = [
+  { label: 'Terms', href: 'https://hanzo.ai/terms' },
+  { label: 'Privacy', href: 'https://hanzo.ai/privacy' },
+  { label: 'License', href: 'https://github.com/hanzo-apps/gallery/blob/main/LICENSE', out: true },
+];
 
 export function Footer() {
   return (
-    <YStack
-      render="footer"
-      paddingVertical={48}
-      paddingHorizontal={16}
-      backgroundColor="#000"
-      borderTopWidth={1}
-      {...rule}
-    >
-      <YStack width="100%" maxWidth={1152} marginLeft="auto" marginRight="auto">
-        <Grid columns={{ min: 160, max: 4 }} gap={32} style={{ marginBottom: 32 }}>
-          <YStack>
-            <XStack alignItems="center" gap={12} marginBottom={16}>
-              <HanzoLogo variant="white" size={28} />
-              <Text {...t.xl} fontWeight={700} {...clip(c.washShort)}>
-                Templates
-              </Text>
-            </XStack>
-            <Text color={c.gray400} {...t.sm}>
-              Premium UI/UX templates for modern web applications
-            </Text>
-          </YStack>
-
-          <Column
-            head="Product"
-            links={[
-              ['Templates', '/gallery'],
-              ['Documentation', DOCS],
-              ['Pricing', 'https://hanzo.ai/pricing'],
-            ]}
-          />
-          <Column
-            head="Company"
-            links={[
-              ['About', 'https://hanzo.ai/about'],
-              ['Hanzo AI', 'https://hanzo.ai'],
-              ['GitHub', 'https://github.com/hanzoai'],
-            ]}
-          />
-          <Column
-            head="Legal"
-            links={[
-              ['Terms', 'https://hanzo.ai/terms'],
-              ['Privacy', 'https://hanzo.ai/privacy'],
-              ['License', 'https://github.com/hanzo-apps/gallery/blob/main/LICENSE'],
-            ]}
-          />
-        </Grid>
-
-        <YStack alignItems="center" paddingTop={32} borderTopWidth={1} {...rule}>
-          <Text color={c.gray400} {...t.sm}>
-            © 2025 Hanzo AI Inc. All rights reserved.
-          </Text>
-        </YStack>
-      </YStack>
-    </YStack>
+    <Foot
+      gutter="var(--page-gutter)"
+      columns={COLUMNS}
+      legal={LEGAL}
+      copyright={HANZO_FOOTER_BOTTOM.copyright}
+      wordmark={
+        <Anchor href="/" aria-label="Hanzo Gallery home" display="inline-flex" items="center" color="inherit" textDecorationLine="none">
+          <HanzoWordmark label="Hanzo Gallery" size={20} />
+        </Anchor>
+      }
+    />
   );
 }

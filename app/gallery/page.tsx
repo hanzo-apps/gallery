@@ -2,30 +2,26 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import {
   YStack,
   XStack,
-  H3,
-  H4,
-  H5,
   Text,
-  Button,
   Input,
-  Anchor,
   Select,
   SelectTrigger,
   SelectValue,
   SelectContent,
   SelectItem,
 } from '@hanzo/ui';
-import { Grid } from '@hanzo/ui/grid';
+import { Grid, Cell } from '@hanzo/ui/grid';
+import { Action, Chip, Leaf, More } from '@hanzo/ui/marketing';
 import { templates as templateData, CATEGORIES, type Template } from '../templates-data';
 import { ForkModal } from '../components/ForkModal';
+import { HEADER } from '../components/header';
 import { shot } from '../lib/shot';
 import { getUniqueTemplates, groupTemplatesByFamily } from '../lib/template-utils';
-import { c, t, at, hue, tint } from '../lib/design';
+import { c, round, column } from '../lib/design';
 
 type SortOption = 'name-asc' | 'name-desc' | 'rating-high' | 'rating-low' | 'framework' | 'updated';
 type ViewMode = 'consolidated' | 'grouped';
@@ -37,34 +33,16 @@ const sorts: [SortOption, string][] = [
   ['framework', 'Framework'],
 ];
 
-/** The quiet button this page is built from. */
-const muted = {
-  transition: 'quickest',
-  height: 'auto',
-  backgroundColor: c.neutral900,
-  borderWidth: 1,
-  borderColor: c.neutral800,
-  borderRadius: 'var(--radius-lg, 0.75rem)',
-  hoverStyle: { backgroundColor: c.neutral800, borderColor: c.neutral700 },
-} as const;
+/** A badge: the outline Chip at its small size. */
+const badge = { px: 10, py: 2, fontSize: '$1', lineHeight: 18 } as const;
 
-/** The loud one: deploy. */
-const loud = {
-  transition: 'quickest',
-  height: 'auto',
-  backgroundColor: '#fff',
-  borderRadius: 'var(--radius-lg, 0.75rem)',
-  hoverStyle: { backgroundColor: c.neutral200 },
-} as const;
-
-const pill = {
-  paddingHorizontal: 10,
-  paddingVertical: 4,
-  borderRadius: 9999,
-  borderWidth: 1,
-  borderColor: c.neutral800,
-  backgroundColor: c.neutral900,
-  color: c.neutral500,
+/** A card: hanzo.ai's raised surface, a hairline that brightens on approach. */
+const card = {
+  bg: c.card,
+  borderColor: c.edge,
+  rounded: round.card,
+  overflow: 'hidden',
+  hoverStyle: { borderColor: c.strong },
 } as const;
 
 /** Deploy / preview / details, which every card carries. */
@@ -79,26 +57,19 @@ function Actions({
   onPreview: () => void;
   stacked?: boolean;
 }) {
-  const label = template.port ? '▶️ Live Preview' : '📸 Screenshot';
   const deploy = (
-    <Button {...loud} onPress={onFork} paddingHorizontal={stacked ? 20 : 24} paddingVertical={12} width={stacked ? '100%' : undefined}>
-      <Text {...t.sm} fontWeight={500} color="#000">
-        Deploy to Hanzo
-      </Text>
-    </Button>
+    <Action fill render="button" onClick={onFork} width={stacked ? '100%' : undefined}>
+      Deploy to Hanzo
+    </Action>
   );
   const rest = (
     <>
-      <Button {...muted} onPress={onPreview} paddingHorizontal={stacked ? 16 : 24} paddingVertical={10} flexGrow={stacked ? 1 : 0}>
-        <Text {...t.sm} color={c.neutral300}>
-          {label}
-        </Text>
-      </Button>
-      <Button {...muted} render={<Link href={`/templates/${template.slug}`} />} paddingHorizontal={stacked ? 16 : 24} paddingVertical={10} flexGrow={stacked ? 1 : 0}>
-        <Text {...t.sm} color={c.neutral300}>
-          Details
-        </Text>
-      </Button>
+      <Action render="button" onClick={onPreview} grow={stacked ? 1 : 0}>
+        {template.port ? 'Live preview' : 'Screenshot'}
+      </Action>
+      <Action href={`/templates/${template.slug}`} grow={stacked ? 1 : 0}>
+        Details
+      </Action>
     </>
   );
 
@@ -115,11 +86,23 @@ function Actions({
   );
 }
 
-function Shot({ src, alt, ratio = 16 / 9, ...rest }: { src: string; alt: string; ratio?: number; [k: string]: unknown }) {
+/** A capture in its frame. */
+function Shot({ src, alt, ...rest }: { src: string; alt: string; [k: string]: unknown }) {
   return (
-    <YStack position="relative" aspectRatio={ratio} backgroundColor={c.neutral900} overflow="hidden" {...rest}>
+    <YStack position="relative" aspectRatio={16 / 9} bg={c.raised} overflow="hidden" {...rest}>
       <Image src={src} alt={alt} fill style={{ objectFit: 'cover' }} data-zoom="" />
     </YStack>
+  );
+}
+
+/** A turn-over chevron for the variants switch. */
+function Chevron({ turned }: { turned: boolean }) {
+  return (
+    <Text render="span" aria-hidden display="flex" rotate={turned ? '180deg' : '0deg'} transition="quickest">
+      <svg width={12} height={12} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
+        <path d="M6 9l6 6 6-6" />
+      </svg>
+    </Text>
   );
 }
 
@@ -202,107 +185,67 @@ export default function Gallery() {
   };
 
   return (
-    <YStack minHeight="100vh" backgroundColor="#000">
-      {/* Filters, pinned */}
-      <YStack
-        position="sticky"
-        top={0}
-        zIndex={40}
-        backgroundColor="#000"
-        borderBottomWidth={1}
-        borderColor={c.neutral800}
-      >
-        <YStack width="100%" maxWidth={1600} marginLeft="auto" marginRight="auto" paddingHorizontal={32} paddingVertical={24}>
-          <XStack alignItems="center" justifyContent="space-between" marginBottom={24}>
-            <Anchor
-              render={<Link href="/" />}
-              transition="quickest"
-              {...t.sm}
-              color={c.neutral400}
-              textDecorationLine="none"
-              hoverStyle={{ color: '#fff' }}
-            >
-              ← Back
-            </Anchor>
-            <XStack alignItems="center" gap={16}>
-              <Text {...t.sm} color={c.neutral400}>
+    <YStack minH="100vh" bg={c.ground}>
+      {/* Filters, pinned under the site header */}
+      <YStack position="sticky" t={HEADER} z={40} bg={c.ground} borderBottomWidth={1} borderColor={c.edge}>
+        <YStack {...column(1600)} py={20} gap={16}>
+          <XStack items="center" justify="space-between" gap={12} flexWrap="wrap">
+            <More href="/">← Back</More>
+            <XStack items="center" gap={12}>
+              <Text fontSize="$2" lineHeight={18} color={c.faint}>
                 {view === 'grouped' ? `${shownFamilies.length} template families` : `${shownTemplates.length} templates`}
               </Text>
-              <XStack
-                gap={8}
-                padding={4}
-                borderRadius={9999}
-                backgroundColor={c.neutral900}
-                borderWidth={1}
-                borderColor={c.neutral800}
-              >
+              <XStack gap={4} p={4} rounded={round.pill} bg={c.card} borderWidth={1} borderColor={c.edge}>
                 {(
                   [
                     ['consolidated', 'Simple'],
                     ['grouped', 'Grouped'],
                   ] as [ViewMode, string][]
                 ).map(([mode, label]) => (
-                  <Button
+                  <Text
                     key={mode}
-                    onPress={() => setView(mode)}
+                    render="button"
+                    onClick={() => setView(mode)}
                     aria-pressed={view === mode}
-                    transition="quickest"
-                    height="auto"
-                    paddingHorizontal={16}
-                    paddingVertical={6}
-                    borderRadius={9999}
-                    backgroundColor={view === mode ? '#fff' : 'transparent'}
+                    px={14}
+                    py={6}
+                    borderWidth={0}
+                    rounded={round.pill}
+                    cursor="pointer"
+                    fontSize="$1"
+                    lineHeight={16}
+                    fontWeight="500"
+                    bg={view === mode ? c.bright : 'transparent'}
+                    color={view === mode ? c.onBright : c.muted}
+                    hoverStyle={view === mode ? {} : { color: c.ink }}
                   >
-                    <Text {...t.xs} fontWeight={500} color={view === mode ? '#000' : c.neutral400}>
-                      {label}
-                    </Text>
-                  </Button>
+                    {label}
+                  </Text>
                 ))}
               </XStack>
             </XStack>
           </XStack>
 
-          <XStack gap={12} marginBottom={24} alignItems="center">
+          <XStack gap={8} items="center">
             <Input
-              flexGrow={1}
-              flexShrink={1}
+              grow={1}
+              shrink={1}
               flexBasis={0}
+              minW={0}
               placeholder="Search templates..."
               value={search}
               onChangeText={setSearch}
-              borderRadius={9999}
-              backgroundColor={c.neutral900}
-              borderColor={c.neutral800}
-              color="#fff"
-              focusStyle={{ borderColor: '#fff' }}
+              rounded={round.pill}
+              bg={c.card}
+              borderColor={c.edge}
+              color={c.ink}
+              focusStyle={{ borderColor: c.chosen }}
             />
-            <Button
-              onPress={toRandom}
-              transition="quickest"
-              height="auto"
-              flexShrink={0}
-              paddingHorizontal={20}
-              paddingVertical={12}
-              borderRadius={9999}
-              borderWidth={1}
-              borderColor={at(c.purple400, 0.5)}
-              backgroundImage={c.brand}
-              boxShadow={`0 10px 15px ${at(c.purple500, 0.3)}`}
-              title="Jump to Random Template"
-              hoverStyle={{ backgroundImage: c.brandHover, scale: 1.05, boxShadow: `0 10px 15px ${at(c.purple500, 0.5)}` }}
-            >
-              <Text {...t.sm} fontWeight={500} color="#fff" whiteSpace="nowrap">
-                🎲 Random
-              </Text>
-            </Button>
+            <Action render="button" onClick={toRandom} shrink={0} title="Jump to Random Template">
+              Random
+            </Action>
             <Select value={sortBy} onValueChange={(v: string) => setSortBy(v as SortOption)}>
-              <SelectTrigger
-                width={150}
-                flexShrink={0}
-                borderRadius={9999}
-                backgroundColor={c.neutral900}
-                borderColor={c.neutral800}
-              >
+              <SelectTrigger width={132} shrink={0} rounded={round.pill} bg={c.card} borderColor={c.edge}>
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -315,35 +258,34 @@ export default function Gallery() {
             </Select>
           </XStack>
 
-          {/* Category chips */}
+          {/* Category chips: the row scrolls inside itself */}
           <XStack
             overflow="scroll"
-            marginHorizontal={-32}
-            paddingHorizontal={32}
+            mx="calc(-1 * var(--page-gutter))"
+            px="var(--page-gutter)"
             data-scrollbar="none"
             style={{ scrollbarWidth: 'none' }}
           >
-            <XStack gap={12} paddingBottom={8} minWidth="max-content">
+            <XStack gap={8} pb={4} minW="max-content">
               {['All Categories', ...CATEGORIES].map((name) => {
                 const on = category === name;
                 return (
-                  <Button
+                  <Chip
                     key={name}
-                    onPress={() => setCategory(name)}
-                    transition="quickest"
-                    height="auto"
-                    paddingHorizontal={20}
-                    paddingVertical={10}
-                    borderRadius={9999}
-                    borderWidth={1}
-                    borderColor={on ? '#fff' : c.neutral800}
-                    backgroundColor={on ? '#fff' : c.neutral900}
-                    hoverStyle={on ? {} : { borderColor: c.neutral600 }}
+                    render="button"
+                    onClick={() => setCategory(name)}
+                    aria-pressed={on}
+                    px={16}
+                    py={8}
+                    cursor="pointer"
+                    whiteSpace="nowrap"
+                    fontWeight="500"
+                    {...(on
+                      ? { bg: c.bright, color: c.onBright, borderColor: c.bright, hoverStyle: {} }
+                      : { hoverStyle: { borderColor: c.strong, color: c.ink } })}
                   >
-                    <Text {...t.sm} fontWeight={500} color={on ? '#000' : c.neutral300} whiteSpace="nowrap">
-                      {name === 'All Categories' ? 'All' : name}
-                    </Text>
-                  </Button>
+                    {name === 'All Categories' ? 'All' : name}
+                  </Chip>
                 );
               })}
             </XStack>
@@ -351,180 +293,135 @@ export default function Gallery() {
         </YStack>
       </YStack>
 
-      <YStack width="100%" maxWidth={1600} marginLeft="auto" marginRight="auto" paddingHorizontal={32} paddingVertical={48}>
+      <YStack {...column(1600)} py={48}>
         {view === 'consolidated' && (
-          <Grid columns={{ min: 320, max: 3 }} gap={32}>
+          <Grid columns={{ min: 300, max: 3 }} gap={24}>
             {shownTemplates.map((x) => (
-              <YStack
-                key={x.id}
-                group
-                transition="quick"
-                backgroundColor={c.neutral950}
-                borderRadius="var(--radius-2xl, 1.5rem)"
-                borderWidth={1}
-                borderColor={c.neutral800}
-                overflow="hidden"
-                hoverStyle={{ borderColor: c.neutral700 }}
-              >
-                <Shot src={shot(x.screenshot)} alt={x.displayName} borderBottomWidth={1} borderColor={c.neutral800} />
-                <YStack padding={32}>
-                  <XStack alignItems="flex-start" justifyContent="space-between" marginBottom={16} gap={12}>
-                    <YStack flexGrow={1} flexShrink={1}>
-                      <H3 {...t.xl} fontWeight={600} color="#fff" marginBottom={8}>
+              <Leaf key={x.id} p={0} {...card}>
+                <Shot src={shot(x.screenshot)} alt={x.displayName} borderBottomWidth={1} borderColor={c.edge} />
+                <YStack p={24}>
+                  <XStack items="flex-start" justify="space-between" mb={12} gap={12}>
+                    <YStack grow={1} shrink={1}>
+                      <Text render="h3" m={0} fontSize="$6" lineHeight={24} fontWeight="500" color={c.ink} mb={4}>
                         {x.displayName}
-                      </H3>
-                      <Text {...t.sm} color={c.neutral400}>
+                      </Text>
+                      <Text fontSize="$2" lineHeight={18} color={c.muted}>
                         {x.framework}
                       </Text>
                     </YStack>
-                    <Text {...pill} {...t.xs}>
-                      {x.category}
-                    </Text>
+                    <Chip {...badge}>{x.category}</Chip>
                   </XStack>
-                  <Text {...t.sm} color={c.neutral500} marginBottom={24} lineHeight="1.625">
+                  <Text fontSize="$2" lineHeight={21} color={c.muted} mb={20}>
                     {x.useCase}
                   </Text>
                   <Actions template={x} stacked onFork={() => setForking(x)} onPreview={() => preview(x)} />
                 </YStack>
-              </YStack>
+              </Leaf>
             ))}
           </Grid>
         )}
 
         {view === 'grouped' && (
-          <YStack gap={24}>
+          <YStack gap={20}>
             {shownFamilies.map((family) => {
               const expanded = open.has(family.family);
               const x = family.primaryTemplate;
               const many = family.variantCount > 1;
 
               return (
-                <YStack
-                  key={family.family}
-                  group
-                  backgroundColor={c.neutral950}
-                  borderRadius="var(--radius-2xl, 1.5rem)"
-                  borderWidth={1}
-                  borderColor={c.neutral800}
-                  overflow="hidden"
-                >
-                  <Grid columns={{ min: 260, max: 3 }} gap={24} style={{ padding: 24 }}>
+                <Leaf key={family.family} p={0} {...card}>
+                  <Grid columns={{ min: 260, max: 3 }} gap={24} p={24}>
                     <Shot
                       src={shot(x.screenshot)}
                       alt={family.displayName}
-                      borderRadius="var(--radius-xl, 1rem)"
+                      rounded={round.frame}
                       borderWidth={1}
-                      borderColor={c.neutral800}
+                      borderColor={c.edge}
                     />
-                    <YStack style={{ gridColumn: 'span 2' }}>
-                      <XStack alignItems="center" gap={12} marginBottom={8} flexWrap="wrap">
-                        <H3 {...t.xl2} fontWeight={600} color="#fff">
-                          {family.displayName}
-                        </H3>
-                        {many && (
-                          <Text
-                            paddingHorizontal={12}
-                            paddingVertical={4}
-                            borderRadius={9999}
-                            borderWidth={1}
-                            {...t.xs}
-                            fontWeight={500}
-                            {...tint('purple')}
-                          >
-                            {family.variantCount} variants
+                    <Cell col={2}>
+                      <YStack>
+                        <XStack items="center" gap={12} mb={6} flexWrap="wrap">
+                          <Text render="h3" m={0} fontSize="$7" lineHeight={26} fontWeight="500" color={c.ink}>
+                            {family.displayName}
                           </Text>
-                        )}
-                      </XStack>
-                      <Text {...t.sm} color={c.neutral400} marginBottom={4}>
-                        {x.framework}
-                      </Text>
-                      <XStack marginBottom={24}>
-                        <Text {...pill} {...t.xs}>
-                          {x.category}
+                          {many && <Chip {...badge}>{family.variantCount} variants</Chip>}
+                        </XStack>
+                        <Text fontSize="$2" lineHeight={18} color={c.muted} mb={10}>
+                          {x.framework}
                         </Text>
-                      </XStack>
-                      <Text {...t.sm} color={c.neutral500} marginBottom={24} lineHeight="1.625">
-                        {x.useCase}
-                      </Text>
-                      <XStack flexWrap="wrap" gap={12}>
-                        <Actions template={x} onFork={() => setForking(x)} onPreview={() => preview(x)} />
-                        {many && (
-                          <Button {...muted} onPress={() => toggle(family.family)} paddingHorizontal={24} paddingVertical={10}>
-                            <Text {...t.sm} color={c.neutral300}>
-                              {expanded ? '▼ Hide' : '▶ Show'} Variants
-                            </Text>
-                          </Button>
-                        )}
-                      </XStack>
-                    </YStack>
+                        <XStack mb={16}>
+                          <Chip {...badge}>{x.category}</Chip>
+                        </XStack>
+                        <Text fontSize="$2" lineHeight={21} color={c.muted} mb={20}>
+                          {x.useCase}
+                        </Text>
+                        <XStack flexWrap="wrap" gap={12}>
+                          <Actions template={x} onFork={() => setForking(x)} onPreview={() => preview(x)} />
+                          {many && (
+                            <Action render="button" onClick={() => toggle(family.family)} aria-expanded={expanded}>
+                              {expanded ? 'Hide variants' : 'Show variants'}
+                              <Chevron turned={expanded} />
+                            </Action>
+                          )}
+                        </XStack>
+                      </YStack>
+                    </Cell>
                   </Grid>
 
                   {expanded && many && (
-                    <YStack
-                      borderTopWidth={1}
-                      borderColor={c.neutral800}
-                      backgroundColor={at(c.neutral950, 0.5)}
-                      padding={24}
-                    >
-                      <H4 {...t.sm} fontWeight={600} color={c.neutral400} marginBottom={16} textTransform="uppercase" letterSpacing={0.8}>
+                    <YStack borderTopWidth={1} borderColor={c.edge} bg={c.ground} p={24}>
+                      <Text
+                        render="h4"
+                        m={0}
+                        mb={16}
+                        fontSize="$1"
+                        lineHeight={16}
+                        fontWeight="600"
+                        color={c.faint}
+                        textTransform="uppercase"
+                        letterSpacing={0.8}
+                      >
                         All Variants ({family.variantCount})
-                      </H4>
-                      <Grid columns={{ min: 240, max: 3 }} gap={16}>
+                      </Text>
+                      <Grid columns={{ min: 240, max: 3 }} gap={12}>
                         {family.templates.map((v) => (
                           <YStack
                             key={v.id}
-                            transition="quickest"
-                            backgroundColor={c.neutral900}
-                            borderRadius="var(--radius-xl, 1rem)"
+                            bg={c.card}
+                            rounded={round.frame}
                             borderWidth={1}
-                            borderColor={c.neutral800}
-                            padding={16}
-                            hoverStyle={{ borderColor: c.neutral700 }}
+                            borderColor={c.edge}
+                            p={16}
+                            hoverStyle={{ borderColor: c.strong }}
                           >
-                            <XStack alignItems="flex-start" justifyContent="space-between" marginBottom={12} gap={8}>
-                              <YStack flexGrow={1} flexShrink={1}>
-                                <H5 {...t.sm} fontWeight={500} color="#fff" marginBottom={4}>
+                            <XStack items="flex-start" justify="space-between" mb={12} gap={8}>
+                              <YStack grow={1} shrink={1}>
+                                <Text render="h5" m={0} fontSize="$2" lineHeight={18} fontWeight="500" color={c.ink} mb={2}>
                                   {v.framework}
-                                </H5>
-                                <Text {...t.xs} color={c.neutral500}>
+                                </Text>
+                                <Text fontSize="$1" lineHeight={16} color={c.faint}>
                                   {v.displayName}
                                 </Text>
                               </YStack>
-                              <Text
-                                paddingHorizontal={8}
-                                paddingVertical={4}
-                                borderRadius="var(--radius-lg, 0.75rem)"
-                                {...t.xs}
-                                fontWeight={500}
-                                backgroundColor={tint(hue(v.tier)).backgroundColor}
-                                color={tint(hue(v.tier)).color}
-                              >
-                                T{v.tier}
-                              </Text>
+                              <Chip {...badge}>Tier {v.tier}</Chip>
                             </XStack>
                             <XStack gap={8}>
-                              <Button {...loud} onPress={() => setForking(v)} flexGrow={1} paddingHorizontal={12} paddingVertical={6}>
-                                <Text {...t.xs} fontWeight={500} color="#000">
-                                  Deploy
-                                </Text>
-                              </Button>
-                              <Button {...muted} onPress={() => preview(v)} paddingHorizontal={12} paddingVertical={6}>
-                                <Text {...t.xs} color={c.neutral300}>
-                                  {v.port ? '▶️' : '📸'}
-                                </Text>
-                              </Button>
-                              <Button {...muted} render={<Link href={`/templates/${v.slug}`} />} paddingHorizontal={12} paddingVertical={6}>
-                                <Text {...t.xs} color={c.neutral300}>
-                                  Info
-                                </Text>
-                              </Button>
+                              <Action fill render="button" onClick={() => setForking(v)} grow={1} minH={36} px={12}>
+                                Deploy
+                              </Action>
+                              <Action render="button" onClick={() => preview(v)} minH={36} px={12}>
+                                {v.port ? 'Preview' : 'Screenshot'}
+                              </Action>
+                              <Action href={`/templates/${v.slug}`} minH={36} px={12}>
+                                Info
+                              </Action>
                             </XStack>
                           </YStack>
                         ))}
                       </Grid>
                     </YStack>
                   )}
-                </YStack>
+                </Leaf>
               );
             })}
           </YStack>

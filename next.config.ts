@@ -21,8 +21,14 @@ const web = [".web.tsx", ".web.ts", ".web.jsx", ".web.js"];
 
 const nextConfig: NextConfig = {
   output: "export",
+  // The gui packages ship untranspiled ESM resolved against react-native.
+  transpilePackages: ["@hanzo/gui", "@hanzo/ui", "@hanzogui/shell", "react-native-web"],
   images: {
     unoptimized: true,
+  },
+  // TypeScript 7 has no compiler API; Next shells out to tsc instead.
+  experimental: {
+    useTypeScriptCli: true,
   },
   turbopack: {
     resolveAlias: {

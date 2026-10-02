@@ -1,10 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { Dialog, DialogContent, YStack, XStack, H2, H3, Text, Button, ScrollView } from '@hanzo/ui';
+import { Dialog, DialogContent, YStack, XStack, Text, ScrollView } from '@hanzo/ui';
 import { Grid } from '@hanzo/ui/grid';
+import { Action } from '@hanzo/ui/marketing';
 import type { Template } from '../templates-data';
-import { c, t, at } from '../lib/design';
+import { c, round, mono } from '../lib/design';
 
 interface ForkModalProps {
   template: Template;
@@ -49,10 +50,10 @@ function estimate(template: Template): string {
 
 type Method = 'cloud' | 'local' | 'github';
 
-const methods: { id: Method; icon: string; head: string; note: string; edge: string }[] = [
-  { id: 'cloud', icon: '🚀', head: 'Deploy to Hanzo Cloud', note: 'One-click deployment to Hanzo global edge network', edge: c.blue500 },
-  { id: 'local', icon: '📦', head: 'Download & Deploy Locally', note: 'Download template and deploy from your machine', edge: c.green500 },
-  { id: 'github', icon: '🔗', head: 'Clone to GitHub', note: 'Fork to your GitHub and connect to Hanzo', edge: c.purple500 },
+const methods: { id: Method; head: string; note: string }[] = [
+  { id: 'cloud', head: 'Deploy to Hanzo Cloud', note: 'One-click deployment to Hanzo global edge network' },
+  { id: 'local', head: 'Download & Deploy Locally', note: 'Download template and deploy from your machine' },
+  { id: 'github', head: 'Clone to GitHub', note: 'Fork to your GitHub and connect to Hanzo' },
 ];
 
 const perks = [
@@ -66,23 +67,23 @@ const perks = [
   '99.99% uptime SLA',
 ];
 
-/** A bordered well: the setup block and the path row sit in one. */
+/** A section heading inside the dialog. */
+function Head({ children }: { children: React.ReactNode }) {
+  return (
+    <Text render="h3" m={0} fontSize="$3" lineHeight={20} fontWeight="600" color={c.ink}>
+      {children}
+    </Text>
+  );
+}
+
+/** A bordered well: the setup block and the path row each sit in one. */
 function Well({ children }: { children: React.ReactNode }) {
   return (
-    <YStack
-      backgroundColor={c.white5}
-      borderRadius="var(--radius-xl, 1rem)"
-      borderWidth={1}
-      borderColor={c.white10}
-      padding={16}
-      marginBottom={24}
-    >
+    <YStack bg={c.card} rounded={round.frame} borderWidth={1} borderColor={c.edge} p={16} mb={20}>
       {children}
     </YStack>
   );
 }
-
-const mono = { fontFamily: 'var(--font-mono), monospace' } as const;
 
 export function ForkModal({ template, onClose }: ForkModalProps) {
   const [method, setMethod] = useState<Method | null>(null);
@@ -115,230 +116,174 @@ export function ForkModal({ template, onClose }: ForkModalProps) {
     alert(said);
   };
 
+  const ready = method !== null && !busy;
+
   return (
     <Dialog modal open onOpenChange={(open: boolean) => !open && onClose()}>
       <DialogContent
         showCloseButton={false}
         width="100%"
-        maxWidth={896}
-        maxHeight="90vh"
-        padding={0}
+        maxW={896}
+        maxH="90vh"
+        p={0}
         overflow="hidden"
-        borderRadius="var(--radius-2xl, 1.5rem)"
+        rounded={round.card}
         borderWidth={1}
-        borderColor={c.white20}
-        backgroundImage={`linear-gradient(to bottom right, ${c.gray900}, ${c.gray950})`}
+        borderColor={c.edge}
+        bg={c.card}
       >
-        <XStack
-          padding={24}
-          justifyContent="space-between"
-          alignItems="flex-start"
-          backgroundImage={`linear-gradient(to right, ${c.blue600}, ${c.purple600})`}
-        >
-          <YStack flexShrink={1}>
-            <H2 {...t.xl2} fontWeight={700} color="#fff" marginBottom={8}>
+        <XStack p={24} gap={16} justify="space-between" items="flex-start" borderBottomWidth={1} borderColor={c.edge}>
+          <YStack shrink={1}>
+            <Text render="h2" m={0} mb={6} fontSize="$7" lineHeight={26} fontWeight="500" color={c.ink}>
               Fork {template.displayName} on Hanzo AI
-            </H2>
-            <Text color={c.blue100} {...t.sm}>
-              {template.framework} • {template.category}
+            </Text>
+            <Text fontSize="$2" lineHeight={18} color={c.muted}>
+              {template.framework} · {template.category}
             </Text>
           </YStack>
-          <Button
-            onPress={onClose}
-            transition="quickest"
-            height="auto"
-            paddingHorizontal={16}
-            paddingVertical={8}
-            borderRadius="var(--radius-lg, 0.75rem)"
-            backgroundColor="rgba(255,255,255,0.1)"
-            hoverStyle={{ backgroundColor: 'rgba(255,255,255,0.2)' }}
+          <Text
+            render="button"
+            onClick={onClose}
             aria-label="Close"
+            display="grid"
+            placeItems="center"
+            shrink={0}
+            width={36}
+            height={36}
+            p={0}
+            borderWidth={0}
+            rounded={round.pill}
+            bg="transparent"
+            color={c.muted}
+            cursor="pointer"
+            hoverStyle={{ bg: c.wash, color: c.ink }}
           >
-            <Text color="#fff">✕</Text>
-          </Button>
+            <svg width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" aria-hidden="true">
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </Text>
         </XStack>
 
-        <ScrollView flex={1} padding={24}>
-          <YStack marginBottom={24}>
-            <H3 {...t.lg} fontWeight={600} color="#fff" marginBottom={16}>
-              Choose Deployment Method
-            </H3>
-            <Grid columns={{ min: 220, max: 3 }} gap={16}>
-              {methods.map((m) => (
-                <YStack
-                  key={m.id}
-                  render="button"
-                  onPress={() => setMethod(m.id)}
-                  transition="quickest"
-                  alignItems="flex-start"
-                  cursor="pointer"
-                  padding={16}
-                  borderRadius="var(--radius-xl, 1rem)"
-                  borderWidth={2}
-                  borderColor={method === m.id ? m.edge : c.white10}
-                  backgroundColor={method === m.id ? at(m.edge, 0.1) : c.white5}
-                  hoverStyle={{ borderColor: at(m.edge, 0.5) }}
-                >
-                  <Text {...t.xl3} marginBottom={8}>
-                    {m.icon}
-                  </Text>
-                  <H3 fontWeight={700} color="#fff" marginBottom={4}>
-                    {m.head}
-                  </H3>
-                  <Text {...t.sm} color={c.gray400} marginBottom={8}>
-                    {m.note}
-                  </Text>
-                  <Text {...t.xs} {...mono} color={m.edge}>
-                    {m.id === 'cloud'
-                      ? `Estimated: ${estimate(template)}`
-                      : m.id === 'local'
-                        ? `Path: ${template.path}`
-                        : 'git clone ...'}
-                  </Text>
-                </YStack>
-              ))}
+        <ScrollView flex={1} p={24}>
+          <YStack mb={24} gap={14}>
+            <Head>Choose Deployment Method</Head>
+            <Grid columns={{ min: 220, max: 3 }} gap={12}>
+              {methods.map((m) => {
+                const on = method === m.id;
+                return (
+                  <YStack
+                    key={m.id}
+                    render="button"
+                    onPress={() => setMethod(m.id)}
+                    aria-pressed={on}
+                    items="flex-start"
+                    cursor="pointer"
+                    p={16}
+                    gap={6}
+                    rounded={round.frame}
+                    borderWidth={1}
+                    borderColor={on ? c.chosen : c.edge}
+                    bg={on ? c.wash : 'transparent'}
+                    hoverStyle={{ borderColor: on ? c.chosen : c.strong }}
+                  >
+                    <Text fontSize="$3" lineHeight={20} fontWeight="600" color={c.ink} text="left">
+                      {m.head}
+                    </Text>
+                    <Text fontSize="$2" lineHeight={18} color={c.muted} text="left">
+                      {m.note}
+                    </Text>
+                    <Text {...mono} fontSize="$1" lineHeight={16} color={c.faint} text="left">
+                      {m.id === 'cloud'
+                        ? `Estimated: ${estimate(template)}`
+                        : m.id === 'local'
+                          ? `Path: ${template.path}`
+                          : 'git clone ...'}
+                    </Text>
+                  </YStack>
+                );
+              })}
             </Grid>
           </YStack>
 
           <Well>
-            <XStack alignItems="center" justifyContent="space-between" marginBottom={12}>
-              <H3 fontWeight={600} color="#fff">
-                Setup Commands
-              </H3>
-              <Button
-                onPress={() => copy(setupCommands(template), '✅ Setup commands copied to clipboard!')}
-                transition="quickest"
-                height="auto"
-                paddingHorizontal={12}
-                paddingVertical={4}
-                borderRadius="var(--radius-lg, 0.75rem)"
-                backgroundColor="rgba(255,255,255,0.1)"
-                hoverStyle={{ backgroundColor: 'rgba(255,255,255,0.2)' }}
-              >
-                <Text {...t.sm} color="#fff">
-                  📋 Copy
-                </Text>
-              </Button>
+            <XStack items="center" justify="space-between" mb={12}>
+              <Head>Setup Commands</Head>
+              <Action render="button" onClick={() => copy(setupCommands(template), '✅ Setup commands copied to clipboard!')} minH={32} px={12}>
+                Copy
+              </Action>
             </XStack>
-            <YStack
-              backgroundColor="rgba(0,0,0,0.5)"
-              padding={16}
-              borderRadius="var(--radius-lg, 0.75rem)"
-              overflow="scroll"
-            >
-              <Text render="pre" {...t.sm} {...mono} color={c.green400} style={{ whiteSpace: 'pre' }}>
+            <YStack bg={c.ground} p={16} rounded={round.control} borderWidth={1} borderColor={c.edge} overflow="scroll">
+              <Text render="pre" m={0} {...mono} fontSize="$2" lineHeight={20} color={c.ink} style={{ whiteSpace: 'pre' }}>
                 {setupCommands(template)}
               </Text>
             </YStack>
           </Well>
 
           <Well>
-            <XStack alignItems="center" justifyContent="space-between" gap={16}>
-              <YStack flexShrink={1}>
-                <H3 fontWeight={600} color="#fff" marginBottom={4}>
-                  Template Path
-                </H3>
-                <Text {...t.sm} {...mono} color={c.gray400}>
+            <XStack items="center" justify="space-between" gap={16}>
+              <YStack shrink={1} minW={0} gap={4}>
+                <Head>Template Path</Head>
+                <Text {...mono} fontSize="$2" lineHeight={18} color={c.muted}>
                   {template.path}
                 </Text>
               </YStack>
-              <Button
-                onPress={() => copy(template.path, `📋 Path copied!\n\nRelative path: ${template.path}`)}
-                transition="quickest"
-                height="auto"
-                paddingHorizontal={16}
-                paddingVertical={8}
-                borderRadius="var(--radius-lg, 0.75rem)"
-                backgroundColor="rgba(255,255,255,0.1)"
-                hoverStyle={{ backgroundColor: 'rgba(255,255,255,0.2)' }}
+              <Action
+                render="button"
+                onClick={() => copy(template.path, `📋 Path copied!\n\nRelative path: ${template.path}`)}
+                shrink={0}
+                whiteSpace="nowrap"
               >
-                <Text color="#fff" whiteSpace="nowrap">
-                  📋 Copy Path
-                </Text>
-              </Button>
+                Copy Path
+              </Action>
             </XStack>
           </Well>
 
-          <YStack
-            backgroundImage={`linear-gradient(to bottom right, ${at(c.blue500, 0.1)}, ${at(c.purple500, 0.1)})`}
-            borderRadius="var(--radius-xl, 1rem)"
-            borderWidth={1}
-            borderColor={at(c.blue500, 0.2)}
-            padding={24}
-          >
-            <H3 {...t.lg} fontWeight={600} color="#fff" marginBottom={16}>
-              What You Get with Hanzo AI
-            </H3>
-            <Grid columns={{ min: 240, max: 2 }} gap={12}>
+          <YStack rounded={round.frame} borderWidth={1} borderColor={c.edge} p={24} gap={16}>
+            <Head>What You Get with Hanzo AI</Head>
+            <Grid columns={{ min: 240, max: 2 }} gap={10}>
               {perks.map((perk) => (
-                <XStack key={perk} alignItems="center" gap={8}>
-                  <Text color={c.green400}>✓</Text>
-                  <Text color={c.gray300}>{perk}</Text>
+                <XStack key={perk} items="center" gap={8}>
+                  <Text aria-hidden fontSize="$2" color={c.ink}>
+                    ✓
+                  </Text>
+                  <Text fontSize="$2" lineHeight={20} color={c.muted}>
+                    {perk}
+                  </Text>
                 </XStack>
               ))}
             </Grid>
           </YStack>
         </ScrollView>
 
-        <XStack
-          padding={24}
-          alignItems="center"
-          justifyContent="space-between"
-          gap={16}
-          borderTopWidth={1}
-          borderColor={c.white10}
-          backgroundColor={at(c.gray900, 0.8)}
-          backdropFilter="blur(4px)"
-        >
-          <Text {...t.sm} color={c.gray400}>
+        <XStack p={20} px={24} items="center" justify="space-between" gap={16} flexWrap="wrap" borderTopWidth={1} borderColor={c.edge} bg={c.card}>
+          <Text fontSize="$2" lineHeight={18} color={c.muted}>
             {method
               ? `Ready to ${method === 'cloud' ? 'deploy' : method === 'local' ? 'download' : 'clone'}?`
               : 'Select a deployment method to continue'}
           </Text>
-          <XStack gap={12}>
-            <Button
-              onPress={onClose}
-              transition="quickest"
-              height="auto"
-              paddingHorizontal={24}
-              paddingVertical={8}
-              borderRadius="var(--radius-lg, 0.75rem)"
-              backgroundColor={c.white5}
-              borderWidth={1}
-              borderColor={c.white10}
-              hoverStyle={{ backgroundColor: 'rgba(255,255,255,0.1)' }}
+          <XStack gap={10}>
+            <Action render="button" onClick={onClose}>
+              Cancel
+            </Action>
+            <Action
+              fill
+              render="button"
+              onClick={run}
+              disabled={!ready}
+              aria-disabled={!ready}
+              opacity={ready ? 1 : 0.4}
+              cursor={ready ? 'pointer' : 'not-allowed'}
             >
-              <Text color="#fff">Cancel</Text>
-            </Button>
-            <Button
-              onPress={run}
-              disabled={!method || busy}
-              isLoading={busy}
-              transition="quickest"
-              height="auto"
-              paddingHorizontal={24}
-              paddingVertical={8}
-              borderRadius="var(--radius-lg, 0.75rem)"
-              {...(method && !busy
-                ? {
-                    backgroundImage: c.cool,
-                    boxShadow: `0 10px 15px ${at(c.blue500, 0.25)}`,
-                    hoverStyle: { backgroundImage: c.coolHover },
-                  }
-                : { backgroundColor: c.gray700 })}
-            >
-              <Text fontWeight={500} color={method && !busy ? '#fff' : c.gray500}>
-                {busy
-                  ? 'Processing…'
-                  : method === 'cloud'
-                    ? '🚀 Deploy Now'
-                    : method === 'local'
-                      ? '⬇️ Download Now'
-                      : method === 'github'
-                        ? '🔗 Clone to GitHub'
-                        : 'Select Option'}
-              </Text>
-            </Button>
+              {busy
+                ? 'Processing…'
+                : method === 'cloud'
+                  ? 'Deploy now'
+                  : method === 'local'
+                    ? 'Download now'
+                    : method === 'github'
+                      ? 'Clone to GitHub'
+                      : 'Select option'}
+            </Action>
           </XStack>
         </XStack>
       </DialogContent>

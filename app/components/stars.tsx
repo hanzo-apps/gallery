@@ -1,12 +1,11 @@
 import { XStack, Text } from '@hanzo/ui';
-import { c, t } from '../lib/design';
 
-/** Five stars, `n` of them lit. Written three times before this existed. */
-export function Stars({ n, size = t.base }: { n: number; size?: (typeof t)[keyof typeof t] }) {
+/** Five stars, `n` of them lit, in the page's one ink. */
+export function Stars({ n, size = '$3' }: { n: number; size?: '$2' | '$3' | '$6' | '$7' }) {
   return (
-    <XStack>
+    <XStack aria-label={`${n} of 5`} gap={2}>
       {[0, 1, 2, 3, 4].map((i) => (
-        <Text key={i} {...size} color={i < n ? c.yellow400 : c.gray600}>
+        <Text key={i} aria-hidden fontSize={size} color={i < n ? 'var(--foreground)' : 'var(--text-disabled)'}>
           ★
         </Text>
       ))}

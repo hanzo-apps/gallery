@@ -2,14 +2,17 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
-import { YStack, XStack, H1, H2, H3, Text, Button, Anchor, Label } from '@hanzo/ui';
+import { YStack, XStack, Text, Anchor } from '@hanzo/ui';
 import { Grid } from '@hanzo/ui/grid';
+import { Action, Chip, Display, Leaf, Lede, Line, More, Title } from '@hanzo/ui/marketing';
+import { MARKS } from '@hanzogui/shell';
 import { frame, shot, sizes, type Size } from '../../lib/shot';
 import type { Template } from '../../templates-data';
-import { c, t, at, clip, hue, tint } from '../../lib/design';
+import { c, column, lift, mono, round } from '../../lib/design';
 import { Stars } from '../../components/stars';
+import { HEADER } from '../../components/header';
 
 interface TemplatePageClientProps {
   variants: Template[];
@@ -20,72 +23,70 @@ interface TemplatePageClientProps {
   allTemplates: Template[];
 }
 
-/** The pill in the action bar, in its two states. */
+/** A pill in the bar: an outline that brightens under the pointer. */
 const pill = {
-  transition: 'quickest',
-  height: 'auto',
-  paddingHorizontal: 16,
-  paddingVertical: 8,
-  borderRadius: 9999,
+  display: 'inline-flex',
+  items: 'center',
+  justify: 'center',
+  gap: 6,
+  height: 32,
+  px: 12,
+  rounded: round.pill,
   borderWidth: 1,
+  borderColor: c.edge,
+  bg: 'transparent',
+  color: c.muted,
+  fontSize: '$2',
+  lineHeight: 18,
+  fontWeight: '500',
+  whiteSpace: 'nowrap',
+  textDecorationLine: 'none',
+  cursor: 'pointer',
+  hoverStyle: { borderColor: c.strong, color: c.ink, bg: c.wash },
 } as const;
 
-const outline = {
-  ...pill,
-  borderColor: c.neutral700,
-  backgroundColor: 'transparent',
-  hoverStyle: { backgroundColor: c.neutral800 },
-} as const;
-
-const still = {
-  ...pill,
-  borderColor: c.neutral800,
-  backgroundColor: c.neutral900,
-} as const;
+/** The same pill with nowhere to go: the first template has no previous one. */
+const spent = { ...pill, color: c.faint, cursor: 'not-allowed', hoverStyle: {} } as const;
 
 /** A choice among framework variants, or among screenshot sizes. */
-function Choice({ on, children, ...rest }: { on: boolean; children: React.ReactNode; [k: string]: unknown }) {
+function Choice({ on, onClick, children }: { on: boolean; onClick: () => void; children: ReactNode }) {
   return (
-    <Button
-      transition="quickest"
-      height="auto"
-      paddingHorizontal={24}
-      paddingVertical={12}
-      borderRadius="var(--radius-lg, 0.75rem)"
-      borderWidth={2}
-      {...(on
-        ? { backgroundColor: c.blue500, borderColor: c.blue400 }
-        : {
-            backgroundColor: c.white5,
-            borderColor: c.white10,
-            hoverStyle: { borderColor: at(c.blue500, 0.5), backgroundColor: 'rgba(255,255,255,0.1)' },
-          })}
-      {...rest}
+    <Text
+      render="button"
+      onClick={onClick}
+      aria-pressed={on}
+      display="inline-flex"
+      items="center"
+      height={40}
+      px={20}
+      rounded={round.pill}
+      borderWidth={1}
+      borderColor={on ? c.chosen : c.edge}
+      bg={on ? c.wash : 'transparent'}
+      color={on ? c.ink : c.muted}
+      fontSize="$2"
+      lineHeight={18}
+      fontWeight="500"
+      textTransform="capitalize"
+      cursor="pointer"
+      hoverStyle={{ borderColor: on ? c.chosen : c.strong, color: c.ink }}
     >
-      <Text fontWeight={500} color={on ? '#fff' : c.gray300} textTransform="capitalize">
-        {children}
-      </Text>
-    </Button>
+      {children}
+    </Text>
   );
 }
 
-/** A page section: centred column, optional lift off the ground. */
-function Band({ children, lifted }: { children: React.ReactNode; lifted?: boolean }) {
+/** A page section on the gutter. */
+function Band({ children }: { children: ReactNode }) {
   return (
-    <YStack
-      render="section"
-      paddingHorizontal={16}
-      paddingVertical={64}
-      {...(lifted ? { backgroundColor: c.white5 } : {})}
-    >
-      <YStack width="100%" maxWidth={1024} marginLeft="auto" marginRight="auto">
-        {children}
-      </YStack>
+    <YStack render="section" py={56}>
+      <YStack {...column(1024)}>{children}</YStack>
     </YStack>
   );
 }
 
-const mono = { fontFamily: 'var(--font-mono), monospace' } as const;
+/** A card: the raised ground, the hairline, hanzo.ai's corner. */
+const card = { bg: c.card, borderColor: c.edge, rounded: round.card, hoverStyle: { borderColor: c.strong } } as const;
 
 export function TemplatePageClient({
   variants,
@@ -128,166 +129,97 @@ export function TemplatePageClient({
       ? 'npm start'
       : 'npm run dev';
 
-  return (
-    <YStack minHeight="100vh" backgroundColor={c.ink}>
-      <YStack
-        render="nav"
-        position="sticky"
-        top={0}
-        zIndex={50}
-        backgroundColor="#000"
-        borderBottomWidth={1}
-        borderColor={c.neutral800}
-      >
-        <YStack borderBottomWidth={1} borderColor={c.neutral800}>
-          <XStack
-            width="100%"
-            maxWidth={1280}
-            marginLeft="auto"
-            marginRight="auto"
-            paddingHorizontal={16}
-            paddingVertical={12}
-            alignItems="center"
-            justifyContent="space-between"
-          >
-            <Anchor
-              render={<Link href="/gallery" />}
-              transition="quickest"
-              alignItems="center"
-              gap={8}
-              {...t.sm}
-              color={c.neutral400}
-              textDecorationLine="none"
-              hoverStyle={{ color: '#fff' }}
-            >
-              ← Gallery
-            </Anchor>
+  const tier = pick.tier === 1 ? 'Excellent' : pick.tier === 2 ? 'Very Good' : 'Good';
 
-            <XStack alignItems="center" gap={12}>
-              <Text {...t.xs} color={c.neutral500} fontWeight={500}>
-                {currentIndex} / {totalTemplates}
+  return (
+    <YStack minH="100vh" bg={c.ground}>
+      <YStack render="nav" position="sticky" t={HEADER} z={40} bg={c.ground} borderBottomWidth={1} borderColor={c.edge}>
+        <XStack {...column(1280)} py={10} items="center" justify="space-between" gap={12}>
+          <More href="/gallery">← Gallery</More>
+
+          <XStack items="center" gap={12}>
+            <Text fontSize="$1" lineHeight={16} color={c.faint} fontWeight="500">
+              {currentIndex} / {totalTemplates}
+            </Text>
+            <XStack gap={8}>
+              {prevTemplate ? (
+                <Text render={<Link href={`/templates/${prevTemplate.slug}`} />} aria-label="Previous template" {...pill}>
+                  ←
+                </Text>
+              ) : (
+                <Text render="button" disabled aria-label="Previous template" {...spent}>
+                  ←
+                </Text>
+              )}
+              <Text render="button" onClick={toRandom} aria-label="Random template" {...pill}>
+                <MARKS.spark size={14} />
               </Text>
-              <XStack gap={8}>
-                {prevTemplate ? (
-                  <Button {...outline} render={<Link href={`/templates/${prevTemplate.slug}`} />} paddingVertical={6} paddingHorizontal={12}>
-                    <Text {...t.xs} fontWeight={500} color={c.neutral300}>
-                      ←
-                    </Text>
-                  </Button>
-                ) : (
-                  <Button {...pill} disabled borderColor={c.neutral800} backgroundColor="transparent" paddingVertical={6} paddingHorizontal={12} cursor="not-allowed">
-                    <Text {...t.xs} color={c.neutral700}>
-                      ←
-                    </Text>
-                  </Button>
-                )}
-                <Button
-                  {...outline}
-                  onPress={toRandom}
-                  title="Random Template"
-                  paddingVertical={6}
-                  paddingHorizontal={12}
-                  hoverStyle={{ backgroundColor: c.neutral800, borderColor: at(c.purple500, 0.5) }}
-                >
-                  <Text {...t.xs} fontWeight={500} color={c.neutral300}>
-                    🎲
-                  </Text>
-                </Button>
-                {nextTemplate ? (
-                  <Button {...outline} render={<Link href={`/templates/${nextTemplate.slug}`} />} paddingVertical={6} paddingHorizontal={12}>
-                    <Text {...t.xs} fontWeight={500} color={c.neutral300}>
-                      →
-                    </Text>
-                  </Button>
-                ) : (
-                  <Button {...pill} disabled borderColor={c.neutral800} backgroundColor="transparent" paddingVertical={6} paddingHorizontal={12} cursor="not-allowed">
-                    <Text {...t.xs} color={c.neutral700}>
-                      →
-                    </Text>
-                  </Button>
-                )}
-              </XStack>
+              {nextTemplate ? (
+                <Text render={<Link href={`/templates/${nextTemplate.slug}`} />} aria-label="Next template" {...pill}>
+                  →
+                </Text>
+              ) : (
+                <Text render="button" disabled aria-label="Next template" {...spent}>
+                  →
+                </Text>
+              )}
             </XStack>
           </XStack>
-        </YStack>
+        </XStack>
 
-        {/* Actions */}
+        {/* Actions: the row scrolls inside itself on a narrow screen. */}
         <XStack
-          width="100%"
-          maxWidth={1280}
-          marginLeft="auto"
-          marginRight="auto"
-          paddingHorizontal={16}
-          paddingVertical={8}
+          {...column(1280)}
+          pb={10}
           overflow="scroll"
           data-scrollbar="none"
           style={{ scrollbarWidth: 'none' }}
         >
-          <XStack gap={8} minWidth="max-content" alignItems="center">
-            <Button {...outline} onPress={openRepo}>
-              <Text {...t.xs} fontWeight={500} color={c.neutral300} whiteSpace="nowrap">
-                📦 View on GitHub
-              </Text>
-            </Button>
-            <Button {...outline} onPress={toFork}>
-              <Text {...t.xs} fontWeight={500} color={c.neutral300} whiteSpace="nowrap">
-                🚀 Deploy
-              </Text>
-            </Button>
-            <Anchor
-              href={deployUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              alignItems="center"
-              whiteSpace="nowrap"
-            >
+          <XStack gap={8} minW="max-content" items="center">
+            <Text render="button" onClick={openRepo} {...pill}>
+              View on GitHub
+            </Text>
+            <Text render="button" onClick={toFork} {...pill}>
+              Deploy
+            </Text>
+            <Anchor href={deployUrl} target="_blank" rel="noopener noreferrer" items="center" whiteSpace="nowrap">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://hanzo.app/deploy-badge.svg" alt="Deploy on Hanzo" height={36} style={{ height: 36 }} />
+              <img src="https://hanzo.app/deploy-badge.svg" alt="Deploy on Hanzo" height={32} style={{ height: 32 }} />
             </Anchor>
-            <Button {...outline} onPress={() => copyPath('Path copied!')}>
-              <Text {...t.xs} fontWeight={500} color={c.neutral300} whiteSpace="nowrap">
-                📋 Copy Path
-              </Text>
-            </Button>
-            <Text {...still} {...t.xs} fontWeight={500} color={c.neutral400} whiteSpace="nowrap">
+            <Text render="button" onClick={() => copyPath('Path copied!')} {...pill}>
+              Copy path
+            </Text>
+            <Chip px={12} py={6}>
               {pick.framework}
-            </Text>
-            <Text {...still} {...t.xs} fontWeight={500} color={c.neutral400} whiteSpace="nowrap">
+            </Chip>
+            <Chip px={12} py={6}>
               {pick.category}
-            </Text>
-            <Text
-              {...pill}
-              {...t.xs}
-              fontWeight={500}
-              whiteSpace="nowrap"
-              {...deep(pick.tier)}
-            >
+            </Chip>
+            <Chip px={12} py={6}>
               Tier {pick.tier}
-            </Text>
+            </Chip>
           </XStack>
         </XStack>
       </YStack>
 
       {/* Hero */}
       <Band>
-        <XStack alignItems="center" gap={12} marginBottom={24} flexWrap="wrap">
-          <H1 {...t.xl6} fontWeight={700} {...clip(c.wash)}>
-            {pick.displayName}
-          </H1>
-          <Stars n={pick.rating} size={t.xl2} />
+        <XStack items="center" gap={16} mb={16} flexWrap="wrap">
+          <Display>{pick.displayName}</Display>
+          <Stars n={pick.rating} size="$7" />
         </XStack>
-        <Text {...t.xl2} color={c.gray400} marginBottom={32}>
+        <Lede fontSize="$6" lineHeight={28} mb={32} maxW={720}>
           {pick.description || `Premium ${pick.displayName} template with modern design and functionality.`}
-        </Text>
+        </Lede>
 
         {variants.length > 1 && (
-          <YStack marginBottom={32}>
-            <Label {...t.sm} fontWeight={500} color={c.gray400} marginBottom={12}>
+          <YStack mb={32} gap={12}>
+            <Line size="sm" tone="muted" weight="500">
               Choose Framework ({variants.length} variants available)
-            </Label>
-            <XStack flexWrap="wrap" gap={12}>
+            </Line>
+            <XStack flexWrap="wrap" gap={8}>
               {variants.map((v) => (
-                <Choice key={v.id} on={pick.id === v.id} onPress={() => setPick(v)}>
+                <Choice key={v.id} on={pick.id === v.id} onClick={() => setPick(v)}>
                   {v.framework}
                 </Choice>
               ))}
@@ -296,36 +228,42 @@ export function TemplatePageClient({
         )}
 
         {/* Tech stack */}
-        <XStack flexWrap="wrap" gap={12} marginBottom={48}>
-          <Chip {...tint('blue')}>{pick.framework}</Chip>
-          <Chip {...tint(hue(pick.tier))}>
-            Tier {pick.tier} - {pick.tier === 1 ? 'Excellent' : pick.tier === 2 ? 'Very Good' : 'Good'}
+        <XStack flexWrap="wrap" gap={8} mb={48}>
+          <Chip px={14} py={6}>
+            {pick.framework}
           </Chip>
-          <Chip {...tint('purple')}>{pick.components}</Chip>
-          <Chip backgroundColor={at(c.gray500, 0.2)} borderColor={at(c.gray500, 0.3)} color={c.gray300}>
+          <Chip px={14} py={6}>
+            Tier {pick.tier} - {tier}
+          </Chip>
+          <Chip px={14} py={6}>
+            {pick.components}
+          </Chip>
+          <Chip px={14} py={6}>
             {pick.category}
           </Chip>
         </XStack>
 
         {/* Screenshot */}
-        <YStack marginBottom={64}>
-          <XStack flexWrap="wrap" gap={12} marginBottom={16}>
+        <YStack>
+          <XStack flexWrap="wrap" gap={8} mb={16}>
             {sizes.map((s) => (
-              <Choice key={s} on={size === s} onPress={() => setSize(s)}>
+              <Choice key={s} on={size === s} onClick={() => setSize(s)}>
                 {s}
               </Choice>
             ))}
           </XStack>
           <YStack
             position="relative"
-            marginLeft="auto"
-            marginRight="auto"
-            {...frame[size]}
-            borderRadius="var(--radius-2xl, 1.5rem)"
+            mx="auto"
+            width="100%"
+            aspectRatio={frame[size].aspectRatio}
+            maxW={frame[size].maxWidth}
+            rounded={round.frame}
             overflow="hidden"
             borderWidth={1}
-            borderColor={c.white10}
-            boxShadow={`0 25px 50px ${at(c.blue500, 0.2)}`}
+            borderColor={c.edge}
+            bg={c.raised}
+            boxShadow={lift.card}
           >
             <Image
               src={shown}
@@ -341,47 +279,23 @@ export function TemplatePageClient({
       </Band>
 
       {/* Features */}
-      <Band lifted>
-        <H2 {...t.xl4} fontWeight={700} color="#fff" marginBottom={32}>
-          Key Features
-        </H2>
-        <Grid columns={{ min: 300, max: 2 }} gap={24}>
+      <Band>
+        <Title mb={24}>Key Features</Title>
+        <Grid columns={{ min: 300, max: 2 }} gap={16}>
           {pick.features.map((feature, i) => (
-            <YStack
-              key={i}
-              transition="quickest"
-              backgroundColor={c.white5}
-              backdropFilter="blur(16px)"
-              padding={24}
-              borderRadius="var(--radius-xl, 1rem)"
-              borderWidth={1}
-              borderColor={c.white10}
-              hoverStyle={{ borderColor: at(c.blue500, 0.5) }}
-            >
-              <Text {...t.xl3} marginBottom={12}>
-                ✨
-              </Text>
-              <H3 {...t.xl} fontWeight={700} color="#fff" marginBottom={8}>
+            <Leaf key={i} {...card} p={24}>
+              <Line size="lg" weight="500">
                 {feature}
-              </H3>
-            </YStack>
+              </Line>
+            </Leaf>
           ))}
         </Grid>
       </Band>
 
       {/* Technology */}
       <Band>
-        <H2 {...t.xl4} fontWeight={700} color="#fff" marginBottom={32}>
-          Technology Stack
-        </H2>
-        <YStack
-          backgroundImage={`linear-gradient(to right, ${at(c.blue500, 0.1)}, ${at(c.purple500, 0.1)})`}
-          backdropFilter="blur(16px)"
-          padding={32}
-          borderRadius="var(--radius-2xl, 1.5rem)"
-          borderWidth={1}
-          borderColor={c.white10}
-        >
+        <Title mb={24}>Technology Stack</Title>
+        <YStack bg={c.card} p={32} rounded={round.card} borderWidth={1} borderColor={c.edge}>
           <Grid columns={{ min: 200, max: 3 }} gap={24}>
             {(
               [
@@ -393,11 +307,11 @@ export function TemplatePageClient({
                 ],
               ] as [string, string][]
             ).map(([head, body]) => (
-              <YStack key={head}>
-                <H3 {...t.lg} fontWeight={700} color={c.blue400} marginBottom={8}>
+              <YStack key={head} gap={8}>
+                <Line size="sm" tone="muted" weight="500">
                   {head}
-                </H3>
-                <Text color={c.gray300}>{body}</Text>
+                </Line>
+                <Line size="base">{body}</Line>
               </YStack>
             ))}
           </Grid>
@@ -405,19 +319,9 @@ export function TemplatePageClient({
       </Band>
 
       {/* Quick start */}
-      <Band lifted>
-        <H2 {...t.xl4} fontWeight={700} color="#fff" marginBottom={32}>
-          Quick Start
-        </H2>
-        <YStack
-          backgroundColor="rgba(0,0,0,0.5)"
-          backdropFilter="blur(16px)"
-          padding={32}
-          borderRadius="var(--radius-2xl, 1.5rem)"
-          borderWidth={1}
-          borderColor={c.white10}
-          {...mono}
-        >
+      <Band>
+        <Title mb={24}>Quick Start</Title>
+        <YStack bg={c.ground} p={32} rounded={round.card} borderWidth={1} borderColor={c.edge} gap={24}>
           {(
             [
               ['# Navigate to template directory', `cd ${pick.path}`],
@@ -426,11 +330,11 @@ export function TemplatePageClient({
               ...(pick.port ? ([['# Open in browser', `http://localhost:${pick.port}`]] as [string, string][]) : []),
             ] as [string, string][]
           ).map(([note, line]) => (
-            <YStack key={note}>
-              <Text {...mono} color={c.gray400} marginBottom={16}>
+            <YStack key={note} gap={8}>
+              <Text {...mono} fontSize="$2" lineHeight={20} color={c.faint}>
                 {note}
               </Text>
-              <Text {...mono} color={c.green400} marginBottom={24}>
+              <Text {...mono} fontSize="$2" lineHeight={20} color={c.ink} style={{ overflowWrap: 'anywhere' }}>
                 {line}
               </Text>
             </YStack>
@@ -440,141 +344,48 @@ export function TemplatePageClient({
 
       {/* Perfect for */}
       <Band>
-        <H2 {...t.xl4} fontWeight={700} color="#fff" marginBottom={32}>
-          Perfect For
-        </H2>
-        <Grid columns={{ min: 260, max: 3 }} gap={24}>
+        <Title mb={24}>Perfect For</Title>
+        <Grid columns={{ min: 260, max: 3 }} gap={16}>
           {(
             [
-              ['🚀', pick.useCase, 'Primary use case for this template', [c.blue500, c.purple500]],
-              ['⚡', 'Fast Development', 'Pre-built components ready to use', [c.green500, c.blue500]],
-              ['🎨', 'Modern Design', 'Beautiful UI following latest trends', [c.purple500, c.pink500]],
-            ] as [string, string, string, [string, string]][]
-          ).map(([icon, head, note, [from, to]]) => (
-            <YStack
-              key={head}
-              backgroundImage={`linear-gradient(to bottom right, ${at(from, 0.1)}, ${at(to, 0.1)})`}
-              padding={24}
-              borderRadius="var(--radius-xl, 1rem)"
-              borderWidth={1}
-              borderColor={c.white10}
-            >
-              <Text {...t.xl3} marginBottom={12}>
-                {icon}
-              </Text>
-              <H3 {...t.lg} fontWeight={700} color="#fff" marginBottom={8}>
+              [pick.useCase, 'Primary use case for this template'],
+              ['Fast Development', 'Pre-built components ready to use'],
+              ['Modern Design', 'Beautiful UI following latest trends'],
+            ] as [string, string][]
+          ).map(([head, note]) => (
+            <Leaf key={head} {...card} p={24}>
+              <Line render="h3" size="lg" weight="500" display="block" mb={8}>
                 {head}
-              </H3>
-              <Text {...t.sm} color={c.gray400}>
+              </Line>
+              <Line size="sm" tone="muted">
                 {note}
-              </Text>
-            </YStack>
+              </Line>
+            </Leaf>
           ))}
         </Grid>
       </Band>
 
       {/* Call to action */}
       <Band>
-        <YStack
-          backgroundImage={`linear-gradient(to right, ${at(c.blue500, 0.2)}, ${at(c.purple500, 0.2)})`}
-          backdropFilter="blur(16px)"
-          padding={48}
-          borderRadius="var(--radius-2xl, 1.5rem)"
-          borderWidth={1}
-          borderColor={c.white10}
-          alignItems="center"
-        >
-          <H2 {...t.xl4} fontWeight={700} color="#fff" marginBottom={24} textAlign="center">
-            Get Started with Hanzo AI
-          </H2>
-          <Text {...t.xl} color={c.gray400} marginBottom={32} textAlign="center">
+        <YStack bg={c.card} p={48} rounded={round.card} borderWidth={1} borderColor={c.edge} items="center" gap={16}>
+          <Title text="center">Get Started with Hanzo AI</Title>
+          <Lede text="center" mb={16}>
             This template is part of the Hanzo AI premium template collection
-          </Text>
-          <XStack flexWrap="wrap" gap={16} justifyContent="center">
-            <Cta onPress={openRepo} ground={c.neutral700} lift={c.neutral600}>
-              📦 View on GitHub
-            </Cta>
-            <Cta onPress={toFork} ground={c.purple500} lift={c.purple600}>
-              🚀 Deploy to Hanzo
-            </Cta>
-            <Cta onPress={() => copyPath('Path copied to clipboard!')} ground={c.blue500} lift={c.blue600}>
-              📋 Copy Path
-            </Cta>
-            <Button
-              render={<Link href="/gallery" />}
-              transition="quickest"
-              height="auto"
-              paddingHorizontal={32}
-              paddingVertical={16}
-              borderRadius="var(--radius-xl, 1rem)"
-              backgroundColor="rgba(255,255,255,0.1)"
-              borderWidth={1}
-              borderColor={c.white20}
-              hoverStyle={{ backgroundColor: 'rgba(255,255,255,0.2)' }}
-            >
-              <Text {...t.lg} fontWeight={700} color="#fff">
-                Browse More Templates
-              </Text>
-            </Button>
+          </Lede>
+          <XStack flexWrap="wrap" gap={12} justify="center">
+            <Action render="button" onClick={openRepo}>
+              View on GitHub
+            </Action>
+            <Action render="button" fill onClick={toFork}>
+              Deploy to Hanzo
+            </Action>
+            <Action render="button" onClick={() => copyPath('Path copied to clipboard!')}>
+              Copy path
+            </Action>
+            <Action href="/gallery">Browse More Templates</Action>
           </XStack>
         </YStack>
       </Band>
     </YStack>
   );
-}
-
-/** A rounded chip carrying a tint. */
-function Chip({ children, ...rest }: { children: React.ReactNode; [k: string]: unknown }) {
-  return (
-    <Text
-      paddingHorizontal={16}
-      paddingVertical={8}
-      borderRadius="var(--radius-lg, 0.75rem)"
-      borderWidth={1}
-      fontWeight={500}
-      {...rest}
-    >
-      {children}
-    </Text>
-  );
-}
-
-/** One of the four buttons at the foot of the page. */
-function Cta({
-  children,
-  ground,
-  lift,
-  onPress,
-}: {
-  children: React.ReactNode;
-  ground: string;
-  lift: string;
-  onPress: () => void;
-}) {
-  return (
-    <Button
-      onPress={onPress}
-      transition="quickest"
-      height="auto"
-      paddingHorizontal={32}
-      paddingVertical={16}
-      borderRadius="var(--radius-xl, 1rem)"
-      backgroundColor={ground}
-      boxShadow={`0 10px 15px ${at(ground, 0.5)}`}
-      hoverStyle={{ backgroundColor: lift, scale: 1.05, boxShadow: `0 10px 15px ${at(lift, 0.7)}` }}
-    >
-      <Text {...t.lg} fontWeight={700} color="#fff">
-        {children}
-      </Text>
-    </Button>
-  );
-}
-
-/** The action bar's tier mark: a deep ground under a bright label. */
-function deep(tier: number) {
-  const h = hue(tier);
-  const edge = { green: c.green800, blue: c.blue800, purple: c.purple800 }[h];
-  const ground = { green: c.green950, blue: c.blue950, purple: c.purple950 }[h];
-  const ink = { green: c.green400, blue: c.blue400, purple: c.purple400 }[h];
-  return { borderColor: edge, backgroundColor: ground, color: ink };
 }
