@@ -1,9 +1,9 @@
-# Canonical CI/CD config for hanzoai/gallery — the one file both the hanzoai/ci
-# reusable (.hanzo/workflows/cicd.yml) and platform.hanzo.ai read.
+# Canonical CI/CD config for gallery.hanzo.ai — the one file the hanzoai/ci
+# reusable (.github/workflows/cicd.yml) reads.
 #
-# No `images:` and no `deploy:`: next.config sets `output: 'export'`, so what
-# this repo produces is a static tree, and the rollout is not a Service CR this
-# file can name honestly today. Build-only is the correct claim until it is.
+# It runs on the forge pull mirror git.hanzo.ai/hanzo-inc/gallery, whose org
+# holds the KMS identity, so this repository carries no key. GitHub Actions is
+# off here: one publisher.
 #
 # The gate is the full static export, which is unusually complete here because
 # the site is GENERATED: `prebuild` runs scripts/gen-templates-json.mjs, and
@@ -19,3 +19,13 @@ test:
       pnpm install --frozen-lockfile
       npx tsc --noEmit
       pnpm build
+
+# The export is bytes: out/ published to s3://hanzo-sites/hanzo/gallery, which
+# the gallery.hanzo.ai router serves with no pod. The publish job is a fresh
+# runner that ran none of the gates above, so the build installs its own
+# dependencies.
+site:
+  slug: gallery
+  dir: out
+  build: pnpm install --frozen-lockfile && pnpm build
+  on: [main]

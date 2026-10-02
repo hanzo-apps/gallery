@@ -1,19 +1,31 @@
-# Canonical caller — every knob lives in /hanzo.yml, none here.
-# Runs on the git-runner fleet at git.hanzo.ai, the only pool serving these
-# labels. github.com resolves only .github/workflows and has no runner for
-# them, so a caller placed there is a gate that cannot be scheduled.
+# Canonical caller — all real config lives in /hanzo.yml.
+#
+# Runs on the forge pull mirror git.hanzo.ai/hanzo-inc/gallery: the test gate,
+# then the site lane, which publishes out/ to the Sites plane. GitHub Actions is
+# off on github.com/hanzo-apps/gallery, so this is the one publisher.
 name: CI/CD
 on:
+  workflow_dispatch:
   push:
     branches: [main]
     tags: ['v*']
   pull_request:
-  workflow_dispatch:
+# A called workflow cannot exceed its caller's token, so the scopes the
+# pipeline writes with are granted here.
+permissions:
+  id-token: write
+  contents: write
+  packages: write
+
+concurrency:
+  group: cicd-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   cicd:
-    uses: hanzoai/ci/.github/workflows/build.yml@v1
-    permissions:
-      contents: write
-      packages: write
-      id-token: write
-    secrets: inherit
+    uses: hanzoai/ci/.github/workflows/build.yml@v2
+    # The forge org's KMS identity, handed over by name: `inherit` stops at the
+    # org boundary, so hanzoai/ci would see none.
+    secrets:
+      KMS_CLIENT_ID: ${{ secrets.KMS_CLIENT_ID }}
+      KMS_CLIENT_SECRET: ${{ secrets.KMS_CLIENT_SECRET }}
