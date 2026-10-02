@@ -11,8 +11,10 @@ const types = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascrip
 
 const server = createServer((req, res) => {
   let p = join('out', decodeURIComponent(req.url.split('?')[0]));
-  if (existsSync(p) && statSync(p).isDirectory()) p = join(p, 'index.html');
-  if (!existsSync(p) && existsSync(p + '.html')) p += '.html';
+  // A route's page is <route>.html; a directory of the same name holds its
+  // prefetch data, so the page is asked for first.
+  if (existsSync(p + '.html')) p += '.html';
+  else if (existsSync(p) && statSync(p).isDirectory()) p = join(p, 'index.html');
   if (!existsSync(p)) { res.statusCode = 404; p = 'out/404.html'; if (!existsSync(p)) return res.end('nf'); }
   res.setHeader('content-type', types[extname(p)] || 'application/octet-stream');
   res.end(readFileSync(p));
@@ -135,10 +137,10 @@ check('template: quick start shows the path', await page.getByText('cd apps/syna
 await go('/no-such-template');
 check('404: offers a template', await page.getByText('How about this instead?').isVisible());
 {
-  const first = await page.locator('h4').first().textContent();
+  const first = await page.locator('h3').first().textContent();
   await page.getByText('Show Another Random').click();
   await page.waitForTimeout(900);
-  const second = await page.locator('h4').first().textContent();
+  const second = await page.locator('h3').first().textContent();
   check('404: reroll picks again', typeof second === 'string' && second.length > 0, `${first} -> ${second}`);
 }
 
