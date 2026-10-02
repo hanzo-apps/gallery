@@ -82,11 +82,11 @@ jobs:
           slug: gallery
           dir: out
           jobs: '48'
-          # The hanzoai/ci commit whose bin/kms logs in with this run's own ID
-          # token (id-token: write above); v1 predates it and asks for a stored
-          # KMS client this repository does not hold. Drop the line once v1
-          # carries 6523c86.
-          ref: 6523c8623c9fbd6ed36177e90e6fb73bab042a20
+          # bin/site and bin/kms from hanzoai/ci main, whose KMS login uses this
+          # run's own ID token (id-token: write above); v1 predates it and asks
+          # for a stored KMS client this repository does not hold. The clone
+          # takes a branch or tag, not a sha. Drop the line once v1 carries it.
+          ref: main
         env:
           KMS_CLIENT_ID: ${{ secrets.KMS_CLIENT_ID }}
           KMS_CLIENT_SECRET: ${{ secrets.KMS_CLIENT_SECRET }}
