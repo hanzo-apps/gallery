@@ -9,7 +9,6 @@ import {
   Claim,
   Display,
   Feature,
-  FeatureGrid,
   Lattice,
   Leaf,
   Lede,
@@ -145,12 +144,14 @@ export default function GalleryHome() {
                 </Text>
               </XStack>
             ))}
-            <Text color={c.faint} fontSize="$3">
-              ·
-            </Text>
-            <Text fontSize="$3" lineHeight={22} color={c.muted}>
-              production ready
-            </Text>
+            <XStack items="center" gap={8}>
+              <Text color={c.faint} fontSize="$3">
+                ·
+              </Text>
+              <Text fontSize="$3" lineHeight={22} color={c.muted}>
+                production ready
+              </Text>
+            </XStack>
           </XStack>
           <XStack flexWrap="wrap" justify="center" gap={12} pt={12}>
             <Action fill href="/gallery">
@@ -195,12 +196,12 @@ export default function GalleryHome() {
       </Section>
 
       <Section title="Why choose Hanzo Templates" measure={1280}>
-        <FeatureGrid min={240}>
+        <Grid columns={{ min: 240, max: 4 }} gap={20}>
           <Feature title="Lightning Fast">Built with Next.js 14+ for optimal performance and SEO</Feature>
           <Feature title="Beautiful Design">Premium UI/UX from top designers worldwide</Feature>
           <Feature title="Fully Responsive">Perfect on mobile, tablet, and desktop devices</Feature>
           <Feature title="Easy to Customize">Clean code with TypeScript and modern best practices</Feature>
-        </FeatureGrid>
+        </Grid>
       </Section>
 
       {/* Closing: deploy, or keep browsing. */}

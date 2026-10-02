@@ -182,9 +182,8 @@ export function TemplatePageClient({
             <Text render="button" onClick={toFork} {...pill}>
               Deploy
             </Text>
-            <Anchor href={deployUrl} target="_blank" rel="noopener noreferrer" items="center" whiteSpace="nowrap">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://hanzo.app/deploy-badge.svg" alt="Deploy on Hanzo" height={32} style={{ height: 32 }} />
+            <Anchor href={deployUrl} target="_blank" rel="noopener noreferrer" {...pill}>
+              Deploy on Hanzo
             </Anchor>
             <Text render="button" onClick={() => copyPath('Path copied!')} {...pill}>
               Copy path

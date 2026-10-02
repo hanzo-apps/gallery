@@ -79,10 +79,10 @@ function Actions({
       <XStack gap={8}>{rest}</XStack>
     </YStack>
   ) : (
-    <XStack flexWrap="wrap" gap={12}>
+    <>
       {deploy}
       {rest}
-    </XStack>
+    </>
   );
 }
 
@@ -226,12 +226,13 @@ export default function Gallery() {
             </XStack>
           </XStack>
 
-          <XStack gap={8} items="center">
+          <XStack gap={8} items="center" flexWrap="wrap">
             <Input
               grow={1}
               shrink={1}
               flexBasis={0}
               minW={0}
+              $max-sm={{ flexBasis: '100%' }}
               placeholder="Search templates..."
               value={search}
               onChangeText={setSearch}
