@@ -1,0 +1,68 @@
+{
+  "seed": "metrics",
+  "name": "Metrics",
+  "slug": "metrics",
+  "framework": "Next.js 13.3 + TS",
+  "category": "Dashboard",
+  "repo": "https://github.com/hanzo-apps/template-metrics",
+  "llmMd": "https://gallery.hanzo.ai/llms/metrics/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/constants/",
+      "src/mocks/",
+      "app/page.tsx"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "components/",
+      "app/"
+    ],
+    "stylingTokens": [
+      "app/globals.css",
+      "tailwind.config.ts"
+    ],
+    "preserveDoNotBreak": [
+      "next.config.mjs",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "sidebar-nav",
+    "kpi-stat-cards",
+    "revenue-chart",
+    "activity-table",
+    "hanzo-insights-dashboard",
+    "ai-token-cost-finops",
+    "crm-revenue-funnels"
+  ],
+  "params": {
+    "brandName": "Metrics",
+    "tagline": "Cloud Analytics, AI FinOps & Admin Dashboard · Hanzo Insights",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_metrics",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/metrics\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_metrics",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/metrics",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "out",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-metrics&template=metrics&name=metrics",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-metrics&seed=metrics",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=metrics&name=metrics"
+  }
+}

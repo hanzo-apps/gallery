@@ -1,0 +1,68 @@
+{
+  "seed": "hygge-html",
+  "name": "Hygge (HTML)",
+  "slug": "hygge-html",
+  "framework": "HTML/Gulp",
+  "category": "E-commerce",
+  "repo": "https://github.com/hanzo-apps/template-hygge-html",
+  "llmMd": "https://gallery.hanzo.ai/llms/hygge-html/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/",
+      "src/constants/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "src/pages/",
+      "src/App.tsx"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "product-grid",
+    "cart-drawer",
+    "category-filter",
+    "checkout-flow",
+    "e-commerce",
+    "shop",
+    "clean"
+  ],
+  "params": {
+    "brandName": "Hygge (HTML)",
+    "tagline": "E-commerce stores",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_hygge-html",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npx gulp",
+    "build": "npx gulp build",
+    "deploy": "npx hanzo deploy --static --path \"apps/hygge\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_hygge-html",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/hygge-html",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "build",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-hygge-html&template=hygge-html&name=hygge-html",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-hygge-html&seed=hygge-html",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=hygge-html&name=hygge-html"
+  }
+}

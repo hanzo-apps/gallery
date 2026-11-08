@@ -30,7 +30,14 @@ export interface TemplateBlueprint {
   platformDeployUrl: string;
   hanzoEditUrl: string;
   previewUrl: string;
+  llmMdUrl: string;
   cloudServices: string[];
+  hotspots: {
+    copyData: string[];
+    uiComponents: string[];
+    stylingTokens: string[];
+    preserveDoNotBreak: string[];
+  };
 }
 
 export interface PromptMatch {
@@ -502,6 +509,138 @@ function deriveCategoryBlocks(template: Template): { intents: string[]; blocks: 
   };
 }
 
+const HOTSPOT_FILES: Record<
+  string,
+  {
+    copyData: string[];
+    uiComponents: string[];
+    stylingTokens: string[];
+    preserveDoNotBreak: string[];
+  }
+> = {
+  instrument: {
+    copyData: ['src/landing/copy.tsx', 'src/landing/links.tsx', 'src/lib/defaults.ts'],
+    uiComponents: ['src/landing/parts.tsx', 'src/docs/Shell.tsx', 'src/docs/Blocks.tsx'],
+    stylingTokens: ['src/lib/tokens.tsx', 'src/lib/fonts.ts', 'index.css'],
+    preserveDoNotBreak: ['src/illustration/glsl.ts', 'src/illustration/Illustration.tsx'],
+  },
+  fernline: {
+    copyData: ['lib/site.ts', 'lib/pricing.ts', 'lib/mock/marketing.ts', 'lib/mock/catalog.ts'],
+    uiComponents: ['app/(marketing)/page.tsx', 'app/(marketing)/product/[slug]/page.tsx', 'components/'],
+    stylingTokens: ['lib/tokens.ts', 'app/globals.css'],
+    preserveDoNotBreak: ['AGENTS.md', 'next.config.ts', 'lib/mock/generators.ts'],
+  },
+  aerva: {
+    copyData: ['src/pages/HomePage.tsx', 'src/pages/CarsDetailPage.tsx', 'src/pages/JournalPage.tsx'],
+    uiComponents: ['src/sections/home/', 'src/sections/cars/', 'src/components/layout/'],
+    stylingTokens: ['src/styles/tokens.css', 'design/tokens.dtcg.json'],
+    preserveDoNotBreak: ['src/lib/useRevealMotion.ts', 'docs/slicing-rules.md'],
+  },
+  tensile: {
+    copyData: ['src/data/demo.json', 'src/pages/llms.txt.ts', 'src/lib/seo.ts'],
+    uiComponents: ['src/pages/index.astro', 'src/pages/work/', 'src/pages/services/'],
+    stylingTokens: ['src/styles/', 'astro.config.mjs'],
+    preserveDoNotBreak: ['src/pages/llms.txt.ts', 'src/lib/types.ts'],
+  },
+  nova: {
+    copyData: ['src/lib/plans.ts', 'src/lib/models.ts', 'src/lib/stories.ts', 'src/lib/people.ts'],
+    uiComponents: ['src/site/', 'src/lib/docs.ts', 'src/lib/billing.ts'],
+    stylingTokens: ['src/lib/theme.ts', 'src/lib/chipStyles.ts', 'index.css'],
+    preserveDoNotBreak: ['src/lib/heroShader.ts', 'src/lib/glassShader.ts', 'src/lib/lakeShader.ts'],
+  },
+  'minimal-ui': {
+    copyData: ['src/shop/content.ts', 'src/shop/data.ts', 'src/lib/defaults.ts'],
+    uiComponents: ['src/shop/Shop.tsx', 'src/shop/parts.tsx', 'src/docs/Shell.tsx'],
+    stylingTokens: ['src/shop/theme.ts', 'index.css'],
+    preserveDoNotBreak: ['src/shop/state.tsx', 'src/docs/context.ts'],
+  },
+  'component-states': {
+    copyData: ['src/lib/data.ts', 'src/lib/defaults.ts'],
+    uiComponents: ['src/variants/states.tsx', 'src/components/Controls.tsx', 'src/docs/Shell.tsx'],
+    stylingTokens: ['src/lib/tokens.tsx', 'src/lib/color.ts', 'index.css'],
+    preserveDoNotBreak: ['src/lib/transfer.ts', 'src/docs/context.ts'],
+  },
+  lighthouse: {
+    copyData: ['src/main.tsx', 'forge.meta.json'],
+    uiComponents: ['src/', 'ui/'],
+    stylingTokens: ['index.css', 'fonts/'],
+    preserveDoNotBreak: ['ui/icons/', 'vite.config.ts'],
+  },
+  'warp-tunnel': {
+    copyData: ['src/variants/main.tsx', 'src/media.ts'],
+    uiComponents: ['src/FunnelSceneV3.tsx', 'src/MiniLoader.tsx'],
+    stylingTokens: ['index.css'],
+    preserveDoNotBreak: ['src/FunnelCanvasV3.tsx', 'src/vendor/three-webgpu.ts', 'src/warp-audio.ts'],
+  },
+  'dotted-globe': {
+    copyData: ['src/cities/data.ts', 'src/variants/main-2.tsx'],
+    uiComponents: ['src/city-layer.tsx', 'src/particle-globe.tsx'],
+    stylingTokens: ['src/city-tooltip.css', 'index.css'],
+    preserveDoNotBreak: ['src/globe-geometry.ts', 'src/globe-effects.tsx', 'src/coastlines.json'],
+  },
+  'tracking-3d': {
+    copyData: ['src/variants/tracking-overlay.tsx', 'src/main.tsx'],
+    uiComponents: ['src/lib/bl.tsx', 'src/variants/tracking-overlay.tsx'],
+    stylingTokens: ['src/lib/fonts.ts', 'index.css'],
+    preserveDoNotBreak: ['src/lib/motion.ts', 'assets/fonts/'],
+  },
+  'line-illustrations': {
+    copyData: ['src/variants/tracks.tsx', 'src/variants/funnel.tsx', 'src/variants/playground.tsx'],
+    uiComponents: ['src/hairline/Illustration.tsx', 'src/figures/'],
+    stylingTokens: ['index.css'],
+    preserveDoNotBreak: ['src/hairline/kernel.js', 'src/hairline/board.js', 'src/hairline/depth.js'],
+  },
+  holo: {
+    copyData: ['src/HudOverlay.tsx', 'src/variants/main.tsx'],
+    uiComponents: ['src/HoloExperience.tsx', 'src/holo/layers.tsx'],
+    stylingTokens: ['index.css'],
+    preserveDoNotBreak: ['src/holo/stage.ts', 'src/holo/camera.ts', 'src/vendor/'],
+  },
+  'warp-shader': {
+    copyData: ['src/variants/main.tsx', 'src/main.tsx'],
+    uiComponents: ['src/variants/main.tsx'],
+    stylingTokens: ['index.css'],
+    preserveDoNotBreak: ['src/lib/shader.ts', 'src/lib/stage.ts'],
+  },
+  'animated-rings': {
+    copyData: ['src/variants/main.tsx', 'src/main.tsx'],
+    uiComponents: ['src/variants/main.tsx'],
+    stylingTokens: ['index.css'],
+    preserveDoNotBreak: ['vite.config.ts'],
+  },
+  bestiary: {
+    copyData: ['product.json', 'src/species.js', 'demo/index.html'],
+    uiComponents: ['react/Bestiary.tsx', 'specimens/'],
+    stylingTokens: ['_engine/plate.css', 'dist/bestiary.css'],
+    preserveDoNotBreak: ['_engine/engine.js', '_engine/build.mjs', 'dist/bestiary.esm.js'],
+  },
+  emptykit: {
+    copyData: ['copy/', 'index.html'],
+    uiComponents: ['web/react/EmptyState.jsx', 'web/looks.js'],
+    stylingTokens: ['index.html'],
+    preserveDoNotBreak: ['web/glb/', 'svg/'],
+  },
+};
+
+function resolveHotspots(template: Template) {
+  if (HOTSPOT_FILES[template.slug]) return HOTSPOT_FILES[template.slug];
+  const f = template.framework.toLowerCase();
+  if (f.includes('next')) {
+    return {
+      copyData: ['src/constants/', 'src/mocks/', 'app/page.tsx'],
+      uiComponents: ['src/components/', 'components/', 'app/'],
+      stylingTokens: ['app/globals.css', 'tailwind.config.ts'],
+      preserveDoNotBreak: ['next.config.mjs', 'package.json'],
+    };
+  }
+  return {
+    copyData: ['src/data/', 'src/constants/', 'index.html'],
+    uiComponents: ['src/components/', 'src/pages/', 'src/App.tsx'],
+    stylingTokens: ['src/styles/', 'index.css'],
+    preserveDoNotBreak: ['vite.config.ts', 'package.json'],
+  };
+}
+
 export function getBlueprint(template: Template): TemplateBlueprint {
   const isModernSeed = MODERN_SEED_SLUGS.has(template.slug);
   const spec = SEED_SPECS[template.slug];
@@ -531,7 +670,9 @@ export function getBlueprint(template: Template): TemplateBlueprint {
     platformDeployUrl: `https://platform.hanzo.ai/new?repo=${encodeURIComponent(repo)}&template=${encodeURIComponent(template.slug)}`,
     hanzoEditUrl: `https://hanzo.ai/chat?template=${encodeURIComponent(template.slug)}`,
     previewUrl: `/previews/${template.name}/index.html`,
+    llmMdUrl: `/llms/${template.slug}/LLM.md`,
     cloudServices,
+    hotspots: resolveHotspots(template),
   };
 }
 
@@ -665,6 +806,8 @@ export function assembleProjectConfig(
   manifestJson: string;
   hanzoYaml: string;
   hanzoSdkCode: string;
+  llmMd: string;
+  llmMdUrl: string;
   cliCommand: string;
   platformCliCommand: string;
   studioBuildUrl: string;
@@ -811,6 +954,61 @@ export function assembleProjectConfig(
     `}`,
   ].join('\n');
 
+  const platformCliCommand = `npx @hanzo/cli deploy --template ${template.slug} --name ${projectSlug} --platform --insights`;
+
+  const llmMd = [
+    `# LLM.md — Hanzo Agent Build Playbook for ${resolvedParams.brandName || template.displayName} (\`${template.slug}\`)`,
+    ``,
+    `> **Agent Directive:** Read this file before modifying any code. This repository is a Hanzo Cloud-optimized seed template (\`${blueprint.repo}\`). Use the Hotspot File Map, Parameterization Contract, and \`src/lib/hanzo.ts\` SDK below to customize and ship the user's application in minimal turns with zero broken builds.`,
+    ``,
+    `## 1. Template Identity & Stack`,
+    `- **Template Seed:** \`${template.slug}\` (${template.displayName})`,
+    `- **Target Brand / Project:** \`${resolvedParams.brandName || template.displayName}\` (\`${projectSlug}.hanzo.app\`)`,
+    `- **Category & Use Case:** ${template.category} — ${template.useCase}`,
+    `- **Framework:** ${template.framework}`,
+    `- **Build Output Directory:** \`${outDir}\``,
+    `- **Live Reference Preview:** https://gallery.hanzo.ai${blueprint.previewUrl}`,
+    `- **Edit in Hanzo Studio:** https://hanzo.ai/chat?template=${template.slug}`,
+    ``,
+    `## 2. Exact Hotspot File Map ("Where to Edit What")`,
+    `- **Brand Copy, Catalog & Domain Data (EDIT FIRST):**`,
+    ...blueprint.hotspots.copyData.map((fPath) => `  - \`${fPath}\``),
+    `- **Primary UI Sections & Interactive Views:**`,
+    ...blueprint.hotspots.uiComponents.map((fPath) => `  - \`${fPath}\``),
+    `- **Design Tokens, Typography & Theme Variables:**`,
+    ...blueprint.hotspots.stylingTokens.map((fPath) => `  - \`${fPath}\``),
+    `- **Engine / Shaders / Core Runtime (DO NOT BREAK):**`,
+    ...blueprint.hotspots.preserveDoNotBreak.map((fPath) => `  - \`${fPath}\``),
+    ``,
+    `## 3. Active Composable Blocks`,
+    ...blocks.map((b) => `- \`${b}\``),
+    ``,
+    `## 4. Parameterization Contract (\`.env.local\` & \`hanzo.template.json\`)`,
+    `| Parameter | Env Variable | Default / Value | Purpose |`,
+    `| :--- | :--- | :--- | :--- |`,
+    ...blueprint.params.map(
+      (p) =>
+        `| \`${p.key}\` | \`${p.envVar}\` | \`${resolvedParams[p.key] ?? p.default}\` | ${p.description} |`,
+    ),
+    ``,
+    `## 5. Pre-Wired Hanzo Cloud Stack (\`src/lib/hanzo.ts\`)`,
+    `Every Hanzo template integrates out of the box with the Hanzo Cloud stack via \`src/lib/hanzo.ts\`:`,
+    `1. **Zen AI Gateway (\`https://api.hanzo.ai/v1\`)**:`,
+    `   - Call \`askHanzoAi(prompt, { model: '${aiModel}', system })\` for chat, copilot, command palette, or structured generation.`,
+    `   - Uses \`HANZO_API_KEY\` (provision at https://console.hanzo.ai/keys).`,
+    `2. **Hanzo Analytics & Insights (\`https://analytics.hanzo.ai/v1/track\`)**:`,
+    `   - Call \`trackInsight(event, properties)\` on key user actions (CTA clicks, checkout, prompt submissions, onboarding steps).`,
+    `   - Uses \`${analyticsId}\` and automatically logs AI latency + token usage.`,
+    `3. **Hanzo IAM Single Sign-On (\`https://hanzo.id\`)**:`,
+    `   - Organization tenant: \`${iamOrg}\`.`,
+    ``,
+    `## 6. Agent Execution Playbook (4 Deterministic Steps)`,
+    `1. **Configure Parameters:** Update \`hanzo.template.json\` and \`.env.local\` with the user's brand name, tagline, accent tokens, \`HANZO_API_KEY\`, and \`HANZO_ANALYTICS_ID\`.`,
+    `2. **Update Hotspot Data & Copy:** Edit the files listed under **Brand Copy, Catalog & Domain Data** first. Prefer structured data edits over rewriting layout trees.`,
+    `3. **Wire Cloud AI & Insights:** Import \`askHanzoAi\` and \`trackInsight\` from \`src/lib/hanzo.ts\` into interactive components (command bars, forms, AI assistants, primary CTAs).`,
+    `4. **Verify & Deploy:** Run \`${blueprint.commands.build}\` to verify zero TypeScript or bundler errors, then deploy with \`${platformCliCommand}\`.`,
+  ].join('\n');
+
   const manifest = {
     seed: template.slug,
     name: resolvedParams.brandName || template.displayName,
@@ -818,6 +1016,8 @@ export function assembleProjectConfig(
     framework: template.framework,
     category: template.category,
     repo: blueprint.repo,
+    llmMd: `https://gallery.hanzo.ai/llms/${template.slug}/LLM.md`,
+    hotspots: blueprint.hotspots,
     blocks,
     params: resolvedParams,
     commands: blueprint.commands,
@@ -837,13 +1037,11 @@ export function assembleProjectConfig(
     },
   };
 
-  const platformCliCommand = `npx @hanzo/cli deploy --template ${template.slug} --name ${projectSlug} --platform --insights`;
-
   const cliCommand = [
     `# 1-Click Automated Deploy to Hanzo Platform (with Zen AI + Insights)`,
     platformCliCommand,
     ``,
-    `# Or clone, wire Hanzo Cloud SDK & deploy from local workspace`,
+    `# Or clone, wire Hanzo Cloud SDK + LLM.md & deploy from local workspace`,
     `git clone ${blueprint.repo} ${projectSlug}`,
     `cd ${projectSlug}`,
     `cat << 'EOF' > .env.local\n${envLines.join('\n')}\nEOF`,
@@ -879,6 +1077,8 @@ export function assembleProjectConfig(
     manifestJson: JSON.stringify(manifest, null, 2),
     hanzoYaml,
     hanzoSdkCode,
+    llmMd,
+    llmMdUrl: blueprint.llmMdUrl,
     cliCommand,
     platformCliCommand,
     studioBuildUrl: `https://hanzo.app/new?${query.toString()}`,

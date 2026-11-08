@@ -1,0 +1,66 @@
+{
+  "seed": "dotted-globe",
+  "name": "Atlas Globe",
+  "slug": "atlas-globe",
+  "framework": "Three.js + React 19 + TS",
+  "category": "3D & Shaders",
+  "repo": "https://github.com/hanzo-apps/template-dotted-globe",
+  "llmMd": "https://gallery.hanzo.ai/llms/dotted-globe/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/cities/data.ts",
+      "src/variants/main-2.tsx"
+    ],
+    "uiComponents": [
+      "src/city-layer.tsx",
+      "src/particle-globe.tsx"
+    ],
+    "stylingTokens": [
+      "src/city-tooltip.css",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "src/globe-geometry.ts",
+      "src/globe-effects.tsx",
+      "src/coastlines.json"
+    ]
+  },
+  "blocks": [
+    "interactive-3d-globe",
+    "great-circle-arcs",
+    "region-latency-ticker",
+    "pop-location-cards",
+    "orbit-camera-rig"
+  ],
+  "params": {
+    "brandName": "Atlas Globe",
+    "tagline": "Global Edge Network & Real-Time Traffic Globe · Hanzo Insights",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_dotted-globe",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark",
+    "autoRotateSpeed": "0.6"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npm start",
+    "build": "npm run build",
+    "deploy": "npx hanzo deploy --path \"apps/dotted-globe\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_dotted-globe",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/atlas-globe",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-dotted-globe&template=dotted-globe&name=atlas-globe",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-dotted-globe&seed=dotted-globe",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=dotted-globe&name=atlas-globe"
+  }
+}

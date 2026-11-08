@@ -1,0 +1,65 @@
+{
+  "seed": "warp-tunnel",
+  "name": "Hyperion Tunnel",
+  "slug": "hyperion-tunnel",
+  "framework": "Three.js WebGPU + React 19",
+  "category": "3D & Shaders",
+  "repo": "https://github.com/hanzo-apps/template-warp-tunnel",
+  "llmMd": "https://gallery.hanzo.ai/llms/warp-tunnel/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/variants/main.tsx",
+      "src/media.ts"
+    ],
+    "uiComponents": [
+      "src/FunnelSceneV3.tsx",
+      "src/MiniLoader.tsx"
+    ],
+    "stylingTokens": [
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "src/FunnelCanvasV3.tsx",
+      "src/vendor/three-webgpu.ts",
+      "src/warp-audio.ts"
+    ]
+  },
+  "blocks": [
+    "webgpu-warp-canvas",
+    "tsl-postprocessing-bloom",
+    "floating-glass-hero",
+    "pointer-velocity-controller",
+    "cta-dock"
+  ],
+  "params": {
+    "brandName": "Hyperion Tunnel",
+    "tagline": "WebGPU AI Throughput & Launch Portal · Three.js TSL + Cloud",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_warp-tunnel",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark",
+    "warpSpeed": "1.0"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npm start",
+    "build": "npm run build",
+    "deploy": "npx hanzo deploy --path \"apps/warp-tunnel\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_warp-tunnel",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/hyperion-tunnel",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-warp-tunnel&template=warp-tunnel&name=hyperion-tunnel",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-warp-tunnel&seed=warp-tunnel",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=warp-tunnel&name=hyperion-tunnel"
+  }
+}

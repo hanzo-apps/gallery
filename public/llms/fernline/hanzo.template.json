@@ -1,0 +1,71 @@
+{
+  "seed": "fernline",
+  "name": "Fernline Ops",
+  "slug": "fernline-ops",
+  "framework": "Next.js 16 + React 19 + TS",
+  "category": "AI/SaaS",
+  "repo": "https://github.com/hanzo-apps/template-fernline",
+  "llmMd": "https://gallery.hanzo.ai/llms/fernline/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "lib/site.ts",
+      "lib/pricing.ts",
+      "lib/mock/marketing.ts",
+      "lib/mock/catalog.ts"
+    ],
+    "uiComponents": [
+      "app/(marketing)/page.tsx",
+      "app/(marketing)/product/[slug]/page.tsx",
+      "components/"
+    ],
+    "stylingTokens": [
+      "lib/tokens.ts",
+      "app/globals.css"
+    ],
+    "preserveDoNotBreak": [
+      "AGENTS.md",
+      "next.config.ts",
+      "lib/mock/generators.ts"
+    ]
+  },
+  "blocks": [
+    "agent-trace-stream",
+    "run-timeline",
+    "tool-call-inspector",
+    "latency-flamegraph",
+    "fleet-status-rail",
+    "command-bar"
+  ],
+  "params": {
+    "brandName": "Fernline Ops",
+    "tagline": "AI Agent Ops & Observability Console · Hanzo Cloud + Insights",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_fernline",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark",
+    "telemetryEndpoint": "https://api.hanzo.ai/v1/traces",
+    " refreshIntervalMs": "1000"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/fernline\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_fernline",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/fernline-ops",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "out",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-fernline&template=fernline&name=fernline-ops",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-fernline&seed=fernline",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=fernline&name=fernline-ops"
+  }
+}

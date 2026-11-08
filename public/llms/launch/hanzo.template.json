@@ -1,0 +1,68 @@
+{
+  "seed": "launch",
+  "name": "Launch",
+  "slug": "launch",
+  "framework": "Next.js 13",
+  "category": "SaaS",
+  "repo": "https://github.com/hanzo-apps/template-launch",
+  "llmMd": "https://gallery.hanzo.ai/llms/launch/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/constants/",
+      "src/mocks/",
+      "app/page.tsx"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "components/",
+      "app/"
+    ],
+    "stylingTokens": [
+      "app/globals.css",
+      "tailwind.config.ts"
+    ],
+    "preserveDoNotBreak": [
+      "next.config.mjs",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "hero-cta",
+    "feature-bento",
+    "pricing-tiers",
+    "testimonials",
+    "landing",
+    "saas",
+    "modern"
+  ],
+  "params": {
+    "brandName": "Launch",
+    "tagline": "SaaS landing pages",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_launch",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/launch\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_launch",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/launch",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "out",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-launch&template=launch&name=launch",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-launch&seed=launch",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=launch&name=launch"
+  }
+}

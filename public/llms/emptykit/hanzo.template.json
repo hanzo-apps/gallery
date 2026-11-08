@@ -1,0 +1,64 @@
+{
+  "seed": "emptykit",
+  "name": "Emptykit 3D",
+  "slug": "emptykit-3d",
+  "framework": "React + Three.js + SVG",
+  "category": "Component Library",
+  "repo": "https://github.com/hanzo-apps/template-emptykit",
+  "llmMd": "https://gallery.hanzo.ai/llms/emptykit/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "copy/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "web/react/EmptyState.jsx",
+      "web/looks.js"
+    ],
+    "stylingTokens": [
+      "index.html"
+    ],
+    "preserveDoNotBreak": [
+      "web/glb/",
+      "svg/"
+    ]
+  },
+  "blocks": [
+    "app-router-shell",
+    "theme-token-provider",
+    "top-nav-minimal",
+    "responsive-grid-container",
+    "api-health-route"
+  ],
+  "params": {
+    "brandName": "Emptykit 3D",
+    "tagline": "SaaS Onboarding, Activation & Empty-State Kit · Hanzo Insights",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_emptykit",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark",
+    "layoutVariant": "centered"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npm start",
+    "build": "npm run build",
+    "deploy": "npx hanzo deploy --path \"apps/emptykit\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_emptykit",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/emptykit-3d",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-emptykit&template=emptykit&name=emptykit-3d",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-emptykit&seed=emptykit",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=emptykit&name=emptykit-3d"
+  }
+}

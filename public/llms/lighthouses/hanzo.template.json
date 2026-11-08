@@ -1,0 +1,65 @@
+{
+  "seed": "lighthouse",
+  "name": "Lighthouse World",
+  "slug": "lighthouse-world",
+  "framework": "React 19 + Canvas + TS",
+  "category": "App",
+  "repo": "https://github.com/hanzo-apps/template-lighthouse",
+  "llmMd": "https://gallery.hanzo.ai/llms/lighthouse/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/main.tsx",
+      "forge.meta.json"
+    ],
+    "uiComponents": [
+      "src/",
+      "ui/"
+    ],
+    "stylingTokens": [
+      "index.css",
+      "fonts/"
+    ],
+    "preserveDoNotBreak": [
+      "ui/icons/",
+      "vite.config.ts"
+    ]
+  },
+  "blocks": [
+    "zero-js-hero",
+    "perf-score-gauge",
+    "article-index",
+    "rss-subscribe-card",
+    "table-of-contents"
+  ],
+  "params": {
+    "brandName": "Lighthouse World",
+    "tagline": "AI Interactive World & NPC Game Engine · Zen AI + Analytics",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_lighthouse",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark",
+    "contentCollection": "articles"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npm start",
+    "build": "npm run build",
+    "deploy": "npx hanzo deploy --path \"apps/lighthouse\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_lighthouse",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/lighthouse-world",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-lighthouse&template=lighthouse&name=lighthouse-world",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-lighthouse&seed=lighthouse",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=lighthouse&name=lighthouse-world"
+  }
+}

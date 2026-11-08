@@ -1,0 +1,68 @@
+{
+  "seed": "construct",
+  "name": "Construct",
+  "slug": "construct",
+  "framework": "Next.js 14",
+  "category": "Landing",
+  "repo": "https://github.com/hanzo-apps/template-construct",
+  "llmMd": "https://gallery.hanzo.ai/llms/construct/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/constants/",
+      "src/mocks/",
+      "app/page.tsx"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "components/",
+      "app/"
+    ],
+    "stylingTokens": [
+      "app/globals.css",
+      "tailwind.config.ts"
+    ],
+    "preserveDoNotBreak": [
+      "next.config.mjs",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "app",
+    "landing",
+    "modern"
+  ],
+  "params": {
+    "brandName": "Construct",
+    "tagline": "App landing pages",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_construct",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/construct\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_construct",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/construct",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "out",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-construct&template=construct&name=construct",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-construct&seed=construct",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=construct&name=construct"
+  }
+}

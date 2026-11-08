@@ -1,0 +1,67 @@
+{
+  "seed": "bestiary",
+  "name": "Bestiary 3D",
+  "slug": "bestiary-3d",
+  "framework": "React + Three.js + TS",
+  "category": "Component Library",
+  "repo": "https://github.com/hanzo-apps/template-bestiary",
+  "llmMd": "https://gallery.hanzo.ai/llms/bestiary/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "product.json",
+      "src/species.js",
+      "demo/index.html"
+    ],
+    "uiComponents": [
+      "react/Bestiary.tsx",
+      "specimens/"
+    ],
+    "stylingTokens": [
+      "_engine/plate.css",
+      "dist/bestiary.css"
+    ],
+    "preserveDoNotBreak": [
+      "_engine/engine.js",
+      "_engine/build.mjs",
+      "dist/bestiary.esm.js"
+    ]
+  },
+  "blocks": [
+    "isometric-voxel-stage",
+    "creature-codex-drawer",
+    "biome-filter-bar",
+    "procedural-animation-rig",
+    "specimen-stats-card"
+  ],
+  "params": {
+    "brandName": "Bestiary 3D",
+    "tagline": "Interactive 3D Point-Cloud Avatars & Agent Visualizers · React/ESM",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_bestiary",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark",
+    "startingBiome": "all"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npm start",
+    "build": "npm run build",
+    "deploy": "npx hanzo deploy --path \"apps/bestiary\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_bestiary",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/bestiary-3d",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-bestiary&template=bestiary&name=bestiary-3d",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-bestiary&seed=bestiary",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=bestiary&name=bestiary-3d"
+  }
+}

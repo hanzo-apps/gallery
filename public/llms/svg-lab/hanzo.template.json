@@ -1,0 +1,65 @@
+{
+  "seed": "line-illustrations",
+  "name": "Vector Lab",
+  "slug": "vector-lab",
+  "framework": "React 19 + SVG + TS",
+  "category": "Component Library",
+  "repo": "https://github.com/hanzo-apps/template-line-illustrations",
+  "llmMd": "https://gallery.hanzo.ai/llms/line-illustrations/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/variants/tracks.tsx",
+      "src/variants/funnel.tsx",
+      "src/variants/playground.tsx"
+    ],
+    "uiComponents": [
+      "src/hairline/Illustration.tsx",
+      "src/figures/"
+    ],
+    "stylingTokens": [
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "src/hairline/kernel.js",
+      "src/hairline/board.js",
+      "src/hairline/depth.js"
+    ]
+  },
+  "blocks": [
+    "vector-stroke-sequencer",
+    "scroll-triggered-diagrams",
+    "isometric-wireframe-cards",
+    "step-by-step-flow"
+  ],
+  "params": {
+    "brandName": "Vector Lab",
+    "tagline": "Parametric Architecture Diagrams & SVG Studio · Zen AI + React",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_line-illustrations",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark",
+    "strokeSpeed": "1.4"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npm start",
+    "build": "npm run build",
+    "deploy": "npx hanzo deploy --path \"apps/line-illustrations\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_line-illustrations",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/vector-lab",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-line-illustrations&template=line-illustrations&name=vector-lab",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-line-illustrations&seed=line-illustrations",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=line-illustrations&name=vector-lab"
+  }
+}

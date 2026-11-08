@@ -1,0 +1,65 @@
+{
+  "seed": "tracking-3d",
+  "name": "Vision HUD",
+  "slug": "vision-hud",
+  "framework": "Three.js + React 19 + TS",
+  "category": "3D & Shaders",
+  "repo": "https://github.com/hanzo-apps/template-tracking-3d",
+  "llmMd": "https://gallery.hanzo.ai/llms/tracking-3d/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/variants/tracking-overlay.tsx",
+      "src/main.tsx"
+    ],
+    "uiComponents": [
+      "src/lib/bl.tsx",
+      "src/variants/tracking-overlay.tsx"
+    ],
+    "stylingTokens": [
+      "src/lib/fonts.ts",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "src/lib/motion.ts",
+      "assets/fonts/"
+    ]
+  },
+  "blocks": [
+    "cursor-tracked-3d-rig",
+    "depth-parallax-stage",
+    "hud-telemetry-reticle",
+    "spring-camera-controller",
+    "spec-overlay"
+  ],
+  "params": {
+    "brandName": "Vision HUD",
+    "tagline": "Spatial AI, Robotics & Computer Vision HUD · Multimodal API",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_tracking-3d",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark",
+    "trackingDamping": "0.08"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npm start",
+    "build": "npm run build",
+    "deploy": "npx hanzo deploy --path \"apps/tracking-3d\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_tracking-3d",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/vision-hud",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-tracking-3d&template=tracking-3d&name=vision-hud",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-tracking-3d&seed=tracking-3d",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=tracking-3d&name=vision-hud"
+  }
+}

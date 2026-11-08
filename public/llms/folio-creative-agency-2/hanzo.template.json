@@ -1,0 +1,68 @@
+{
+  "seed": "folio-creative-agency-2",
+  "name": "Folio Creative Agency 2",
+  "slug": "folio-creative-agency-2",
+  "framework": "HTML/Gulp",
+  "category": "Folio Portfolio",
+  "repo": "https://github.com/hanzo-apps/template-folio-creative-agency-2",
+  "llmMd": "https://gallery.hanzo.ai/llms/folio-creative-agency-2/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/",
+      "src/constants/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "src/pages/",
+      "src/App.tsx"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "project-showcase-grid",
+    "case-study-detail",
+    "about-bio",
+    "contact-form",
+    "agency",
+    "creative",
+    "variant"
+  ],
+  "params": {
+    "brandName": "Folio Creative Agency 2",
+    "tagline": "Creative agency portfolios",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_folio-creative-agency-2",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npx gulp",
+    "build": "npx gulp build",
+    "deploy": "npx hanzo deploy --static --path \"apps/Folio - HTML Templates/creative-agency-2\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_folio-creative-agency-2",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/folio-creative-agency-2",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "build",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-folio-creative-agency-2&template=folio-creative-agency-2&name=folio-creative-agency-2",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-folio-creative-agency-2&seed=folio-creative-agency-2",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=folio-creative-agency-2&name=folio-creative-agency-2"
+  }
+}

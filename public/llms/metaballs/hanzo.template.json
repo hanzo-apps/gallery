@@ -1,0 +1,62 @@
+{
+  "seed": "warp-shader",
+  "name": "Fluid Core",
+  "slug": "fluid-core",
+  "framework": "Three.js WebGPU + React 19",
+  "category": "3D & Shaders",
+  "repo": "https://github.com/hanzo-apps/template-warp-shader",
+  "llmMd": "https://gallery.hanzo.ai/llms/warp-shader/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/variants/main.tsx",
+      "src/main.tsx"
+    ],
+    "uiComponents": [
+      "src/variants/main.tsx"
+    ],
+    "stylingTokens": [
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "src/lib/shader.ts",
+      "src/lib/stage.ts"
+    ]
+  },
+  "blocks": [
+    "domain-warped-noise-canvas",
+    "palette-interpolator",
+    "minimal-editorial-overlay",
+    "audio-reactive-hook"
+  ],
+  "params": {
+    "brandName": "Fluid Core",
+    "tagline": "WebGPU Generative Brand Canvas & AI Hero Backdrop · Three.js TSL",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_warp-shader",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark",
+    "noiseOctaves": "4"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npm start",
+    "build": "npm run build",
+    "deploy": "npx hanzo deploy --path \"apps/warp-shader\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_warp-shader",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/fluid-core",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-warp-shader&template=warp-shader&name=fluid-core",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-warp-shader&seed=warp-shader",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=warp-shader&name=fluid-core"
+  }
+}

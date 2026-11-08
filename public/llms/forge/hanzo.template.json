@@ -1,0 +1,68 @@
+{
+  "seed": "forge",
+  "name": "Forge",
+  "slug": "forge",
+  "framework": "HTML/Gulp",
+  "category": "Dashboard",
+  "repo": "https://github.com/hanzo-apps/template-forge",
+  "llmMd": "https://gallery.hanzo.ai/llms/forge/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/",
+      "src/constants/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "src/pages/",
+      "src/App.tsx"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "sidebar-nav",
+    "kpi-stat-cards",
+    "revenue-chart",
+    "activity-table",
+    "dashboard",
+    "admin",
+    "analytics"
+  ],
+  "params": {
+    "brandName": "Forge",
+    "tagline": "Admin dashboards",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_forge",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npx gulp",
+    "build": "npx gulp build",
+    "deploy": "npx hanzo deploy --static --path \"apps/forge\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_forge",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/forge",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "build",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-forge&template=forge&name=forge",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-forge&seed=forge",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=forge&name=forge"
+  }
+}

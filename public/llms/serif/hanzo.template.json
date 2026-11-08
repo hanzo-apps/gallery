@@ -1,0 +1,68 @@
+{
+  "seed": "serif",
+  "name": "Serif",
+  "slug": "serif",
+  "framework": "HTML/Sass",
+  "category": "Portfolio",
+  "repo": "https://github.com/hanzo-apps/template-serif",
+  "llmMd": "https://gallery.hanzo.ai/llms/serif/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/",
+      "src/constants/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "src/pages/",
+      "src/App.tsx"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "project-showcase-grid",
+    "case-study-detail",
+    "about-bio",
+    "contact-form",
+    "sass",
+    "template",
+    "build-system"
+  ],
+  "params": {
+    "brandName": "Serif",
+    "tagline": "Portfolio/agency sites",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_serif",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npx serve .",
+    "build": "echo \"Static build ready\"",
+    "deploy": "npx hanzo deploy --static --path \"apps/serif\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_serif",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/serif",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": ".",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-serif&template=serif&name=serif",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-serif&seed=serif",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=serif&name=serif"
+  }
+}

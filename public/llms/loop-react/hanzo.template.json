@@ -1,0 +1,68 @@
+{
+  "seed": "loop",
+  "name": "Loop",
+  "slug": "loop",
+  "framework": "React 18",
+  "category": "Bento Cards",
+  "repo": "https://github.com/hanzo-apps/template-loop",
+  "llmMd": "https://gallery.hanzo.ai/llms/loop/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/",
+      "src/constants/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "src/pages/",
+      "src/App.tsx"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "bento-layout",
+    "v3",
+    "react"
+  ],
+  "params": {
+    "brandName": "Loop",
+    "tagline": "Bento card layouts v3",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_loop",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npm start",
+    "build": "npm run build",
+    "deploy": "npx hanzo deploy --path \"apps/loop\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_loop",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/loop",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "build",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-loop&template=loop&name=loop",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-loop&seed=loop",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=loop&name=loop"
+  }
+}

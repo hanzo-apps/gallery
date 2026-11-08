@@ -1,0 +1,61 @@
+{
+  "seed": "animated-rings",
+  "name": "Orbital Core",
+  "slug": "orbital-core",
+  "framework": "Three.js + React 19 + TS",
+  "category": "3D & Shaders",
+  "repo": "https://github.com/hanzo-apps/template-animated-rings",
+  "llmMd": "https://gallery.hanzo.ai/llms/animated-rings/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/variants/main.tsx",
+      "src/main.tsx"
+    ],
+    "uiComponents": [
+      "src/variants/main.tsx"
+    ],
+    "stylingTokens": [
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts"
+    ]
+  },
+  "blocks": [
+    "concentric-webgl-rings",
+    "orbital-bloom-stage",
+    "metric-counter-hud",
+    "voice-pulse-visualizer"
+  ],
+  "params": {
+    "brandName": "Orbital Core",
+    "tagline": "3D AI Voice & Enso Assistant State Visualizer · Three.js + Realtime",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_animated-rings",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark",
+    "ringCount": "7"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npm start",
+    "build": "npm run build",
+    "deploy": "npx hanzo deploy --path \"apps/animated-rings\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_animated-rings",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/orbital-core",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-animated-rings&template=animated-rings&name=orbital-core",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-animated-rings&seed=animated-rings",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=animated-rings&name=orbital-core"
+  }
+}

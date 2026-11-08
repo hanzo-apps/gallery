@@ -1,0 +1,67 @@
+{
+  "seed": "component-states",
+  "name": "State Matrix",
+  "slug": "state-matrix",
+  "framework": "React 19 + Vite + TS",
+  "category": "Component Library",
+  "repo": "https://github.com/hanzo-apps/template-component-states",
+  "llmMd": "https://gallery.hanzo.ai/llms/component-states/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/lib/data.ts",
+      "src/lib/defaults.ts"
+    ],
+    "uiComponents": [
+      "src/variants/states.tsx",
+      "src/components/Controls.tsx",
+      "src/docs/Shell.tsx"
+    ],
+    "stylingTokens": [
+      "src/lib/tokens.tsx",
+      "src/lib/color.ts",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "src/lib/transfer.ts",
+      "src/docs/context.ts"
+    ]
+  },
+  "blocks": [
+    "state-matrix-grid",
+    "focus-ring-inspector",
+    "contrast-checker",
+    "token-variable-editor",
+    "theme-mirror"
+  ],
+  "params": {
+    "brandName": "State Matrix",
+    "tagline": "UI State Specification & QA Harness · Hanzo UX Insights",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_component-states",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark",
+    "showPseudoBadges": "true"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/component-states\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_component-states",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/state-matrix",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-component-states&template=component-states&name=state-matrix",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-component-states&seed=component-states",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=component-states&name=state-matrix"
+  }
+}

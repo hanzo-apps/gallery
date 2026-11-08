@@ -1,0 +1,67 @@
+{
+  "seed": "tensile",
+  "name": "Tensile Studio",
+  "slug": "tensile-studio",
+  "framework": "Astro 5 + Sanity + TS",
+  "category": "Portfolio",
+  "repo": "https://github.com/hanzo-apps/template-tensile",
+  "llmMd": "https://gallery.hanzo.ai/llms/tensile/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/demo.json",
+      "src/pages/llms.txt.ts",
+      "src/lib/seo.ts"
+    ],
+    "uiComponents": [
+      "src/pages/index.astro",
+      "src/pages/work/",
+      "src/pages/services/"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "astro.config.mjs"
+    ],
+    "preserveDoNotBreak": [
+      "src/pages/llms.txt.ts",
+      "src/lib/types.ts"
+    ]
+  },
+  "blocks": [
+    "swiss-modular-grid",
+    "token-specimen-matrix",
+    "motion-curve-inspector",
+    "component-anatomy-viewer",
+    "spec-drawer"
+  ],
+  "params": {
+    "brandName": "Tensile Studio",
+    "tagline": "AI Editorial & Headless CMS Studio · Astro 5 + Hanzo Cloud",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_tensile",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark",
+    "gridColumns": "12"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/tensile\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_tensile",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/tensile-studio",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-tensile&template=tensile&name=tensile-studio",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-tensile&seed=tensile",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=tensile&name=tensile-studio"
+  }
+}

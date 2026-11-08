@@ -1,0 +1,68 @@
+{
+  "seed": "folio-contact",
+  "name": "Folio Contact",
+  "slug": "folio-contact",
+  "framework": "HTML/Gulp",
+  "category": "Folio Portfolio",
+  "repo": "https://github.com/hanzo-apps/template-folio-contact",
+  "llmMd": "https://gallery.hanzo.ai/llms/folio-contact/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/",
+      "src/constants/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "src/pages/",
+      "src/App.tsx"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "project-showcase-grid",
+    "case-study-detail",
+    "about-bio",
+    "contact-form",
+    "contact",
+    "form",
+    "communication"
+  ],
+  "params": {
+    "brandName": "Folio Contact",
+    "tagline": "Contact pages",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_folio-contact",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npx gulp",
+    "build": "npx gulp build",
+    "deploy": "npx hanzo deploy --static --path \"apps/Folio - HTML Templates/contact\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_folio-contact",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/folio-contact",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "build",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-folio-contact&template=folio-contact&name=folio-contact",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-folio-contact&seed=folio-contact",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=folio-contact&name=folio-contact"
+  }
+}

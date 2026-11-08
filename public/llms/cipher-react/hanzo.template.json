@@ -1,0 +1,68 @@
+{
+  "seed": "cipher-react",
+  "name": "Cipher (React)",
+  "slug": "cipher-react",
+  "framework": "React 17",
+  "category": "Dashboard",
+  "repo": "https://github.com/hanzo-apps/template-cipher-react",
+  "llmMd": "https://gallery.hanzo.ai/llms/cipher-react/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/",
+      "src/constants/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "src/pages/",
+      "src/App.tsx"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "sidebar-nav",
+    "kpi-stat-cards",
+    "revenue-chart",
+    "activity-table",
+    "crypto",
+    "trading",
+    "dashboard"
+  ],
+  "params": {
+    "brandName": "Cipher (React)",
+    "tagline": "Crypto exchanges",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_cipher-react",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npm start",
+    "build": "npm run build",
+    "deploy": "npx hanzo deploy --path \"apps/cipher-react\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_cipher-react",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/cipher-react",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "build",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-cipher-react&template=cipher-react&name=cipher-react",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-cipher-react&seed=cipher-react",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=cipher-react&name=cipher-react"
+  }
+}

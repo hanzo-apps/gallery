@@ -1,0 +1,68 @@
+{
+  "seed": "folio-grid-3-columns",
+  "name": "Folio Grid 3 Columns",
+  "slug": "folio-grid-3-columns",
+  "framework": "HTML/Gulp",
+  "category": "Folio Portfolio",
+  "repo": "https://github.com/hanzo-apps/template-folio-grid-3-columns",
+  "llmMd": "https://gallery.hanzo.ai/llms/folio-grid-3-columns/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/",
+      "src/constants/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "src/pages/",
+      "src/App.tsx"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "project-showcase-grid",
+    "case-study-detail",
+    "about-bio",
+    "contact-form",
+    "grid",
+    "3-columns",
+    "layout"
+  ],
+  "params": {
+    "brandName": "Folio Grid 3 Columns",
+    "tagline": "3-column portfolio grids",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_folio-grid-3-columns",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npx gulp",
+    "build": "npx gulp build",
+    "deploy": "npx hanzo deploy --static --path \"apps/Folio - HTML Templates/grid-3\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_folio-grid-3-columns",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/folio-grid-3-columns",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "build",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-folio-grid-3-columns&template=folio-grid-3-columns&name=folio-grid-3-columns",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-folio-grid-3-columns&seed=folio-grid-3-columns",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=folio-grid-3-columns&name=folio-grid-3-columns"
+  }
+}

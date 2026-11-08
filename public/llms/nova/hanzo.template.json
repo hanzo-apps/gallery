@@ -1,0 +1,71 @@
+{
+  "seed": "nova",
+  "name": "Nova AI",
+  "slug": "nova-ai",
+  "framework": "React 19 + Vite + TS",
+  "category": "AI/SaaS",
+  "repo": "https://github.com/hanzo-apps/template-nova",
+  "llmMd": "https://gallery.hanzo.ai/llms/nova/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/lib/plans.ts",
+      "src/lib/models.ts",
+      "src/lib/stories.ts",
+      "src/lib/people.ts"
+    ],
+    "uiComponents": [
+      "src/site/",
+      "src/lib/docs.ts",
+      "src/lib/billing.ts"
+    ],
+    "stylingTokens": [
+      "src/lib/theme.ts",
+      "src/lib/chipStyles.ts",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "src/lib/heroShader.ts",
+      "src/lib/glassShader.ts",
+      "src/lib/lakeShader.ts"
+    ]
+  },
+  "blocks": [
+    "hero-spotlight",
+    "interactive-bento-features",
+    "roi-calculator",
+    "tiered-pricing-toggle",
+    "customer-logos",
+    "faq-accordion"
+  ],
+  "params": {
+    "brandName": "Nova AI",
+    "tagline": "AI SaaS & Metered Billing Starter · Zen AI + IAM + Analytics",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_nova",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark",
+    "billingDefault": "annual"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/nova\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_nova",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/nova-ai",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-nova&template=nova&name=nova-ai",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-nova&seed=nova",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=nova&name=nova-ai"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "seed": "jobfinder",
+  "name": "Job Finder",
+  "slug": "job-finder",
+  "framework": "React Native",
+  "category": "Mobile App",
+  "repo": "https://github.com/hanzo-apps/template-jobfinder",
+  "llmMd": "https://gallery.hanzo.ai/llms/jobfinder/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/",
+      "src/constants/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "src/pages/",
+      "src/App.tsx"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "jobs",
+    "search",
+    "mobile"
+  ],
+  "params": {
+    "brandName": "Job Finder",
+    "tagline": "Job search mobile apps",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_jobfinder",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npm start",
+    "build": "npm run build",
+    "deploy": "npx hanzo deploy --path \"apps/jobfinder\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_jobfinder",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/job-finder",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "build",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-jobfinder&template=jobfinder&name=job-finder",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-jobfinder&seed=jobfinder",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=jobfinder&name=job-finder"
+  }
+}

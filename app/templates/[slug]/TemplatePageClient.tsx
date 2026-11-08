@@ -403,6 +403,12 @@ export function TemplatePageClient({
             <Action href="https://analytics.hanzo.ai" minH={36} px={14}>
               Open Hanzo Insights ↗
             </Action>
+            <Action render="button" onClick={() => copyText(assembled.llmMd, 'llm')} minH={36} px={14}>
+              {copiedKey === 'llm' ? 'Copied LLM.md ✓' : 'Copy LLM.md'}
+            </Action>
+            <Action href={assembled.llmMdUrl} minH={36} px={14}>
+              View LLM.md ↗
+            </Action>
             <Action render="button" onClick={() => copyText(assembled.hanzoSdkCode, 'sdk')} minH={36} px={14}>
               {copiedKey === 'sdk' ? 'Copied SDK ✓' : 'Copy src/lib/hanzo.ts'}
             </Action>

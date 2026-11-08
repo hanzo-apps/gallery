@@ -1,0 +1,68 @@
+{
+  "seed": "prism-react",
+  "name": "Prism (React)",
+  "slug": "prism-react",
+  "framework": "React 18 + Vite",
+  "category": "SaaS",
+  "repo": "https://github.com/hanzo-apps/template-prism-react",
+  "llmMd": "https://gallery.hanzo.ai/llms/prism-react/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/",
+      "src/constants/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "src/pages/",
+      "src/App.tsx"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "hero-cta",
+    "feature-bento",
+    "pricing-tiers",
+    "testimonials",
+    "modern-ui",
+    "animations",
+    "landing"
+  ],
+  "params": {
+    "brandName": "Prism (React)",
+    "tagline": "Modern SaaS landing",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_prism-react",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/prism-react\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_prism-react",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/prism-react",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-prism-react&template=prism-react&name=prism-react",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-prism-react&seed=prism-react",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=prism-react&name=prism-react"
+  }
+}

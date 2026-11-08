@@ -91,7 +91,7 @@ export function ForkModal({ template, onClose }: ForkModalProps) {
   const [method, setMethod] = useState<Method | null>('cloud');
   const [busy, setBusy] = useState(false);
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
-  const [configTab, setConfigTab] = useState<'cli' | 'sdk' | 'yaml' | 'env'>('cli');
+  const [configTab, setConfigTab] = useState<'cli' | 'llm' | 'sdk' | 'yaml' | 'env'>('cli');
   const [params, setParams] = useState<Record<string, string>>(() =>
     Object.fromEntries(blueprint.params.map((p) => [p.key, p.default])),
   );
@@ -271,6 +271,7 @@ export function ForkModal({ template, onClose }: ForkModalProps) {
                   {(
                     [
                       ['cli', 'Deploy CLI'],
+                      ['llm', 'LLM.md'],
                       ['sdk', 'src/lib/hanzo.ts'],
                       ['yaml', 'hanzo.yml'],
                       ['env', '.env.local'],
@@ -317,11 +318,13 @@ export function ForkModal({ template, onClose }: ForkModalProps) {
                     copy(
                       configTab === 'cli'
                         ? assembled.cliCommand
-                        : configTab === 'sdk'
-                          ? assembled.hanzoSdkCode
-                          : configTab === 'yaml'
-                            ? assembled.hanzoYaml
-                            : assembled.envFile,
+                        : configTab === 'llm'
+                          ? assembled.llmMd
+                          : configTab === 'sdk'
+                            ? assembled.hanzoSdkCode
+                            : configTab === 'yaml'
+                              ? assembled.hanzoYaml
+                              : assembled.envFile,
                       configTab,
                     )
                   }
@@ -336,11 +339,13 @@ export function ForkModal({ template, onClose }: ForkModalProps) {
               <Text render="pre" m={0} {...mono} fontSize="$2" lineHeight={20} color={c.ink} style={{ whiteSpace: 'pre' }}>
                 {configTab === 'cli'
                   ? assembled.cliCommand
-                  : configTab === 'sdk'
-                    ? assembled.hanzoSdkCode
-                    : configTab === 'yaml'
-                      ? assembled.hanzoYaml
-                      : assembled.envFile}
+                  : configTab === 'llm'
+                    ? assembled.llmMd
+                    : configTab === 'sdk'
+                      ? assembled.hanzoSdkCode
+                      : configTab === 'yaml'
+                        ? assembled.hanzoYaml
+                        : assembled.envFile}
               </Text>
             </YStack>
           </Well>

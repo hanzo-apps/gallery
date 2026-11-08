@@ -1,0 +1,70 @@
+{
+  "seed": "instrument",
+  "name": "Instrument Lab",
+  "slug": "instrument-lab",
+  "framework": "React 19 + Vite + TS",
+  "category": "Portfolio",
+  "repo": "https://github.com/hanzo-apps/template-instrument",
+  "llmMd": "https://gallery.hanzo.ai/llms/instrument/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/landing/copy.tsx",
+      "src/landing/links.tsx",
+      "src/lib/defaults.ts"
+    ],
+    "uiComponents": [
+      "src/landing/parts.tsx",
+      "src/docs/Shell.tsx",
+      "src/docs/Blocks.tsx"
+    ],
+    "stylingTokens": [
+      "src/lib/tokens.tsx",
+      "src/lib/fonts.ts",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "src/illustration/glsl.ts",
+      "src/illustration/Illustration.tsx"
+    ]
+  },
+  "blocks": [
+    "hero-editorial",
+    "command-palette-cmdk",
+    "interactive-lab-grid",
+    "case-study-reel",
+    "audio-tactile-keys",
+    "theme-switcher"
+  ],
+  "params": {
+    "brandName": "Instrument Lab",
+    "tagline": "AI Creative Lab & Developer Studio · Zen AI + Analytics",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_instrument",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark",
+    "personaRole": "Design Engineer",
+    "enableAudio": "true"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/instrument\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_instrument",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/instrument-lab",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-instrument&template=instrument&name=instrument-lab",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-instrument&seed=instrument",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=instrument&name=instrument-lab"
+  }
+}

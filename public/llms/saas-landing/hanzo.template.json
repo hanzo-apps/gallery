@@ -1,0 +1,68 @@
+{
+  "seed": "saas-landing",
+  "name": "SaaS Landing",
+  "slug": "saas-landing",
+  "framework": "Next.js 14.2",
+  "category": "SaaS",
+  "repo": "https://github.com/hanzo-apps/template-saas-landing",
+  "llmMd": "https://gallery.hanzo.ai/llms/saas-landing/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/constants/",
+      "src/mocks/",
+      "app/page.tsx"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "components/",
+      "app/"
+    ],
+    "stylingTokens": [
+      "app/globals.css",
+      "tailwind.config.ts"
+    ],
+    "preserveDoNotBreak": [
+      "next.config.mjs",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "hero-cta",
+    "feature-bento",
+    "pricing-tiers",
+    "testimonials",
+    "landing",
+    "pricing",
+    "features"
+  ],
+  "params": {
+    "brandName": "SaaS Landing",
+    "tagline": "SaaS landing pages",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_saas-landing",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/saas-landing\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_saas-landing",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/saas-landing",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "out",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-saas-landing&template=saas-landing&name=saas-landing",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-saas-landing&seed=saas-landing",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=saas-landing&name=saas-landing"
+  }
+}

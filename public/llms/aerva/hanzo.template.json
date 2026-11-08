@@ -1,0 +1,67 @@
+{
+  "seed": "aerva",
+  "name": "Aerva AI",
+  "slug": "aerva-ai",
+  "framework": "React 19 + Vite + TS",
+  "category": "AI/SaaS",
+  "repo": "https://github.com/hanzo-apps/template-aerva",
+  "llmMd": "https://gallery.hanzo.ai/llms/aerva/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/pages/HomePage.tsx",
+      "src/pages/CarsDetailPage.tsx",
+      "src/pages/JournalPage.tsx"
+    ],
+    "uiComponents": [
+      "src/sections/home/",
+      "src/sections/cars/",
+      "src/components/layout/"
+    ],
+    "stylingTokens": [
+      "src/styles/tokens.css",
+      "design/tokens.dtcg.json"
+    ],
+    "preserveDoNotBreak": [
+      "src/lib/useRevealMotion.ts",
+      "docs/slicing-rules.md"
+    ]
+  },
+  "blocks": [
+    "hero-atmospheric",
+    "telemetry-spec-table",
+    "editorial-scroll-chapters",
+    "field-data-cards",
+    "press-kit-footer"
+  ],
+  "params": {
+    "brandName": "Aerva AI",
+    "tagline": "AI Copilot & Product Launch Platform · Zen AI + Funnel Insights",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_aerva",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark",
+    "editionLabel": "Field Release 04"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/aerva\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_aerva",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/aerva-ai",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-aerva&template=aerva&name=aerva-ai",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-aerva&seed=aerva",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=aerva&name=aerva-ai"
+  }
+}

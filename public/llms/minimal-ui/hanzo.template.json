@@ -1,0 +1,68 @@
+{
+  "seed": "minimal-ui",
+  "name": "Monolith UI",
+  "slug": "monolith-ui",
+  "framework": "React 19 + Vite + TS",
+  "category": "Component Library",
+  "repo": "https://github.com/hanzo-apps/template-minimal-ui",
+  "llmMd": "https://gallery.hanzo.ai/llms/minimal-ui/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/shop/content.ts",
+      "src/shop/data.ts",
+      "src/lib/defaults.ts"
+    ],
+    "uiComponents": [
+      "src/shop/Shop.tsx",
+      "src/shop/parts.tsx",
+      "src/docs/Shell.tsx"
+    ],
+    "stylingTokens": [
+      "src/shop/theme.ts",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "src/shop/state.tsx",
+      "src/docs/context.ts"
+    ]
+  },
+  "blocks": [
+    "sidebar-shell",
+    "command-search",
+    "metric-strip",
+    "data-table-filterable",
+    "form-primitives",
+    "notification-popover"
+  ],
+  "params": {
+    "brandName": "Monolith UI",
+    "tagline": "AI Design System & Developer Docs Portal · Zen Search + Tokens",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_minimal-ui",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark",
+    "density": "comfortable"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/minimal-ui\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_minimal-ui",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/monolith-ui",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-minimal-ui&template=minimal-ui&name=monolith-ui",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-minimal-ui&seed=minimal-ui",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=minimal-ui&name=monolith-ui"
+  }
+}
