@@ -109,8 +109,6 @@ export function TemplatePageClient({
   const blueprint = getBlueprint(pick);
   const assembled = assembleProjectConfig(pick);
   const repo = blueprint.repo;
-  const deployUrl = assembled.studioBuildUrl;
-  const platformUrl = assembled.platformDeployUrl;
   const hanzoEditUrl = assembled.hanzoEditUrl;
   const previewUrl = blueprint.previewUrl;
 
@@ -167,14 +165,8 @@ export function TemplatePageClient({
             <Text render="button" onClick={() => setStageMode(stageMode === 'live' ? 'capture' : 'live')} {...pill}>
               {stageMode === 'live' ? 'Show Capture' : 'Live Preview'}
             </Text>
-            <Text render="button" onClick={openPreviewTab} {...pill}>
-              Fullscreen Preview ↗
-            </Text>
             <Anchor href={hanzoEditUrl} target="_blank" rel="noopener noreferrer" {...pill}>
               Edit in Hanzo.ai ↗
-            </Anchor>
-            <Anchor href={platformUrl} target="_blank" rel="noopener noreferrer" {...pill}>
-              Deploy to Platform ↗
             </Anchor>
             <Text
               render="button"
@@ -236,11 +228,8 @@ export function TemplatePageClient({
             <Action href={hanzoEditUrl}>
               Edit in Hanzo.ai ↗
             </Action>
-            <Action render="button" onClick={() => setStageMode(stageMode === 'live' ? 'capture' : 'live')}>
-              {stageMode === 'live' ? 'Responsive Captures' : 'Interactive Live Preview'}
-            </Action>
             <Action render="button" onClick={openPreviewTab}>
-              Open Fullscreen ↗
+              Live Preview ↗
             </Action>
           </XStack>
         </XStack>
@@ -406,17 +395,8 @@ export function TemplatePageClient({
             <Action render="button" onClick={() => copyText(assembled.llmMd, 'llm')} minH={36} px={14}>
               {copiedKey === 'llm' ? 'Copied LLM.md ✓' : 'Copy LLM.md'}
             </Action>
-            <Action href={assembled.llmMdUrl} minH={36} px={14}>
-              View LLM.md ↗
-            </Action>
-            <Action render="button" onClick={() => copyText(assembled.hanzoSdkCode, 'sdk')} minH={36} px={14}>
-              {copiedKey === 'sdk' ? 'Copied SDK ✓' : 'Copy src/lib/hanzo.ts'}
-            </Action>
             <Action render="button" onClick={() => copyText(assembled.platformCliCommand, 'cli')} minH={36} px={14}>
               {copiedKey === 'cli' ? 'Copied CLI ✓' : 'Copy 1-Click CLI'}
-            </Action>
-            <Action render="button" onClick={() => copyText(assembled.hanzoYaml, 'yaml')} minH={36} px={14}>
-              {copiedKey === 'yaml' ? 'Copied hanzo.yml ✓' : 'Copy hanzo.yml'}
             </Action>
           </XStack>
         </XStack>
@@ -476,7 +456,7 @@ export function TemplatePageClient({
       {/* Call to action */}
       <Band>
         <YStack bg={c.card} p={48} rounded={round.card} borderWidth={1} borderColor={c.edge} items="center" gap={16}>
-          <Title text="center">Deploy to Hanzo Platform</Title>
+          <Title text="center">Deploy to Hanzo</Title>
           <Lede text="center" mb={16}>
             Parameterize, preview, and deploy {pick.displayName} to Hanzo global edge infrastructure in one click.
           </Lede>
@@ -487,20 +467,11 @@ export function TemplatePageClient({
             <Action href={hanzoEditUrl}>
               Edit in Hanzo.ai ↗
             </Action>
-            <Action href={platformUrl}>
-              Deploy on Platform ↗
-            </Action>
-            <Action href={deployUrl}>
-              Open in Studio ↗
-            </Action>
             <Action render="button" onClick={openPreviewTab}>
               Live Preview ↗
             </Action>
             <Action render="button" onClick={openRepo}>
               View on GitHub
-            </Action>
-            <Action render="button" onClick={() => copyText(pick.path, 'path')}>
-              {copiedKey === 'path' ? 'Path Copied ✓' : 'Copy path'}
             </Action>
           </XStack>
         </YStack>

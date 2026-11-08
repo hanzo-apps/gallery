@@ -413,12 +413,6 @@ export function ForkModal({ template, onClose }: ForkModalProps) {
               Edit in Hanzo.ai ↗
             </Action>
             <Action
-              render="button"
-              onClick={() => window.open(assembled.studioBuildUrl, '_blank', 'noopener,noreferrer')}
-            >
-              Open in Studio
-            </Action>
-            <Action
               fill
               render="button"
               onClick={run}
@@ -430,7 +424,7 @@ export function ForkModal({ template, onClose }: ForkModalProps) {
               {busy
                 ? 'Processing…'
                 : method === 'cloud'
-                  ? 'Deploy to Hanzo Platform'
+                  ? 'Deploy to Hanzo'
                   : method === 'local'
                     ? 'Download now'
                     : method === 'github'
