@@ -1,0 +1,1 @@
+import{s as e}from"./index-9Skn2bn-.js";import{t}from"./react-Bcct6CSu.js";var n=t();function r({index:t,children:r,className:i}){return(0,n.jsxs)(`p`,{"data-reveal":`up`,className:e(`text-body-xs-semibold whitespace-pre-wrap text-text-sub-500 uppercase lg:text-body-sm-semibold`,i),children:[t?`${t}  /  `:null,r]})}export{r as t};

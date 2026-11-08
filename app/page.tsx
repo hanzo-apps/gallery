@@ -45,13 +45,18 @@ function TemplateCard({ template }: { template: Template }) {
         <Text fontSize="$2" lineHeight={18} color={c.faint}>
           {template.useCase}
         </Text>
-        <XStack gap={6} pt={6} flexWrap="wrap">
-          <Chip px={10} py={2}>
-            Tier {template.tier}
-          </Chip>
-          <Chip px={10} py={2}>
-            {template.category}
-          </Chip>
+        <XStack items="center" justify="space-between" gap={8} pt={6} flexWrap="wrap">
+          <XStack gap={6} flexWrap="wrap">
+            <Chip px={10} py={2}>
+              Tier {template.tier}
+            </Chip>
+            <Chip px={10} py={2}>
+              {template.category}
+            </Chip>
+          </XStack>
+          <Lift step fontSize="$1" lineHeight={16} fontWeight="500" color={c.muted}>
+            Live Preview & Deploy →
+          </Lift>
         </XStack>
       </YStack>
     </Leaf>

@@ -393,8 +393,10 @@ export function Header() {
         ref={bar}
         render="header"
         {...BAR}
-        bg={lifted ? PANEL : grounded ? GLASS : 'transparent'}
-        backdropFilter={!lifted && grounded ? BLUR : 'none'}
+        bg={lifted ? PANEL : GLASS}
+        backdropFilter={!lifted ? BLUR : 'none'}
+        borderBottomWidth={1}
+        borderColor={grounded ? 'var(--border)' : 'var(--edge)'}
         transition="quickest"
       >
         {menu(

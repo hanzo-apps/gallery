@@ -1,0 +1,434 @@
+[
+  {
+    "n": 1,
+    "slug": "no-messages",
+    "file": "ek-01-no-messages",
+    "group": "Communication",
+    "title": "No messages yet",
+    "body": "When someone writes to you, the conversation will show up here.",
+    "button": "Start a conversation"
+  },
+  {
+    "n": 2,
+    "slug": "inbox-zero",
+    "file": "ek-02-inbox-zero",
+    "group": "Communication",
+    "title": "Inbox zero",
+    "body": "You've answered everything. New mail will land here.",
+    "button": "Compose"
+  },
+  {
+    "n": 3,
+    "slug": "no-comments",
+    "file": "ek-03-no-comments",
+    "group": "Communication",
+    "title": "No comments yet",
+    "body": "Start the discussion: leave a comment on any line.",
+    "button": "Add a comment"
+  },
+  {
+    "n": 4,
+    "slug": "no-notifications",
+    "file": "ek-04-no-notifications",
+    "group": "Communication",
+    "title": "You're all caught up",
+    "body": "We'll let you know when something needs your attention.",
+    "button": "Notification settings"
+  },
+  {
+    "n": 5,
+    "slug": "no-contacts",
+    "file": "ek-05-no-contacts",
+    "group": "Communication",
+    "title": "No contacts",
+    "body": "Add people you work with to reach them faster.",
+    "button": "Add contact"
+  },
+  {
+    "n": 6,
+    "slug": "no-mentions",
+    "file": "ek-06-no-mentions",
+    "group": "Communication",
+    "title": "No mentions",
+    "body": "When someone @mentions you, it will show up here.",
+    "button": "View all activity"
+  },
+  {
+    "n": 7,
+    "slug": "no-files",
+    "file": "ek-07-no-files",
+    "group": "Files and media",
+    "title": "No files yet",
+    "body": "Drop files here or upload them to share with your team.",
+    "button": "Upload files"
+  },
+  {
+    "n": 8,
+    "slug": "no-documents",
+    "file": "ek-08-no-documents",
+    "group": "Files and media",
+    "title": "No documents",
+    "body": "Create a document or import one to get started.",
+    "button": "New document"
+  },
+  {
+    "n": 9,
+    "slug": "no-images",
+    "file": "ek-09-no-images",
+    "group": "Files and media",
+    "title": "No photos yet",
+    "body": "Upload photos or take one to fill your gallery.",
+    "button": "Upload photos"
+  },
+  {
+    "n": 10,
+    "slug": "upload",
+    "file": "ek-10-upload",
+    "group": "Files and media",
+    "title": "Drop files to upload",
+    "body": "Drag files here, or browse. Up to 50 MB each.",
+    "button": "Browse files"
+  },
+  {
+    "n": 11,
+    "slug": "trash-empty",
+    "file": "ek-11-trash-empty",
+    "group": "Files and media",
+    "title": "Trash is empty",
+    "body": "Deleted items stay here for 30 days before they're gone for good.",
+    "button": "Back to files"
+  },
+  {
+    "n": 12,
+    "slug": "archive-empty",
+    "file": "ek-12-archive-empty",
+    "group": "Files and media",
+    "title": "Nothing archived",
+    "body": "Archive items to keep them out of the way without deleting them.",
+    "button": "View all items"
+  },
+  {
+    "n": 13,
+    "slug": "no-results",
+    "file": "ek-13-no-results",
+    "group": "Search and data",
+    "title": "No results found",
+    "body": "Try different keywords or check the spelling.",
+    "button": "Clear search"
+  },
+  {
+    "n": 14,
+    "slug": "no-filter-results",
+    "file": "ek-14-no-filter-results",
+    "group": "Search and data",
+    "title": "No matches for these filters",
+    "body": "Try removing a filter or widening the date range.",
+    "button": "Reset filters"
+  },
+  {
+    "n": 15,
+    "slug": "no-data",
+    "file": "ek-15-no-data",
+    "group": "Search and data",
+    "title": "No data yet",
+    "body": "Charts appear here as soon as your first events come in.",
+    "button": "Connect a source"
+  },
+  {
+    "n": 16,
+    "slug": "empty-dashboard",
+    "file": "ek-16-empty-dashboard",
+    "group": "Search and data",
+    "title": "Your dashboard is empty",
+    "body": "Add widgets to keep the numbers you care about in view.",
+    "button": "Add widget"
+  },
+  {
+    "n": 17,
+    "slug": "no-history",
+    "file": "ek-17-no-history",
+    "group": "Search and data",
+    "title": "No activity yet",
+    "body": "Changes, comments and logins will be recorded here.",
+    "button": "Learn more"
+  },
+  {
+    "n": 18,
+    "slug": "no-tags",
+    "file": "ek-18-no-tags",
+    "group": "Search and data",
+    "title": "No tags",
+    "body": "Create tags to group and find items quickly.",
+    "button": "Create tag"
+  },
+  {
+    "n": 19,
+    "slug": "empty-cart",
+    "file": "ek-19-empty-cart",
+    "group": "Commerce",
+    "title": "Your cart is empty",
+    "body": "Items you add to your cart will appear here.",
+    "button": "Continue shopping"
+  },
+  {
+    "n": 20,
+    "slug": "no-orders",
+    "file": "ek-20-no-orders",
+    "group": "Commerce",
+    "title": "No orders yet",
+    "body": "When customers buy something, their orders appear here.",
+    "button": "Share your store"
+  },
+  {
+    "n": 21,
+    "slug": "no-payment-methods",
+    "file": "ek-21-no-payment-methods",
+    "group": "Commerce",
+    "title": "No payment methods",
+    "body": "Add a card to pay for your plan and add-ons.",
+    "button": "Add card"
+  },
+  {
+    "n": 22,
+    "slug": "wallet-empty",
+    "file": "ek-22-wallet-empty",
+    "group": "Commerce",
+    "title": "No transactions",
+    "body": "Payments in and out of your account will be listed here.",
+    "button": "Add funds"
+  },
+  {
+    "n": 23,
+    "slug": "no-invoices",
+    "file": "ek-23-no-invoices",
+    "group": "Commerce",
+    "title": "No invoices",
+    "body": "Invoices appear here after your first billing cycle.",
+    "button": "Create invoice"
+  },
+  {
+    "n": 24,
+    "slug": "no-products",
+    "file": "ek-24-no-products",
+    "group": "Commerce",
+    "title": "No products",
+    "body": "Add your first product to start selling.",
+    "button": "Add product"
+  },
+  {
+    "n": 25,
+    "slug": "no-team-members",
+    "file": "ek-25-no-team-members",
+    "group": "Users, teams and keys",
+    "title": "Invite your team",
+    "body": "Work together: invite teammates to this workspace.",
+    "button": "Invite members"
+  },
+  {
+    "n": 26,
+    "slug": "invite-sent",
+    "file": "ek-26-invite-sent",
+    "group": "Users, teams and keys",
+    "title": "Invitation sent",
+    "body": "We've emailed your invite. You'll be notified when they join.",
+    "button": "Invite another"
+  },
+  {
+    "n": 27,
+    "slug": "no-connections",
+    "file": "ek-27-no-connections",
+    "group": "Users, teams and keys",
+    "title": "No connections",
+    "body": "Connect with people to see their updates here.",
+    "button": "Find people"
+  },
+  {
+    "n": 28,
+    "slug": "profile-incomplete",
+    "file": "ek-28-profile-incomplete",
+    "group": "Users, teams and keys",
+    "title": "Complete your profile",
+    "body": "Add a photo and a few details so your team knows who you are.",
+    "button": "Edit profile"
+  },
+  {
+    "n": 29,
+    "slug": "no-reviews",
+    "file": "ek-29-no-reviews",
+    "group": "Users, teams and keys",
+    "title": "No reviews yet",
+    "body": "Reviews from customers will show up here.",
+    "button": "Request a review"
+  },
+  {
+    "n": 30,
+    "slug": "no-api-keys",
+    "file": "ek-30-no-api-keys",
+    "group": "Users, teams and keys",
+    "title": "No API keys",
+    "body": "Create a key to connect your apps to the API.",
+    "button": "Create API key"
+  },
+  {
+    "n": 31,
+    "slug": "all-done",
+    "file": "ek-31-all-done",
+    "group": "Tasks and time",
+    "title": "All done",
+    "body": "You've completed every task on your list. Enjoy the quiet.",
+    "button": "View completed"
+  },
+  {
+    "n": 32,
+    "slug": "no-events",
+    "file": "ek-32-no-events",
+    "group": "Tasks and time",
+    "title": "Nothing scheduled",
+    "body": "Your calendar is clear. Plan something new?",
+    "button": "New event"
+  },
+  {
+    "n": 33,
+    "slug": "no-reminders",
+    "file": "ek-33-no-reminders",
+    "group": "Tasks and time",
+    "title": "No reminders",
+    "body": "Set a reminder and we'll nudge you at the right time.",
+    "button": "Add reminder"
+  },
+  {
+    "n": 34,
+    "slug": "no-projects",
+    "file": "ek-34-no-projects",
+    "group": "Tasks and time",
+    "title": "No projects yet",
+    "body": "Create a project to plan and track your team's work.",
+    "button": "New project"
+  },
+  {
+    "n": 35,
+    "slug": "no-notes",
+    "file": "ek-35-no-notes",
+    "group": "Tasks and time",
+    "title": "No notes",
+    "body": "Capture ideas, to-dos and meeting notes in one place.",
+    "button": "New note"
+  },
+  {
+    "n": 36,
+    "slug": "no-scheduled-jobs",
+    "file": "ek-36-no-scheduled-jobs",
+    "group": "Tasks and time",
+    "title": "No jobs running",
+    "body": "Schedule a job to run tasks automatically.",
+    "button": "Schedule job"
+  },
+  {
+    "n": 37,
+    "slug": "offline",
+    "file": "ek-37-offline",
+    "group": "Connectivity, errors and access",
+    "title": "You're offline",
+    "body": "Check your connection. We'll reconnect automatically.",
+    "button": "Try again"
+  },
+  {
+    "n": 38,
+    "slug": "page-not-found",
+    "file": "ek-38-page-not-found",
+    "group": "Connectivity, errors and access",
+    "title": "Page not found",
+    "body": "The page you're looking for moved or never existed.",
+    "button": "Go home"
+  },
+  {
+    "n": 39,
+    "slug": "server-error",
+    "file": "ek-39-server-error",
+    "group": "Connectivity, errors and access",
+    "title": "Something went wrong",
+    "body": "We're looking into it. Please try again in a moment.",
+    "button": "Try again"
+  },
+  {
+    "n": 40,
+    "slug": "no-permission",
+    "file": "ek-40-no-permission",
+    "group": "Connectivity, errors and access",
+    "title": "You don't have access",
+    "body": "Ask a workspace admin to give you access to this page.",
+    "button": "Request access"
+  },
+  {
+    "n": 41,
+    "slug": "maintenance",
+    "file": "ek-41-maintenance",
+    "group": "Connectivity, errors and access",
+    "title": "Down for maintenance",
+    "body": "We're making improvements and will be back shortly.",
+    "button": "Status page"
+  },
+  {
+    "n": 42,
+    "slug": "failed-to-load",
+    "file": "ek-42-failed-to-load",
+    "group": "Connectivity, errors and access",
+    "title": "Couldn't load this",
+    "body": "Check your connection and try again.",
+    "button": "Retry"
+  },
+  {
+    "n": 43,
+    "slug": "welcome",
+    "file": "ek-43-welcome",
+    "group": "Onboarding, setup and success",
+    "title": "Welcome, let's get started",
+    "body": "Set up your workspace in three quick steps.",
+    "button": "Get started"
+  },
+  {
+    "n": 44,
+    "slug": "setup-required",
+    "file": "ek-44-setup-required",
+    "group": "Onboarding, setup and success",
+    "title": "Finish setting up",
+    "body": "A few settings are still missing before you can go live.",
+    "button": "Continue setup"
+  },
+  {
+    "n": 45,
+    "slug": "no-integrations",
+    "file": "ek-45-no-integrations",
+    "group": "Onboarding, setup and success",
+    "title": "No apps connected",
+    "body": "Connect the tools you use to sync data automatically.",
+    "button": "Browse integrations"
+  },
+  {
+    "n": 46,
+    "slug": "empty-ai-chat",
+    "file": "ek-46-empty-ai-chat",
+    "group": "Onboarding, setup and success",
+    "title": "Ask anything",
+    "body": "Ask a question, draft a reply or summarise a document.",
+    "button": "New chat"
+  },
+  {
+    "n": 47,
+    "slug": "upgrade",
+    "file": "ek-47-upgrade",
+    "group": "Onboarding, setup and success",
+    "title": "Upgrade to unlock",
+    "body": "This feature is part of the Pro plan.",
+    "button": "See plans"
+  },
+  {
+    "n": 48,
+    "slug": "success",
+    "file": "ek-48-success",
+    "group": "Onboarding, setup and success",
+    "title": "You're all set",
+    "body": "Your workspace is ready. Time to build something great.",
+    "button": "Go to dashboard"
+  }
+]

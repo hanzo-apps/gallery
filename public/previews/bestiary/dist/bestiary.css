@@ -1,0 +1,173 @@
+/*!
+ * Specimen plate chrome
+ * A framed canvas with a tag (top right) and a label (bottom left).
+ * Every color is a custom property, so retheme by overriding --sp-* on
+ * .sp-plate or any ancestor. Fonts are not bundled: load Martian Mono, Doto
+ * and Schibsted Grotesk from Google Fonts, or point the --sp-font-* variables
+ * at your own.
+ */
+
+.sp-plate {
+  /* ── Light (paper) ──────────────────────────────────── */
+  --sp-bg: #f2f1ee;
+  --sp-raised: #fbfbfa;
+  --sp-border: #dcdbd6;
+  --sp-ink: #121212;
+  --sp-text: #121212;
+  --sp-text-2: #6e6e6a;
+  --sp-text-faint: #a3a39e;
+  --sp-text-inv: #f2f1ee;
+  --sp-dot: #121212;
+  --sp-label-bg: rgba(242, 241, 238, 0.94);
+
+  --sp-radius: 22px;
+  --sp-card-radius: 10px;
+  --sp-inset: 20px;
+  --sp-card-pad: 12px 18px;
+
+  --sp-font-mono: 'Martian Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --sp-font-figure: 'Doto', var(--sp-font-mono);
+  --sp-font-sans: 'Schibsted Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  position: relative;
+  aspect-ratio: 1;
+  margin: 0;
+  font-family: var(--sp-font-sans);
+  color: var(--sp-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+.sp-plate--dark {
+  /* ── Dark (ink) ─────────────────────────────────────── */
+  --sp-bg: #121212;
+  --sp-raised: #1a1a19;
+  --sp-border: #2a2a28;
+  --sp-ink: #f2f1ee;
+  --sp-text: #f2f1ee;
+  --sp-text-2: #8a8a86;
+  --sp-text-faint: #6e6e6a;
+  --sp-text-inv: #121212;
+  --sp-dot: #f2f1ee;
+  --sp-label-bg: rgba(26, 26, 25, 0.9);
+}
+
+.sp-canvas {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--sp-border);
+  border-radius: var(--sp-radius);
+  background: var(--sp-raised);
+  touch-action: none;
+  cursor: pointer;
+}
+
+/* Frameless: the specimen sits straight on the page. */
+.sp-plate--flush .sp-canvas {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+/* ── Type ────────────────────────────────────────────── */
+
+.sp-eyebrow {
+  display: block;
+  font-family: var(--sp-font-mono);
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sp-text-2);
+}
+
+/* ── Tag (top right, ink) ────────────────────────────── */
+
+.sp-tag {
+  position: absolute;
+  top: var(--sp-inset);
+  right: var(--sp-inset);
+  padding: var(--sp-card-pad);
+  border-radius: var(--sp-card-radius);
+  background: var(--sp-ink);
+  color: var(--sp-text-inv);
+  pointer-events: none;
+}
+
+.sp-tag .sp-eyebrow {
+  color: var(--sp-text-faint);
+}
+
+.sp-tag-value {
+  display: block;
+  margin-top: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.sp-tag--left {
+  right: auto;
+  left: var(--sp-inset);
+}
+
+/* ── Label (bottom left, paper) ──────────────────────── */
+
+.sp-label {
+  position: absolute;
+  bottom: var(--sp-inset);
+  left: var(--sp-inset);
+  padding: var(--sp-card-pad);
+  border: 1px solid var(--sp-border);
+  border-radius: var(--sp-card-radius);
+  background: var(--sp-label-bg);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  pointer-events: none;
+}
+
+.sp-label .sp-eyebrow + .sp-figure,
+.sp-label .sp-eyebrow + .sp-name {
+  margin-top: 8px;
+}
+
+.sp-label--right {
+  left: auto;
+  right: var(--sp-inset);
+}
+
+.sp-figure {
+  display: block;
+  min-width: 6ch;
+  font-family: var(--sp-font-figure);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  white-space: nowrap;
+  transition: opacity 0.28s ease;
+}
+
+.sp-figure--out {
+  opacity: 0;
+}
+
+.sp-name {
+  display: block;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sp-figure {
+    transition: none;
+  }
+}

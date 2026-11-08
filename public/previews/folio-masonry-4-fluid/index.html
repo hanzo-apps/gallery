@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Folio Masonry 4 Fluid — Live Preview · Hanzo Gallery</title>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+      background: #0a0a0a;
+      color: #e5e5e5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 10px 20px;
+      background: rgba(10, 10, 10, 0.76);
+      backdrop-filter: blur(20px) saturate(1.8);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .brand { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; }
+    .badge {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #a3a3a3;
+    }
+    .modes {
+      display: inline-flex;
+      gap: 4px;
+      padding: 3px;
+      border-radius: 999px;
+      background: #141414;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .modes button {
+      border: 0;
+      background: transparent;
+      color: #a3a3a3;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .modes button.active {
+      background: #fafafa;
+      color: #0a0a0a;
+    }
+    .actions { display: flex; align-items: center; gap: 8px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      height: 32px;
+      padding: 0 13px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.14);
+      color: #e5e5e5;
+      background: transparent;
+    }
+    .btn.primary {
+      background: #fafafa;
+      color: #0a0a0a;
+      border-color: #fafafa;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 48px;
+    }
+    .stage {
+      width: 100%;
+      max-width: 1360px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: #121212;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+      transition: max-width 220ms ease;
+    }
+    .stage[data-mode="tablet"] { max-width: 834px; }
+    .stage[data-mode="mobile"] { max-width: 390px; }
+    .stage img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span>Folio Masonry 4 Fluid</span>
+      <span class="badge">HTML/Gulp</span>
+      <span class="badge">Folio Portfolio</span>
+    </div>
+    <div class="modes" role="group" aria-label="Viewport size">
+      <button type="button" class="active" onclick="setMode('desktop', this)">Desktop</button>
+      <button type="button" onclick="setMode('tablet', this)">Tablet</button>
+      <button type="button" onclick="setMode('mobile', this)">Mobile</button>
+    </div>
+    <div class="actions">
+      <a class="btn" href="https://github.com/hanzo-apps/template-folio-masonry-4-fluid" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      <a class="btn" href="https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-folio-masonry-4-fluid&seed=folio-masonry-4-fluid" target="_blank" rel="noopener noreferrer">Open in Studio ↗</a>
+      <a class="btn primary" href="https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-folio-masonry-4-fluid&template=folio-masonry-4-fluid" target="_blank" rel="noopener noreferrer">Deploy to Hanzo Platform ↗</a>
+    </div>
+  </header>
+  <main>
+    <div id="stage" class="stage" data-mode="desktop">
+      <img id="shot" src="/screenshots/folio-masonry-4-fluid.webp" alt="Folio Masonry 4 Fluid preview" />
+    </div>
+  </main>
+  <script>
+    const shots = { desktop: "/screenshots/folio-masonry-4-fluid.webp", tablet: "/screenshots/folio-masonry-4-fluid-tablet.webp", mobile: "/screenshots/folio-masonry-4-fluid-mobile.webp" };
+    function setMode(mode, btn) {
+      document.getElementById("stage").setAttribute("data-mode", mode);
+      document.getElementById("shot").src = shots[mode] || shots.desktop;
+      document.querySelectorAll(".modes button").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+    }
+  </script>
+</body>
+</html>

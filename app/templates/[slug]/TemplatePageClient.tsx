@@ -10,7 +10,9 @@ import { Action, Chip, Display, Leaf, Lede, Line, More, Title } from '@hanzo/ui/
 import { MARKS } from '@hanzogui/shell';
 import { frame, shot, sizes, type Size } from '../../lib/shot';
 import type { Template } from '../../templates-data';
-import { c, column, lift, mono, round } from '../../lib/design';
+import { blur, c, column, lift, mono, round } from '../../lib/design';
+import { assembleProjectConfig, getBlueprint } from '../../lib/template-assembly';
+import { ForkModal } from '../../components/ForkModal';
 import { Stars } from '../../components/stars';
 import { HEADER } from '../../components/header';
 
@@ -99,11 +101,17 @@ export function TemplatePageClient({
   const router = useRouter();
   const [pick, setPick] = useState<Template>(variants[0]);
   const [size, setSize] = useState<Size>('desktop');
+  const [stageMode, setStageMode] = useState<'capture' | 'live'>('capture');
+  const [forking, setForking] = useState(false);
+  const [copiedKey, setCopiedKey] = useState<string | null>(null);
   const [absent, setAbsent] = useState<Set<string>>(new Set());
 
-  // Canonical repo URL for the selected variant (single source of truth).
-  const repo = `https://github.com/hanzo-apps/template-${pick.slug}`;
-  const deployUrl = `https://hanzo.app/new?template=${encodeURIComponent(repo)}`;
+  const blueprint = getBlueprint(pick);
+  const assembled = assembleProjectConfig(pick);
+  const repo = blueprint.repo;
+  const deployUrl = assembled.studioBuildUrl;
+  const platformUrl = assembled.platformDeployUrl;
+  const previewUrl = blueprint.previewUrl;
 
   // Templates without a capture at this size fall back to the desktop one.
   const src = shot(pick.screenshot, size);
@@ -114,18 +122,18 @@ export function TemplatePageClient({
     if (others.length > 0) router.push(`/templates/${others[Math.floor(Math.random() * others.length)].slug}`);
   }
 
-  const openRepo = () => window.open(repo, '_blank');
-  const toFork = () => {
-    window.location.href = `/gallery?fork=${pick.id}`;
-  };
-  const copyPath = (said: string) => {
-    navigator.clipboard.writeText(pick.path);
-    alert(said);
+  const openRepo = () => window.open(repo, '_blank', 'noopener,noreferrer');
+  const openPreviewTab = () => window.open(previewUrl, '_blank', 'noopener,noreferrer');
+  const toFork = () => setForking(true);
+  const copyText = (text: string, key: string) => {
+    navigator.clipboard.writeText(text);
+    setCopiedKey(key);
+    setTimeout(() => setCopiedKey((prev) => (prev === key ? null : prev)), 2000);
   };
 
   const start = pick.framework.toLowerCase().includes('html')
     ? 'gulp'
-    : pick.framework.toLowerCase().includes('react') && !pick.framework.toLowerCase().includes('next')
+    : pick.framework.toLowerCase().includes('react') && !pick.framework.toLowerCase().includes('next') && !pick.framework.toLowerCase().includes('vite')
       ? 'npm start'
       : 'npm run dev';
 
@@ -133,15 +141,52 @@ export function TemplatePageClient({
 
   return (
     <YStack minH="100vh" bg={c.ground}>
-      <YStack render="nav" position="sticky" t={HEADER} z={40} bg={c.ground} borderBottomWidth={1} borderColor={c.edge}>
-        <XStack {...column(1280)} py={10} items="center" justify="space-between" gap={12}>
-          <More href="/gallery">← Gallery</More>
-
+      <YStack
+        render="nav"
+        position="sticky"
+        t={HEADER}
+        z={40}
+        bg={c.glass}
+        backdropFilter={blur}
+        borderBottomWidth={1}
+        borderColor={c.edge}
+      >
+        <XStack {...column(1280)} py={10} items="center" justify="space-between" gap={12} flexWrap="wrap">
           <XStack items="center" gap={12}>
-            <Text fontSize="$1" lineHeight={16} color={c.faint} fontWeight="500">
+            <More href="/gallery">← Gallery</More>
+            <Chip px={10} py={2} fontSize="$1">
+              {pick.framework}
+            </Chip>
+            <Chip px={10} py={2} fontSize="$1">
+              {pick.category}
+            </Chip>
+          </XStack>
+
+          <XStack items="center" gap={8} flexWrap="wrap">
+            <Text render="button" onClick={() => setStageMode(stageMode === 'live' ? 'capture' : 'live')} {...pill}>
+              {stageMode === 'live' ? 'Show Capture' : 'Live Preview'}
+            </Text>
+            <Text render="button" onClick={openPreviewTab} {...pill}>
+              Fullscreen Preview ↗
+            </Text>
+            <Anchor href={platformUrl} target="_blank" rel="noopener noreferrer" {...pill}>
+              Deploy to Platform ↗
+            </Anchor>
+            <Text
+              render="button"
+              onClick={toFork}
+              {...pill}
+              bg={c.bright}
+              color={c.onBright}
+              borderColor={c.bright}
+              hoverStyle={{ opacity: 0.9 }}
+            >
+              Deploy to Hanzo
+            </Text>
+            <Text fontSize="$1" lineHeight={16} color={c.faint} fontWeight="500" ml={4}>
               {currentIndex} / {totalTemplates}
             </Text>
-            <XStack gap={8}>
+            <XStack gap={6}>
               {prevTemplate ? (
                 <Text render={<Link href={`/templates/${prevTemplate.slug}`} />} aria-label="Previous template" {...pill}>
                   ←
@@ -166,53 +211,35 @@ export function TemplatePageClient({
             </XStack>
           </XStack>
         </XStack>
-
-        {/* Actions: the row scrolls inside itself on a narrow screen. */}
-        <XStack
-          {...column(1280)}
-          pb={10}
-          overflow="scroll"
-          data-scrollbar="none"
-          style={{ scrollbarWidth: 'none' }}
-        >
-          <XStack gap={8} minW="max-content" items="center">
-            <Text render="button" onClick={openRepo} {...pill}>
-              View on GitHub
-            </Text>
-            <Text render="button" onClick={toFork} {...pill}>
-              Deploy
-            </Text>
-            <Anchor href={deployUrl} target="_blank" rel="noopener noreferrer" {...pill}>
-              Deploy on Hanzo
-            </Anchor>
-            <Text render="button" onClick={() => copyPath('Path copied!')} {...pill}>
-              Copy path
-            </Text>
-            <Chip px={12} py={6}>
-              {pick.framework}
-            </Chip>
-            <Chip px={12} py={6}>
-              {pick.category}
-            </Chip>
-            <Chip px={12} py={6}>
-              Tier {pick.tier}
-            </Chip>
-          </XStack>
-        </XStack>
       </YStack>
 
       {/* Hero */}
       <Band>
-        <XStack items="center" gap={16} mb={16} flexWrap="wrap">
-          <Display>{pick.displayName}</Display>
-          <Stars n={pick.rating} size="$7" />
+        <XStack items="flex-start" justify="space-between" gap={20} mb={16} flexWrap="wrap">
+          <YStack gap={12} maxW={720}>
+            <XStack items="center" gap={16} flexWrap="wrap">
+              <Display>{pick.displayName}</Display>
+              <Stars n={pick.rating} size="$7" />
+            </XStack>
+            <Lede fontSize="$6" lineHeight={28}>
+              {pick.description || `Premium ${pick.displayName} template with modern design and functionality.`}
+            </Lede>
+          </YStack>
+          <XStack gap={10} flexWrap="wrap" pt={8}>
+            <Action fill render="button" onClick={toFork}>
+              Deploy to Hanzo
+            </Action>
+            <Action render="button" onClick={() => setStageMode(stageMode === 'live' ? 'capture' : 'live')}>
+              {stageMode === 'live' ? 'Responsive Captures' : 'Interactive Live Preview'}
+            </Action>
+            <Action render="button" onClick={openPreviewTab}>
+              Open Fullscreen ↗
+            </Action>
+          </XStack>
         </XStack>
-        <Lede fontSize="$6" lineHeight={28} mb={32} maxW={720}>
-          {pick.description || `Premium ${pick.displayName} template with modern design and functionality.`}
-        </Lede>
 
         {variants.length > 1 && (
-          <YStack mb={32} gap={12}>
+          <YStack mb={28} gap={12}>
             <Line size="sm" tone="muted" weight="500">
               Choose Framework ({variants.length} variants available)
             </Line>
@@ -226,8 +253,8 @@ export function TemplatePageClient({
           </YStack>
         )}
 
-        {/* Tech stack */}
-        <XStack flexWrap="wrap" gap={8} mb={48}>
+        {/* Tech stack & modular blocks */}
+        <XStack flexWrap="wrap" gap={8} mb={36}>
           <Chip px={14} py={6}>
             {pick.framework}
           </Chip>
@@ -240,40 +267,81 @@ export function TemplatePageClient({
           <Chip px={14} py={6}>
             {pick.category}
           </Chip>
+          {blueprint.blocks.map((block) => (
+            <Chip key={block} px={12} py={6}>
+              {block}
+            </Chip>
+          ))}
         </XStack>
 
-        {/* Screenshot */}
+        {/* Interactive Stage: Responsive Captures + Embedded Live Preview */}
         <YStack>
-          <XStack flexWrap="wrap" gap={8} mb={16}>
-            {sizes.map((s) => (
-              <Choice key={s} on={size === s} onClick={() => setSize(s)}>
-                {s}
+          <XStack items="center" justify="space-between" flexWrap="wrap" gap={12} mb={16}>
+            <XStack flexWrap="wrap" gap={8}>
+              {sizes.map((s) => (
+                <Choice key={s} on={size === s} onClick={() => setSize(s)}>
+                  {s}
+                </Choice>
+              ))}
+            </XStack>
+            <XStack flexWrap="wrap" gap={8}>
+              <Choice on={stageMode === 'capture'} onClick={() => setStageMode('capture')}>
+                Screenshots
               </Choice>
-            ))}
+              <Choice on={stageMode === 'live'} onClick={() => setStageMode('live')}>
+                Live Preview
+              </Choice>
+              <Text render="button" onClick={openPreviewTab} {...pill} height={40} px={16}>
+                New Tab ↗
+              </Text>
+            </XStack>
           </XStack>
-          <YStack
-            position="relative"
-            mx="auto"
-            width="100%"
-            aspectRatio={frame[size].aspectRatio}
-            maxW={frame[size].maxWidth}
-            rounded={round.frame}
-            overflow="hidden"
-            borderWidth={1}
-            borderColor={c.edge}
-            bg={c.raised}
-            boxShadow={lift.card}
-          >
-            <Image
-              src={shown}
-              alt={pick.displayName}
-              fill
-              unoptimized
-              onError={() => setAbsent((prev) => new Set(prev).add(src))}
-              style={{ objectFit: shown === src ? 'cover' : 'contain' }}
-              priority
-            />
-          </YStack>
+
+          {stageMode === 'live' ? (
+            <YStack
+              position="relative"
+              mx="auto"
+              width="100%"
+              height={size === 'mobile' ? 760 : size === 'tablet' ? 680 : 640}
+              maxW={frame[size].maxWidth}
+              rounded={round.frame}
+              overflow="hidden"
+              borderWidth={1}
+              borderColor={c.edge}
+              bg={c.raised}
+              boxShadow={lift.card}
+            >
+              <iframe
+                src={previewUrl}
+                title={`${pick.displayName} Live Preview`}
+                style={{ width: '100%', height: '100%', border: '0', background: '#0a0a0a' }}
+              />
+            </YStack>
+          ) : (
+            <YStack
+              position="relative"
+              mx="auto"
+              width="100%"
+              aspectRatio={frame[size].aspectRatio}
+              maxW={frame[size].maxWidth}
+              rounded={round.frame}
+              overflow="hidden"
+              borderWidth={1}
+              borderColor={c.edge}
+              bg={c.raised}
+              boxShadow={lift.card}
+            >
+              <Image
+                src={shown}
+                alt={pick.displayName}
+                fill
+                unoptimized
+                onError={() => setAbsent((prev) => new Set(prev).add(src))}
+                style={{ objectFit: shown === src ? 'cover' : 'contain' }}
+                priority
+              />
+            </YStack>
+          )}
         </YStack>
       </Band>
 
@@ -317,12 +385,23 @@ export function TemplatePageClient({
         </YStack>
       </Band>
 
-      {/* Quick start */}
+      {/* Quick start & Automated Hanzo Platform Deployment */}
       <Band>
-        <Title mb={24}>Quick Start</Title>
+        <XStack items="center" justify="space-between" mb={24} flexWrap="wrap" gap={12}>
+          <Title>Quick Start & Hanzo Platform Deploy</Title>
+          <XStack gap={8} flexWrap="wrap">
+            <Action render="button" onClick={() => copyText(assembled.platformCliCommand, 'cli')} minH={36} px={14}>
+              {copiedKey === 'cli' ? 'Copied CLI ✓' : 'Copy 1-Click CLI'}
+            </Action>
+            <Action render="button" onClick={() => copyText(assembled.hanzoYaml, 'yaml')} minH={36} px={14}>
+              {copiedKey === 'yaml' ? 'Copied hanzo.yml ✓' : 'Copy hanzo.yml'}
+            </Action>
+          </XStack>
+        </XStack>
         <YStack bg={c.ground} p={32} rounded={round.card} borderWidth={1} borderColor={c.edge} gap={24}>
           {(
             [
+              ['# 1-Click Automated Deploy to Hanzo Platform', assembled.platformCliCommand],
               ['# Navigate to template directory', `cd ${pick.path}`],
               ['# Install dependencies', 'npm install'],
               ['# Start development server', start],
@@ -367,24 +446,34 @@ export function TemplatePageClient({
       {/* Call to action */}
       <Band>
         <YStack bg={c.card} p={48} rounded={round.card} borderWidth={1} borderColor={c.edge} items="center" gap={16}>
-          <Title text="center">Get Started with Hanzo AI</Title>
+          <Title text="center">Deploy to Hanzo Platform</Title>
           <Lede text="center" mb={16}>
-            This template is part of the Hanzo AI premium template collection
+            Parameterize, preview, and deploy {pick.displayName} to Hanzo global edge infrastructure in one click.
           </Lede>
           <XStack flexWrap="wrap" gap={12} justify="center">
-            <Action render="button" onClick={openRepo}>
-              View on GitHub
-            </Action>
             <Action render="button" fill onClick={toFork}>
               Deploy to Hanzo
             </Action>
-            <Action render="button" onClick={() => copyPath('Path copied to clipboard!')}>
-              Copy path
+            <Action href={platformUrl}>
+              Deploy on Platform ↗
             </Action>
-            <Action href="/gallery">Browse More Templates</Action>
+            <Action href={deployUrl}>
+              Open in Studio ↗
+            </Action>
+            <Action render="button" onClick={openPreviewTab}>
+              Live Preview ↗
+            </Action>
+            <Action render="button" onClick={openRepo}>
+              View on GitHub
+            </Action>
+            <Action render="button" onClick={() => copyText(pick.path, 'path')}>
+              {copiedKey === 'path' ? 'Path Copied ✓' : 'Copy path'}
+            </Action>
           </XStack>
         </YStack>
       </Band>
+
+      {forking && <ForkModal template={pick} onClose={() => setForking(false)} />}
     </YStack>
   );
 }

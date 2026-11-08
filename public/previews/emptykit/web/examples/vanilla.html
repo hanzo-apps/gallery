@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emptykit · an empty state in a card</title>
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.js",
+               "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.1/examples/jsm/" } }
+</script>
+<style>
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #F4F5F8;
+         font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif; color: #0F1115; }
+  body.dark { background: #0B0C10; color: #F2F4F8; }
+  .card { width: 420px; background: #fff; border-radius: 16px; box-shadow: 0 0 0 1px #0000000F, 0 8px 24px #0000000A; }
+  .dark .card { background: #14161C; box-shadow: 0 0 0 1px #FFFFFF14; }
+  .head { display: flex; justify-content: space-between; padding: 14px 18px; border-bottom: 1px solid #0000000F;
+          font-weight: 600; }
+  .dark .head { border-color: #FFFFFF14; }
+  .head span { font-weight: 400; opacity: .55; }
+  .empty { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 18px 40px 34px; }
+  #art { width: 200px; aspect-ratio: 1; }                       /* any element with a size */
+  h3 { margin: 4px 0 4px; font-size: 17px; }
+  p { margin: 0 0 18px; opacity: .65; }
+  button { font: inherit; font-weight: 500; border: 0; border-radius: 9px; padding: 9px 16px; background: #0F1115;
+           color: #fff; cursor: pointer; }
+  .dark button { background: #F2F4F8; color: #0F1115; }
+  .bar { position: fixed; top: 16px; left: 16px; display: flex; gap: 8px; }
+  .bar button { padding: 6px 12px; font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="bar"><button id="t">Toggle theme</button><button id="a">Next accent</button></div>
+<div class="card">
+  <div class="head">Orders <span>This month</span></div>
+  <div class="empty">
+    <div id="art"></div>
+    <h3>No orders yet</h3>
+    <p>When customers buy something, their orders appear here.</p>
+    <button>Share your store</button>
+  </div>
+</div>
+<script type="module">
+import { mountEmptyState, ACCENTS } from '../empty-state.js';
+const ill = await mountEmptyState(document.getElementById('art'), { name: 'no-orders', look: 'mono', theme: 'light' });
+let dark = false, i = 0;
+const names = Object.keys(ACCENTS);
+document.getElementById('t').onclick = () => {
+  dark = !dark;
+  document.body.classList.toggle('dark', dark);
+  ill.set({ theme: dark ? 'dark' : 'light', glow: dark });
+};
+document.getElementById('a').onclick = () => ill.set({ accent: names[++i % names.length] });
+</script>
+</body>
+</html>

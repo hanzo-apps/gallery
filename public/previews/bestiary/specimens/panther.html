@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Panther · Bestiary specimen 05</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='9' fill='%23121212'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="../dist/bestiary-fonts.css" />
+<link rel="stylesheet" href="../dist/bestiary.css" />
+<style>
+  /* Generated from _engine/specimen.template.html by build.mjs. One specimen, offline, nothing to install. */
+  :root {
+    --bg: #f2f1ee; --raised: #fbfbfa; --border: #dcdbd6; --text: #121212; --text-2: #6e6e6a; --accent: #e8503a;
+    --mono: 'Martian Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    --sans: 'Schibsted Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  html.dark { --bg: #121212; --raised: #1a1a19; --border: #2a2a28; --text: #f2f1ee; --text-2: #8a8a86; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 32px 20px 48px; display: grid; gap: 24px; }
+  .wrap > * { min-width: 0; }
+  .top { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .eyebrow { font-family: var(--mono); font-weight: 500; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-2); }
+  h1 { margin: 6px 0 0; font-size: 28px; line-height: 1.1; letter-spacing: -0.02em; }
+  h1 i { font-weight: 400; color: var(--text-2); }
+  main { display: grid; }
+  .sp-plate { width: min(100%, 420px); margin: 0 auto; }
+  .seg { display: inline-flex; border: 1px solid var(--border); border-radius: 999px; padding: 3px; }
+  .seg button {
+    border: 0; background: transparent; color: var(--text-2);
+    font: 500 11px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 8px 12px; border-radius: 999px; cursor: pointer;
+  }
+  .seg button[aria-pressed="true"] { background: var(--text); color: var(--bg); }
+  .btn {
+    border: 1px solid var(--border); background: transparent; color: var(--text);
+    font: 500 11px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 10px 14px; border-radius: 999px; cursor: pointer;
+  }
+  .btn:hover { border-color: var(--text-2); }
+  .seg button:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .code { border: 1px solid var(--border); border-radius: 14px; background: var(--raised); padding: 16px 18px; }
+  .code-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 10px; }
+  pre { margin: 0; font: 12px/1.6 var(--mono); white-space: pre; overflow-x: auto; color: var(--text); }
+  p { color: var(--text-2); font-size: 14px; line-height: 1.5; margin: 0; }
+  code { font-family: var(--mono); font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <span class="eyebrow">Bestiary · Specimen 05</span>
+      <h1>Panther <i>Panthera pardus</i></h1>
+    </div>
+    <div class="seg" role="group" aria-label="Theme">
+      <button type="button" data-theme="light" aria-pressed="true">Paper</button>
+      <button type="button" data-theme="dark" aria-pressed="false">Ink</button>
+    </div>
+  </header>
+
+  <main>
+    <figure class="sp-plate" data-bestiary="panther">
+      <canvas class="sp-canvas"></canvas>
+      <div class="sp-tag">
+        <span class="sp-eyebrow">Specimen <span data-sp-index></span></span>
+        <span class="sp-tag-value" data-sp-latin></span>
+      </div>
+      <div class="sp-label">
+        <span class="sp-eyebrow" data-sp-name></span>
+        <span class="sp-figure" data-sp-faces></span>
+      </div>
+    </figure>
+  </main>
+
+  <section class="code" aria-labelledby="markup-title">
+    <div class="code-head">
+      <span class="eyebrow" id="markup-title">Paste this into your page</span>
+      <button class="btn" type="button" id="copy">Copy markup</button>
+    </div>
+    <pre id="markup"></pre>
+  </section>
+
+  <p>Put <code>bestiary.umd.js</code>, <code>bestiary.css</code>, <code>bestiary-fonts.css</code> and the <code>fonts/</code> folder from <code>dist/</code> next to your page. Hover to tilt, press and drag to scatter. TUTORIAL.md covers the ES module and React versions.</p>
+</div>
+
+<script src="../dist/bestiary.umd.js"></script>
+<script>
+  const plate = document.querySelector('.sp-plate');
+  const [specimen] = Bestiary.mount(plate);
+
+  const markup = () => {
+    const dark = document.documentElement.classList.contains('dark') ? ' sp-plate--dark' : '';
+    return [
+      '<link rel="stylesheet" href="bestiary-fonts.css">',
+      '<link rel="stylesheet" href="bestiary.css">',
+      '<script src="bestiary.umd.js"><' + '/script>',
+      '',
+      '<figure class="sp-plate' + dark + '" data-bestiary="panther">',
+      '  <canvas class="sp-canvas"></canvas>',
+      '  <div class="sp-tag">',
+      '    <span class="sp-eyebrow">Specimen <span data-sp-index></span></span>',
+      '    <span class="sp-tag-value" data-sp-latin></span>',
+      '  </div>',
+      '  <div class="sp-label">',
+      '    <span class="sp-eyebrow" data-sp-name></span>',
+      '    <span class="sp-figure" data-sp-faces></span>',
+      '  </div>',
+      '</figure>',
+      '',
+      '<script>Bestiary.mount();<' + '/script>',
+    ].join(String.fromCharCode(10));
+  };
+
+  const pre = document.getElementById('markup');
+  const render = () => { pre.textContent = markup(); };
+  render();
+
+  const themeButtons = document.querySelectorAll('[data-theme]');
+  themeButtons.forEach((button) => button.addEventListener('click', () => {
+    const dark = button.dataset.theme === 'dark';
+    document.documentElement.classList.toggle('dark', dark);
+    plate.classList.toggle('sp-plate--dark', dark);
+    specimen.refresh();
+    themeButtons.forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
+    render();
+  }));
+
+  const copyButton = document.getElementById('copy');
+  copyButton.addEventListener('click', async () => {
+    let ok = false;
+    try {
+      await navigator.clipboard.writeText(markup());
+      ok = true;
+    } catch (_) {
+      const range = document.createRange();
+      range.selectNodeContents(pre);
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      try { ok = document.execCommand('copy'); } catch (_) { /* nothing left to try */ }
+      selection.removeAllRanges();
+    }
+    copyButton.textContent = ok ? 'Copied' : 'Copy failed';
+    setTimeout(() => { copyButton.textContent = 'Copy markup'; }, 1600);
+  });
+</script>
+</body>
+</html>

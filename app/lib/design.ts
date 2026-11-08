@@ -34,9 +34,14 @@ export const c = {
   chosen: 'var(--border-selected)',
   /** What hangs from the bar, and the scrim under a dialog. */
   panel: 'var(--chrome-panel)',
+  /** Translucent frosted glass shared by the site header and sticky filter bars. */
+  glass: '$background/72',
   /** A wash for a control under the pointer. */
   wash: '$ink/6',
 } as const;
+
+/** Frosted backdrop filter paired with `c.glass`. */
+export const blur = 'blur(20px) saturate(1.8)' as const;
 
 /** The shadow hanzo.ai's filled control and cards stand on. */
 export const lift = {

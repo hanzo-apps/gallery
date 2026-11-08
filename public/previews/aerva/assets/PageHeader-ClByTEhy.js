@@ -1,0 +1,1 @@
+import{n as e}from"./index-9Skn2bn-.js";import{t}from"./Navbar-BNMWpXJW.js";import{t as n}from"./react-Bcct6CSu.js";var r=n();function i({current:n}){return(0,r.jsx)(e,{className:`relative z-20 bg-bg-white-0`,children:(0,r.jsx)(t,{theme:`light`,current:n})})}export{i as t};

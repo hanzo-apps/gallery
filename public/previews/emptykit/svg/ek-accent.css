@@ -1,0 +1,30 @@
+/* Emptykit: recolour inline SVGs with CSS variables.
+   Works on SVGs placed inline in the page (paste the file's <svg> or inject it); for <img> tags use the
+   preset files in svg-accents/ or png-accents/.
+
+   .ek { --ek-accent: #0EA5E9; }                 one colour: the shade is mixed from it automatically
+   .ek { --ek-accent: #0EA5E9; --ek-accent-shade: #075985; }      or set both
+   <div class="ek-teal"> ... inline SVGs ... </div>                presets: indigo violet blue teal orange pink
+*/
+.ek { --ek-accent: #5B5CF6; --ek-accent-shade: color-mix(in oklab, var(--ek-accent) 62%, #000); }
+.ek.ek-dark { --ek-accent: #6D6BFF; }
+.ek-indigo .ek, .ek.ek-indigo { --ek-accent: #5B5CF6; --ek-accent-shade: #2B2C9A; }
+.ek-indigo .ek.ek-dark, .ek.ek-dark.ek-indigo { --ek-accent: #6D6BFF; --ek-accent-shade: #2F2DB0; }
+.ek-violet .ek, .ek.ek-violet { --ek-accent: #8B5CF6; --ek-accent-shade: #4F2998; }
+.ek-violet .ek.ek-dark, .ek.ek-dark.ek-violet { --ek-accent: #976EFF; --ek-accent-shade: #5829AB; }
+.ek-blue .ek, .ek.ek-blue { --ek-accent: #2F7CF6; --ek-accent-shade: #064298; }
+.ek-blue .ek.ek-dark, .ek.ek-dark.ek-blue { --ek-accent: #438BFF; --ek-accent-shade: #0047AA; }
+.ek-teal .ek, .ek.ek-teal { --ek-accent: #0FA3A3; --ek-accent-shade: #005C5C; }
+.ek-teal .ek.ek-dark, .ek.ek-dark.ek-teal { --ek-accent: #37B0B0; --ek-accent-shade: #006464; }
+.ek-orange .ek, .ek.ek-orange { --ek-accent: #F2702A; --ek-accent-shade: #8F3800; }
+.ek-orange .ek.ek-dark, .ek.ek-dark.ek-orange { --ek-accent: #FE8143; --ek-accent-shade: #9B3E00; }
+.ek-pink .ek, .ek.ek-pink { --ek-accent: #E8488A; --ek-accent-shade: #8C164C; }
+.ek-pink .ek.ek-dark, .ek.ek-dark.ek-pink { --ek-accent: #F45C97; --ek-accent-shade: #9C0853; }
+/* Mono fills: tone steps of the accent (0 = lit top face ... 2 = side face), mixed in linear light like the
+   renders */
+.ek .ek-accent-0 { fill: color-mix(in srgb-linear, var(--ek-accent), var(--ek-accent-shade) 0.0%); }
+.ek .ek-accent-1 { fill: color-mix(in srgb-linear, var(--ek-accent), var(--ek-accent-shade) 10.0%); }
+.ek .ek-accent-2 { fill: color-mix(in srgb-linear, var(--ek-accent), var(--ek-accent-shade) 22.0%); }
+.ek .ek-accent-3 { fill: color-mix(in srgb-linear, var(--ek-accent), var(--ek-accent-shade) 30.0%); }
+/* Mono dark + glow */
+.ek .ek-glowline { stroke: color-mix(in oklab, var(--ek-accent) 80%, #fff); }

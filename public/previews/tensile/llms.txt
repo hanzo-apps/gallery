@@ -1,0 +1,60 @@
+# Tensile Studio
+
+> Tensile is a design and engineering studio for SaaS, fintech and AI companies. Product design, websites, engineering and brand, from first sketch to launch.
+
+- Based in: Lisbon, Portugal
+- Founded: 2016
+- Team: 14 designers and engineers
+- Email: hello@example.com
+- Availability: Booking new projects for January 2027
+
+## Pages
+- [Home](https://tensile-theme.pages.dev/): Tensile is a design and engineering studio for SaaS, fintech and AI companies. We take products from first sketch to launch, and stay for what comes after.
+- [Work](https://tensile-theme.pages.dev/work): Tensile has launched more than 120 products for SaaS, fintech, AI and health companies since 2016. Here are six recent projects, with the problem, the approach and what changed after launch.
+- [Services](https://tensile-theme.pages.dev/services): Tensile offers four services: product design, websites and web apps, engineering, and brand and motion. Most clients combine two or three of them, with one team from the first workshop to launch.
+- [Studio](https://tensile-theme.pages.dev/studio): Tensile is an independent design and engineering studio in Lisbon, founded in 2016 by Inês Moreira and Tomás Reis. Fourteen people design and build products for SaaS, fintech and AI companies, with the same team from the first workshop to launch.
+- [Careers](https://tensile-theme.pages.dev/careers): Tensile hires designers and engineers who like to finish things. We work in small teams of two to four, on one or two projects at a time, in Lisbon or remotely across European time zones.
+- [Journal](https://tensile-theme.pages.dev/journal): The Tensile journal is where our designers and engineers write about how we work: product design, design systems, websites and the way we run projects. Short, practical, no sales pitch.
+- [Contact](https://tensile-theme.pages.dev/contact): Tell Tensile what you are building, when it needs to ship and roughly what you can spend. We reply within one working day with a few questions and a time for a 30-minute call with the people who would do the work.
+
+## Services
+- [Product design](https://tensile-theme.pages.dev/services/product-design): Product design at Tensile covers research, user flows, interface design and the design system behind them. We design SaaS, fintech and AI products end to end, in weekly reviews, and hand over a system your team can keep building with. From $25k typical starting budget; 6-12 weeks for a first release; 2-3 people on your project.
+- [Sites and apps](https://tensile-theme.pages.dev/services/websites): Tensile designs and builds marketing websites and web apps on Astro with a headless CMS such as Sanity. Every site we ship scores 100 on Lighthouse, is structured for search engines and AI assistants, and can be edited by your team without a developer. From $15k typical starting budget; 4-8 weeks from brief to launch; 2 people a designer and an engineer.
+- [Engineering](https://tensile-theme.pages.dev/services/engineering): Engineering at Tensile means production code for web products: React and TypeScript front ends, design systems in code, APIs and AI features. The same team designs and builds, so the shipped product matches the design down to the empty states. From $40k typical starting budget; 8-20 weeks for a first release; 3-4 people engineers and a designer.
+- [Brand and motion](https://tensile-theme.pages.dev/services/brand-and-motion): Brand and motion at Tensile covers naming support, visual identity, motion systems and launch assets for technology companies. We design every brand to work inside the product interface first, then on the site, in ads and in the deck. From $20k typical starting budget; 6-10 weeks for identity and launch assets; 2 people a brand and a motion designer.
+
+## Case studies
+- [Halden Treasury: A cash dashboard finance teams open first thing every morning](https://tensile-theme.pages.dev/work/halden-treasury): Halden Treasury is a cash management platform for mid-size finance teams. Tensile redesigned its dashboard and rebuilt the front end in 14 weeks, so treasurers see every account, every payment run and every forecast on one screen. Results: 47% fewer manual reconciliations in the first month; 11 to 1 custom tables replaced by one component; 14 weeks from first workshop to full rollout.
+- [Mira: A calm brand for an AI that listens](https://tensile-theme.pages.dev/work/mira): Mira is an AI note-taker for sales and customer teams. Tensile named the voice, drew the identity and built the marketing site in eight weeks, ahead of a seed round and a public launch. Results: 2x sign-ups from the homepage; 8 weeks from naming the voice to launch; 100 Lighthouse performance on mobile.
+- [Loomwork: From 400 applications to a shortlist of ten](https://tensile-theme.pages.dev/work/loomwork): Loomwork is hiring software for companies with high-volume roles. Tensile designed the review flow that lets one recruiter sort hundreds of applications in an afternoon, without losing the people behind them. Results: 4 days to 4 hours average time to a shortlist; 100% of candidates get a reply; 12 weeks from research to release.
+- [Bastion Pay: Payment rails with a dashboard ops teams open](https://tensile-theme.pages.dev/work/bastion-pay): Bastion Pay moves money between marketplaces, sellers and banks. Tensile built its operations dashboard and the design system behind it, on top of an API that processes millions of payouts a month. Results: 0 payout lookups sent to engineering; 12 ops questions, one screen each; 20 weeks from kickoff to the second dashboard.
+- [Northpeak: Climate risk data, explained in one scroll](https://tensile-theme.pages.dev/work/northpeak): Northpeak sells climate risk data to insurers and lenders. Tensile rebuilt its marketing site on Astro and a headless CMS in six weeks, with a homepage that shows the data instead of describing it. Results: 6 weeks from brief to launch; 3 PDFs the sales team no longer sends; 100 Lighthouse SEO on every page.
+- [Orbit Health: A brand that moves like the product does](https://tensile-theme.pages.dev/work/orbit-health): Orbit Health books clinic appointments for patients and doctors. Tensile drew a new identity and a motion system, so the app, the website and the ads move in the same rhythm. Results: 3 durations and two easings for everything; 1 brand across app, site and ads; 10 weeks from audit to rollout.
+
+## Journal
+- [Why we design the empty states first](https://tensile-theme.pages.dev/journal/design-the-empty-states-first): The first screen most users see is empty. We start there, and the rest of the product gets better for it.
+- [A design system is a promise, not a library](https://tensile-theme.pages.dev/journal/a-design-system-is-a-promise): Components are the easy part. The hard part is the promise behind them, and who keeps it after we leave.
+- [How we quote in week two](https://tensile-theme.pages.dev/journal/how-we-quote-in-week-two): We do not quote from a brief. We quote after two paid weeks of discovery, and clients thank us for it.
+- [How clients read a staging link](https://tensile-theme.pages.dev/journal/what-clients-click-on-staging): We send a staging link every Friday. After four years of watching what people click, we design the links differently.
+
+## Process
+- Weeks 1-2, Discover: Workshops, interviews and a teardown of what you have. You get a written plan and a fixed quote.
+- Weeks 3-6, Design: Flows first, then the interface, in weekly reviews. Every screen comes from one shared design system.
+- Weeks 6-12, Build: Production code from week six, on a staging link you can open every Friday.
+- Week 12 and on, Launch and stay: We launch with you, watch the numbers and stay on a monthly retainer if you want us to.
+
+## Questions
+- How much does a project cost? Most projects start between $15k and $40k, depending on the services. You get a fixed quote at the end of week two, before any design or build work starts.
+- How long does a project take? Four to eight weeks for a website, six to twelve weeks for a first product release, longer for engineering-heavy work. The plan from week two has dates for every milestone.
+- Do you work with startups? Yes, from seed stage on. Around half of our clients are startups between seed and Series B, the rest are established companies launching something new.
+- Where are you based? In Lisbon. We work in European hours and overlap with North American mornings for calls and reviews.
+- What happens after launch? You own everything we made. Many clients keep us on a monthly retainer for new features, design system upkeep and growth work.
+
+## Open roles
+- Senior product designer (Full-time, Lisbon or remote in Europe): apply at jobs@example.com
+- Front-end engineer, Astro and TypeScript (Full-time, Lisbon or remote in Europe): apply at jobs@example.com
+- Motion designer (Contract, 6 months, Remote): apply at jobs@example.com
+
+## Legal
+- [Privacy policy](https://tensile-theme.pages.dev/privacy)
+- [Terms of use](https://tensile-theme.pages.dev/terms)

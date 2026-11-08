@@ -90,6 +90,8 @@ export function ForkModal({ template, onClose }: ForkModalProps) {
   const blueprint = getBlueprint(template);
   const [method, setMethod] = useState<Method | null>('cloud');
   const [busy, setBusy] = useState(false);
+  const [copiedKey, setCopiedKey] = useState<string | null>(null);
+  const [configTab, setConfigTab] = useState<'cli' | 'yaml' | 'env'>('cli');
   const [params, setParams] = useState<Record<string, string>>(() =>
     Object.fromEntries(blueprint.params.map((p) => [p.key, p.default])),
   );
@@ -106,7 +108,7 @@ export function ForkModal({ template, onClose }: ForkModalProps) {
     setBusy(true);
     try {
       if (method === 'cloud') {
-        window.open(assembled.studioBuildUrl, '_blank', 'noopener,noreferrer');
+        window.open(assembled.platformDeployUrl, '_blank', 'noopener,noreferrer');
       } else if (method === 'local') {
         window.open(repo, '_blank', 'noopener,noreferrer');
       } else if (method === 'github') {
@@ -117,9 +119,10 @@ export function ForkModal({ template, onClose }: ForkModalProps) {
     }
   };
 
-  const copy = (text: string, said: string) => {
+  const copy = (text: string, key: string) => {
     navigator.clipboard.writeText(text);
-    alert(said);
+    setCopiedKey(key);
+    setTimeout(() => setCopiedKey((prev) => (prev === key ? null : prev)), 2000);
   };
 
   const ready = method !== null && !busy;
@@ -261,35 +264,84 @@ export function ForkModal({ template, onClose }: ForkModalProps) {
           </Well>
 
           <Well>
-            <XStack items="center" justify="space-between" mb={12}>
-              <Head>Parameterized Setup Commands</Head>
-              <Action render="button" onClick={() => copy(assembled.cliCommand, '✅ Setup commands copied to clipboard!')} minH={32} px={12}>
-                Copy
+            <XStack items="center" justify="space-between" mb={12} flexWrap="wrap" gap={8}>
+              <XStack items="center" gap={8} flexWrap="wrap">
+                <Head>Automated Hanzo Platform Config</Head>
+                <XStack gap={4} p={3} rounded={round.pill} bg={c.ground} borderWidth={1} borderColor={c.edge}>
+                  {(
+                    [
+                      ['cli', 'Deploy CLI'],
+                      ['yaml', 'hanzo.yml'],
+                      ['env', '.env.local'],
+                    ] as const
+                  ).map(([id, label]) => (
+                    <Text
+                      key={id}
+                      render="button"
+                      onClick={() => setConfigTab(id)}
+                      px={10}
+                      py={4}
+                      rounded={round.pill}
+                      borderWidth={0}
+                      cursor="pointer"
+                      fontSize="$1"
+                      lineHeight={14}
+                      fontWeight="500"
+                      bg={configTab === id ? c.bright : 'transparent'}
+                      color={configTab === id ? c.onBright : c.muted}
+                    >
+                      {label}
+                    </Text>
+                  ))}
+                </XStack>
+              </XStack>
+              <Action
+                render="button"
+                onClick={() =>
+                  copy(
+                    configTab === 'cli' ? assembled.cliCommand : configTab === 'yaml' ? assembled.hanzoYaml : assembled.envFile,
+                    configTab,
+                  )
+                }
+                minH={32}
+                px={12}
+              >
+                {copiedKey === configTab ? 'Copied ✓' : 'Copy'}
               </Action>
             </XStack>
             <YStack bg={c.ground} p={16} rounded={round.control} borderWidth={1} borderColor={c.edge} overflow="scroll">
               <Text render="pre" m={0} {...mono} fontSize="$2" lineHeight={20} color={c.ink} style={{ whiteSpace: 'pre' }}>
-                {assembled.cliCommand}
+                {configTab === 'cli' ? assembled.cliCommand : configTab === 'yaml' ? assembled.hanzoYaml : assembled.envFile}
               </Text>
             </YStack>
           </Well>
 
           <Well>
-            <XStack items="center" justify="space-between" gap={16}>
+            <XStack items="center" justify="space-between" gap={16} flexWrap="wrap">
               <YStack shrink={1} minW={0} gap={4}>
-                <Head>Template Path</Head>
+                <Head>Template Repository & Path</Head>
                 <Text {...mono} fontSize="$2" lineHeight={18} color={c.muted}>
-                  {template.path}
+                  {repo} · {template.path}
                 </Text>
               </YStack>
-              <Action
-                render="button"
-                onClick={() => copy(template.path, `📋 Path copied!\n\nRelative path: ${template.path}`)}
-                shrink={0}
-                whiteSpace="nowrap"
-              >
-                Copy Path
-              </Action>
+              <XStack gap={8}>
+                <Action
+                  render="button"
+                  onClick={() => copy(assembled.platformCliCommand, 'one-liner')}
+                  shrink={0}
+                  whiteSpace="nowrap"
+                >
+                  {copiedKey === 'one-liner' ? 'Copied CLI ✓' : 'Copy CLI Deploy'}
+                </Action>
+                <Action
+                  render="button"
+                  onClick={() => copy(template.path, 'path')}
+                  shrink={0}
+                  whiteSpace="nowrap"
+                >
+                  {copiedKey === 'path' ? 'Copied ✓' : 'Copy Path'}
+                </Action>
+              </XStack>
             </XStack>
           </Well>
 
@@ -316,9 +368,15 @@ export function ForkModal({ template, onClose }: ForkModalProps) {
               ? `Ready to ${method === 'cloud' ? 'deploy' : method === 'local' ? 'download' : 'clone'}?`
               : 'Select a deployment method to continue'}
           </Text>
-          <XStack gap={10}>
+          <XStack gap={10} flexWrap="wrap">
             <Action render="button" onClick={onClose}>
               Cancel
+            </Action>
+            <Action
+              render="button"
+              onClick={() => window.open(assembled.studioBuildUrl, '_blank', 'noopener,noreferrer')}
+            >
+              Open in Hanzo Studio
             </Action>
             <Action
               fill
@@ -332,7 +390,7 @@ export function ForkModal({ template, onClose }: ForkModalProps) {
               {busy
                 ? 'Processing…'
                 : method === 'cloud'
-                  ? 'Deploy now'
+                  ? 'Deploy to Hanzo Platform'
                   : method === 'local'
                     ? 'Download now'
                     : method === 'github'

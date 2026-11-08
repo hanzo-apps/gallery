@@ -1,12 +1,16 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import {
+  Dialog,
+  DialogContent,
   YStack,
   XStack,
   Text,
+  Anchor,
   Input,
   Select,
   SelectTrigger,
@@ -19,10 +23,10 @@ import { Action, Chip, Leaf, More } from '@hanzo/ui/marketing';
 import { templates as templateData, CATEGORIES, type Template } from '../templates-data';
 import { ForkModal } from '../components/ForkModal';
 import { HEADER } from '../components/header';
-import { shot } from '../lib/shot';
+import { frame, shot, sizes, type Size } from '../lib/shot';
 import { getUniqueTemplates, groupTemplatesByFamily } from '../lib/template-utils';
 import { getBlueprint, pickRandomSeedTemplate } from '../lib/template-assembly';
-import { c, round, column } from '../lib/design';
+import { blur, c, round, column } from '../lib/design';
 
 type SortOption = 'featured' | 'name-asc' | 'name-desc' | 'rating-high' | 'rating-low' | 'framework' | 'updated';
 type ViewMode = 'consolidated' | 'grouped';
@@ -67,7 +71,7 @@ function Actions({
   const rest = (
     <>
       <Action render="button" onClick={onPreview} grow={stacked ? 1 : 0}>
-        {template.port ? 'Live preview' : 'Screenshot'}
+        Live preview
       </Action>
       <Action href={`/templates/${template.slug}`} grow={stacked ? 1 : 0}>
         Details
@@ -114,6 +118,8 @@ export default function Gallery() {
   const [search, setSearch] = useState('');
   const [sortBy, setSortBy] = useState<SortOption>('featured');
   const [forking, setForking] = useState<Template | null>(null);
+  const [previewing, setPreviewing] = useState<Template | null>(null);
+  const [previewSize, setPreviewSize] = useState<Size>('desktop');
   const [view, setView] = useState<ViewMode>('grouped');
   const [open, setOpen] = useState<Set<string>>(new Set());
 
@@ -185,27 +191,23 @@ export default function Gallery() {
       : [];
 
   const preview = (template: Template) => {
-    const url = `/previews/${template.name}/index.html`;
-    fetch(url, { method: 'HEAD' })
-      .then((r) => {
-        if (r.ok) window.open(url, '_blank');
-        else
-          alert(
-            `Preview not built yet for ${template.displayName}.\n\nTo build this template:\n\ncd ${template.path}\nnpm install\nnpm run build\n\nOr run: npm run build-templates in the gallery directory to build all templates.`,
-          );
-      })
-      .catch(() =>
-        alert(
-          `Preview not available for ${template.displayName}.\n\nPath: ${template.path}\n\nRun: npm run build-templates to build all templates.`,
-        ),
-      );
+    setPreviewSize('desktop');
+    setPreviewing(template);
   };
 
   return (
     <YStack minH="100vh" bg={c.ground}>
-      {/* Filters, pinned under the site header */}
-      <YStack position="sticky" t={HEADER} z={40} bg={c.ground} borderBottomWidth={1} borderColor={c.edge}>
-        <YStack {...column(1600)} py={20} gap={16}>
+      {/* Filters, pinned under the site header with matching translucent glass */}
+      <YStack
+        position="sticky"
+        t={HEADER}
+        z={40}
+        bg={c.glass}
+        backdropFilter={blur}
+        borderBottomWidth={1}
+        borderColor={c.edge}
+      >
+        <YStack {...column(1600)} py={14} gap={12}>
           <XStack items="center" justify="space-between" gap={12} flexWrap="wrap">
             <More href="/">← Back</More>
             <XStack items="center" gap={12}>
@@ -316,13 +318,17 @@ export default function Gallery() {
           <Grid columns={{ min: 300, max: 3 }} gap={24}>
             {shownTemplates.map((x) => (
               <Leaf key={x.id} p={0} {...card}>
-                <Shot src={shot(x.screenshot)} alt={x.displayName} borderBottomWidth={1} borderColor={c.edge} />
+                <Anchor href={`/templates/${x.slug}`} textDecorationLine="none" display="block">
+                  <Shot src={shot(x.screenshot)} alt={x.displayName} borderBottomWidth={1} borderColor={c.edge} />
+                </Anchor>
                 <YStack p={24}>
                   <XStack items="flex-start" justify="space-between" mb={12} gap={12}>
                     <YStack grow={1} shrink={1}>
-                      <Text render="h3" m={0} fontSize="$6" lineHeight={24} fontWeight="500" color={c.ink} mb={4}>
-                        {x.displayName}
-                      </Text>
+                      <Anchor href={`/templates/${x.slug}`} textDecorationLine="none">
+                        <Text render="h3" m={0} fontSize="$6" lineHeight={24} fontWeight="500" color={c.ink} mb={4}>
+                          {x.displayName}
+                        </Text>
+                      </Anchor>
                       <Text fontSize="$2" lineHeight={18} color={c.muted}>
                         {x.framework}
                       </Text>
@@ -349,19 +355,23 @@ export default function Gallery() {
               return (
                 <Leaf key={family.family} p={0} {...card}>
                   <Grid columns={{ min: 260, max: 3 }} gap={24} p={24}>
-                    <Shot
-                      src={shot(x.screenshot)}
-                      alt={family.displayName}
-                      rounded={round.frame}
-                      borderWidth={1}
-                      borderColor={c.edge}
-                    />
+                    <Anchor href={`/templates/${x.slug}`} textDecorationLine="none" display="block">
+                      <Shot
+                        src={shot(x.screenshot)}
+                        alt={family.displayName}
+                        rounded={round.frame}
+                        borderWidth={1}
+                        borderColor={c.edge}
+                      />
+                    </Anchor>
                     <Cell col={2}>
                       <YStack>
                         <XStack items="center" gap={12} mb={6} flexWrap="wrap">
-                          <Text render="h3" m={0} fontSize="$7" lineHeight={26} fontWeight="500" color={c.ink}>
-                            {family.displayName}
-                          </Text>
+                          <Anchor href={`/templates/${x.slug}`} textDecorationLine="none">
+                            <Text render="h3" m={0} fontSize="$7" lineHeight={26} fontWeight="500" color={c.ink}>
+                              {family.displayName}
+                            </Text>
+                          </Anchor>
                           {many && <Chip {...badge}>{family.variantCount} variants</Chip>}
                         </XStack>
                         <Text fontSize="$2" lineHeight={18} color={c.muted} mb={10}>
@@ -446,6 +456,131 @@ export default function Gallery() {
         )}
 
         {forking && <ForkModal template={forking} onClose={() => setForking(null)} />}
+
+        {previewing && (
+          <Dialog modal open onOpenChange={(isOpen: boolean) => !isOpen && setPreviewing(null)}>
+            <DialogContent
+              showCloseButton={false}
+              width="96vw"
+              maxW={1400}
+              height="90vh"
+              p={0}
+              overflow="hidden"
+              rounded={round.card}
+              borderWidth={1}
+              borderColor={c.edge}
+              bg={c.card}
+            >
+              <XStack
+                px={20}
+                py={12}
+                items="center"
+                justify="space-between"
+                gap={12}
+                flexWrap="wrap"
+                borderBottomWidth={1}
+                borderColor={c.edge}
+                bg={c.glass}
+                backdropFilter={blur}
+              >
+                <XStack items="center" gap={10} flexWrap="wrap">
+                  <Text fontSize="$4" lineHeight={22} fontWeight="600" color={c.ink}>
+                    {previewing.displayName}
+                  </Text>
+                  <Chip {...badge}>{previewing.framework}</Chip>
+                  <Chip {...badge}>{previewing.category}</Chip>
+                </XStack>
+
+                <XStack gap={4} p={3} rounded={round.pill} bg={c.ground} borderWidth={1} borderColor={c.edge}>
+                  {sizes.map((s) => (
+                    <Text
+                      key={s}
+                      render="button"
+                      onClick={() => setPreviewSize(s)}
+                      px={12}
+                      py={5}
+                      rounded={round.pill}
+                      borderWidth={0}
+                      cursor="pointer"
+                      fontSize="$1"
+                      lineHeight={14}
+                      fontWeight="500"
+                      textTransform="capitalize"
+                      bg={previewSize === s ? c.bright : 'transparent'}
+                      color={previewSize === s ? c.onBright : c.muted}
+                    >
+                      {s}
+                    </Text>
+                  ))}
+                </XStack>
+
+                <XStack items="center" gap={8} flexWrap="wrap">
+                  <Action href={`/templates/${previewing.slug}`} minH={34} px={14}>
+                    Template Page
+                  </Action>
+                  <Action
+                    render="button"
+                    onClick={() => window.open(`/previews/${previewing.name}/index.html`, '_blank', 'noopener,noreferrer')}
+                    minH={34}
+                    px={14}
+                  >
+                    New Tab ↗
+                  </Action>
+                  <Action
+                    fill
+                    render="button"
+                    onClick={() => {
+                      const t = previewing;
+                      setPreviewing(null);
+                      setForking(t);
+                    }}
+                    minH={34}
+                    px={14}
+                  >
+                    Deploy to Hanzo
+                  </Action>
+                  <Text
+                    render="button"
+                    onClick={() => setPreviewing(null)}
+                    aria-label="Close preview"
+                    display="grid"
+                    placeItems="center"
+                    width={34}
+                    height={34}
+                    p={0}
+                    borderWidth={0}
+                    rounded={round.pill}
+                    bg="transparent"
+                    color={c.muted}
+                    cursor="pointer"
+                    hoverStyle={{ bg: c.wash, color: c.ink }}
+                  >
+                    ✕
+                  </Text>
+                </XStack>
+              </XStack>
+
+              <YStack flex={1} items="center" justify="center" p={previewSize === 'desktop' ? 0 : 16} bg={c.ground}>
+                <YStack
+                  width="100%"
+                  height="100%"
+                  maxW={frame[previewSize].maxWidth}
+                  rounded={previewSize === 'desktop' ? 0 : round.frame}
+                  overflow="hidden"
+                  borderWidth={previewSize === 'desktop' ? 0 : 1}
+                  borderColor={c.edge}
+                  bg={c.raised}
+                >
+                  <iframe
+                    src={`/previews/${previewing.name}/index.html`}
+                    title={`${previewing.displayName} Live Preview`}
+                    style={{ width: '100%', height: '100%', border: '0', background: '#0a0a0a' }}
+                  />
+                </YStack>
+              </YStack>
+            </DialogContent>
+          </Dialog>
+        )}
       </YStack>
     </YStack>
   );

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emptykit · catalogue</title>
+<style>
+  :root { --bg: #F4F5F8; --card: #FFFFFF; --fg: #0F1115; --muted: #6B7180; --line: #0000000F; --chip: #E9EBF0;
+          --accent: #5B5CF6; --panel: #FFFFFF; }
+  body.dk { --bg: #0B0C10; --card: #14161C; --fg: #F2F4F8; --muted: #8C93A3; --line: #FFFFFF14; --chip: #1E2129;
+            --panel: #14161C; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); transition: background .2s;
+         font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif; }
+  header { padding: 40px 40px 0; max-width: 1480px; margin: 0 auto; }
+  h1 { font-size: 30px; letter-spacing: -.02em; margin: 0 0 6px; }
+  .lead { color: var(--muted); margin: 0 0 22px; max-width: 760px; }
+  .bar { position: sticky; top: 0; z-index: 3; background: var(--bg); padding: 12px 40px; border-bottom: 1px solid var(--line); }
+  .bar > div { max-width: 1400px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 10px 26px; align-items: center; }
+  .seg { display: inline-flex; flex-wrap: wrap; background: var(--chip); border-radius: 10px; padding: 3px; }
+  .seg button { border: 0; background: none; color: var(--muted); font: inherit; font-size: 13px; font-weight: 500;
+                padding: 6px 12px; border-radius: 8px; cursor: pointer; }
+  .seg button[aria-pressed=true] { background: var(--card); color: var(--fg); box-shadow: 0 1px 2px #0000001F; }
+  .lbl { font-size: 12px; color: var(--muted); margin-right: 6px; }
+  .sw { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--bg); outline: 2px solid transparent;
+        cursor: pointer; padding: 0; margin-right: 4px; vertical-align: middle; }
+  .sw[aria-pressed=true] { outline-color: var(--fg); }
+  .sw:disabled { opacity: .25; cursor: default; }
+  label.tog { font-size: 13px; color: var(--muted); display: inline-flex; gap: 6px; align-items: center; cursor: pointer; }
+  main { max-width: 1480px; margin: 0 auto; padding: 8px 40px 60px; }
+  h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 600;
+       margin: 30px 0 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(196px, 1fr)); gap: 14px; }
+  .card { background: var(--tile, var(--card)); border-radius: 16px; box-shadow: 0 0 0 1px var(--line); cursor: pointer;
+          padding: 10px 10px 12px; text-align: left; border: 0; font: inherit; color: inherit; transition: transform .15s; }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 0 0 1px var(--line), 0 8px 24px #0000001A; }
+  .card img { width: 100%; aspect-ratio: 1; display: block; }
+  .card .t { font-size: 12.5px; color: var(--tilefg, var(--muted)); display: flex; gap: 6px; padding: 0 4px; }
+  .card .t b { opacity: .55; font-weight: 600; }
+  /* detail panel */
+  dialog { border: 0; border-radius: 20px; padding: 0; width: min(980px, 94vw); background: var(--panel); color: var(--fg);
+           box-shadow: 0 30px 80px #00000040; }
+  dialog::backdrop { background: #0B0C10AA; }
+  .dlg { display: grid; grid-template-columns: 400px 1fr; min-height: 520px; }
+  .art { background: var(--tile, var(--card)); display: grid; place-items: center; border-radius: 20px 0 0 20px; }
+  .art img { width: 360px; height: 360px; }
+  .info { padding: 28px 30px 26px; overflow: auto; max-height: 86vh; }
+  .info h3 { margin: 0 0 2px; font-size: 22px; letter-spacing: -.01em; }
+  .info .sub { color: var(--muted); font-size: 13px; margin-bottom: 18px; }
+  .k { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 600; margin: 16px 0 6px; }
+  .copyrow { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 6px; }
+  .copyrow span { flex: 1; }
+  pre { margin: 0; background: var(--chip); border-radius: 10px; padding: 10px 12px; font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+        white-space: pre-wrap; word-break: break-all; position: relative; }
+  .cp { position: absolute; right: 6px; top: 6px; border: 0; border-radius: 6px; padding: 3px 8px; font: 11px/1.4 inherit;
+        background: var(--card); color: var(--fg); cursor: pointer; box-shadow: 0 0 0 1px var(--line); }
+  .x { position: absolute; top: 14px; right: 16px; border: 0; background: var(--chip); color: var(--fg); width: 30px; height: 30px;
+       border-radius: 50%; cursor: pointer; font-size: 16px; }
+  .files a { color: var(--fg); }
+  .files { font-size: 12.5px; color: var(--muted); }
+  .files code { font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--fg); }
+  footer { max-width: 1480px; margin: 0 auto; padding: 0 40px 50px; color: var(--muted); font-size: 12.5px; }
+  @media (max-width: 760px) { .dlg { grid-template-columns: 1fr; } .art { border-radius: 20px 20px 0 0; } .art img { width: 260px; height: 260px; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Emptykit</h1>
+  <p class="lead">48 isometric 3D empty-state illustrations in three looks, light and dark. Pick a look and an accent,
+  click any illustration for its files, ready-to-paste code and suggested copy. Everything here is in this folder:
+  <b>png/</b>, <b>svg/</b>, <b>web/</b>, <b>blender/</b>, <b>figma/</b>, <b>copy/</b>. See README.md for the details.</p>
+</header>
+<div class="bar"><div>
+  <div><span class="lbl">Look</span><span class="seg" id="looks"></span></div>
+  <div><span class="lbl">Accent</span><span id="accents"></span></div>
+  <label class="tog"><input type="checkbox" id="bold"> Bold strokes</label>
+</div></div>
+<main id="main"></main>
+<footer>Emptykit 1.0 · Previews are the 480 px PNGs shown at 240 px. Files: ek-&lt;number&gt;-&lt;name&gt;-&lt;look&gt;-&lt;size&gt;.png</footer>
+<dialog id="dlg"></dialog>
+<script>
+const D = {"subjects": [{"n": 1, "slug": "no-messages", "group": "Communication", "title": "No messages yet", "file": "ek-01-no-messages", "copy": ["No messages yet", "When someone writes to you, the conversation will show up here.", "Start a conversation"]}, {"n": 2, "slug": "inbox-zero", "group": "Communication", "title": "Inbox zero", "file": "ek-02-inbox-zero", "copy": ["Inbox zero", "You've answered everything. New mail will land here.", "Compose"]}, {"n": 3, "slug": "no-comments", "group": "Communication", "title": "No comments yet", "file": "ek-03-no-comments", "copy": ["No comments yet", "Start the discussion: leave a comment on any line.", "Add a comment"]}, {"n": 4, "slug": "no-notifications", "group": "Communication", "title": "You're all caught up", "file": "ek-04-no-notifications", "copy": ["You're all caught up", "We'll let you know when something needs your attention.", "Notification settings"]}, {"n": 5, "slug": "no-contacts", "group": "Communication", "title": "No contacts", "file": "ek-05-no-contacts", "copy": ["No contacts", "Add people you work with to reach them faster.", "Add contact"]}, {"n": 6, "slug": "no-mentions", "group": "Communication", "title": "No mentions", "file": "ek-06-no-mentions", "copy": ["No mentions", "When someone @mentions you, it will show up here.", "View all activity"]}, {"n": 7, "slug": "no-files", "group": "Files and media", "title": "No files yet", "file": "ek-07-no-files", "copy": ["No files yet", "Drop files here or upload them to share with your team.", "Upload files"]}, {"n": 8, "slug": "no-documents", "group": "Files and media", "title": "No documents", "file": "ek-08-no-documents", "copy": ["No documents", "Create a document or import one to get started.", "New document"]}, {"n": 9, "slug": "no-images", "group": "Files and media", "title": "No photos yet", "file": "ek-09-no-images", "copy": ["No photos yet", "Upload photos or take one to fill your gallery.", "Upload photos"]}, {"n": 10, "slug": "upload", "group": "Files and media", "title": "Drop files to upload", "file": "ek-10-upload", "copy": ["Drop files to upload", "Drag files here, or browse. Up to 50 MB each.", "Browse files"]}, {"n": 11, "slug": "trash-empty", "group": "Files and media", "title": "Trash is empty", "file": "ek-11-trash-empty", "copy": ["Trash is empty", "Deleted items stay here for 30 days before they're gone for good.", "Back to files"]}, {"n": 12, "slug": "archive-empty", "group": "Files and media", "title": "Nothing archived", "file": "ek-12-archive-empty", "copy": ["Nothing archived", "Archive items to keep them out of the way without deleting them.", "View all items"]}, {"n": 13, "slug": "no-results", "group": "Search and data", "title": "No results found", "file": "ek-13-no-results", "copy": ["No results found", "Try different keywords or check the spelling.", "Clear search"]}, {"n": 14, "slug": "no-filter-results", "group": "Search and data", "title": "No matches for these filters", "file": "ek-14-no-filter-results", "copy": ["No matches for these filters", "Try removing a filter or widening the date range.", "Reset filters"]}, {"n": 15, "slug": "no-data", "group": "Search and data", "title": "No data yet", "file": "ek-15-no-data", "copy": ["No data yet", "Charts appear here as soon as your first events come in.", "Connect a source"]}, {"n": 16, "slug": "empty-dashboard", "group": "Search and data", "title": "Your dashboard is empty", "file": "ek-16-empty-dashboard", "copy": ["Your dashboard is empty", "Add widgets to keep the numbers you care about in view.", "Add widget"]}, {"n": 17, "slug": "no-history", "group": "Search and data", "title": "No activity yet", "file": "ek-17-no-history", "copy": ["No activity yet", "Changes, comments and logins will be recorded here.", "Learn more"]}, {"n": 18, "slug": "no-tags", "group": "Search and data", "title": "No tags", "file": "ek-18-no-tags", "copy": ["No tags", "Create tags to group and find items quickly.", "Create tag"]}, {"n": 19, "slug": "empty-cart", "group": "Commerce", "title": "Your cart is empty", "file": "ek-19-empty-cart", "copy": ["Your cart is empty", "Items you add to your cart will appear here.", "Continue shopping"]}, {"n": 20, "slug": "no-orders", "group": "Commerce", "title": "No orders yet", "file": "ek-20-no-orders", "copy": ["No orders yet", "When customers buy something, their orders appear here.", "Share your store"]}, {"n": 21, "slug": "no-payment-methods", "group": "Commerce", "title": "No payment methods", "file": "ek-21-no-payment-methods", "copy": ["No payment methods", "Add a card to pay for your plan and add-ons.", "Add card"]}, {"n": 22, "slug": "wallet-empty", "group": "Commerce", "title": "No transactions", "file": "ek-22-wallet-empty", "copy": ["No transactions", "Payments in and out of your account will be listed here.", "Add funds"]}, {"n": 23, "slug": "no-invoices", "group": "Commerce", "title": "No invoices", "file": "ek-23-no-invoices", "copy": ["No invoices", "Invoices appear here after your first billing cycle.", "Create invoice"]}, {"n": 24, "slug": "no-products", "group": "Commerce", "title": "No products", "file": "ek-24-no-products", "copy": ["No products", "Add your first product to start selling.", "Add product"]}, {"n": 25, "slug": "no-team-members", "group": "Users, teams and keys", "title": "Invite your team", "file": "ek-25-no-team-members", "copy": ["Invite your team", "Work together: invite teammates to this workspace.", "Invite members"]}, {"n": 26, "slug": "invite-sent", "group": "Users, teams and keys", "title": "Invitation sent", "file": "ek-26-invite-sent", "copy": ["Invitation sent", "We've emailed your invite. You'll be notified when they join.", "Invite another"]}, {"n": 27, "slug": "no-connections", "group": "Users, teams and keys", "title": "No connections", "file": "ek-27-no-connections", "copy": ["No connections", "Connect with people to see their updates here.", "Find people"]}, {"n": 28, "slug": "profile-incomplete", "group": "Users, teams and keys", "title": "Complete your profile", "file": "ek-28-profile-incomplete", "copy": ["Complete your profile", "Add a photo and a few details so your team knows who you are.", "Edit profile"]}, {"n": 29, "slug": "no-reviews", "group": "Users, teams and keys", "title": "No reviews yet", "file": "ek-29-no-reviews", "copy": ["No reviews yet", "Reviews from customers will show up here.", "Request a review"]}, {"n": 30, "slug": "no-api-keys", "group": "Users, teams and keys", "title": "No API keys", "file": "ek-30-no-api-keys", "copy": ["No API keys", "Create a key to connect your apps to the API.", "Create API key"]}, {"n": 31, "slug": "all-done", "group": "Tasks and time", "title": "All done", "file": "ek-31-all-done", "copy": ["All done", "You've completed every task on your list. Enjoy the quiet.", "View completed"]}, {"n": 32, "slug": "no-events", "group": "Tasks and time", "title": "Nothing scheduled", "file": "ek-32-no-events", "copy": ["Nothing scheduled", "Your calendar is clear. Plan something new?", "New event"]}, {"n": 33, "slug": "no-reminders", "group": "Tasks and time", "title": "No reminders", "file": "ek-33-no-reminders", "copy": ["No reminders", "Set a reminder and we'll nudge you at the right time.", "Add reminder"]}, {"n": 34, "slug": "no-projects", "group": "Tasks and time", "title": "No projects yet", "file": "ek-34-no-projects", "copy": ["No projects yet", "Create a project to plan and track your team's work.", "New project"]}, {"n": 35, "slug": "no-notes", "group": "Tasks and time", "title": "No notes", "file": "ek-35-no-notes", "copy": ["No notes", "Capture ideas, to-dos and meeting notes in one place.", "New note"]}, {"n": 36, "slug": "no-scheduled-jobs", "group": "Tasks and time", "title": "No jobs running", "file": "ek-36-no-scheduled-jobs", "copy": ["No jobs running", "Schedule a job to run tasks automatically.", "Schedule job"]}, {"n": 37, "slug": "offline", "group": "Connectivity, errors and access", "title": "You're offline", "file": "ek-37-offline", "copy": ["You're offline", "Check your connection. We'll reconnect automatically.", "Try again"]}, {"n": 38, "slug": "page-not-found", "group": "Connectivity, errors and access", "title": "Page not found", "file": "ek-38-page-not-found", "copy": ["Page not found", "The page you're looking for moved or never existed.", "Go home"]}, {"n": 39, "slug": "server-error", "group": "Connectivity, errors and access", "title": "Something went wrong", "file": "ek-39-server-error", "copy": ["Something went wrong", "We're looking into it. Please try again in a moment.", "Try again"]}, {"n": 40, "slug": "no-permission", "group": "Connectivity, errors and access", "title": "You don't have access", "file": "ek-40-no-permission", "copy": ["You don't have access", "Ask a workspace admin to give you access to this page.", "Request access"]}, {"n": 41, "slug": "maintenance", "group": "Connectivity, errors and access", "title": "Down for maintenance", "file": "ek-41-maintenance", "copy": ["Down for maintenance", "We're making improvements and will be back shortly.", "Status page"]}, {"n": 42, "slug": "failed-to-load", "group": "Connectivity, errors and access", "title": "Couldn't load this", "file": "ek-42-failed-to-load", "copy": ["Couldn't load this", "Check your connection and try again.", "Retry"]}, {"n": 43, "slug": "welcome", "group": "Onboarding, setup and success", "title": "Welcome, let's get started", "file": "ek-43-welcome", "copy": ["Welcome, let's get started", "Set up your workspace in three quick steps.", "Get started"]}, {"n": 44, "slug": "setup-required", "group": "Onboarding, setup and success", "title": "Finish setting up", "file": "ek-44-setup-required", "copy": ["Finish setting up", "A few settings are still missing before you can go live.", "Continue setup"]}, {"n": 45, "slug": "no-integrations", "group": "Onboarding, setup and success", "title": "No apps connected", "file": "ek-45-no-integrations", "copy": ["No apps connected", "Connect the tools you use to sync data automatically.", "Browse integrations"]}, {"n": 46, "slug": "empty-ai-chat", "group": "Onboarding, setup and success", "title": "Ask anything", "file": "ek-46-empty-ai-chat", "copy": ["Ask anything", "Ask a question, draft a reply or summarise a document.", "New chat"]}, {"n": 47, "slug": "upgrade", "group": "Onboarding, setup and success", "title": "Upgrade to unlock", "file": "ek-47-upgrade", "copy": ["Upgrade to unlock", "This feature is part of the Pro plan.", "See plans"]}, {"n": 48, "slug": "success", "group": "Onboarding, setup and success", "title": "You're all set", "file": "ek-48-success", "copy": ["You're all set", "Your workspace is ready. Time to build something great.", "Go to dashboard"]}], "looks": [{"id": "mono-light", "title": "Mono \u00b7 light", "bg": "#FFFFFF", "dark": false}, {"id": "mono-dark", "title": "Mono \u00b7 dark", "bg": "#0F1115", "dark": true}, {"id": "mono-dark-glow", "title": "Mono \u00b7 dark + glow", "bg": "#0F1115", "dark": true}, {"id": "line-light", "title": "Line \u00b7 light", "bg": "#FFFFFF", "dark": false}, {"id": "line-dark", "title": "Line \u00b7 dark", "bg": "#0F1115", "dark": true}, {"id": "blueprint-light", "title": "Blueprint \u00b7 whiteprint", "bg": "#F3F7FD", "dark": false}, {"id": "blueprint-dark", "title": "Blueprint \u00b7 blue", "bg": "#0E3A78", "dark": true}], "accents": {"indigo": {"light": ["#5B5CF6", "#2B2C9A"], "dark": ["#6D6BFF", "#2F2DB0"], "glow": "#7B79FF"}, "violet": {"light": ["#8B5CF6", "#4F2998"], "dark": ["#976EFF", "#5829AB"], "glow": "#9F7EFF"}, "blue": {"light": ["#2F7CF6", "#064298"], "dark": ["#438BFF", "#0047AA"], "glow": "#5898FF"}, "teal": {"light": ["#0FA3A3", "#005C5C"], "dark": ["#37B0B0", "#006464"], "glow": "#54B9B9"}, "orange": {"light": ["#F2702A", "#8F3800"], "dark": ["#FE8143", "#9B3E00"], "glow": "#FF9462"}, "pink": {"light": ["#E8488A", "#8C164C"], "dark": ["#F45C97", "#9C0853"], "glow": "#F96FA2"}}, "sizes": [120, 240, 480, 800, 1600], "presets": ["violet", "blue", "teal", "orange", "pink"], "product": "Emptykit", "version": "1.0"};
+const st = { look: 'mono-light', accent: 'indigo', bold: false };
+const isMono = (l) => l.startsWith('mono');
+const lookOf = (id) => D.looks.find((l) => l.id === id);
+function png(s, size = 480, look = st.look) {
+  const b = st.bold ? '-bold' : '';
+  if (isMono(look) && st.accent !== 'indigo' && !st.bold) return `png-accents/${st.accent}/${look}/${size}/${s.file}-${look}-${st.accent}-${size}.png`;
+  return `png/${look}${b}/${size}/${s.file}-${look}${b}-${size}.png`;
+}
+function svg(s, look = st.look) {
+  if (isMono(look) && st.accent !== 'indigo') return `svg-accents/${st.accent}/${look}/${s.file}-${look}-${st.accent}.svg`;
+  return `svg/${look}/${s.file}-${look}.svg`;
+}
+const esc = (t) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+function render() {
+  const L = lookOf(st.look);
+  document.body.classList.toggle('dk', L.dark);
+  document.documentElement.style.setProperty('--tile', L.bg);
+  document.documentElement.style.setProperty('--tilefg', L.dark ? '#FFFFFFAA' : '#0F1115AA');
+  let html = '', g = null;
+  for (const s of D.subjects) {
+    if (s.group !== g) { html += (g ? '</div>' : '') + `<h2>${esc(s.group)}</h2><div class="grid">`; g = s.group; }
+    html += `<button class="card" data-n="${s.n}"><img loading="lazy" src="${png(s)}" alt="${esc(s.title)}">
+      <div class="t"><b>${String(s.n).padStart(2, '0')}</b>${esc(s.title)}</div></button>`;
+  }
+  document.getElementById('main').innerHTML = html + '</div>';
+  for (const b of document.querySelectorAll('#looks button')) b.setAttribute('aria-pressed', String(b.dataset.v === st.look));
+  for (const b of document.querySelectorAll('.sw')) {
+    b.disabled = !isMono(st.look) || st.bold;
+    b.setAttribute('aria-pressed', String(b.dataset.v === st.accent && !b.disabled));
+  }
+}
+document.getElementById('looks').innerHTML = D.looks.map((l) => `<button data-v="${l.id}">${l.title}</button>`).join('');
+document.getElementById('accents').innerHTML = Object.entries(D.accents).map(([k, v]) =>
+  `<button class="sw" data-v="${k}" title="${k}" style="background:${v.light[0]}"></button>`).join('');
+document.addEventListener('click', (e) => {
+  const b = e.target.closest('#looks button'); if (b) { st.look = b.dataset.v; render(); return; }
+  const a = e.target.closest('.sw'); if (a) { st.accent = a.dataset.v; render(); return; }
+  const c = e.target.closest('.card'); if (c) { open(D.subjects.find((s) => s.n === +c.dataset.n)); return; }
+  const cp = e.target.closest('.cp'); if (cp) { navigator.clipboard.writeText(cp.parentNode.dataset.text); cp.textContent = 'Copied'; setTimeout(() => (cp.textContent = 'Copy'), 1200); return; }
+  if (e.target.closest('.x') || e.target.id === 'dlg') document.getElementById('dlg').close();
+});
+document.getElementById('bold').addEventListener('change', (e) => { st.bold = e.target.checked; render(); });
+function block(text) { return `<pre data-text="${esc(text)}">${esc(text)}<button class="cp">Copy</button></pre>`; }
+function open(s) {
+  const [title, body, button] = s.copy;
+  const look = st.look.split('-')[0], theme = lookOf(st.look).dark ? 'dark' : 'light';
+  const glow = st.look.endsWith('glow') ? ' glow' : '';
+  const acc = isMono(st.look) && st.accent !== 'indigo' ? ` accent="${st.accent}"` : '';
+  const accR = isMono(st.look) && st.accent !== 'indigo' ? ` accent="${st.accent}"` : '';
+  const slug = s.slug;
+  const sizes = D.sizes.map((z) => `<a href="${png(s, z)}">${z}</a>`).join(' · ');
+  document.getElementById('dlg').innerHTML = `<button class="x" aria-label="Close">×</button><div class="dlg">
+    <div class="art"><img src="${png(s, 800)}" alt=""></div>
+    <div class="info"><h3>${String(s.n).padStart(2, '0')} · ${esc(s.title)}</h3>
+      <div class="sub">${esc(s.group)} · ${esc(lookOf(st.look).title)}${acc ? ' · ' + st.accent : ''}</div>
+      <div class="k">Suggested copy</div>
+      ${block(title)}<div style="height:6px"></div>${block(body)}<div style="height:6px"></div>${block(button)}
+      <div class="k">Files</div>
+      <div class="files">PNG (transparent): ${sizes}<br>SVG: <a href="${svg(s)}"><code>${svg(s)}</code></a><br>
+        three.js: <code>web/glb/${s.file}.glb</code> · Blender: <code>blender/${s.file}.blend</code></div>
+      <div class="k">HTML (image)</div>
+      ${block(`<img src="${png(s, 480)}" width="240" height="240" alt="">`)}
+      <div class="k">Web component (three.js: real 3D, live accent)</div>
+      ${block(`<empty-state name="${slug}" look="${look}" theme="${theme}"${glow}${acc} style="width: 240px"></empty-state>`)}
+      <div class="k">React</div>
+      ${block(`<EmptyState name="${slug}" look="${look}" theme="${theme}"${glow}${accR} size={240} />`)}
+    </div></div>`;
+  document.getElementById('dlg').showModal();
+}
+render();
+</script>
+</body>
+</html>

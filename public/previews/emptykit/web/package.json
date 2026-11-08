@@ -1,0 +1,18 @@
+{
+  "name": "emptykit-web",
+  "version": "1.0.0",
+  "description": "Emptykit: 48 isometric empty-state illustrations drawn live with three.js (<empty-state> web component).",
+  "type": "module",
+  "main": "empty-state.js",
+  "exports": {
+    ".": "./empty-state.js",
+    "./react": "./react/EmptyState.jsx",
+    "./looks": "./looks.js"
+  },
+  "files": ["empty-state.js", "looks.js", "glb", "react"],
+  "peerDependencies": {
+    "three": ">=0.160.0"
+  },
+  "license": "SEE LICENSE IN ../LICENSE.txt",
+  "private": true
+}

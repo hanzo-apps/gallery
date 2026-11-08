@@ -48,8 +48,10 @@ const enriched = templates.map((t) => {
     screenshotUrl: `${GALLERY_ORIGIN}/screenshots/${shotFile}`,
     hasScreenshot: hasShot,
     templateUrl: `${GALLERY_ORIGIN}/templates/${t.slug}`,
+    previewUrl: `${GALLERY_ORIGIN}${bp.previewUrl}`,
     repo: bp.repo,
     deployUrl: bp.deployUrl,
+    platformDeployUrl: bp.platformDeployUrl,
   };
 });
 

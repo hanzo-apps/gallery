@@ -27,6 +27,8 @@ export interface TemplateBlueprint {
   commands: TemplateCommands;
   repo: string;
   deployUrl: string;
+  platformDeployUrl: string;
+  previewUrl: string;
 }
 
 export interface PromptMatch {
@@ -481,7 +483,9 @@ export function getBlueprint(template: Template): TemplateBlueprint {
     params,
     commands: defaultCommands(template.framework, template.path),
     repo,
-    deployUrl: `https://hanzo.app/new?template=${encodeURIComponent(repo)}`,
+    deployUrl: `https://hanzo.app/new?template=${encodeURIComponent(repo)}&seed=${encodeURIComponent(template.slug)}`,
+    platformDeployUrl: `https://platform.hanzo.ai/new?repo=${encodeURIComponent(repo)}&template=${encodeURIComponent(template.slug)}`,
+    previewUrl: `/previews/${template.name}/index.html`,
   };
 }
 
@@ -613,8 +617,12 @@ export function assembleProjectConfig(
 ): {
   envFile: string;
   manifestJson: string;
+  hanzoYaml: string;
   cliCommand: string;
+  platformCliCommand: string;
   studioBuildUrl: string;
+  platformDeployUrl: string;
+  previewUrl: string;
 } {
   const blueprint = getBlueprint(template);
   const resolvedParams: Record<string, string> = {};
@@ -632,28 +640,66 @@ export function assembleProjectConfig(
   const blocks = enabledBlocks && enabledBlocks.length > 0 ? enabledBlocks : blueprint.blocks;
   envLines.push(`HANZO_TEMPLATE_BLOCKS=${JSON.stringify(blocks.join(','))}`);
 
+  const projectSlug = (resolvedParams.brandName || template.slug)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '') || template.slug;
+
+  const f = template.framework.toLowerCase();
+  const outDir = f.includes('next') ? 'out' : f.includes('vite') || f.includes('astro') || blueprint.generation === 'modern' ? 'dist' : f.includes('react') || f.includes('gulp') ? 'build' : '.';
+
+  const hanzoYaml = [
+    `# Automated Hanzo Platform & Sites CI/CD (${projectSlug})`,
+    `test:`,
+    `  - name: build`,
+    `    run: |`,
+    `      set -e`,
+    `      ${blueprint.commands.install}`,
+    `      ${blueprint.commands.build}`,
+    ``,
+    `site:`,
+    `  slug: ${projectSlug}`,
+    `  dir: ${outDir}`,
+    `  build: ${blueprint.commands.install} && ${blueprint.commands.build}`,
+    `  on: [main]`,
+    ``,
+    `platform:`,
+    `  project: ${projectSlug}`,
+    `  template: ${template.slug}`,
+    `  region: global-edge`,
+    `  image: ghcr.io/hanzo-apps/${projectSlug}:latest`,
+  ].join('\n');
+
   const manifest = {
     seed: template.slug,
     name: resolvedParams.brandName || template.displayName,
+    slug: projectSlug,
     framework: template.framework,
     category: template.category,
     repo: blueprint.repo,
     blocks,
     params: resolvedParams,
     commands: blueprint.commands,
+    platform: {
+      outDir,
+      deployUrl: `https://platform.hanzo.ai/new?repo=${encodeURIComponent(blueprint.repo)}&template=${template.slug}&name=${encodeURIComponent(projectSlug)}`,
+      studioUrl: `https://hanzo.app/new?template=${encodeURIComponent(blueprint.repo)}&seed=${template.slug}`,
+    },
   };
 
-  const projectSlug = (resolvedParams.brandName || template.slug)
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '') || template.slug;
+  const platformCliCommand = `npx @hanzo/cli deploy --template ${template.slug} --name ${projectSlug} --platform`;
 
   const cliCommand = [
+    `# 1-Click Automated Deploy to Hanzo Platform`,
+    platformCliCommand,
+    ``,
+    `# Or clone, parameterize & deploy from local workspace`,
     `git clone ${blueprint.repo} ${projectSlug}`,
     `cd ${projectSlug}`,
     `cat << 'EOF' > .env.local\n${envLines.join('\n')}\nEOF`,
+    `cat << 'EOF' > hanzo.yml\n${hanzoYaml}\nEOF`,
     blueprint.commands.install,
-    blueprint.commands.dev,
+    blueprint.commands.deploy,
   ].join('\n');
 
   const query = new URLSearchParams({
@@ -663,10 +709,21 @@ export function assembleProjectConfig(
     blocks: blocks.join(','),
   });
 
+  const platformQuery = new URLSearchParams({
+    repo: blueprint.repo,
+    template: template.slug,
+    name: projectSlug,
+    blocks: blocks.join(','),
+  });
+
   return {
     envFile: envLines.join('\n'),
     manifestJson: JSON.stringify(manifest, null, 2),
+    hanzoYaml,
     cliCommand,
+    platformCliCommand,
     studioBuildUrl: `https://hanzo.app/new?${query.toString()}`,
+    platformDeployUrl: `https://platform.hanzo.ai/new?${platformQuery.toString()}`,
+    previewUrl: blueprint.previewUrl,
   };
 }
