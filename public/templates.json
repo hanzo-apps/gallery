@@ -1,9 +1,9 @@
 {
   "version": 1,
   "origin": "https://gallery.hanzo.ai",
-  "count": 41,
-  "screenshots": 41,
-  "generatedAt": "2026-08-24T17:30:24.841Z",
+  "count": 58,
+  "screenshots": 58,
+  "generatedAt": "2026-11-08T03:08:13.773Z",
   "templates": [
     {
       "id": 1,
@@ -33,7 +33,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/synapse.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/synapse",
-      "repo": "https://github.com/hanzo-apps/synapse"
+      "repo": "https://github.com/hanzo-apps/template-synapse"
     },
     {
       "id": 2,
@@ -61,7 +61,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/circle.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/circle",
-      "repo": "https://github.com/hanzo-apps/circle"
+      "repo": "https://github.com/hanzo-apps/template-circle"
     },
     {
       "id": 3,
@@ -89,7 +89,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/metrics.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/metrics",
-      "repo": "https://github.com/hanzo-apps/metrics"
+      "repo": "https://github.com/hanzo-apps/template-metrics"
     },
     {
       "id": 4,
@@ -116,7 +116,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/kinetic.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/kinetic",
-      "repo": "https://github.com/hanzo-apps/kinetic"
+      "repo": "https://github.com/hanzo-apps/template-kinetic"
     },
     {
       "id": 7,
@@ -143,7 +143,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/savor.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/savor",
-      "repo": "https://github.com/hanzo-apps/savor"
+      "repo": "https://github.com/hanzo-apps/template-savor"
     },
     {
       "id": 8,
@@ -170,7 +170,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/mint.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/mint",
-      "repo": "https://github.com/hanzo-apps/mint"
+      "repo": "https://github.com/hanzo-apps/template-mint"
     },
     {
       "id": 11,
@@ -197,7 +197,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/prism-react.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/prism-react",
-      "repo": "https://github.com/hanzo-apps/prism-react"
+      "repo": "https://github.com/hanzo-apps/template-prism-react"
     },
     {
       "id": 14,
@@ -224,7 +224,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/soar.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/soar",
-      "repo": "https://github.com/hanzo-apps/soar"
+      "repo": "https://github.com/hanzo-apps/template-soar"
     },
     {
       "id": 15,
@@ -251,7 +251,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/cipher-react.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/cipher-react",
-      "repo": "https://github.com/hanzo-apps/cipher-react"
+      "repo": "https://github.com/hanzo-apps/template-cipher-react"
     },
     {
       "id": 16,
@@ -278,7 +278,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/launch.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/launch",
-      "repo": "https://github.com/hanzo-apps/launch"
+      "repo": "https://github.com/hanzo-apps/template-launch"
     },
     {
       "id": 18,
@@ -305,7 +305,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/construct.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/construct",
-      "repo": "https://github.com/hanzo-apps/construct"
+      "repo": "https://github.com/hanzo-apps/template-construct"
     },
     {
       "id": 19,
@@ -332,7 +332,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/deploy.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/deploy",
-      "repo": "https://github.com/hanzo-apps/deploy"
+      "repo": "https://github.com/hanzo-apps/template-deploy"
     },
     {
       "id": 20,
@@ -359,7 +359,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/loop.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/loop",
-      "repo": "https://github.com/hanzo-apps/loop"
+      "repo": "https://github.com/hanzo-apps/template-loop"
     },
     {
       "id": 22,
@@ -386,7 +386,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/unity.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/unity",
-      "repo": "https://github.com/hanzo-apps/unity"
+      "repo": "https://github.com/hanzo-apps/template-unity"
     },
     {
       "id": 25,
@@ -413,7 +413,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/vault.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/vault",
-      "repo": "https://github.com/hanzo-apps/vault"
+      "repo": "https://github.com/hanzo-apps/template-vault"
     },
     {
       "id": 26,
@@ -440,7 +440,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/studio.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/studio",
-      "repo": "https://github.com/hanzo-apps/studio"
+      "repo": "https://github.com/hanzo-apps/template-studio"
     },
     {
       "id": 29,
@@ -467,7 +467,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/drive.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/drive",
-      "repo": "https://github.com/hanzo-apps/drive"
+      "repo": "https://github.com/hanzo-apps/template-drive"
     },
     {
       "id": 31,
@@ -494,7 +494,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/oasis.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/oasis",
-      "repo": "https://github.com/hanzo-apps/oasis"
+      "repo": "https://github.com/hanzo-apps/template-oasis"
     },
     {
       "id": 32,
@@ -521,7 +521,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/solo.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/solo",
-      "repo": "https://github.com/hanzo-apps/solo"
+      "repo": "https://github.com/hanzo-apps/template-solo"
     },
     {
       "id": 34,
@@ -548,7 +548,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/forge.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/forge",
-      "repo": "https://github.com/hanzo-apps/forge"
+      "repo": "https://github.com/hanzo-apps/template-forge"
     },
     {
       "id": 38,
@@ -575,7 +575,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/hygge.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/hygge-html",
-      "repo": "https://github.com/hanzo-apps/hygge-html"
+      "repo": "https://github.com/hanzo-apps/template-hygge-html"
     },
     {
       "id": 47,
@@ -601,7 +601,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-about.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-about",
-      "repo": "https://github.com/hanzo-apps/folio-about"
+      "repo": "https://github.com/hanzo-apps/template-folio-about"
     },
     {
       "id": 48,
@@ -627,7 +627,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-contact.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-contact",
-      "repo": "https://github.com/hanzo-apps/folio-contact"
+      "repo": "https://github.com/hanzo-apps/template-folio-contact"
     },
     {
       "id": 49,
@@ -653,7 +653,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-creative-agency-1.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-creative-agency-1",
-      "repo": "https://github.com/hanzo-apps/folio-creative-agency-1"
+      "repo": "https://github.com/hanzo-apps/template-folio-creative-agency-1"
     },
     {
       "id": 50,
@@ -679,7 +679,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-creative-agency-2.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-creative-agency-2",
-      "repo": "https://github.com/hanzo-apps/folio-creative-agency-2"
+      "repo": "https://github.com/hanzo-apps/template-folio-creative-agency-2"
     },
     {
       "id": 52,
@@ -705,7 +705,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-creative-designer-2.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-creative-designer-2",
-      "repo": "https://github.com/hanzo-apps/folio-creative-designer-2"
+      "repo": "https://github.com/hanzo-apps/template-folio-creative-designer-2"
     },
     {
       "id": 54,
@@ -731,7 +731,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-creative-developer-2.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-creative-developer-2",
-      "repo": "https://github.com/hanzo-apps/folio-creative-developer-2"
+      "repo": "https://github.com/hanzo-apps/template-folio-creative-developer-2"
     },
     {
       "id": 55,
@@ -757,7 +757,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-creative-photography-1.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-photography-1",
-      "repo": "https://github.com/hanzo-apps/folio-photography-1"
+      "repo": "https://github.com/hanzo-apps/template-folio-photography-1"
     },
     {
       "id": 56,
@@ -783,7 +783,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-creative-photography-2.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-photography-2",
-      "repo": "https://github.com/hanzo-apps/folio-photography-2"
+      "repo": "https://github.com/hanzo-apps/template-folio-photography-2"
     },
     {
       "id": 58,
@@ -809,7 +809,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-grid-3.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-grid-3-columns",
-      "repo": "https://github.com/hanzo-apps/folio-grid-3-columns"
+      "repo": "https://github.com/hanzo-apps/template-folio-grid-3-columns"
     },
     {
       "id": 62,
@@ -835,7 +835,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-masonry-2.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-masonry-2-columns",
-      "repo": "https://github.com/hanzo-apps/folio-masonry-2-columns"
+      "repo": "https://github.com/hanzo-apps/template-folio-masonry-2-columns"
     },
     {
       "id": 63,
@@ -861,7 +861,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-masonry-3.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-masonry-3-columns",
-      "repo": "https://github.com/hanzo-apps/folio-masonry-3-columns"
+      "repo": "https://github.com/hanzo-apps/template-folio-masonry-3-columns"
     },
     {
       "id": 64,
@@ -887,7 +887,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-masonry-3-fluid.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-masonry-3-fluid",
-      "repo": "https://github.com/hanzo-apps/folio-masonry-3-fluid"
+      "repo": "https://github.com/hanzo-apps/template-folio-masonry-3-fluid"
     },
     {
       "id": 65,
@@ -913,7 +913,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-masonry-4.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-masonry-4-columns",
-      "repo": "https://github.com/hanzo-apps/folio-masonry-4-columns"
+      "repo": "https://github.com/hanzo-apps/template-folio-masonry-4-columns"
     },
     {
       "id": 66,
@@ -939,7 +939,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-masonry-4-fluid.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-masonry-4-fluid",
-      "repo": "https://github.com/hanzo-apps/folio-masonry-4-fluid"
+      "repo": "https://github.com/hanzo-apps/template-folio-masonry-4-fluid"
     },
     {
       "id": 67,
@@ -965,7 +965,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-portfolio-details.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-details-1",
-      "repo": "https://github.com/hanzo-apps/folio-details-1"
+      "repo": "https://github.com/hanzo-apps/template-folio-details-1"
     },
     {
       "id": 68,
@@ -991,7 +991,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/folio-portfolio-details-2.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/folio-details-2",
-      "repo": "https://github.com/hanzo-apps/folio-details-2"
+      "repo": "https://github.com/hanzo-apps/template-folio-details-2"
     },
     {
       "id": 71,
@@ -1018,7 +1018,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/jobfinder.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/jobfinder",
-      "repo": "https://github.com/hanzo-apps/jobfinder"
+      "repo": "https://github.com/hanzo-apps/template-jobfinder"
     },
     {
       "id": 72,
@@ -1045,7 +1045,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/pixel.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/pixel",
-      "repo": "https://github.com/hanzo-apps/pixel"
+      "repo": "https://github.com/hanzo-apps/template-pixel"
     },
     {
       "id": 73,
@@ -1072,7 +1072,7 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/saas-landing.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/saas-landing",
-      "repo": "https://github.com/hanzo-apps/saas-landing"
+      "repo": "https://github.com/hanzo-apps/template-saas-landing"
     },
     {
       "id": 75,
@@ -1099,7 +1099,517 @@
       "screenshotUrl": "https://gallery.hanzo.ai/screenshots/serif.webp",
       "hasScreenshot": true,
       "templateUrl": "https://gallery.hanzo.ai/templates/serif",
-      "repo": "https://github.com/hanzo-apps/serif"
+      "repo": "https://github.com/hanzo-apps/template-serif"
+    },
+    {
+      "id": 76,
+      "name": "instrument",
+      "displayName": "Instrument",
+      "slug": "instrument",
+      "category": "Portfolio",
+      "screenshot": "instrument",
+      "path": "apps/instrument",
+      "framework": "React 19 + Vite + TS",
+      "rating": 5,
+      "features": [
+        "Command Palette",
+        "Interactive Lab",
+        "Theme Switcher",
+        "Lenis Smooth Scroll",
+        "Keyboard Audio"
+      ],
+      "components": "30+ comp",
+      "easeOfSetup": 5,
+      "useCase": "Design engineer & creative developer portfolios",
+      "tier": 1,
+      "description": "Monospace portfolio website with interactive 3D project cards, command palette, live experimental lab (particles, spring physics, ASCII shaders), and procedural audio.",
+      "updatedDate": "2026-04-20",
+      "port": 3108,
+      "family": "instrument",
+      "screenshotUrl": "https://gallery.hanzo.ai/screenshots/instrument.webp",
+      "hasScreenshot": true,
+      "templateUrl": "https://gallery.hanzo.ai/templates/instrument",
+      "repo": "https://github.com/hanzo-apps/template-instrument"
+    },
+    {
+      "id": 77,
+      "name": "nova",
+      "displayName": "Nova AI",
+      "slug": "nova",
+      "category": "AI/SaaS",
+      "screenshot": "nova",
+      "path": "apps/nova",
+      "framework": "React 19 + Vite + TS",
+      "rating": 5,
+      "features": [
+        "15 Hero Variants",
+        "WebGL Shaders",
+        "Interactive Pricing",
+        "Variant Switcher",
+        "Responsive"
+      ],
+      "components": "35+ comp",
+      "easeOfSetup": 5,
+      "useCase": "AI SaaS & developer platform marketing sites",
+      "tier": 1,
+      "description": "Modular AI SaaS marketing template featuring 15 switchable hero, feature, pricing, and CTA variants with live WebGL shaders and interactive product demos.",
+      "updatedDate": "2026-04-20",
+      "port": 3109,
+      "family": "nova",
+      "screenshotUrl": "https://gallery.hanzo.ai/screenshots/nova.webp",
+      "hasScreenshot": true,
+      "templateUrl": "https://gallery.hanzo.ai/templates/nova",
+      "repo": "https://github.com/hanzo-apps/template-nova"
+    },
+    {
+      "id": 78,
+      "name": "minimal-ui",
+      "displayName": "Minimal UI Kit",
+      "slug": "minimal-ui",
+      "category": "Component Library",
+      "screenshot": "minimal-ui",
+      "path": "apps/minimal-ui",
+      "framework": "React 19 + Vite + TS",
+      "rating": 5,
+      "features": [
+        "40+ Components",
+        "8 Theme Variants",
+        "Design Tokens",
+        "Command Menu",
+        "Interactive Docs"
+      ],
+      "components": "40+ comp",
+      "easeOfSetup": 5,
+      "useCase": "Design systems & developer documentation",
+      "tier": 1,
+      "description": "Precision monospace component library and interactive documentation site with 40+ components across 8 visual variants and full design token inspection.",
+      "updatedDate": "2026-04-20",
+      "port": 3110,
+      "family": "minimal-ui",
+      "screenshotUrl": "https://gallery.hanzo.ai/screenshots/minimal-ui.webp",
+      "hasScreenshot": true,
+      "templateUrl": "https://gallery.hanzo.ai/templates/minimal-ui",
+      "repo": "https://github.com/hanzo-apps/template-minimal-ui"
+    },
+    {
+      "id": 79,
+      "name": "component-states",
+      "displayName": "Component States",
+      "slug": "component-states",
+      "category": "Component Library",
+      "screenshot": "component-states",
+      "path": "apps/component-states",
+      "framework": "React 19 + Vite + TS",
+      "rating": 5,
+      "features": [
+        "State Matrix",
+        "Interactive Inspector",
+        "A11y Focus States",
+        "Dark/Light Mode",
+        "Token Specs"
+      ],
+      "components": "25+ comp",
+      "easeOfSetup": 5,
+      "useCase": "UI state specification & QA matrices",
+      "tier": 1,
+      "description": "Interactive UI component states reference matrix showcasing default, hover, focus, active, loading, error, and disabled states across core primitives.",
+      "updatedDate": "2026-04-20",
+      "port": 3111,
+      "family": "component-states",
+      "screenshotUrl": "https://gallery.hanzo.ai/screenshots/component-states.webp",
+      "hasScreenshot": true,
+      "templateUrl": "https://gallery.hanzo.ai/templates/component-states",
+      "repo": "https://github.com/hanzo-apps/template-component-states"
+    },
+    {
+      "id": 80,
+      "name": "lighthouse",
+      "displayName": "Lighthouse Island",
+      "slug": "lighthouse",
+      "category": "App",
+      "screenshot": "lighthouse",
+      "path": "apps/lighthouse",
+      "framework": "React 19 + Canvas + TS",
+      "rating": 5,
+      "features": [
+        "Playable 2D World",
+        "Day/Night Cycle",
+        "Procedural Audio",
+        "NPC Dialogs",
+        "Minimap"
+      ],
+      "components": "15+ comp",
+      "easeOfSetup": 5,
+      "useCase": "Interactive web games & gamified experiences",
+      "tier": 1,
+      "description": "Playable cozy top-down island exploration web game with lighthouse beam physics, dynamic weather and day/night cycle, quests, and synthesized WebAudio soundtrack.",
+      "updatedDate": "2026-04-20",
+      "port": 3112,
+      "family": "lighthouse",
+      "screenshotUrl": "https://gallery.hanzo.ai/screenshots/lighthouse.webp",
+      "hasScreenshot": true,
+      "templateUrl": "https://gallery.hanzo.ai/templates/lighthouse",
+      "repo": "https://github.com/hanzo-apps/template-lighthouse"
+    },
+    {
+      "id": 81,
+      "name": "warp-tunnel",
+      "displayName": "Warp Tunnel",
+      "slug": "warp-tunnel",
+      "category": "3D & Shaders",
+      "screenshot": "warp-tunnel",
+      "path": "apps/warp-tunnel",
+      "framework": "Three.js WebGPU + React 19",
+      "rating": 5,
+      "features": [
+        "Three.js TSL",
+        "WebGPU Renderer",
+        "Procedural Geometry",
+        "Post-Processing",
+        "60fps Animation"
+      ],
+      "components": "10+ comp",
+      "easeOfSetup": 5,
+      "useCase": "3D WebGPU hero backgrounds & visualizers",
+      "tier": 1,
+      "description": "High-speed procedural tunnel ride built with Three.js Shading Language (TSL) on WebGPU with dynamic camera banking and bloom post-processing.",
+      "updatedDate": "2026-04-20",
+      "port": 3113,
+      "family": "warp-tunnel",
+      "screenshotUrl": "https://gallery.hanzo.ai/screenshots/warp-tunnel.webp",
+      "hasScreenshot": true,
+      "templateUrl": "https://gallery.hanzo.ai/templates/warp-tunnel",
+      "repo": "https://github.com/hanzo-apps/template-warp-tunnel"
+    },
+    {
+      "id": 82,
+      "name": "dotted-globe",
+      "displayName": "Dotted Globe",
+      "slug": "dotted-globe",
+      "category": "3D & Shaders",
+      "screenshot": "dotted-globe",
+      "path": "apps/dotted-globe",
+      "framework": "Three.js + React 19 + TS",
+      "rating": 5,
+      "features": [
+        "31,723 Cities Dataset",
+        "Instanced Particles",
+        "Interactive Orbit",
+        "Geo Coordinates",
+        "HUD Controls"
+      ],
+      "components": "12+ comp",
+      "easeOfSetup": 5,
+      "useCase": "Global network & telemetry visualizations",
+      "tier": 1,
+      "description": "Interactive 3D particle globe rendering 31,723 world cities with instanced spatial indexing, population density scaling, and orbital telemetry controls.",
+      "updatedDate": "2026-04-20",
+      "port": 3114,
+      "family": "dotted-globe",
+      "screenshotUrl": "https://gallery.hanzo.ai/screenshots/dotted-globe.webp",
+      "hasScreenshot": true,
+      "templateUrl": "https://gallery.hanzo.ai/templates/dotted-globe",
+      "repo": "https://github.com/hanzo-apps/template-dotted-globe"
+    },
+    {
+      "id": 83,
+      "name": "tracking-3d",
+      "displayName": "3D Motion Tracking",
+      "slug": "tracking-3d",
+      "category": "3D & Shaders",
+      "screenshot": "tracking-3d",
+      "path": "apps/tracking-3d",
+      "framework": "Three.js + React 19 + TS",
+      "rating": 5,
+      "features": [
+        "Motion Tracking HUD",
+        "Bounding Boxes",
+        "Telemetry Overlay",
+        "Real-time Vectors",
+        "Custom Shaders"
+      ],
+      "components": "12+ comp",
+      "easeOfSetup": 5,
+      "useCase": "Computer vision & robotics HUD interfaces",
+      "tier": 1,
+      "description": "Signal-red 3D motion-tracking and computer-vision HUD overlay with real-time bounding-box telemetry, vector callouts, and spatial keypoint tracking.",
+      "updatedDate": "2026-04-20",
+      "port": 3115,
+      "family": "tracking-3d",
+      "screenshotUrl": "https://gallery.hanzo.ai/screenshots/tracking-3d.webp",
+      "hasScreenshot": true,
+      "templateUrl": "https://gallery.hanzo.ai/templates/tracking-3d",
+      "repo": "https://github.com/hanzo-apps/template-tracking-3d"
+    },
+    {
+      "id": 84,
+      "name": "line-illustrations",
+      "displayName": "Line Illustrations",
+      "slug": "line-illustrations",
+      "category": "Component Library",
+      "screenshot": "line-illustrations",
+      "path": "apps/line-illustrations",
+      "framework": "React 19 + SVG + TS",
+      "rating": 5,
+      "features": [
+        "Parametric SVG",
+        "Interactive Controls",
+        "SVG Export",
+        "Stroke Animation",
+        "Grid Layouts"
+      ],
+      "components": "20+ comp",
+      "easeOfSetup": 5,
+      "useCase": "Technical vector illustrations & empty states",
+      "tier": 1,
+      "description": "Parametric technical SVG line illustrations playground with live geometric controls, animated stroke paths, and copy-ready React/SVG export.",
+      "updatedDate": "2026-04-20",
+      "port": 3116,
+      "family": "line-illustrations",
+      "screenshotUrl": "https://gallery.hanzo.ai/screenshots/line-illustrations.webp",
+      "hasScreenshot": true,
+      "templateUrl": "https://gallery.hanzo.ai/templates/line-illustrations",
+      "repo": "https://github.com/hanzo-apps/template-line-illustrations"
+    },
+    {
+      "id": 85,
+      "name": "holo",
+      "displayName": "Holo Scene",
+      "slug": "holo",
+      "category": "3D & Shaders",
+      "screenshot": "holo",
+      "path": "apps/holo",
+      "framework": "Three.js + React 19 + TS",
+      "rating": 5,
+      "features": [
+        "GLB 3D Models",
+        "Holographic Shader",
+        "Scanline FX",
+        "Interactive Camera",
+        "Scene Switcher"
+      ],
+      "components": "15+ comp",
+      "easeOfSetup": 5,
+      "useCase": "3D product showcases & sci-fi interfaces",
+      "tier": 1,
+      "description": "Interactive Three.js holographic instrument scene featuring custom Fresnel scanline shaders, 6 switchable 3D models, and real-time optical controls.",
+      "updatedDate": "2026-04-20",
+      "port": 3117,
+      "family": "holo",
+      "screenshotUrl": "https://gallery.hanzo.ai/screenshots/holo.webp",
+      "hasScreenshot": true,
+      "templateUrl": "https://gallery.hanzo.ai/templates/holo",
+      "repo": "https://github.com/hanzo-apps/template-holo"
+    },
+    {
+      "id": 86,
+      "name": "warp-shader",
+      "displayName": "Warp Shader",
+      "slug": "warp-shader",
+      "category": "3D & Shaders",
+      "screenshot": "warp-shader",
+      "path": "apps/warp-shader",
+      "framework": "Three.js WebGPU + React 19",
+      "rating": 5,
+      "features": [
+        "Domain-Warped fBm",
+        "Three.js TSL",
+        "WebGPU Compute",
+        "Palette Mixer",
+        "Uniform Controls"
+      ],
+      "components": "10+ comp",
+      "easeOfSetup": 5,
+      "useCase": "Generative shader backdrops & art",
+      "tier": 1,
+      "description": "Domain-warped fractional Brownian motion (fBm) fluid shader written in Three.js TSL running natively on WebGPU with real-time parameter controls.",
+      "updatedDate": "2026-04-20",
+      "port": 3118,
+      "family": "warp-shader",
+      "screenshotUrl": "https://gallery.hanzo.ai/screenshots/warp-shader.webp",
+      "hasScreenshot": true,
+      "templateUrl": "https://gallery.hanzo.ai/templates/warp-shader",
+      "repo": "https://github.com/hanzo-apps/template-warp-shader"
+    },
+    {
+      "id": 87,
+      "name": "animated-rings",
+      "displayName": "Animated Rings",
+      "slug": "animated-rings",
+      "category": "3D & Shaders",
+      "screenshot": "animated-rings",
+      "path": "apps/animated-rings",
+      "framework": "Three.js + React 19 + TS",
+      "rating": 5,
+      "features": [
+        "PBR Metal Materials",
+        "Orbital Kinematics",
+        "Studio Lighting",
+        "Interactive Gimbal",
+        "60fps"
+      ],
+      "components": "10+ comp",
+      "easeOfSetup": 5,
+      "useCase": "3D metallic sculptures & hero centerpieces",
+      "tier": 1,
+      "description": "Procedural silver orbital ring sculpture in Three.js with physically based metallic reflections, nested gimbal kinematics, and studio environment lighting.",
+      "updatedDate": "2026-04-20",
+      "port": 3119,
+      "family": "animated-rings",
+      "screenshotUrl": "https://gallery.hanzo.ai/screenshots/animated-rings.webp",
+      "hasScreenshot": true,
+      "templateUrl": "https://gallery.hanzo.ai/templates/animated-rings",
+      "repo": "https://github.com/hanzo-apps/template-animated-rings"
+    },
+    {
+      "id": 88,
+      "name": "fernline",
+      "displayName": "Fernline",
+      "slug": "fernline",
+      "category": "AI/SaaS",
+      "screenshot": "fernline",
+      "path": "apps/fernline",
+      "framework": "Next.js 16 + React 19 + TS",
+      "rating": 5,
+      "features": [
+        "AI Agent Ops",
+        "Run Trace Viewer",
+        "28+ Primitives",
+        "Marketing + Console",
+        "Tailwind v4"
+      ],
+      "components": "45+ comp",
+      "easeOfSetup": 5,
+      "useCase": "AI agent observability & ops platforms",
+      "tier": 1,
+      "description": "Full-featured AI agent operations UI kit and observability console built on Next.js 16 and React 19, including both marketing pages and a multi-route operator console.",
+      "updatedDate": "2026-04-20",
+      "port": 3120,
+      "family": "fernline",
+      "screenshotUrl": "https://gallery.hanzo.ai/screenshots/fernline.webp",
+      "hasScreenshot": true,
+      "templateUrl": "https://gallery.hanzo.ai/templates/fernline",
+      "repo": "https://github.com/hanzo-apps/template-fernline"
+    },
+    {
+      "id": 89,
+      "name": "aerva",
+      "displayName": "Aerva",
+      "slug": "aerva",
+      "category": "AI/SaaS",
+      "screenshot": "aerva",
+      "path": "apps/aerva",
+      "framework": "React 19 + Vite + TS",
+      "rating": 5,
+      "features": [
+        "AI Landing Page",
+        "Bento Features",
+        "Interactive Pricing",
+        "Testimonials",
+        "Responsive"
+      ],
+      "components": "25+ comp",
+      "easeOfSetup": 5,
+      "useCase": "High-converting AI & SaaS landing pages",
+      "tier": 1,
+      "description": "Polished AI and SaaS landing page template built with React 19, Vite, and TypeScript featuring bento feature grids, interactive pricing toggles, and customer proof sections.",
+      "updatedDate": "2026-04-20",
+      "port": 3121,
+      "family": "aerva",
+      "screenshotUrl": "https://gallery.hanzo.ai/screenshots/aerva.webp",
+      "hasScreenshot": true,
+      "templateUrl": "https://gallery.hanzo.ai/templates/aerva",
+      "repo": "https://github.com/hanzo-apps/template-aerva"
+    },
+    {
+      "id": 90,
+      "name": "tensile",
+      "displayName": "Tensile Studio",
+      "slug": "tensile",
+      "category": "Portfolio",
+      "screenshot": "tensile",
+      "path": "apps/tensile",
+      "framework": "Astro 5 + Sanity + TS",
+      "rating": 5,
+      "features": [
+        "Astro 5 Content",
+        "Sanity CMS Studio",
+        "Editorial Grid",
+        "Case Studies",
+        "Swiss Typography"
+      ],
+      "components": "30+ comp",
+      "easeOfSetup": 5,
+      "useCase": "Architecture, industrial design & editorial studios",
+      "tier": 1,
+      "description": "Architectural and editorial studio website theme built with Astro 5, TypeScript, and embedded Sanity v5 CMS studio with project case studies and journal publishing.",
+      "updatedDate": "2026-04-20",
+      "port": 3122,
+      "family": "tensile",
+      "screenshotUrl": "https://gallery.hanzo.ai/screenshots/tensile.webp",
+      "hasScreenshot": true,
+      "templateUrl": "https://gallery.hanzo.ai/templates/tensile",
+      "repo": "https://github.com/hanzo-apps/template-tensile"
+    },
+    {
+      "id": 91,
+      "name": "bestiary",
+      "displayName": "Bestiary 3D",
+      "slug": "bestiary",
+      "category": "Component Library",
+      "screenshot": "bestiary",
+      "path": "apps/bestiary",
+      "framework": "React + Three.js + TS",
+      "rating": 5,
+      "features": [
+        "8 Point-Cloud Specimens",
+        "Zero-Dep ESM",
+        "React Wrapper",
+        "Morph Transitions",
+        "Interactive Pointer"
+      ],
+      "components": "15+ comp",
+      "easeOfSetup": 5,
+      "useCase": "Interactive 3D point-cloud hero illustrations",
+      "tier": 1,
+      "description": "Interactive 3D point-cloud specimen library featuring 8 biological and mythological forms with pointer-reactive physics, morph transitions, and React/ESM exports.",
+      "updatedDate": "2026-04-20",
+      "port": 3123,
+      "family": "bestiary",
+      "screenshotUrl": "https://gallery.hanzo.ai/screenshots/bestiary.webp",
+      "hasScreenshot": true,
+      "templateUrl": "https://gallery.hanzo.ai/templates/bestiary",
+      "repo": "https://github.com/hanzo-apps/template-bestiary"
+    },
+    {
+      "id": 92,
+      "name": "emptykit",
+      "displayName": "Emptykit",
+      "slug": "emptykit",
+      "category": "Component Library",
+      "screenshot": "emptykit",
+      "path": "apps/emptykit",
+      "framework": "React + Three.js + SVG",
+      "rating": 5,
+      "features": [
+        "48 Empty States",
+        "3D & SVG Modes",
+        "Light/Dark Themes",
+        "Zero-Dep Bundle",
+        "Interactive Gallery"
+      ],
+      "components": "48+ comp",
+      "easeOfSetup": 5,
+      "useCase": "Application empty states & onboarding illustrations",
+      "tier": 1,
+      "description": "Comprehensive collection of 48 isometric 3D and vector SVG empty-state components for React and vanilla JS with live theme switching and interactive camera angles.",
+      "updatedDate": "2026-04-20",
+      "port": 3124,
+      "family": "emptykit",
+      "screenshotUrl": "https://gallery.hanzo.ai/screenshots/emptykit.webp",
+      "hasScreenshot": true,
+      "templateUrl": "https://gallery.hanzo.ai/templates/emptykit",
+      "repo": "https://github.com/hanzo-apps/template-emptykit"
     }
   ]
 }
