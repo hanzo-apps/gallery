@@ -13,6 +13,11 @@ export async function generateStaticParams() {
   const slugs = new Set([
     ...getUniqueTemplates(templates).map((template) => template.slug),
     ...templates.map((template) => template.slug),
+    'prism',
+    'hygge',
+    'cipher',
+    'folio',
+    'portfolio',
   ]);
   return [...slugs].map((slug) => ({ slug }));
 }

@@ -58,14 +58,14 @@ const methods: { id: Method; head: string; note: string }[] = [
 ];
 
 const perks = [
-  'Instant global deployment',
-  'Global edge network (CDN)',
-  'Auto-scaling infrastructure',
-  'Built-in analytics dashboard',
-  'Automated CI/CD pipeline',
-  'SSL certificates included',
-  'Performance monitoring',
-  '99.99% uptime SLA',
+  'Zen AI API key & model routing (api.hanzo.ai)',
+  'Real-time Hanzo Analytics & Insights out of box',
+  'Zero-config Hanzo IAM auth & orgs (hanzo.id)',
+  'Instant global edge deployment (CDN)',
+  'AI token & latency cost telemetry',
+  'Automated hanzo.yml CI/CD pipeline',
+  'Managed SSL & custom domains',
+  '99.99% enterprise uptime SLA',
 ];
 
 /** A section heading inside the dialog. */
@@ -91,7 +91,7 @@ export function ForkModal({ template, onClose }: ForkModalProps) {
   const [method, setMethod] = useState<Method | null>('cloud');
   const [busy, setBusy] = useState(false);
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
-  const [configTab, setConfigTab] = useState<'cli' | 'yaml' | 'env'>('cli');
+  const [configTab, setConfigTab] = useState<'cli' | 'sdk' | 'yaml' | 'env'>('cli');
   const [params, setParams] = useState<Record<string, string>>(() =>
     Object.fromEntries(blueprint.params.map((p) => [p.key, p.default])),
   );
@@ -266,11 +266,12 @@ export function ForkModal({ template, onClose }: ForkModalProps) {
           <Well>
             <XStack items="center" justify="space-between" mb={12} flexWrap="wrap" gap={8}>
               <XStack items="center" gap={8} flexWrap="wrap">
-                <Head>Automated Hanzo Platform Config</Head>
+                <Head>Hanzo Cloud Stack & SDK Config</Head>
                 <XStack gap={4} p={3} rounded={round.pill} bg={c.ground} borderWidth={1} borderColor={c.edge}>
                   {(
                     [
                       ['cli', 'Deploy CLI'],
+                      ['sdk', 'src/lib/hanzo.ts'],
                       ['yaml', 'hanzo.yml'],
                       ['env', '.env.local'],
                     ] as const
@@ -295,23 +296,51 @@ export function ForkModal({ template, onClose }: ForkModalProps) {
                   ))}
                 </XStack>
               </XStack>
-              <Action
-                render="button"
-                onClick={() =>
-                  copy(
-                    configTab === 'cli' ? assembled.cliCommand : configTab === 'yaml' ? assembled.hanzoYaml : assembled.envFile,
-                    configTab,
-                  )
-                }
-                minH={32}
-                px={12}
-              >
-                {copiedKey === configTab ? 'Copied ✓' : 'Copy'}
-              </Action>
+              <XStack gap={8} items="center" flexWrap="wrap">
+                <Action
+                  href="https://console.hanzo.ai/keys"
+                  minH={32}
+                  px={12}
+                >
+                  Get API Key ↗
+                </Action>
+                <Action
+                  href="https://analytics.hanzo.ai"
+                  minH={32}
+                  px={12}
+                >
+                  Insights ↗
+                </Action>
+                <Action
+                  render="button"
+                  onClick={() =>
+                    copy(
+                      configTab === 'cli'
+                        ? assembled.cliCommand
+                        : configTab === 'sdk'
+                          ? assembled.hanzoSdkCode
+                          : configTab === 'yaml'
+                            ? assembled.hanzoYaml
+                            : assembled.envFile,
+                      configTab,
+                    )
+                  }
+                  minH={32}
+                  px={12}
+                >
+                  {copiedKey === configTab ? 'Copied ✓' : 'Copy'}
+                </Action>
+              </XStack>
             </XStack>
             <YStack bg={c.ground} p={16} rounded={round.control} borderWidth={1} borderColor={c.edge} overflow="scroll">
               <Text render="pre" m={0} {...mono} fontSize="$2" lineHeight={20} color={c.ink} style={{ whiteSpace: 'pre' }}>
-                {configTab === 'cli' ? assembled.cliCommand : configTab === 'yaml' ? assembled.hanzoYaml : assembled.envFile}
+                {configTab === 'cli'
+                  ? assembled.cliCommand
+                  : configTab === 'sdk'
+                    ? assembled.hanzoSdkCode
+                    : configTab === 'yaml'
+                      ? assembled.hanzoYaml
+                      : assembled.envFile}
               </Text>
             </YStack>
           </Well>
@@ -374,9 +403,15 @@ export function ForkModal({ template, onClose }: ForkModalProps) {
             </Action>
             <Action
               render="button"
+              onClick={() => window.open(assembled.hanzoEditUrl, '_blank', 'noopener,noreferrer')}
+            >
+              Edit in Hanzo.ai ↗
+            </Action>
+            <Action
+              render="button"
               onClick={() => window.open(assembled.studioBuildUrl, '_blank', 'noopener,noreferrer')}
             >
-              Open in Hanzo Studio
+              Open in Studio
             </Action>
             <Action
               fill

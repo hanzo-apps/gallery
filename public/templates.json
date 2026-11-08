@@ -315,13 +315,13 @@
       "solo",
       "saas-landing"
     ],
-    "ai-chat": [
+    "zen-ai-multimodal-chat": [
       "synapse"
     ],
-    "audio-video": [
+    "hanzo-api-key-metering": [
       "synapse"
     ],
-    "photo-edit": [
+    "audio-video-generation": [
       "synapse"
     ],
     "hero-section": [
@@ -368,13 +368,13 @@
       "oasis",
       "jobfinder"
     ],
-    "posts": [
+    "realtime-feed": [
       "circle"
     ],
-    "messages": [
+    "ai-content-moderation": [
       "circle"
     ],
-    "profiles": [
+    "hanzo-iam-profiles": [
       "circle"
     ],
     "sidebar-nav": [
@@ -397,14 +397,13 @@
       "cipher-react",
       "forge"
     ],
-    "analytics": [
-      "metrics",
-      "forge"
-    ],
-    "crm": [
+    "hanzo-insights-dashboard": [
       "metrics"
     ],
-    "finance": [
+    "ai-token-cost-finops": [
+      "metrics"
+    ],
+    "crm-revenue-funnels": [
       "metrics"
     ],
     "project-showcase-grid": [
@@ -503,19 +502,14 @@
       "pixel",
       "serif"
     ],
-    "gsap": [
+    "gsap-motion-engine": [
       "kinetic"
     ],
     "smooth-scroll": [
       "kinetic"
     ],
-    "portfolio": [
-      "kinetic",
-      "mint",
-      "vault",
-      "studio",
-      "folio-creative-designer-2",
-      "folio-creative-developer-2"
+    "hanzo-funnel-analytics": [
+      "kinetic"
     ],
     "product-grid": [
       "savor",
@@ -533,31 +527,23 @@
       "savor",
       "hygge-html"
     ],
-    "food": [
+    "hanzo-commerce-checkout": [
       "savor"
     ],
-    "delivery": [
+    "ai-menu-recommendations": [
       "savor"
     ],
-    "orders": [
+    "live-order-tracking": [
       "savor"
     ],
-    "creative": [
-      "mint",
-      "folio-creative-agency-1",
-      "folio-creative-agency-2",
-      "folio-photography-1",
-      "pixel"
+    "product-studio": [
+      "mint"
     ],
-    "modern": [
-      "mint",
-      "launch",
-      "construct",
-      "deploy",
-      "unity",
-      "drive",
-      "folio-creative-agency-1",
-      "pixel"
+    "case-studies": [
+      "mint"
+    ],
+    "hanzo-analytics": [
+      "mint"
     ],
     "modern-ui": [
       "prism-react"
@@ -596,6 +582,15 @@
       "launch",
       "solo"
     ],
+    "modern": [
+      "launch",
+      "construct",
+      "deploy",
+      "unity",
+      "drive",
+      "folio-creative-agency-1",
+      "pixel"
+    ],
     "app": [
       "construct",
       "unity"
@@ -617,6 +612,12 @@
     ],
     "architecture": [
       "vault"
+    ],
+    "portfolio": [
+      "vault",
+      "studio",
+      "folio-creative-designer-2",
+      "folio-creative-developer-2"
     ],
     "clean": [
       "vault",
@@ -651,6 +652,9 @@
     "admin": [
       "forge"
     ],
+    "analytics": [
+      "forge"
+    ],
     "e-commerce": [
       "hygge-html"
     ],
@@ -674,6 +678,12 @@
     ],
     "communication": [
       "folio-contact"
+    ],
+    "creative": [
+      "folio-creative-agency-1",
+      "folio-creative-agency-2",
+      "folio-photography-1",
+      "pixel"
     ],
     "variant": [
       "folio-creative-agency-2",
@@ -769,12 +779,12 @@
       "serif"
     ]
   },
-  "generatedAt": "2026-11-08T06:12:57.309Z",
+  "generatedAt": "2026-11-08T19:41:58.708Z",
   "templates": [
     {
       "id": 76,
       "name": "instrument",
-      "displayName": "Instrument",
+      "displayName": "Instrument Lab",
       "slug": "instrument",
       "category": "Portfolio",
       "screenshot": "instrument",
@@ -782,17 +792,17 @@
       "framework": "React 19 + Vite + TS",
       "rating": 5,
       "features": [
-        "Command Palette",
-        "Interactive Lab",
+        "Cmd+K Zen AI Palette",
+        "Hanzo Insights Telemetry",
+        "Interactive 3D Lab",
         "Theme Switcher",
-        "Lenis Smooth Scroll",
-        "Keyboard Audio"
+        "Procedural Audio"
       ],
       "components": "30+ comp",
       "easeOfSetup": 5,
-      "useCase": "Design engineer & creative developer portfolios",
+      "useCase": "AI Creative Lab & Developer Studio · Zen AI + Analytics",
       "tier": 1,
-      "description": "Monospace portfolio website with interactive 3D project cards, command palette, live experimental lab (particles, spring physics, ASCII shaders), and procedural audio.",
+      "description": "Monospace AI creative lab and engineering studio with interactive 3D project cards, Cmd+K Zen AI command palette, WebGL/ASCII playgrounds, and out-of-the-box Hanzo Analytics & Insights event tracking.",
       "updatedDate": "2026-04-20",
       "port": 3108,
       "family": "instrument",
@@ -820,7 +830,7 @@
           "key": "brandName",
           "label": "Brand / Project Name",
           "type": "string",
-          "default": "Instrument",
+          "default": "Instrument Lab",
           "envVar": "VITE_SITE_NAME",
           "description": "Primary brand or product title rendered in navigation and metadata"
         },
@@ -828,9 +838,47 @@
           "key": "tagline",
           "label": "Hero Tagline",
           "type": "string",
-          "default": "Design engineer & creative developer portfolios",
+          "default": "AI Creative Lab & Developer Studio · Zen AI + Analytics",
           "envVar": "VITE_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_instrument",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -887,7 +935,7 @@
     {
       "id": 88,
       "name": "fernline",
-      "displayName": "Fernline",
+      "displayName": "Fernline Ops",
       "slug": "fernline",
       "category": "AI/SaaS",
       "screenshot": "fernline",
@@ -895,17 +943,17 @@
       "framework": "Next.js 16 + React 19 + TS",
       "rating": 5,
       "features": [
-        "AI Agent Ops",
-        "Run Trace Viewer",
-        "28+ Primitives",
-        "Marketing + Console",
-        "Tailwind v4"
+        "AI Agent Ops Console",
+        "Hanzo API Key Metering",
+        "Live Run Trace Viewer",
+        "Token & Cost Insights",
+        "Marketing + App"
       ],
       "components": "45+ comp",
       "easeOfSetup": 5,
-      "useCase": "AI agent observability & ops platforms",
+      "useCase": "AI Agent Ops & Observability Console · Hanzo Cloud + Insights",
       "tier": 1,
-      "description": "Full-featured AI agent operations UI kit and observability console built on Next.js 16 and React 19, including both marketing pages and a multi-route operator console.",
+      "description": "Full-stack AI agent operations console and marketing site built on Next.js 16 and React 19. Pre-wired with Hanzo AI (api.hanzo.ai/v1) run tracing, API key usage metering, and Hanzo Insights latency & cost analytics.",
       "updatedDate": "2026-04-20",
       "port": 3120,
       "family": "fernline",
@@ -933,7 +981,7 @@
           "key": "brandName",
           "label": "Brand / Project Name",
           "type": "string",
-          "default": "Fernline",
+          "default": "Fernline Ops",
           "envVar": "NEXT_PUBLIC_SITE_NAME",
           "description": "Primary brand or product title rendered in navigation and metadata"
         },
@@ -941,9 +989,47 @@
           "key": "tagline",
           "label": "Hero Tagline",
           "type": "string",
-          "default": "AI agent observability & ops platforms",
+          "default": "AI Agent Ops & Observability Console · Hanzo Cloud + Insights",
           "envVar": "NEXT_PUBLIC_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "NEXT_PUBLIC_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_fernline",
+          "envVar": "NEXT_PUBLIC_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "NEXT_PUBLIC_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -1006,7 +1092,7 @@
     {
       "id": 89,
       "name": "aerva",
-      "displayName": "Aerva",
+      "displayName": "Aerva AI",
       "slug": "aerva",
       "category": "AI/SaaS",
       "screenshot": "aerva",
@@ -1014,17 +1100,17 @@
       "framework": "React 19 + Vite + TS",
       "rating": 5,
       "features": [
-        "AI Landing Page",
-        "Bento Features",
+        "Zen AI Copilot Widget",
+        "Hanzo Funnel Insights",
+        "Bento Feature Grids",
         "Interactive Pricing",
-        "Testimonials",
-        "Responsive"
+        "IAM Auth Ready"
       ],
       "components": "25+ comp",
       "easeOfSetup": 5,
-      "useCase": "High-converting AI & SaaS landing pages",
+      "useCase": "AI Copilot & Product Launch Platform · Zen AI + Funnel Insights",
       "tier": 1,
-      "description": "Polished AI and SaaS landing page template built with React 19, Vite, and TypeScript featuring bento feature grids, interactive pricing toggles, and customer proof sections.",
+      "description": "High-converting AI product launch and SaaS growth template in React 19 + Vite featuring bento grids, interactive pricing toggles, embedded Zen AI assistant hooks, and pre-wired Hanzo Analytics attribution.",
       "updatedDate": "2026-04-20",
       "port": 3121,
       "family": "aerva",
@@ -1051,7 +1137,7 @@
           "key": "brandName",
           "label": "Brand / Project Name",
           "type": "string",
-          "default": "Aerva",
+          "default": "Aerva AI",
           "envVar": "VITE_SITE_NAME",
           "description": "Primary brand or product title rendered in navigation and metadata"
         },
@@ -1059,9 +1145,47 @@
           "key": "tagline",
           "label": "Hero Tagline",
           "type": "string",
-          "default": "High-converting AI & SaaS landing pages",
+          "default": "AI Copilot & Product Launch Platform · Zen AI + Funnel Insights",
           "envVar": "VITE_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_aerva",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -1118,17 +1242,17 @@
       "framework": "Astro 5 + Sanity + TS",
       "rating": 5,
       "features": [
-        "Astro 5 Content",
-        "Sanity CMS Studio",
-        "Editorial Grid",
+        "Astro 5 + Sanity CMS",
+        "Zen AI Editorial Copilot",
+        "Hanzo Content Insights",
         "Case Studies",
         "Swiss Typography"
       ],
       "components": "30+ comp",
       "easeOfSetup": 5,
-      "useCase": "Architecture, industrial design & editorial studios",
+      "useCase": "AI Editorial & Headless CMS Studio · Astro 5 + Hanzo Cloud",
       "tier": 1,
-      "description": "Architectural and editorial studio website theme built with Astro 5, TypeScript, and embedded Sanity v5 CMS studio with project case studies and journal publishing.",
+      "description": "Architectural and editorial publishing studio built with Astro 5, TypeScript, and embedded Sanity v5 CMS with Zen AI content synthesis, Hanzo S3 media CDN, and reader engagement analytics.",
       "updatedDate": "2026-04-20",
       "port": 3122,
       "family": "tensile",
@@ -1162,9 +1286,47 @@
           "key": "tagline",
           "label": "Hero Tagline",
           "type": "string",
-          "default": "Architecture, industrial design & editorial studios",
+          "default": "AI Editorial & Headless CMS Studio · Astro 5 + Hanzo Cloud",
           "envVar": "PUBLIC_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "PUBLIC_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_tensile",
+          "envVar": "PUBLIC_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "PUBLIC_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -1226,17 +1388,17 @@
       "framework": "React 19 + Vite + TS",
       "rating": 5,
       "features": [
-        "15 Hero Variants",
-        "WebGL Shaders",
-        "Interactive Pricing",
-        "Variant Switcher",
-        "Responsive"
+        "15 Switchable Layouts",
+        "Hanzo API Key Provisioning",
+        "Metered Billing Ready",
+        "Hanzo Insights Funnels",
+        "WebGL Shaders"
       ],
       "components": "35+ comp",
       "easeOfSetup": 5,
-      "useCase": "AI SaaS & developer platform marketing sites",
+      "useCase": "AI SaaS & Metered Billing Starter · Zen AI + IAM + Analytics",
       "tier": 1,
-      "description": "Modular AI SaaS marketing template featuring 15 switchable hero, feature, pricing, and CTA variants with live WebGL shaders and interactive product demos.",
+      "description": "Modular AI SaaS starter featuring 15 switchable hero, feature, pricing, and CTA layouts with live WebGL shaders and out-of-the-box Hanzo IAM authentication, API key management, and conversion analytics.",
       "updatedDate": "2026-04-20",
       "port": 3109,
       "family": "nova",
@@ -1272,9 +1434,47 @@
           "key": "tagline",
           "label": "Hero Tagline",
           "type": "string",
-          "default": "AI SaaS & developer platform marketing sites",
+          "default": "AI SaaS & Metered Billing Starter · Zen AI + IAM + Analytics",
           "envVar": "VITE_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_nova",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -1327,7 +1527,7 @@
     {
       "id": 78,
       "name": "minimal-ui",
-      "displayName": "Minimal UI Kit",
+      "displayName": "Monolith UI",
       "slug": "minimal-ui",
       "category": "Component Library",
       "screenshot": "minimal-ui",
@@ -1335,17 +1535,17 @@
       "framework": "React 19 + Vite + TS",
       "rating": 5,
       "features": [
-        "40+ Components",
-        "8 Theme Variants",
-        "Design Tokens",
-        "Command Menu",
-        "Interactive Docs"
+        "40+ AI-Ready Primitives",
+        "8 Theme Presets",
+        "Zen AI Docs Search",
+        "Design Token Inspector",
+        "Usage Telemetry"
       ],
       "components": "40+ comp",
       "easeOfSetup": 5,
-      "useCase": "Design systems & developer documentation",
+      "useCase": "AI Design System & Developer Docs Portal · Zen Search + Tokens",
       "tier": 1,
-      "description": "Precision monospace component library and interactive documentation site with 40+ components across 8 visual variants and full design token inspection.",
+      "description": "Precision monospace design system and developer documentation portal with 40+ accessible components across 8 visual themes, AI prompt-to-component playground, and Hanzo Insights search analytics.",
       "updatedDate": "2026-04-20",
       "port": 3110,
       "family": "minimal-ui",
@@ -1372,7 +1572,7 @@
           "key": "brandName",
           "label": "Brand / Project Name",
           "type": "string",
-          "default": "Minimal UI Kit",
+          "default": "Monolith UI",
           "envVar": "VITE_SITE_NAME",
           "description": "Primary brand or product title rendered in navigation and metadata"
         },
@@ -1380,9 +1580,47 @@
           "key": "tagline",
           "label": "Hero Tagline",
           "type": "string",
-          "default": "Design systems & developer documentation",
+          "default": "AI Design System & Developer Docs Portal · Zen Search + Tokens",
           "envVar": "VITE_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_minimal-ui",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -1436,7 +1674,7 @@
     {
       "id": 79,
       "name": "component-states",
-      "displayName": "Component States",
+      "displayName": "State Matrix",
       "slug": "component-states",
       "category": "Component Library",
       "screenshot": "component-states",
@@ -1444,17 +1682,17 @@
       "framework": "React 19 + Vite + TS",
       "rating": 5,
       "features": [
-        "State Matrix",
-        "Interactive Inspector",
-        "A11y Focus States",
-        "Dark/Light Mode",
-        "Token Specs"
+        "Interactive State Matrix",
+        "Hanzo UX Telemetry",
+        "A11y Focus Audit",
+        "Dark/Light Tokens",
+        "QA Spec Export"
       ],
       "components": "25+ comp",
       "easeOfSetup": 5,
-      "useCase": "UI state specification & QA matrices",
+      "useCase": "UI State Specification & QA Harness · Hanzo UX Insights",
       "tier": 1,
-      "description": "Interactive UI component states reference matrix showcasing default, hover, focus, active, loading, error, and disabled states across core primitives.",
+      "description": "Interactive UI component states reference matrix showcasing default, hover, focus, active, streaming, loading, error, and disabled states with automated Hanzo Insights interaction telemetry.",
       "updatedDate": "2026-04-20",
       "port": 3111,
       "family": "component-states",
@@ -1480,7 +1718,7 @@
           "key": "brandName",
           "label": "Brand / Project Name",
           "type": "string",
-          "default": "Component States",
+          "default": "State Matrix",
           "envVar": "VITE_SITE_NAME",
           "description": "Primary brand or product title rendered in navigation and metadata"
         },
@@ -1488,9 +1726,47 @@
           "key": "tagline",
           "label": "Hero Tagline",
           "type": "string",
-          "default": "UI state specification & QA matrices",
+          "default": "UI State Specification & QA Harness · Hanzo UX Insights",
           "envVar": "VITE_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_component-states",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -1539,7 +1815,7 @@
     {
       "id": 80,
       "name": "lighthouse",
-      "displayName": "Lighthouse Island",
+      "displayName": "Lighthouse World",
       "slug": "lighthouse",
       "category": "App",
       "screenshot": "lighthouse",
@@ -1547,17 +1823,17 @@
       "framework": "React 19 + Canvas + TS",
       "rating": 5,
       "features": [
+        "Zen AI NPC Dialogs",
         "Playable 2D World",
-        "Day/Night Cycle",
-        "Procedural Audio",
-        "NPC Dialogs",
-        "Minimap"
+        "Day/Night Physics",
+        "Player Session Insights",
+        "Synthesized WebAudio"
       ],
       "components": "15+ comp",
       "easeOfSetup": 5,
-      "useCase": "Interactive web games & gamified experiences",
+      "useCase": "AI Interactive World & NPC Game Engine · Zen AI + Analytics",
       "tier": 1,
-      "description": "Playable cozy top-down island exploration web game with lighthouse beam physics, dynamic weather and day/night cycle, quests, and synthesized WebAudio soundtrack.",
+      "description": "Playable top-down island exploration game with lighthouse beam physics, dynamic weather and day/night cycle, synthesized WebAudio, and live Zen AI NPC dialogue with Hanzo player telemetry.",
       "updatedDate": "2026-04-20",
       "port": 3112,
       "family": "lighthouse",
@@ -1584,7 +1860,7 @@
           "key": "brandName",
           "label": "Brand / Project Name",
           "type": "string",
-          "default": "Lighthouse Island",
+          "default": "Lighthouse World",
           "envVar": "VITE_SITE_NAME",
           "description": "Primary brand or product title rendered in navigation and metadata"
         },
@@ -1592,9 +1868,47 @@
           "key": "tagline",
           "label": "Hero Tagline",
           "type": "string",
-          "default": "Interactive web games & gamified experiences",
+          "default": "AI Interactive World & NPC Game Engine · Zen AI + Analytics",
           "envVar": "VITE_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_lighthouse",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -1648,7 +1962,7 @@
     {
       "id": 81,
       "name": "warp-tunnel",
-      "displayName": "Warp Tunnel",
+      "displayName": "Hyperion Tunnel",
       "slug": "warp-tunnel",
       "category": "3D & Shaders",
       "screenshot": "warp-tunnel",
@@ -1656,17 +1970,17 @@
       "framework": "Three.js WebGPU + React 19",
       "rating": 5,
       "features": [
-        "Three.js TSL",
-        "WebGPU Renderer",
-        "Procedural Geometry",
-        "Post-Processing",
-        "60fps Animation"
+        "Three.js TSL WebGPU",
+        "AI Stream Reactive",
+        "Bloom Post-Processing",
+        "60fps Edge Render",
+        "Hanzo Perf Telemetry"
       ],
       "components": "10+ comp",
       "easeOfSetup": 5,
-      "useCase": "3D WebGPU hero backgrounds & visualizers",
+      "useCase": "WebGPU AI Throughput & Launch Portal · Three.js TSL + Cloud",
       "tier": 1,
-      "description": "High-speed procedural tunnel ride built with Three.js Shading Language (TSL) on WebGPU with dynamic camera banking and bloom post-processing.",
+      "description": "High-speed procedural WebGPU tunnel built with Three.js Shading Language (TSL) with dynamic camera banking, bloom post-processing, and real-time Hanzo AI token throughput bindings.",
       "updatedDate": "2026-04-20",
       "port": 3113,
       "family": "warp-tunnel",
@@ -1693,7 +2007,7 @@
           "key": "brandName",
           "label": "Brand / Project Name",
           "type": "string",
-          "default": "Warp Tunnel",
+          "default": "Hyperion Tunnel",
           "envVar": "VITE_SITE_NAME",
           "description": "Primary brand or product title rendered in navigation and metadata"
         },
@@ -1701,9 +2015,47 @@
           "key": "tagline",
           "label": "Hero Tagline",
           "type": "string",
-          "default": "3D WebGPU hero backgrounds & visualizers",
+          "default": "WebGPU AI Throughput & Launch Portal · Three.js TSL + Cloud",
           "envVar": "VITE_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_warp-tunnel",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -1758,7 +2110,7 @@
     {
       "id": 82,
       "name": "dotted-globe",
-      "displayName": "Dotted Globe",
+      "displayName": "Atlas Globe",
       "slug": "dotted-globe",
       "category": "3D & Shaders",
       "screenshot": "dotted-globe",
@@ -1767,16 +2119,16 @@
       "rating": 5,
       "features": [
         "31,723 Cities Dataset",
+        "Hanzo Geo Insights Live",
+        "Edge Node Telemetry",
         "Instanced Particles",
-        "Interactive Orbit",
-        "Geo Coordinates",
-        "HUD Controls"
+        "Orbital HUD"
       ],
       "components": "12+ comp",
       "easeOfSetup": 5,
-      "useCase": "Global network & telemetry visualizations",
+      "useCase": "Global Edge Network & Real-Time Traffic Globe · Hanzo Insights",
       "tier": 1,
-      "description": "Interactive 3D particle globe rendering 31,723 world cities with instanced spatial indexing, population density scaling, and orbital telemetry controls.",
+      "description": "Interactive 3D particle globe rendering 31,723 world cities with instanced spatial indexing, pre-wired to Hanzo Analytics & Insights for live global traffic, AI request geo-routing, and edge node telemetry.",
       "updatedDate": "2026-04-20",
       "port": 3114,
       "family": "dotted-globe",
@@ -1803,7 +2155,7 @@
           "key": "brandName",
           "label": "Brand / Project Name",
           "type": "string",
-          "default": "Dotted Globe",
+          "default": "Atlas Globe",
           "envVar": "VITE_SITE_NAME",
           "description": "Primary brand or product title rendered in navigation and metadata"
         },
@@ -1811,9 +2163,47 @@
           "key": "tagline",
           "label": "Hero Tagline",
           "type": "string",
-          "default": "Global network & telemetry visualizations",
+          "default": "Global Edge Network & Real-Time Traffic Globe · Hanzo Insights",
           "envVar": "VITE_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_dotted-globe",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -1868,7 +2258,7 @@
     {
       "id": 83,
       "name": "tracking-3d",
-      "displayName": "3D Motion Tracking",
+      "displayName": "Vision HUD",
       "slug": "tracking-3d",
       "category": "3D & Shaders",
       "screenshot": "tracking-3d",
@@ -1876,17 +2266,17 @@
       "framework": "Three.js + React 19 + TS",
       "rating": 5,
       "features": [
-        "Motion Tracking HUD",
-        "Bounding Boxes",
-        "Telemetry Overlay",
+        "Hanzo Vision API Ready",
+        "3D Bounding-Box HUD",
+        "Frame Latency Insights",
         "Real-time Vectors",
         "Custom Shaders"
       ],
       "components": "12+ comp",
       "easeOfSetup": 5,
-      "useCase": "Computer vision & robotics HUD interfaces",
+      "useCase": "Spatial AI, Robotics & Computer Vision HUD · Multimodal API",
       "tier": 1,
-      "description": "Signal-red 3D motion-tracking and computer-vision HUD overlay with real-time bounding-box telemetry, vector callouts, and spatial keypoint tracking.",
+      "description": "Signal-red 3D motion-tracking and computer-vision HUD overlay with real-time bounding-box telemetry, vector callouts, and spatial keypoint tracking backed by Hanzo Multimodal Vision APIs.",
       "updatedDate": "2026-04-20",
       "port": 3115,
       "family": "tracking-3d",
@@ -1912,7 +2302,7 @@
           "key": "brandName",
           "label": "Brand / Project Name",
           "type": "string",
-          "default": "3D Motion Tracking",
+          "default": "Vision HUD",
           "envVar": "VITE_SITE_NAME",
           "description": "Primary brand or product title rendered in navigation and metadata"
         },
@@ -1920,9 +2310,47 @@
           "key": "tagline",
           "label": "Hero Tagline",
           "type": "string",
-          "default": "Computer vision & robotics HUD interfaces",
+          "default": "Spatial AI, Robotics & Computer Vision HUD · Multimodal API",
           "envVar": "VITE_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_tracking-3d",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -1976,7 +2404,7 @@
     {
       "id": 84,
       "name": "line-illustrations",
-      "displayName": "Line Illustrations",
+      "displayName": "Vector Lab",
       "slug": "line-illustrations",
       "category": "Component Library",
       "screenshot": "line-illustrations",
@@ -1984,17 +2412,17 @@
       "framework": "React 19 + SVG + TS",
       "rating": 5,
       "features": [
-        "Parametric SVG",
-        "Interactive Controls",
-        "SVG Export",
-        "Stroke Animation",
+        "Parametric SVG Engine",
+        "AI Prompt-to-Diagram",
+        "Animated Data Strokes",
+        "React/SVG Export",
         "Grid Layouts"
       ],
       "components": "20+ comp",
       "easeOfSetup": 5,
-      "useCase": "Technical vector illustrations & empty states",
+      "useCase": "Parametric Architecture Diagrams & SVG Studio · Zen AI + React",
       "tier": 1,
-      "description": "Parametric technical SVG line illustrations playground with live geometric controls, animated stroke paths, and copy-ready React/SVG export.",
+      "description": "Parametric technical SVG diagram and illustration generator with live geometric controls, animated architecture flow strokes, Zen AI parameter synthesis, and copy-ready React/SVG export.",
       "updatedDate": "2026-04-20",
       "port": 3116,
       "family": "line-illustrations",
@@ -2019,7 +2447,7 @@
           "key": "brandName",
           "label": "Brand / Project Name",
           "type": "string",
-          "default": "Line Illustrations",
+          "default": "Vector Lab",
           "envVar": "VITE_SITE_NAME",
           "description": "Primary brand or product title rendered in navigation and metadata"
         },
@@ -2027,9 +2455,47 @@
           "key": "tagline",
           "label": "Hero Tagline",
           "type": "string",
-          "default": "Technical vector illustrations & empty states",
+          "default": "Parametric Architecture Diagrams & SVG Studio · Zen AI + React",
           "envVar": "VITE_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_line-illustrations",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -2083,7 +2549,7 @@
     {
       "id": 85,
       "name": "holo",
-      "displayName": "Holo Scene",
+      "displayName": "Holo Deck",
       "slug": "holo",
       "category": "3D & Shaders",
       "screenshot": "holo",
@@ -2091,17 +2557,17 @@
       "framework": "Three.js + React 19 + TS",
       "rating": 5,
       "features": [
-        "GLB 3D Models",
-        "Holographic Shader",
+        "6 Switchable 3D Models",
+        "Holographic Fresnel Shader",
+        "Zen AI Product Specialist",
         "Scanline FX",
-        "Interactive Camera",
-        "Scene Switcher"
+        "Engagement Insights"
       ],
       "components": "15+ comp",
       "easeOfSetup": 5,
-      "useCase": "3D product showcases & sci-fi interfaces",
+      "useCase": "3D Hardware Configurator & AI Product Showcase · Three.js + Cloud",
       "tier": 1,
-      "description": "Interactive Three.js holographic instrument scene featuring custom Fresnel scanline shaders, 6 switchable 3D models, and real-time optical controls.",
+      "description": "Interactive Three.js holographic product configurator featuring custom Fresnel scanline shaders, 6 switchable 3D models, Zen AI product specialist hooks, and 3D interaction heatmap telemetry.",
       "updatedDate": "2026-04-20",
       "port": 3117,
       "family": "holo",
@@ -2128,7 +2594,7 @@
           "key": "brandName",
           "label": "Brand / Project Name",
           "type": "string",
-          "default": "Holo Scene",
+          "default": "Holo Deck",
           "envVar": "VITE_SITE_NAME",
           "description": "Primary brand or product title rendered in navigation and metadata"
         },
@@ -2136,9 +2602,47 @@
           "key": "tagline",
           "label": "Hero Tagline",
           "type": "string",
-          "default": "3D product showcases & sci-fi interfaces",
+          "default": "3D Hardware Configurator & AI Product Showcase · Three.js + Cloud",
           "envVar": "VITE_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_holo",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -2192,7 +2696,7 @@
     {
       "id": 86,
       "name": "warp-shader",
-      "displayName": "Warp Shader",
+      "displayName": "Fluid Core",
       "slug": "warp-shader",
       "category": "3D & Shaders",
       "screenshot": "warp-shader",
@@ -2201,16 +2705,16 @@
       "rating": 5,
       "features": [
         "Domain-Warped fBm",
-        "Three.js TSL",
-        "WebGPU Compute",
-        "Palette Mixer",
-        "Uniform Controls"
+        "Three.js TSL WebGPU",
+        "Brand Palette Mixer",
+        "Live Uniform Controls",
+        "Edge CDN Ready"
       ],
       "components": "10+ comp",
       "easeOfSetup": 5,
-      "useCase": "Generative shader backdrops & art",
+      "useCase": "WebGPU Generative Brand Canvas & AI Hero Backdrop · Three.js TSL",
       "tier": 1,
-      "description": "Domain-warped fractional Brownian motion (fBm) fluid shader written in Three.js TSL running natively on WebGPU with real-time parameter controls.",
+      "description": "Domain-warped fractional Brownian motion (fBm) fluid shader written in Three.js TSL running natively on WebGPU with real-time parameter controls and zero-config Hanzo Cloud edge deployment.",
       "updatedDate": "2026-04-20",
       "port": 3118,
       "family": "warp-shader",
@@ -2235,7 +2739,7 @@
           "key": "brandName",
           "label": "Brand / Project Name",
           "type": "string",
-          "default": "Warp Shader",
+          "default": "Fluid Core",
           "envVar": "VITE_SITE_NAME",
           "description": "Primary brand or product title rendered in navigation and metadata"
         },
@@ -2243,9 +2747,47 @@
           "key": "tagline",
           "label": "Hero Tagline",
           "type": "string",
-          "default": "Generative shader backdrops & art",
+          "default": "WebGPU Generative Brand Canvas & AI Hero Backdrop · Three.js TSL",
           "envVar": "VITE_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_warp-shader",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -2299,7 +2841,7 @@
     {
       "id": 87,
       "name": "animated-rings",
-      "displayName": "Animated Rings",
+      "displayName": "Orbital Core",
       "slug": "animated-rings",
       "category": "3D & Shaders",
       "screenshot": "animated-rings",
@@ -2307,17 +2849,17 @@
       "framework": "Three.js + React 19 + TS",
       "rating": 5,
       "features": [
+        "Realtime Voice Reactive",
         "PBR Metal Materials",
-        "Orbital Kinematics",
-        "Studio Lighting",
-        "Interactive Gimbal",
-        "60fps"
+        "Orbital Gimbal Physics",
+        "Studio HDR Lighting",
+        "60fps WebGL"
       ],
       "components": "10+ comp",
       "easeOfSetup": 5,
-      "useCase": "3D metallic sculptures & hero centerpieces",
+      "useCase": "3D AI Voice & Enso Assistant State Visualizer · Three.js + Realtime",
       "tier": 1,
-      "description": "Procedural silver orbital ring sculpture in Three.js with physically based metallic reflections, nested gimbal kinematics, and studio environment lighting.",
+      "description": "Procedural silver orbital ring sculpture in Three.js with physically based metallic reflections and nested gimbal kinematics designed to visualize Hanzo Realtime Voice and Enso agent state transitions.",
       "updatedDate": "2026-04-20",
       "port": 3119,
       "family": "animated-rings",
@@ -2342,7 +2884,7 @@
           "key": "brandName",
           "label": "Brand / Project Name",
           "type": "string",
-          "default": "Animated Rings",
+          "default": "Orbital Core",
           "envVar": "VITE_SITE_NAME",
           "description": "Primary brand or product title rendered in navigation and metadata"
         },
@@ -2350,9 +2892,47 @@
           "key": "tagline",
           "label": "Hero Tagline",
           "type": "string",
-          "default": "3D metallic sculptures & hero centerpieces",
+          "default": "3D AI Voice & Enso Assistant State Visualizer · Three.js + Realtime",
           "envVar": "VITE_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_animated-rings",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -2414,17 +2994,17 @@
       "framework": "React + Three.js + TS",
       "rating": 5,
       "features": [
-        "8 Point-Cloud Specimens",
-        "Zero-Dep ESM",
-        "React Wrapper",
+        "8 Point-Cloud Forms",
+        "Agent Avatar States",
+        "Zero-Dep ESM Bundle",
         "Morph Transitions",
-        "Interactive Pointer"
+        "Pointer Physics"
       ],
       "components": "15+ comp",
       "easeOfSetup": 5,
-      "useCase": "Interactive 3D point-cloud hero illustrations",
+      "useCase": "Interactive 3D Point-Cloud Avatars & Agent Visualizers · React/ESM",
       "tier": 1,
-      "description": "Interactive 3D point-cloud specimen library featuring 8 biological and mythological forms with pointer-reactive physics, morph transitions, and React/ESM exports.",
+      "description": "Interactive 3D point-cloud specimen library featuring 8 morphing forms with pointer-reactive physics, audio/token-stream reactivity for Hanzo AI agents, and zero-dependency React/ESM exports.",
       "updatedDate": "2026-04-20",
       "port": 3123,
       "family": "bestiary",
@@ -2459,9 +3039,47 @@
           "key": "tagline",
           "label": "Hero Tagline",
           "type": "string",
-          "default": "Interactive 3D point-cloud hero illustrations",
+          "default": "Interactive 3D Point-Cloud Avatars & Agent Visualizers · React/ESM",
           "envVar": "VITE_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_bestiary",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -2517,7 +3135,7 @@
     {
       "id": 92,
       "name": "emptykit",
-      "displayName": "Emptykit",
+      "displayName": "Emptykit 3D",
       "slug": "emptykit",
       "category": "Component Library",
       "screenshot": "emptykit",
@@ -2525,17 +3143,17 @@
       "framework": "React + Three.js + SVG",
       "rating": 5,
       "features": [
-        "48 Empty States",
-        "3D & SVG Modes",
+        "48 Onboarding States",
+        "3D & Vector SVG Modes",
+        "Hanzo Funnel Triggers",
         "Light/Dark Themes",
-        "Zero-Dep Bundle",
-        "Interactive Gallery"
+        "Zero-Dep Bundle"
       ],
       "components": "48+ comp",
       "easeOfSetup": 5,
-      "useCase": "Application empty states & onboarding illustrations",
+      "useCase": "SaaS Onboarding, Activation & Empty-State Kit · Hanzo Insights",
       "tier": 1,
-      "description": "Comprehensive collection of 48 isometric 3D and vector SVG empty-state components for React and vanilla JS with live theme switching and interactive camera angles.",
+      "description": "Comprehensive collection of 48 isometric 3D and vector SVG empty-state and onboarding components for React with live theme switching, camera controls, and Hanzo Analytics activation funnel hooks.",
       "updatedDate": "2026-04-20",
       "port": 3124,
       "family": "emptykit",
@@ -2562,7 +3180,7 @@
           "key": "brandName",
           "label": "Brand / Project Name",
           "type": "string",
-          "default": "Emptykit",
+          "default": "Emptykit 3D",
           "envVar": "VITE_SITE_NAME",
           "description": "Primary brand or product title rendered in navigation and metadata"
         },
@@ -2570,9 +3188,47 @@
           "key": "tagline",
           "label": "Hero Tagline",
           "type": "string",
-          "default": "Application empty states & onboarding illustrations",
+          "default": "SaaS Onboarding, Activation & Empty-State Kit · Hanzo Insights",
           "envVar": "VITE_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_emptykit",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -2634,17 +3290,17 @@
       "framework": "Next.js 14.2 + TS",
       "rating": 5,
       "features": [
-        "AI Chat",
-        "Audio/Video",
-        "Photo Edit",
-        "Pricing",
-        "Responsive"
+        "Zen AI Multimodal Chat",
+        "Hanzo API Key Metering",
+        "Audio/Video Generation",
+        "Hanzo Insights Analytics",
+        "IAM & Billing"
       ],
       "components": "50+ comp",
       "easeOfSetup": 5,
-      "useCase": "AI SaaS platforms",
+      "useCase": "Multimodal AI SaaS Workspace · Zen AI + API Keys + Insights",
       "tier": 1,
-      "description": "Modern AI SaaS platform with chat, audio/video processing, and photo editing capabilities.",
+      "description": "Full-featured multimodal AI SaaS platform with Zen AI chat, audio/video/image generation, API key management, and built-in Hanzo Analytics & Insights token metering.",
       "updatedDate": "2024-05-01",
       "port": 3001,
       "family": "synapse",
@@ -2655,16 +3311,16 @@
         "chat app",
         "subscription platform",
         "marketing site",
-        "ai saas platforms"
+        "multimodal ai saas workspace · zen ai + api keys + insights"
       ],
       "blocks": [
         "hero-cta",
         "feature-bento",
         "pricing-tiers",
         "testimonials",
-        "ai-chat",
-        "audio-video",
-        "photo-edit"
+        "zen-ai-multimodal-chat",
+        "hanzo-api-key-metering",
+        "audio-video-generation"
       ],
       "params": [
         {
@@ -2679,9 +3335,47 @@
           "key": "tagline",
           "label": "Hero Tagline",
           "type": "string",
-          "default": "AI SaaS platforms",
+          "default": "Multimodal AI SaaS Workspace · Zen AI + API Keys + Insights",
           "envVar": "NEXT_PUBLIC_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "NEXT_PUBLIC_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_synapse",
+          "envVar": "NEXT_PUBLIC_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "NEXT_PUBLIC_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -2730,37 +3424,38 @@
       "framework": "Next.js 14.2 + TS",
       "rating": 5,
       "features": [
-        "Posts",
-        "Messages",
-        "Profiles",
-        "Notifications",
-        "Responsive"
+        "Realtime Feed",
+        "AI Content Moderation",
+        "Hanzo IAM Profiles",
+        "Engagement Insights",
+        "Direct Messaging"
       ],
       "components": "40+ comp",
       "easeOfSetup": 5,
-      "useCase": "Social media platforms",
+      "useCase": "AI Community & Social Network · Hanzo Cloud + IAM + Insights",
       "tier": 1,
+      "description": "Modern community and social platform built on Next.js 14 with real-time feeds, direct messaging, Hanzo IAM user profiles, AI moderation hooks, and creator growth analytics.",
       "port": 3002,
       "family": "circle",
       "seed": true,
       "generation": "classic",
       "intents": [
         "social media",
-        "social media platforms",
-        "posts",
-        "messages",
-        "profiles",
-        "notifications",
-        "responsive"
+        "ai community & social network · hanzo cloud + iam + insights",
+        "realtime feed",
+        "ai content moderation",
+        "hanzo iam profiles",
+        "engagement insights",
+        "direct messaging"
       ],
       "blocks": [
         "hero-section",
         "feature-grid",
         "cta-banner",
         "responsive-footer",
-        "posts",
-        "messages",
-        "profiles"
+        "realtime-feed",
+        "ai-content-moderation",
+        "hanzo-iam-profiles"
       ],
       "params": [
         {
@@ -2775,9 +3470,47 @@
           "key": "tagline",
           "label": "Hero Tagline",
           "type": "string",
-          "default": "Social media platforms",
+          "default": "AI Community & Social Network · Hanzo Cloud + IAM + Insights",
           "envVar": "NEXT_PUBLIC_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "NEXT_PUBLIC_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_circle",
+          "envVar": "NEXT_PUBLIC_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "NEXT_PUBLIC_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -2826,16 +3559,17 @@
       "framework": "Next.js 13.3 + TS",
       "rating": 5,
       "features": [
-        "Analytics",
-        "CRM",
-        "Finance",
-        "Projects",
-        "Responsive"
+        "Hanzo Insights Dashboard",
+        "AI Token & Cost FinOps",
+        "CRM & Revenue Funnels",
+        "API Key Usage Charts",
+        "Role-Based Access"
       ],
       "components": "60+ comp",
       "easeOfSetup": 5,
-      "useCase": "Admin dashboards",
+      "useCase": "Cloud Analytics, AI FinOps & Admin Dashboard · Hanzo Insights",
       "tier": 1,
+      "description": "Executive admin and analytics console pre-wired for Hanzo Insights, AI API key spend & token telemetry, CRM pipeline analytics, and multi-tenant organization reporting.",
       "port": 3003,
       "family": "metrics",
       "seed": true,
@@ -2845,16 +3579,16 @@
         "analytics",
         "crm",
         "backoffice",
-        "admin dashboards"
+        "cloud analytics, ai finops & admin dashboard · hanzo insights"
       ],
       "blocks": [
         "sidebar-nav",
         "kpi-stat-cards",
         "revenue-chart",
         "activity-table",
-        "analytics",
-        "crm",
-        "finance"
+        "hanzo-insights-dashboard",
+        "ai-token-cost-finops",
+        "crm-revenue-funnels"
       ],
       "params": [
         {
@@ -2869,9 +3603,47 @@
           "key": "tagline",
           "label": "Hero Tagline",
           "type": "string",
-          "default": "Admin dashboards",
+          "default": "Cloud Analytics, AI FinOps & Admin Dashboard · Hanzo Insights",
           "envVar": "NEXT_PUBLIC_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "NEXT_PUBLIC_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_metrics",
+          "envVar": "NEXT_PUBLIC_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "NEXT_PUBLIC_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -2920,15 +3692,17 @@
       "framework": "Next.js 14.2 + TS",
       "rating": 5,
       "features": [
-        "GSAP",
+        "GSAP Motion Engine",
         "Smooth Scroll",
-        "Portfolio",
-        "Modern"
+        "Hanzo Funnel Analytics",
+        "AI Lead Capture",
+        "Case Study Reels"
       ],
       "components": "15+ comp",
       "easeOfSetup": 5,
-      "useCase": "Creative portfolios",
+      "useCase": "Motion Design Studio & Agency Showcase · Next.js + Analytics",
       "tier": 1,
+      "description": "High-impact motion design studio and creative agency template with GSAP choreography, smooth scroll, AI lead qualification forms, and Hanzo Analytics conversion tracking.",
       "port": 3004,
       "family": "kinetic",
       "seed": true,
@@ -2938,16 +3712,16 @@
         "creative agency",
         "case studies",
         "personal site",
-        "creative portfolios"
+        "motion design studio & agency showcase · next.js + analytics"
       ],
       "blocks": [
         "project-showcase-grid",
         "case-study-detail",
         "about-bio",
         "contact-form",
-        "gsap",
+        "gsap-motion-engine",
         "smooth-scroll",
-        "portfolio"
+        "hanzo-funnel-analytics"
       ],
       "params": [
         {
@@ -2962,9 +3736,47 @@
           "key": "tagline",
           "label": "Hero Tagline",
           "type": "string",
-          "default": "Creative portfolios",
+          "default": "Motion Design Studio & Agency Showcase · Next.js + Analytics",
           "envVar": "NEXT_PUBLIC_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "NEXT_PUBLIC_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_kinetic",
+          "envVar": "NEXT_PUBLIC_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "NEXT_PUBLIC_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -3013,15 +3825,17 @@
       "framework": "Next.js 14.2 + TS",
       "rating": 5,
       "features": [
-        "Food",
-        "Delivery",
-        "Orders",
-        "Responsive"
+        "Hanzo Commerce Checkout",
+        "AI Menu Recommendations",
+        "Live Order Tracking",
+        "Conversion Insights",
+        "Responsive Store"
       ],
       "components": "30+ comp",
       "easeOfSetup": 5,
-      "useCase": "Food delivery apps",
+      "useCase": "AI Commerce Storefront & Instant Ordering · Hanzo Commerce",
       "tier": 1,
+      "description": "Full-stack commerce and ordering experience on Next.js 14 with Hanzo Commerce checkout, Zen AI personalized recommendations, real-time order status, and funnel insights.",
       "port": 3009,
       "family": "savor",
       "seed": true,
@@ -3031,16 +3845,16 @@
         "storefront",
         "checkout",
         "product catalog",
-        "food delivery apps"
+        "ai commerce storefront & instant ordering · hanzo commerce"
       ],
       "blocks": [
         "product-grid",
         "cart-drawer",
         "category-filter",
         "checkout-flow",
-        "food",
-        "delivery",
-        "orders"
+        "hanzo-commerce-checkout",
+        "ai-menu-recommendations",
+        "live-order-tracking"
       ],
       "params": [
         {
@@ -3055,9 +3869,47 @@
           "key": "tagline",
           "label": "Hero Tagline",
           "type": "string",
-          "default": "Food delivery apps",
+          "default": "AI Commerce Storefront & Instant Ordering · Hanzo Commerce",
           "envVar": "NEXT_PUBLIC_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "NEXT_PUBLIC_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_savor",
+          "envVar": "NEXT_PUBLIC_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "NEXT_PUBLIC_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -3106,15 +3958,17 @@
       "framework": "Next.js 14 + TS",
       "rating": 5,
       "features": [
-        "Portfolio",
-        "Creative",
-        "Modern",
+        "Product Studio",
+        "Case Studies",
+        "Hanzo Analytics",
+        "AI Contact Concierge",
         "Responsive"
       ],
       "components": "20+ comp",
       "easeOfSetup": 5,
-      "useCase": "Creative portfolios",
+      "useCase": "Product Studio & Digital Agency Starter · Next.js + Hanzo Cloud",
       "tier": 1,
+      "description": "Clean digital product studio and portfolio starter on Next.js 14 with interactive project showcases, AI contact concierge, and built-in Hanzo Analytics.",
       "port": 3010,
       "family": "mint",
       "seed": true,
@@ -3124,16 +3978,16 @@
         "creative agency",
         "case studies",
         "personal site",
-        "creative portfolios"
+        "product studio & digital agency starter · next.js + hanzo cloud"
       ],
       "blocks": [
         "project-showcase-grid",
         "case-study-detail",
         "about-bio",
         "contact-form",
-        "portfolio",
-        "creative",
-        "modern"
+        "product-studio",
+        "case-studies",
+        "hanzo-analytics"
       ],
       "params": [
         {
@@ -3148,9 +4002,47 @@
           "key": "tagline",
           "label": "Hero Tagline",
           "type": "string",
-          "default": "Creative portfolios",
+          "default": "Product Studio & Digital Agency Starter · Next.js + Hanzo Cloud",
           "envVar": "NEXT_PUBLIC_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "NEXT_PUBLIC_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_mint",
+          "envVar": "NEXT_PUBLIC_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "NEXT_PUBLIC_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -3244,6 +4136,44 @@
           "default": "Modern SaaS landing",
           "envVar": "VITE_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_prism-react",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -3340,6 +4270,44 @@
           "description": "Headline or value proposition displayed in the hero section"
         },
         {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_soar",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
+        },
+        {
           "key": "accentColor",
           "label": "Accent Color",
           "type": "color",
@@ -3433,6 +4401,44 @@
           "description": "Headline or value proposition displayed in the hero section"
         },
         {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_cipher-react",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
+        },
+        {
           "key": "accentColor",
           "label": "Accent Color",
           "type": "color",
@@ -3524,6 +4530,44 @@
           "default": "SaaS landing pages",
           "envVar": "NEXT_PUBLIC_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "NEXT_PUBLIC_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_launch",
+          "envVar": "NEXT_PUBLIC_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "NEXT_PUBLIC_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -3620,6 +4664,44 @@
           "description": "Headline or value proposition displayed in the hero section"
         },
         {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "NEXT_PUBLIC_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_construct",
+          "envVar": "NEXT_PUBLIC_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "NEXT_PUBLIC_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
+        },
+        {
           "key": "accentColor",
           "label": "Accent Color",
           "type": "color",
@@ -3712,6 +4794,44 @@
           "default": "Marketing landing pages",
           "envVar": "NEXT_PUBLIC_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "NEXT_PUBLIC_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_deploy",
+          "envVar": "NEXT_PUBLIC_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "NEXT_PUBLIC_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -3808,6 +4928,44 @@
           "description": "Headline or value proposition displayed in the hero section"
         },
         {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_loop",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
+        },
+        {
           "key": "accentColor",
           "label": "Accent Color",
           "type": "color",
@@ -3900,6 +5058,44 @@
           "default": "Full-stack applications",
           "envVar": "NEXT_PUBLIC_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "NEXT_PUBLIC_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_unity",
+          "envVar": "NEXT_PUBLIC_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "NEXT_PUBLIC_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -3995,6 +5191,44 @@
           "description": "Headline or value proposition displayed in the hero section"
         },
         {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_vault",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
+        },
+        {
           "key": "accentColor",
           "label": "Accent Color",
           "type": "color",
@@ -4086,6 +5320,44 @@
           "default": "Digital agencies",
           "envVar": "VITE_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_studio",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -4182,6 +5454,44 @@
           "description": "Headline or value proposition displayed in the hero section"
         },
         {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_drive",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
+        },
+        {
           "key": "accentColor",
           "label": "Accent Color",
           "type": "color",
@@ -4274,6 +5584,44 @@
           "default": "Resort/hospitality sites",
           "envVar": "VITE_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_oasis",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -4369,6 +5717,44 @@
           "description": "Headline or value proposition displayed in the hero section"
         },
         {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_solo",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
+        },
+        {
           "key": "accentColor",
           "label": "Accent Color",
           "type": "color",
@@ -4460,6 +5846,44 @@
           "default": "Admin dashboards",
           "envVar": "VITE_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_forge",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -4555,6 +5979,44 @@
           "description": "Headline or value proposition displayed in the hero section"
         },
         {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_hygge-html",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
+        },
+        {
           "key": "accentColor",
           "label": "Accent Color",
           "type": "color",
@@ -4645,6 +6107,44 @@
           "default": "About pages",
           "envVar": "VITE_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_folio-about",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -4739,6 +6239,44 @@
           "description": "Headline or value proposition displayed in the hero section"
         },
         {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_folio-contact",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
+        },
+        {
           "key": "accentColor",
           "label": "Accent Color",
           "type": "color",
@@ -4829,6 +6367,44 @@
           "default": "Creative agency portfolios",
           "envVar": "VITE_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_folio-creative-agency-1",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -4923,6 +6499,44 @@
           "description": "Headline or value proposition displayed in the hero section"
         },
         {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_folio-creative-agency-2",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
+        },
+        {
           "key": "accentColor",
           "label": "Accent Color",
           "type": "color",
@@ -5013,6 +6627,44 @@
           "default": "Designer portfolios",
           "envVar": "VITE_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_folio-creative-designer-2",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -5107,6 +6759,44 @@
           "description": "Headline or value proposition displayed in the hero section"
         },
         {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_folio-creative-developer-2",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
+        },
+        {
           "key": "accentColor",
           "label": "Accent Color",
           "type": "color",
@@ -5197,6 +6887,44 @@
           "default": "Photography portfolios",
           "envVar": "VITE_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_folio-photography-1",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -5291,6 +7019,44 @@
           "description": "Headline or value proposition displayed in the hero section"
         },
         {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_folio-photography-2",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
+        },
+        {
           "key": "accentColor",
           "label": "Accent Color",
           "type": "color",
@@ -5381,6 +7147,44 @@
           "default": "3-column portfolio grids",
           "envVar": "VITE_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_folio-grid-3-columns",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -5475,6 +7279,44 @@
           "description": "Headline or value proposition displayed in the hero section"
         },
         {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_folio-masonry-2-columns",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
+        },
+        {
           "key": "accentColor",
           "label": "Accent Color",
           "type": "color",
@@ -5565,6 +7407,44 @@
           "default": "3-column masonry layouts",
           "envVar": "VITE_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_folio-masonry-3-columns",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -5659,6 +7539,44 @@
           "description": "Headline or value proposition displayed in the hero section"
         },
         {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_folio-masonry-3-fluid",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
+        },
+        {
           "key": "accentColor",
           "label": "Accent Color",
           "type": "color",
@@ -5749,6 +7667,44 @@
           "default": "4-column masonry layouts",
           "envVar": "VITE_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_folio-masonry-4-columns",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -5843,6 +7799,44 @@
           "description": "Headline or value proposition displayed in the hero section"
         },
         {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_folio-masonry-4-fluid",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
+        },
+        {
           "key": "accentColor",
           "label": "Accent Color",
           "type": "color",
@@ -5935,6 +7929,44 @@
           "description": "Headline or value proposition displayed in the hero section"
         },
         {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_folio-details-1",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
+        },
+        {
           "key": "accentColor",
           "label": "Accent Color",
           "type": "color",
@@ -6025,6 +8057,44 @@
           "default": "Portfolio detail pages",
           "envVar": "VITE_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_folio-details-2",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -6121,6 +8191,44 @@
           "description": "Headline or value proposition displayed in the hero section"
         },
         {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_jobfinder",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
+        },
+        {
           "key": "accentColor",
           "label": "Accent Color",
           "type": "color",
@@ -6212,6 +8320,44 @@
           "default": "Creative studio sites",
           "envVar": "VITE_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_pixel",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",
@@ -6307,6 +8453,44 @@
           "description": "Headline or value proposition displayed in the hero section"
         },
         {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "NEXT_PUBLIC_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_saas-landing",
+          "envVar": "NEXT_PUBLIC_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "NEXT_PUBLIC_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
+        },
+        {
           "key": "accentColor",
           "label": "Accent Color",
           "type": "color",
@@ -6398,6 +8582,44 @@
           "default": "Portfolio/agency sites",
           "envVar": "VITE_SITE_TAGLINE",
           "description": "Headline or value proposition displayed in the hero section"
+        },
+        {
+          "key": "hanzoApiKey",
+          "label": "Hanzo AI API Key",
+          "type": "string",
+          "default": "hz_live_your_api_key",
+          "envVar": "HANZO_API_KEY",
+          "description": "API key for Zen AI models, embeddings, and agents via https://api.hanzo.ai/v1"
+        },
+        {
+          "key": "hanzoAiModel",
+          "label": "Default Zen AI Model",
+          "type": "enum",
+          "default": "zen4",
+          "options": [
+            "zen4",
+            "zen4-mini",
+            "zen4-coder",
+            "enso"
+          ],
+          "envVar": "VITE_HANZO_AI_MODEL",
+          "description": "Default Hanzo AI model routed for chat, copilot, and structured completions"
+        },
+        {
+          "key": "hanzoAnalyticsId",
+          "label": "Hanzo Analytics & Insights ID",
+          "type": "string",
+          "default": "hz_ins_serif",
+          "envVar": "VITE_HANZO_ANALYTICS_ID",
+          "description": "Project telemetry key for real-time pageviews, conversion funnels & AI token insights"
+        },
+        {
+          "key": "hanzoIamOrg",
+          "label": "Hanzo IAM Organization",
+          "type": "string",
+          "default": "hanzo",
+          "envVar": "VITE_HANZO_IAM_ORG",
+          "description": "Organization tenant slug on hanzo.id for zero-config SSO and RBAC"
         },
         {
           "key": "accentColor",

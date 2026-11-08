@@ -127,11 +127,16 @@ export function getUniqueTemplates(templates: Template[]): Template[] {
                        variants.find(t => t.framework.toLowerCase().includes('react')) ||
                        variants[0];
 
+    const derivedSlug = baseName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+    const slug = variants.length > 1 || /\((next\.js|react|html|gulp|bootstrap)\)/i.test(bestVariant.displayName)
+      ? derivedSlug
+      : bestVariant.slug;
+
     // Create a template object with variant count
     uniqueTemplates.push({
       ...bestVariant,
       displayName: baseName,
-      slug: baseName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, ''),
+      slug,
     });
   });
 
@@ -140,6 +145,11 @@ export function getUniqueTemplates(templates: Template[]): Template[] {
 
 // Get all variants for a template by slug or base name
 export function getTemplateVariants(templates: Template[], slugOrName: string): Template[] {
+  if (slugOrName === 'portfolio') {
+    const devFolio = templates.find(t => t.slug === 'folio-creative-developer-2');
+    if (devFolio) return [devFolio];
+  }
+
   // First, check if this slug matches a consolidated template
   const uniqueTemplates = getUniqueTemplates(templates);
   const consolidatedTemplate = uniqueTemplates.find(t => t.slug === slugOrName);
@@ -150,8 +160,14 @@ export function getTemplateVariants(templates: Template[], slugOrName: string): 
     // Found by consolidated slug
     baseName = getBaseTemplateName(consolidatedTemplate.displayName);
   } else {
-    // Try to find by original slug
-    const template = templates.find(t => t.slug === slugOrName);
+    // Try to find by original slug, name, family, or derived base slug
+    const template = templates.find(
+      t =>
+        t.slug === slugOrName ||
+        t.name === slugOrName ||
+        t.family === slugOrName ||
+        getBaseTemplateName(t.displayName).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') === slugOrName,
+    );
     if (!template) return [];
     baseName = getBaseTemplateName(template.displayName);
   }

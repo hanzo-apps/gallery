@@ -111,6 +111,7 @@ export function TemplatePageClient({
   const repo = blueprint.repo;
   const deployUrl = assembled.studioBuildUrl;
   const platformUrl = assembled.platformDeployUrl;
+  const hanzoEditUrl = assembled.hanzoEditUrl;
   const previewUrl = blueprint.previewUrl;
 
   // Templates without a capture at this size fall back to the desktop one.
@@ -169,6 +170,9 @@ export function TemplatePageClient({
             <Text render="button" onClick={openPreviewTab} {...pill}>
               Fullscreen Preview ↗
             </Text>
+            <Anchor href={hanzoEditUrl} target="_blank" rel="noopener noreferrer" {...pill}>
+              Edit in Hanzo.ai ↗
+            </Anchor>
             <Anchor href={platformUrl} target="_blank" rel="noopener noreferrer" {...pill}>
               Deploy to Platform ↗
             </Anchor>
@@ -228,6 +232,9 @@ export function TemplatePageClient({
           <XStack gap={10} flexWrap="wrap" pt={8}>
             <Action fill render="button" onClick={toFork}>
               Deploy to Hanzo
+            </Action>
+            <Action href={hanzoEditUrl}>
+              Edit in Hanzo.ai ↗
             </Action>
             <Action render="button" onClick={() => setStageMode(stageMode === 'live' ? 'capture' : 'live')}>
               {stageMode === 'live' ? 'Responsive Captures' : 'Interactive Live Preview'}
@@ -388,8 +395,17 @@ export function TemplatePageClient({
       {/* Quick start & Automated Hanzo Platform Deployment */}
       <Band>
         <XStack items="center" justify="space-between" mb={24} flexWrap="wrap" gap={12}>
-          <Title>Quick Start & Hanzo Platform Deploy</Title>
+          <Title>Hanzo Cloud Stack · AI, API Keys & Insights Out of the Box</Title>
           <XStack gap={8} flexWrap="wrap">
+            <Action href="https://console.hanzo.ai/keys" minH={36} px={14}>
+              Get Hanzo API Key ↗
+            </Action>
+            <Action href="https://analytics.hanzo.ai" minH={36} px={14}>
+              Open Hanzo Insights ↗
+            </Action>
+            <Action render="button" onClick={() => copyText(assembled.hanzoSdkCode, 'sdk')} minH={36} px={14}>
+              {copiedKey === 'sdk' ? 'Copied SDK ✓' : 'Copy src/lib/hanzo.ts'}
+            </Action>
             <Action render="button" onClick={() => copyText(assembled.platformCliCommand, 'cli')} minH={36} px={14}>
               {copiedKey === 'cli' ? 'Copied CLI ✓' : 'Copy 1-Click CLI'}
             </Action>
@@ -398,10 +414,18 @@ export function TemplatePageClient({
             </Action>
           </XStack>
         </XStack>
+        <XStack flexWrap="wrap" gap={8} mb={20}>
+          {blueprint.cloudServices.map((svc) => (
+            <Chip key={svc} px={12} py={6}>
+              ✓ {svc}
+            </Chip>
+          ))}
+        </XStack>
         <YStack bg={c.ground} p={32} rounded={round.card} borderWidth={1} borderColor={c.edge} gap={24}>
           {(
             [
-              ['# 1-Click Automated Deploy to Hanzo Platform', assembled.platformCliCommand],
+              ['# 1-Click Automated Deploy to Hanzo Platform (Zen AI + Insights)', assembled.platformCliCommand],
+              ['# Edit & customize directly in Hanzo.ai Chat + Dev', hanzoEditUrl],
               ['# Navigate to template directory', `cd ${pick.path}`],
               ['# Install dependencies', 'npm install'],
               ['# Start development server', start],
@@ -453,6 +477,9 @@ export function TemplatePageClient({
           <XStack flexWrap="wrap" gap={12} justify="center">
             <Action render="button" fill onClick={toFork}>
               Deploy to Hanzo
+            </Action>
+            <Action href={hanzoEditUrl}>
+              Edit in Hanzo.ai ↗
             </Action>
             <Action href={platformUrl}>
               Deploy on Platform ↗

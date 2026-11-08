@@ -68,8 +68,12 @@ function Actions({
       Deploy to Hanzo
     </Action>
   );
+  const editUrl = `https://hanzo.ai/chat?template=${encodeURIComponent(template.slug)}`;
   const rest = (
     <>
+      <Action href={editUrl} grow={stacked ? 1 : 0}>
+        Edit in Hanzo
+      </Action>
       <Action render="button" onClick={onPreview} grow={stacked ? 1 : 0}>
         Live preview
       </Action>
@@ -515,6 +519,9 @@ export default function Gallery() {
                 </XStack>
 
                 <XStack items="center" gap={8} flexWrap="wrap">
+                  <Action href={`https://hanzo.ai/chat?template=${encodeURIComponent(previewing.slug)}`} minH={34} px={14}>
+                    Edit in Hanzo.ai ↗
+                  </Action>
                   <Action href={`/templates/${previewing.slug}`} minH={34} px={14}>
                     Template Page
                   </Action>

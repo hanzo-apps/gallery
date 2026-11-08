@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+Disallow: /app
+
+Sitemap: https://fernline.example/sitemap.xml
