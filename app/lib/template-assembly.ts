@@ -899,6 +899,7 @@ export function assembleProjectConfig(
   llmMdUrl: string;
   cliCommand: string;
   platformCliCommand: string;
+  githubBadgeMarkdown: string;
   studioBuildUrl: string;
   platformDeployUrl: string;
   hanzoEditUrl: string;
@@ -1161,6 +1162,18 @@ export function assembleProjectConfig(
     model: aiModel,
   });
 
+  const deployHref = `https://platform.hanzo.ai/new?repo=${encodeURIComponent(blueprint.repo)}&template=${template.slug}`;
+  const editHref = `https://hanzo.ai/chat?template=${template.slug}`;
+  const liveHref = `https://gallery.hanzo.ai/templates/${template.slug}`;
+  const llmHref = `https://gallery.hanzo.ai/llms/${template.slug}/LLM.md`;
+
+  const githubBadgeMarkdown = [
+    `[![Deploy to Hanzo](https://gallery.hanzo.ai/deploy.svg)](${deployHref})`,
+    `[![Edit in Hanzo.ai](https://gallery.hanzo.ai/badges/edit-in-hanzo.svg)](${editHref})`,
+    `[![Live Preview](https://gallery.hanzo.ai/badges/live-preview.svg)](${liveHref})`,
+    `[![LLM.md Playbook](https://gallery.hanzo.ai/badges/llm-md.svg)](${llmHref})`,
+  ].join(' ');
+
   return {
     envFile: envLines.join('\n'),
     manifestJson: JSON.stringify(manifest, null, 2),
@@ -1170,6 +1183,7 @@ export function assembleProjectConfig(
     llmMdUrl: blueprint.llmMdUrl,
     cliCommand,
     platformCliCommand,
+    githubBadgeMarkdown,
     studioBuildUrl: `https://hanzo.app/new?${query.toString()}`,
     platformDeployUrl: `https://platform.hanzo.ai/new?${platformQuery.toString()}`,
     hanzoEditUrl: `https://hanzo.ai/chat?${editQuery.toString()}`,

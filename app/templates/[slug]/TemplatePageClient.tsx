@@ -395,10 +395,27 @@ export function TemplatePageClient({
             <Action render="button" onClick={() => copyText(assembled.llmMd, 'llm')} minH={36} px={14}>
               {copiedKey === 'llm' ? 'Copied LLM.md ✓' : 'Copy LLM.md'}
             </Action>
+            <Action render="button" onClick={() => copyText(assembled.githubBadgeMarkdown, 'badge')} minH={36} px={14}>
+              {copiedKey === 'badge' ? 'Copied Badge Markdown ✓' : 'Copy GitHub Badge'}
+            </Action>
             <Action render="button" onClick={() => copyText(assembled.platformCliCommand, 'cli')} minH={36} px={14}>
               {copiedKey === 'cli' ? 'Copied CLI ✓' : 'Copy 1-Click CLI'}
             </Action>
           </XStack>
+        </XStack>
+        <XStack flexWrap="wrap" gap={10} items="center" mb={20}>
+          <Anchor href={assembled.platformDeployUrl} target="_blank" rel="noopener noreferrer">
+            <img src="/deploy.svg" alt="Deploy to Hanzo" height={32} />
+          </Anchor>
+          <Anchor href={hanzoEditUrl} target="_blank" rel="noopener noreferrer">
+            <img src="/badges/edit-in-hanzo.svg" alt="Edit in Hanzo.ai" height={32} />
+          </Anchor>
+          <Anchor href={previewUrl} target="_blank" rel="noopener noreferrer">
+            <img src="/badges/live-preview.svg" alt="Live Preview" height={32} />
+          </Anchor>
+          <Anchor href={assembled.llmMdUrl} target="_blank" rel="noopener noreferrer">
+            <img src="/badges/llm-md.svg" alt="LLM.md Playbook" height={32} />
+          </Anchor>
         </XStack>
         <XStack flexWrap="wrap" gap={8} mb={20}>
           {blueprint.cloudServices.map((svc) => (
@@ -411,6 +428,7 @@ export function TemplatePageClient({
           {(
             [
               ['# 1-Click Automated Deploy to Hanzo Platform (Zen AI + Insights)', assembled.platformCliCommand],
+              ['# Official GitHub README Badges (Deploy to Hanzo + Edit in Hanzo.ai + Live Preview + LLM.md)', assembled.githubBadgeMarkdown],
               ['# Edit & customize directly in Hanzo.ai Chat + Dev', hanzoEditUrl],
               ['# Navigate to template directory', `cd ${pick.path}`],
               ['# Install dependencies', 'npm install'],

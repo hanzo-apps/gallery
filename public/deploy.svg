@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="156" height="32" viewBox="0 0 156 32" fill="none" role="img" aria-label="Deploy to Hanzo">
+  <rect x="0.5" y="0.5" width="155" height="31" rx="7.5" fill="#09090B" stroke="#27272A"/>
+  <g transform="translate(11, 8) scale(0.2388)">
+    <path d="M22.21 67V44.6369H0V67H22.21Z" fill="#FFFFFF"/>
+    <path d="M0 44.6369L22.21 46.8285V44.6369H0Z" fill="#A1A1AA"/>
+    <path d="M66.7038 22.3184H22.2534L0.0878906 44.6367H44.4634L66.7038 22.3184Z" fill="#FFFFFF"/>
+    <path d="M22.21 0H0V22.3184H22.21V0Z" fill="#FFFFFF"/>
+    <path d="M66.7198 0H44.5098V22.3184H66.7198V0Z" fill="#FFFFFF"/>
+    <path d="M66.6753 22.3185L44.5098 20.0822V22.3185H66.6753Z" fill="#A1A1AA"/>
+    <path d="M66.7198 67V44.6369H44.5098V67H66.7198Z" fill="#FFFFFF"/>
+  </g>
+  <line x1="36" y1="7" x2="36" y2="25" stroke="#27272A" stroke-width="1"/>
+  <text x="45" y="20.5" fill="#FAFAFA" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif" font-size="12.5" font-weight="600" letter-spacing="-0.15">Deploy to Hanzo</text>
+</svg>

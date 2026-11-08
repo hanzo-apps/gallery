@@ -255,12 +255,23 @@ const GALLERY_MENUS: Menu[] = [
           { label: 'Template Documentation', href: 'https://docs.hanzo.ai' },
         ],
       },
+      {
+        title: 'OSS & Quick Deploy',
+        links: [
+          { label: 'hanzo-apps · GitHub', href: 'https://github.com/hanzo-apps' },
+          { label: '1-Click Deploy Starter', href: 'https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fhanzo-starter&template=hanzo-starter' },
+          { label: 'Deploy to Hanzo Badge', href: '/deploy.svg' },
+          { label: 'Hanzo Starter Repo', href: 'https://github.com/hanzo-apps/hanzo-starter' },
+        ],
+      },
     ],
   },
 ];
 
 const isLocalGalleryHref = (href: string) =>
   href === '/gallery' ||
+  href === '/deploy.svg' ||
+  href.startsWith('/badges/') ||
   href.startsWith('/gallery?') ||
   href.startsWith('/templates/') ||
   href.startsWith('/previews/') ||
