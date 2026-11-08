@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import {
   Dialog,
@@ -129,6 +129,21 @@ export default function Gallery() {
 
   const unique = getUniqueTemplates(templateData);
   const families = groupTemplatesByFamily(templateData);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const sync = () => {
+      const sp = new URLSearchParams(window.location.search);
+      const cat = sp.get('category');
+      const q = sp.get('q');
+      if (cat && CATEGORIES.includes(cat)) setCategory(cat);
+      else if (cat === 'all') setCategory('All Categories');
+      if (q !== null) setSearch(q);
+    };
+    sync();
+    window.addEventListener('popstate', sync);
+    return () => window.removeEventListener('popstate', sync);
+  }, []);
 
   function toRandom() {
     const picked = pickRandomSeedTemplate({ category }, unique);

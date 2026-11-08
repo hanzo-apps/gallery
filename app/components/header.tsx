@@ -2,8 +2,8 @@
 
 import { Fragment, useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
 import { Anchor, Text, View, XStack, YStack, type GuiElement } from '@hanzo/ui';
-import { HanzoCommandPalette, HanzoWordmark, MARKS, type GlyphName, type HanzoCommandEntry } from '@hanzogui/shell';
-import { COMPANY, LOGIN, MENUS, TRY, at, away, type Link, type Menu } from '@hanzo/ui/masthead';
+import { HanzoCommandPalette, HanzoLockup, MARKS, type GlyphName, type HanzoCommandEntry } from '@hanzogui/shell';
+import { COMPANY, LOGIN, TRY, at, away, type Link, type Menu } from '@hanzo/ui/masthead';
 import { templates } from '../templates-data';
 import { getUniqueTemplates } from '../lib/template-utils';
 
@@ -118,6 +118,150 @@ const LINE = {
 } as const;
 const DOOR = { display: 'flex', items: 'center', justify: 'flex-start', minH: 44, fontSize: '$4', lineHeight: 20, fontWeight: '400', color: 'var(--foreground)' } as const;
 
+const GALLERY_MENUS: Menu[] = [
+  {
+    id: 'templates',
+    label: 'Templates',
+    href: '/gallery',
+    glyph: 'template',
+    groups: [
+      {
+        title: 'Featured Starters',
+        lead: true,
+        links: [
+          { label: 'Browse All Templates', href: '/gallery' },
+          { label: 'Instrument Lab', href: '/templates/instrument' },
+          { label: 'Fernline Ops', href: '/templates/fernline' },
+          { label: 'Aerva AI', href: '/templates/aerva' },
+          { label: 'Nova AI', href: '/templates/nova' },
+          { label: 'Tensile Studio', href: '/templates/tensile' },
+        ],
+      },
+      {
+        title: 'SaaS, UI & Dashboards',
+        links: [
+          { label: 'Monolith UI', href: '/templates/minimal-ui' },
+          { label: 'State Matrix', href: '/templates/component-states' },
+          { label: 'Synapse AI', href: '/templates/synapse' },
+          { label: 'Metrics Cloud', href: '/templates/metrics' },
+          { label: 'Emptykit 3D', href: '/templates/emptykit' },
+          { label: 'Circle Social', href: '/templates/circle' },
+        ],
+      },
+      {
+        title: 'Commerce & Editorial',
+        links: [
+          { label: 'Lighthouse World', href: '/templates/lighthouse' },
+          { label: 'Savor Commerce', href: '/templates/savor' },
+          { label: 'Kinetic Health', href: '/templates/kinetic' },
+          { label: 'Hygge Store', href: '/templates/hygge' },
+          { label: 'Mint Studio', href: '/templates/mint' },
+          { label: 'Portfolio Pro', href: '/templates/portfolio' },
+        ],
+      },
+    ],
+  },
+  {
+    id: '3d-shaders',
+    label: '3D & Shaders',
+    href: '/gallery?category=3D%20%26%20Shaders',
+    glyph: 'spark',
+    groups: [
+      {
+        title: 'Spatial & WebGL',
+        lead: true,
+        links: [
+          { label: 'Hyperion Tunnel', href: '/templates/warp-tunnel' },
+          { label: 'Atlas Globe', href: '/templates/dotted-globe' },
+          { label: 'Vision HUD', href: '/templates/tracking-3d' },
+          { label: 'Holo Deck', href: '/templates/holo' },
+        ],
+      },
+      {
+        title: 'Generative & Motion',
+        links: [
+          { label: 'Fluid Core', href: '/templates/warp-shader' },
+          { label: 'Orbital Core', href: '/templates/animated-rings' },
+          { label: 'Vector Lab', href: '/templates/line-illustrations' },
+          { label: 'Bestiary 3D', href: '/templates/bestiary' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'categories',
+    label: 'Categories',
+    href: '/gallery',
+    glyph: 'layers',
+    groups: [
+      {
+        title: 'By Category',
+        lead: true,
+        links: [
+          { label: 'All Categories', href: '/gallery' },
+          { label: 'AI & SaaS', href: '/gallery?category=AI%2FSaaS' },
+          { label: '3D & Shaders', href: '/gallery?category=3D%20%26%20Shaders' },
+          { label: 'Dashboards', href: '/gallery?category=Dashboard' },
+          { label: 'Portfolios', href: '/gallery?category=Portfolio' },
+        ],
+      },
+      {
+        title: 'More Collections',
+        links: [
+          { label: 'Component Libraries', href: '/gallery?category=Component%20Library' },
+          { label: 'E-Commerce', href: '/gallery?category=E-commerce' },
+          { label: 'SaaS Starters', href: '/gallery?category=SaaS' },
+          { label: 'Bento Grids', href: '/gallery?category=Bento%20Cards' },
+        ],
+      },
+      {
+        title: 'By Stack',
+        links: [
+          { label: 'Next.js 15 / 16', href: '/gallery?q=Next.js' },
+          { label: 'React 19 + Vite', href: '/gallery?q=Vite' },
+          { label: 'Three.js & WebGL', href: '/gallery?q=WebGL' },
+          { label: 'Astro 5', href: '/gallery?q=Astro' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'cloud-stack',
+    label: 'Cloud & LLM.md',
+    href: '/llms.txt',
+    glyph: 'cloud',
+    groups: [
+      {
+        title: 'Build with Hanzo AI',
+        lead: true,
+        links: [
+          { label: 'Edit in Hanzo.ai', href: 'https://hanzo.ai/chat?template=instrument' },
+          { label: 'Agent Directory (llms.txt)', href: '/llms.txt' },
+          { label: 'Browse All Previews', href: '/gallery' },
+        ],
+      },
+      {
+        title: 'Hanzo Cloud Stack',
+        links: [
+          { label: 'Zen AI API Keys', href: 'https://console.hanzo.ai/keys' },
+          { label: 'Hanzo Analytics & Insights', href: 'https://analytics.hanzo.ai' },
+          { label: 'Hanzo IAM (hanzo.id)', href: 'https://hanzo.id' },
+          { label: 'Template Documentation', href: 'https://docs.hanzo.ai' },
+        ],
+      },
+    ],
+  },
+];
+
+const isLocalGalleryHref = (href: string) =>
+  href === '/gallery' ||
+  href.startsWith('/gallery?') ||
+  href.startsWith('/templates/') ||
+  href.startsWith('/previews/') ||
+  href.startsWith('/llms');
+
+const resolveHref = (href: string) => (isLocalGalleryHref(href) ? href : at(href, ORIGIN));
+
 /** Every template, for ⌘K, and every row of the tree. */
 const COMMANDS: HanzoCommandEntry[] = [
   ...getUniqueTemplates(templates).map((x) => ({
@@ -128,14 +272,14 @@ const COMMANDS: HanzoCommandEntry[] = [
     group: 'Templates',
     keywords: `${x.category} ${x.useCase}`,
   })),
-  ...[COMPANY, ...MENUS].flatMap((menu) =>
+  ...[COMPANY, ...GALLERY_MENUS].flatMap((menu) =>
     menu.groups.flatMap((group) =>
       group.links.map((link) => ({
         id: `nav/${menu.id}/${group.title}/${link.label}`,
         title: link.label,
-        href: at(link.href, ORIGIN),
+        href: resolveHref(link.href),
         group: menu.label,
-        external: away(link.href),
+        external: !isLocalGalleryHref(link.href) && away(link.href),
       })),
     ),
   ),
@@ -170,12 +314,13 @@ function Out() {
   );
 }
 
-/** A row: the label, and ↗ with a new tab when the tree says it leaves hanzo.ai. */
+/** A row: the label, and ↗ with a new tab when the tree says it leaves gallery.hanzo.ai. */
 function Row({ link, onClick, ...style }: { link: Link; onClick?: () => void; [k: string]: unknown }) {
-  const out = away(link.href);
+  const local = isLocalGalleryHref(link.href);
+  const out = !local && away(link.href);
   return (
     <Anchor
-      href={at(link.href, ORIGIN)}
+      href={resolveHref(link.href)}
       target={out ? '_blank' : undefined}
       rel={out ? 'noreferrer' : undefined}
       onClick={onClick}
@@ -403,7 +548,7 @@ export function Header() {
           COMPANY,
           <XStack render="span" {...BRAND} {...(open === COMPANY.id ? { bg: WASH, boxShadow: RING } : {})}>
             <Anchor href="/" aria-label="Hanzo Gallery home" {...NAME} $lg={{ pr: 0 }}>
-              <HanzoWordmark label="Hanzo Gallery" size={22} />
+              <HanzoLockup label="Gallery" size={20} />
             </Anchor>
             <Text
               render="button"
@@ -431,7 +576,7 @@ export function Header() {
           </XStack>,
         )}
         <XStack render="nav" aria-label="Main" display="none" $lg={{ display: 'flex' }} items="center" gap={2}>
-          {MENUS.map((item) => (
+          {GALLERY_MENUS.map((item) => (
             <Fragment key={item.id}>{menu(item, trigger(item))}</Fragment>
           ))}
         </XStack>
@@ -585,7 +730,7 @@ function Sheet({ onClose }: { onClose: () => void }) {
       {...ARRIVE}
     >
       <View render="nav" aria-label="Main" display="block">
-        {[COMPANY, ...MENUS].map((item, i) => (
+        {[COMPANY, ...GALLERY_MENUS].map((item, i) => (
           <View
             key={item.id}
             render={
