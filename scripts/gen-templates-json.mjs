@@ -14,11 +14,14 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { templates } from '../app/templates-data.ts';
+import { getBlueprint } from '../app/lib/template-assembly.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, '..');
 const GALLERY_ORIGIN = process.env.GALLERY_ORIGIN || 'https://gallery.hanzo.ai';
 const screenshotsDir = join(root, 'public', 'screenshots');
+
+const blockCatalog = {};
 
 // WEBP, which is what every capture in public/screenshots actually is. This
 // line spelled .png, matched nothing, and wrote hasScreenshot:false for all of
@@ -29,16 +32,29 @@ const screenshotsDir = join(root, 'public', 'screenshots');
 const enriched = templates.map((t) => {
   const shotFile = `${t.screenshot}.webp`;
   const hasShot = existsSync(join(screenshotsDir, shotFile));
+  const bp = getBlueprint(t);
+  for (const block of bp.blocks) {
+    if (!blockCatalog[block]) blockCatalog[block] = [];
+    if (!blockCatalog[block].includes(t.slug)) blockCatalog[block].push(t.slug);
+  }
   return {
     ...t,
+    seed: bp.seed,
+    generation: bp.generation,
+    intents: bp.intents,
+    blocks: bp.blocks,
+    params: bp.params,
+    commands: bp.commands,
     screenshotUrl: `${GALLERY_ORIGIN}/screenshots/${shotFile}`,
     hasScreenshot: hasShot,
     templateUrl: `${GALLERY_ORIGIN}/templates/${t.slug}`,
-    repo: `https://github.com/hanzo-apps/template-${t.slug}`,
+    repo: bp.repo,
+    deployUrl: bp.deployUrl,
   };
 });
 
 const withShots = enriched.filter((t) => t.hasScreenshot).length;
+const seedSlugs = enriched.filter((t) => t.seed).map((t) => t.slug);
 
 // A catalog where NOTHING has a picture is a broken build, not a thin one. It is
 // also exactly what a wrong extension, a moved directory or an empty checkout
@@ -57,10 +73,12 @@ if (missing.length) {
 }
 
 const payload = {
-  version: 1,
+  version: 2,
   origin: GALLERY_ORIGIN,
   count: enriched.length,
   screenshots: withShots,
+  seeds: seedSlugs,
+  blockCatalog,
   generatedAt: new Date().toISOString(),
   templates: enriched,
 };

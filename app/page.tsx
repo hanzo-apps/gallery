@@ -94,7 +94,7 @@ function UseCase({ title, description, count }: { title: string; description: st
 const has = (needle: string) => (s: string) => s.toLowerCase().includes(needle);
 
 export default function GalleryHome() {
-  const featured = templates.filter((x) => x.tier === 1).slice(0, 6);
+  const featured = templates.filter((x) => x.tier === 1).slice(0, 18);
   const components = templates.reduce((sum, x) => {
     const m = x.components.match(/(\d+)/);
     return sum + (m ? parseInt(m[1]) : 0);

@@ -21,12 +21,14 @@ import { ForkModal } from '../components/ForkModal';
 import { HEADER } from '../components/header';
 import { shot } from '../lib/shot';
 import { getUniqueTemplates, groupTemplatesByFamily } from '../lib/template-utils';
+import { getBlueprint, pickRandomSeedTemplate } from '../lib/template-assembly';
 import { c, round, column } from '../lib/design';
 
-type SortOption = 'name-asc' | 'name-desc' | 'rating-high' | 'rating-low' | 'framework' | 'updated';
+type SortOption = 'featured' | 'name-asc' | 'name-desc' | 'rating-high' | 'rating-low' | 'framework' | 'updated';
 type ViewMode = 'consolidated' | 'grouped';
 
 const sorts: [SortOption, string][] = [
+  ['featured', 'Featured'],
   ['name-asc', 'A-Z'],
   ['name-desc', 'Z-A'],
   ['rating-high', 'Top Rated'],
@@ -110,7 +112,7 @@ export default function Gallery() {
   const router = useRouter();
   const [category, setCategory] = useState('All Categories');
   const [search, setSearch] = useState('');
-  const [sortBy, setSortBy] = useState<SortOption>('name-asc');
+  const [sortBy, setSortBy] = useState<SortOption>('featured');
   const [forking, setForking] = useState<Template | null>(null);
   const [view, setView] = useState<ViewMode>('grouped');
   const [open, setOpen] = useState<Set<string>>(new Set());
@@ -119,7 +121,8 @@ export default function Gallery() {
   const families = groupTemplatesByFamily(templateData);
 
   function toRandom() {
-    if (unique.length > 0) router.push(`/templates/${unique[Math.floor(Math.random() * unique.length)].slug}`);
+    const picked = pickRandomSeedTemplate({ category }, unique);
+    if (picked?.template) router.push(`/templates/${picked.template.slug}`);
   }
 
   function toggle(family: string) {
@@ -131,13 +134,27 @@ export default function Gallery() {
     });
   }
 
-  const hit = (x: Template, name: string) =>
-    (category === 'All Categories' || x.category === category) &&
-    (search === '' ||
-      [name, x.useCase, x.framework, x.category].some((s) => s.toLowerCase().includes(search.toLowerCase())));
+  const hit = (x: Template, name: string) => {
+    if (category !== 'All Categories' && x.category !== category) return false;
+    if (search === '') return true;
+    const q = search.toLowerCase();
+    const bp = getBlueprint(x);
+    return [
+      name,
+      x.useCase,
+      x.framework,
+      x.category,
+      x.description || '',
+      ...x.features,
+      ...bp.intents,
+      ...bp.blocks,
+    ].some((s) => s.toLowerCase().includes(q));
+  };
 
   const rank = (a: Template, b: Template, an: string, bn: string) => {
     switch (sortBy) {
+      case 'featured':
+        return 0;
       case 'name-asc':
         return an.localeCompare(bn);
       case 'name-desc':

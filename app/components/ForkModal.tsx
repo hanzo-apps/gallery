@@ -1,10 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { Dialog, DialogContent, YStack, XStack, Text, ScrollView } from '@hanzo/ui';
+import { Dialog, DialogContent, YStack, XStack, Text, ScrollView, Input } from '@hanzo/ui';
 import { Grid } from '@hanzo/ui/grid';
-import { Action } from '@hanzo/ui/marketing';
+import { Action, Chip } from '@hanzo/ui/marketing';
 import type { Template } from '../templates-data';
+import { assembleProjectConfig, getBlueprint } from '../lib/template-assembly';
 import { c, round, mono } from '../lib/design';
 
 interface ForkModalProps {
@@ -86,26 +87,31 @@ function Well({ children }: { children: React.ReactNode }) {
 }
 
 export function ForkModal({ template, onClose }: ForkModalProps) {
-  const [method, setMethod] = useState<Method | null>(null);
+  const blueprint = getBlueprint(template);
+  const [method, setMethod] = useState<Method | null>('cloud');
   const [busy, setBusy] = useState(false);
+  const [params, setParams] = useState<Record<string, string>>(() =>
+    Object.fromEntries(blueprint.params.map((p) => [p.key, p.default])),
+  );
+  const [blocks, setBlocks] = useState<string[]>(() => [...blueprint.blocks]);
 
-  const repo = `https://github.com/hanzo-apps/template-${template.slug}`;
+  const assembled = assembleProjectConfig(template, params, blocks);
+  const repo = blueprint.repo;
+
+  const toggleBlock = (b: string) => {
+    setBlocks((prev) => (prev.includes(b) ? (prev.length > 1 ? prev.filter((x) => x !== b) : prev) : [...prev, b]));
+  };
 
   const run = async () => {
     setBusy(true);
     try {
       if (method === 'cloud') {
-        await new Promise((r) => setTimeout(r, 2000));
-        alert('🚀 Deployment initiated!\n\nYour template is being deployed to Hanzo Cloud.\nYou will receive a deployment URL shortly.');
+        window.open(assembled.studioBuildUrl, '_blank', 'noopener,noreferrer');
       } else if (method === 'local') {
-        window.open(repo, '_blank');
-        alert('📦 Opening GitHub repository!\n\nClone the repo and follow the setup commands.');
+        window.open(repo, '_blank', 'noopener,noreferrer');
       } else if (method === 'github') {
-        await new Promise((r) => setTimeout(r, 1500));
-        alert('🔗 GitHub fork created!\n\nRepository forked to your account.\nConnect to Hanzo Cloud in the next step.');
+        window.open(`${repo}/fork`, '_blank', 'noopener,noreferrer');
       }
-    } catch (error) {
-      alert('Error: ' + (error instanceof Error ? error.message : 'Unknown error'));
     } finally {
       setBusy(false);
     }
@@ -206,15 +212,64 @@ export function ForkModal({ template, onClose }: ForkModalProps) {
           </YStack>
 
           <Well>
+            <YStack gap={14}>
+              <Head>Parameterize & Assemble Seed Template</Head>
+              <Grid columns={{ min: 220, max: 2 }} gap={12}>
+                {blueprint.params.map((p) => (
+                  <YStack key={p.key} gap={6}>
+                    <Text fontSize="$1" lineHeight={16} fontWeight="500" color={c.muted}>
+                      {p.label} ({p.envVar})
+                    </Text>
+                    <Input
+                      value={params[p.key] ?? p.default}
+                      onChangeText={(val: string) => setParams((prev) => ({ ...prev, [p.key]: val }))}
+                      rounded={round.control}
+                      bg={c.ground}
+                      borderColor={c.edge}
+                      color={c.ink}
+                    />
+                  </YStack>
+                ))}
+              </Grid>
+              <YStack gap={8} pt={4}>
+                <Text fontSize="$1" lineHeight={16} fontWeight="500" color={c.muted}>
+                  Modular Blocks ({blocks.length} of {blueprint.blocks.length} enabled)
+                </Text>
+                <XStack flexWrap="wrap" gap={8}>
+                  {blueprint.blocks.map((b) => {
+                    const active = blocks.includes(b);
+                    return (
+                      <Chip
+                        key={b}
+                        render="button"
+                        onClick={() => toggleBlock(b)}
+                        aria-pressed={active}
+                        px={12}
+                        py={4}
+                        cursor="pointer"
+                        {...(active
+                          ? { bg: c.bright, color: c.onBright, borderColor: c.bright }
+                          : { bg: 'transparent', color: c.muted, borderColor: c.edge })}
+                      >
+                        {b}
+                      </Chip>
+                    );
+                  })}
+                </XStack>
+              </YStack>
+            </YStack>
+          </Well>
+
+          <Well>
             <XStack items="center" justify="space-between" mb={12}>
-              <Head>Setup Commands</Head>
-              <Action render="button" onClick={() => copy(setupCommands(template), '✅ Setup commands copied to clipboard!')} minH={32} px={12}>
+              <Head>Parameterized Setup Commands</Head>
+              <Action render="button" onClick={() => copy(assembled.cliCommand, '✅ Setup commands copied to clipboard!')} minH={32} px={12}>
                 Copy
               </Action>
             </XStack>
             <YStack bg={c.ground} p={16} rounded={round.control} borderWidth={1} borderColor={c.edge} overflow="scroll">
               <Text render="pre" m={0} {...mono} fontSize="$2" lineHeight={20} color={c.ink} style={{ whiteSpace: 'pre' }}>
-                {setupCommands(template)}
+                {assembled.cliCommand}
               </Text>
             </YStack>
           </Well>
