@@ -1,6 +1,6 @@
 # LLM.md — Hanzo Agent Build Playbook for Prism (React) (`prism-react`)
 
-> **Agent Directive:** Read this file before modifying any code. This repository is a Hanzo Cloud-optimized seed template (`https://github.com/hanzo-apps/template-prism-react`). Use the Hotspot File Map, Parameterization Contract, and `src/lib/hanzo.ts` SDK below to customize and ship the user's application in minimal turns with zero broken builds.
+> **Agent Directive:** Read this file before modifying any code. This repository is a Hanzo Cloud-optimized seed template (`https://github.com/hanzo-apps/prism-react`). Use the Hotspot File Map, Parameterization Contract, and `src/lib/hanzo.ts` SDK below to customize and ship the user's application in minimal turns with zero broken builds.
 
 ## 1. Template Identity & Stack
 - **Template Seed:** `prism-react` (Prism (React))

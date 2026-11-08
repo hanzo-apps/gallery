@@ -1,0 +1,68 @@
+{
+  "seed": "portfolio",
+  "name": "Portfolio",
+  "slug": "portfolio",
+  "framework": "Next.js 14.2 + TS",
+  "category": "Portfolio",
+  "repo": "https://github.com/hanzo-apps/portfolio",
+  "llmMd": "https://gallery.hanzo.ai/llms/portfolio/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/constants/",
+      "src/mocks/",
+      "app/page.tsx"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "components/",
+      "app/"
+    ],
+    "stylingTokens": [
+      "app/globals.css",
+      "tailwind.config.ts"
+    ],
+    "preserveDoNotBreak": [
+      "next.config.mjs",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "project-showcase-grid",
+    "case-study-detail",
+    "about-bio",
+    "contact-form",
+    "hanzo-cloud",
+    "responsive",
+    "typescript"
+  ],
+  "params": {
+    "brandName": "Portfolio",
+    "tagline": "Portfolio",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_portfolio",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/portfolio\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_portfolio",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/portfolio",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "out",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fportfolio&template=portfolio&name=portfolio",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fportfolio&seed=portfolio",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=portfolio&name=portfolio"
+  }
+}

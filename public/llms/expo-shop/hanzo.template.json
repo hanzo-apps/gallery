@@ -1,0 +1,68 @@
+{
+  "seed": "expo-shop",
+  "name": "Hanzo Shop",
+  "slug": "hanzo-shop",
+  "framework": "Expo SDK 54 + expo-router 6",
+  "category": "Mobile App",
+  "repo": "https://github.com/hanzo-apps/expo-shop",
+  "llmMd": "https://gallery.hanzo.ai/llms/expo-shop/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/",
+      "src/constants/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "src/pages/",
+      "src/App.tsx"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "product-grid",
+    "cart",
+    "tab-badge"
+  ],
+  "params": {
+    "brandName": "Hanzo Shop",
+    "tagline": "Mobile commerce",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_expo-shop",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npx serve .",
+    "build": "echo \"Static build ready\"",
+    "deploy": "npx hanzo deploy --static --path \"apps/expo-shop\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_expo-shop",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/hanzo-shop",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fexpo-shop&template=expo-shop&name=hanzo-shop",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fexpo-shop&seed=expo-shop",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=expo-shop&name=hanzo-shop"
+  }
+}

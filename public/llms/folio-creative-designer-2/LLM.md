@@ -1,6 +1,6 @@
 # LLM.md — Hanzo Agent Build Playbook for Folio Creative Designer 2 (`folio-creative-designer-2`)
 
-> **Agent Directive:** Read this file before modifying any code. This repository is a Hanzo Cloud-optimized seed template (`https://github.com/hanzo-apps/template-folio-creative-designer-2`). Use the Hotspot File Map, Parameterization Contract, and `src/lib/hanzo.ts` SDK below to customize and ship the user's application in minimal turns with zero broken builds.
+> **Agent Directive:** Read this file before modifying any code. This repository is a Hanzo Cloud-optimized seed template (`https://github.com/hanzo-apps/folio-creative-designer-2`). Use the Hotspot File Map, Parameterization Contract, and `src/lib/hanzo.ts` SDK below to customize and ship the user's application in minimal turns with zero broken builds.
 
 ## 1. Template Identity & Stack
 - **Template Seed:** `folio-creative-designer-2` (Folio Creative Designer 2)

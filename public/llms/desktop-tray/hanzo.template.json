@@ -1,0 +1,67 @@
+{
+  "seed": "desktop-tray",
+  "name": "Tray",
+  "slug": "tray",
+  "framework": "Tauri v2 + tray-icon",
+  "category": "Desktop",
+  "repo": "https://github.com/hanzo-apps/desktop-tray",
+  "llmMd": "https://gallery.hanzo.ai/llms/desktop-tray/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/App.tsx",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/App.tsx",
+      "src/"
+    ],
+    "stylingTokens": [
+      "src/styles.css",
+      "index.html"
+    ],
+    "preserveDoNotBreak": [
+      "src-tauri/src/lib.rs",
+      "src-tauri/tauri.conf.json",
+      "vite.config.ts"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "tray-icon",
+    "global-shortcut",
+    "clipboard-watch"
+  ],
+  "params": {
+    "brandName": "Tray",
+    "tagline": "Always-resident menubar utilities",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_desktop-tray",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npx serve .",
+    "build": "echo \"Static build ready\"",
+    "deploy": "npx hanzo deploy --static --path \"apps/desktop-tray\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_desktop-tray",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/tray",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fdesktop-tray&template=desktop-tray&name=tray",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fdesktop-tray&seed=desktop-tray",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=desktop-tray&name=tray"
+  }
+}

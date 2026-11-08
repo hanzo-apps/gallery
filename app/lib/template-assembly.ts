@@ -66,6 +66,77 @@ const MODERN_SEED_SLUGS = new Set([
   'animated-rings',
   'bestiary',
   'emptykit',
+  // 35 Full-Stack @hanzo/gui + @hanzo/iam + @hanzo/base Apps
+  'agenda',
+  'bistro',
+  'booking',
+  'deskline',
+  'devlog',
+  'dispatch',
+  'dropstore',
+  'epk',
+  'essays',
+  'expenses',
+  'feedback',
+  'gear',
+  'habits',
+  'hanzo-starter',
+  'inventory',
+  'kanban',
+  'launchpad',
+  'links',
+  'magazine',
+  'meetup',
+  'photoessay',
+  'proposal',
+  'rally',
+  'reading',
+  'releases',
+  'resume',
+  'retro',
+  'roadmap',
+  'roster',
+  'setlist',
+  'shop',
+  'smartlink',
+  'standup',
+  'upvote',
+  'waitlist',
+  // 8 Desktop Apps (Tauri v2 / Electron + React 19 + Hanzo Base)
+  'desktop-tauri',
+  'desktop-chat',
+  'desktop-editor',
+  'desktop-electron',
+  'desktop-monitor',
+  'desktop-notes',
+  'desktop-recorder',
+  'desktop-tray',
+  // 6 WebGPU / Physics / Game Starters
+  'three-webgpu',
+  'rapier-physics',
+  'voxel-craft',
+  'kart-racer',
+  'godot-arcade',
+  'unity-webgl',
+  // 18 Mobile & Native Starters
+  'mobile',
+  'expo-auth',
+  'expo-chat',
+  'expo-shop',
+  'flutter',
+  'flutter-chat',
+  'swiftui',
+  'swiftui-chat',
+  'android-compose-jetchat',
+  'android-compose-jetnews',
+  'android-compose-jetsnack',
+  'android-expo-nativewind',
+  'android-expo-tabs',
+  'android-flutter-animations',
+  'android-flutter-forms',
+  'android-flutter-material3',
+  'android-flutter-routing',
+  'android-rn-obytes',
 ]);
 
 const SEED_SPECS: Record<
@@ -625,6 +696,22 @@ const HOTSPOT_FILES: Record<
 function resolveHotspots(template: Template) {
   if (HOTSPOT_FILES[template.slug]) return HOTSPOT_FILES[template.slug];
   const f = template.framework.toLowerCase();
+  if (f.includes('@hanzo/gui') || f.includes('@hanzo/base')) {
+    return {
+      copyData: ['schema.sql', 'src/views/', 'src/app.tsx'],
+      uiComponents: ['src/views/', 'src/ui.tsx', 'src/icons.tsx'],
+      stylingTokens: ['src/theme.ts', 'src/gui.config.ts'],
+      preserveDoNotBreak: ['src/providers.tsx', 'src/lib/base.ts', 'src/iam.config.ts', 'vite.config.ts'],
+    };
+  }
+  if (f.includes('tauri') || f.includes('electron')) {
+    return {
+      copyData: ['src/App.tsx', 'index.html'],
+      uiComponents: ['src/App.tsx', 'src/'],
+      stylingTokens: ['src/styles.css', 'index.html'],
+      preserveDoNotBreak: ['src-tauri/src/lib.rs', 'src-tauri/tauri.conf.json', 'vite.config.ts'],
+    };
+  }
   if (f.includes('next')) {
     return {
       copyData: ['src/constants/', 'src/mocks/', 'app/page.tsx'],
@@ -645,13 +732,15 @@ export function getBlueprint(template: Template): TemplateBlueprint {
   const isModernSeed = MODERN_SEED_SLUGS.has(template.slug);
   const spec = SEED_SPECS[template.slug];
   const fallback = deriveCategoryBlocks(template);
-  const repo = `https://github.com/hanzo-apps/template-${template.slug}`;
+  const repo = `https://github.com/hanzo-apps/${template.slug}`;
   const params = [...baseParams(template), ...(spec?.extraParams ?? [])];
   const c = template.category.toLowerCase();
+  const f = template.framework.toLowerCase();
   const cloudServices = [
     'Zen AI Gateway (api.hanzo.ai)',
     'Hanzo Analytics & Insights (analytics.hanzo.ai)',
     'Hanzo IAM Auth (hanzo.id)',
+    ...(f.includes('@hanzo/base') || f.includes('tauri') || f.includes('electron') ? ['Hanzo Base SQLite + Realtime (api.hanzo.ai)'] : []),
     ...(c.includes('commerce') || c.includes('e-commerce') ? ['Hanzo Commerce & Billing'] : []),
     ...(c.includes('ai') || c.includes('dashboard') ? ['Hanzo Vector & KV Cloud'] : []),
     'Hanzo Global Edge CDN',

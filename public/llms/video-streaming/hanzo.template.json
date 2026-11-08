@@ -1,0 +1,68 @@
+{
+  "seed": "video-streaming",
+  "name": "Video Streaming",
+  "slug": "video-streaming",
+  "framework": "Next.js 14.2 + TS",
+  "category": "Media",
+  "repo": "https://github.com/hanzo-apps/video-streaming",
+  "llmMd": "https://gallery.hanzo.ai/llms/video-streaming/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/constants/",
+      "src/mocks/",
+      "app/page.tsx"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "components/",
+      "app/"
+    ],
+    "stylingTokens": [
+      "app/globals.css",
+      "tailwind.config.ts"
+    ],
+    "preserveDoNotBreak": [
+      "next.config.mjs",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "hanzo-cloud",
+    "responsive",
+    "typescript"
+  ],
+  "params": {
+    "brandName": "Video Streaming",
+    "tagline": "Video Streaming",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_video-streaming",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/video-streaming\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_video-streaming",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/video-streaming",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "out",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fvideo-streaming&template=video-streaming&name=video-streaming",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fvideo-streaming&seed=video-streaming",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=video-streaming&name=video-streaming"
+  }
+}

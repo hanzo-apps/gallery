@@ -4,7 +4,7 @@
   "slug": "fernline-ops",
   "framework": "Next.js 16 + React 19 + TS",
   "category": "AI/SaaS",
-  "repo": "https://github.com/hanzo-apps/template-fernline",
+  "repo": "https://github.com/hanzo-apps/fernline",
   "llmMd": "https://gallery.hanzo.ai/llms/fernline/LLM.md",
   "hotspots": {
     "copyData": [
@@ -64,8 +64,8 @@
   },
   "platform": {
     "outDir": "out",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-fernline&template=fernline&name=fernline-ops",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-fernline&seed=fernline",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ffernline&template=fernline&name=fernline-ops",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ffernline&seed=fernline",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=fernline&name=fernline-ops"
   }
 }

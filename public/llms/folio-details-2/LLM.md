@@ -1,6 +1,6 @@
 # LLM.md — Hanzo Agent Build Playbook for Folio Details 2 (`folio-details-2`)
 
-> **Agent Directive:** Read this file before modifying any code. This repository is a Hanzo Cloud-optimized seed template (`https://github.com/hanzo-apps/template-folio-details-2`). Use the Hotspot File Map, Parameterization Contract, and `src/lib/hanzo.ts` SDK below to customize and ship the user's application in minimal turns with zero broken builds.
+> **Agent Directive:** Read this file before modifying any code. This repository is a Hanzo Cloud-optimized seed template (`https://github.com/hanzo-apps/folio-details-2`). Use the Hotspot File Map, Parameterization Contract, and `src/lib/hanzo.ts` SDK below to customize and ship the user's application in minimal turns with zero broken builds.
 
 ## 1. Template Identity & Stack
 - **Template Seed:** `folio-details-2` (Folio Details 2)

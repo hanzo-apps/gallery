@@ -1,0 +1,68 @@
+{
+  "seed": "folio",
+  "name": "Folio",
+  "slug": "folio",
+  "framework": "HTML/Gulp",
+  "category": "Portfolio",
+  "repo": "https://github.com/hanzo-apps/folio",
+  "llmMd": "https://gallery.hanzo.ai/llms/folio/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/",
+      "src/constants/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "src/pages/",
+      "src/App.tsx"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "project-showcase-grid",
+    "case-study-detail",
+    "about-bio",
+    "contact-form",
+    "portfolio",
+    "multi-layout",
+    "creative"
+  ],
+  "params": {
+    "brandName": "Folio",
+    "tagline": "Creative portfolios",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_folio",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npx gulp",
+    "build": "npx gulp build",
+    "deploy": "npx hanzo deploy --static --path \"apps/folio\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_folio",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/folio",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "build",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ffolio&template=folio&name=folio",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ffolio&seed=folio",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=folio&name=folio"
+  }
+}

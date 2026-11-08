@@ -1,0 +1,67 @@
+{
+  "seed": "desktop-tauri",
+  "name": "Hanzo Desktop",
+  "slug": "hanzo-desktop",
+  "framework": "Tauri v2 + React 19 + Vite 7",
+  "category": "Desktop",
+  "repo": "https://github.com/hanzo-apps/desktop-tauri",
+  "llmMd": "https://gallery.hanzo.ai/llms/desktop-tauri/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/App.tsx",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/App.tsx",
+      "src/"
+    ],
+    "stylingTokens": [
+      "src/styles.css",
+      "index.html"
+    ],
+    "preserveDoNotBreak": [
+      "src-tauri/src/lib.rs",
+      "src-tauri/tauri.conf.json",
+      "vite.config.ts"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "rust-core",
+    "web-fallback",
+    "hanzo-base"
+  ],
+  "params": {
+    "brandName": "Hanzo Desktop",
+    "tagline": "Any cross-platform desktop app",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_desktop-tauri",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/desktop-tauri\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_desktop-tauri",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/hanzo-desktop",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fdesktop-tauri&template=desktop-tauri&name=hanzo-desktop",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fdesktop-tauri&seed=desktop-tauri",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=desktop-tauri&name=hanzo-desktop"
+  }
+}

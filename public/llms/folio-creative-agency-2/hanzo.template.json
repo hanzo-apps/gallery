@@ -4,7 +4,7 @@
   "slug": "folio-creative-agency-2",
   "framework": "HTML/Gulp",
   "category": "Folio Portfolio",
-  "repo": "https://github.com/hanzo-apps/template-folio-creative-agency-2",
+  "repo": "https://github.com/hanzo-apps/folio-creative-agency-2",
   "llmMd": "https://gallery.hanzo.ai/llms/folio-creative-agency-2/LLM.md",
   "hotspots": {
     "copyData": [
@@ -61,8 +61,8 @@
   },
   "platform": {
     "outDir": "build",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-folio-creative-agency-2&template=folio-creative-agency-2&name=folio-creative-agency-2",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-folio-creative-agency-2&seed=folio-creative-agency-2",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ffolio-creative-agency-2&template=folio-creative-agency-2&name=folio-creative-agency-2",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ffolio-creative-agency-2&seed=folio-creative-agency-2",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=folio-creative-agency-2&name=folio-creative-agency-2"
   }
 }

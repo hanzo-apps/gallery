@@ -4,7 +4,7 @@
   "slug": "loop",
   "framework": "React 18",
   "category": "Bento Cards",
-  "repo": "https://github.com/hanzo-apps/template-loop",
+  "repo": "https://github.com/hanzo-apps/loop",
   "llmMd": "https://gallery.hanzo.ai/llms/loop/LLM.md",
   "hotspots": {
     "copyData": [
@@ -61,8 +61,8 @@
   },
   "platform": {
     "outDir": "build",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-loop&template=loop&name=loop",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-loop&seed=loop",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Floop&template=loop&name=loop",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Floop&seed=loop",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=loop&name=loop"
   }
 }

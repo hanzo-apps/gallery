@@ -4,7 +4,7 @@
   "slug": "atlas-globe",
   "framework": "Three.js + React 19 + TS",
   "category": "3D & Shaders",
-  "repo": "https://github.com/hanzo-apps/template-dotted-globe",
+  "repo": "https://github.com/hanzo-apps/dotted-globe",
   "llmMd": "https://gallery.hanzo.ai/llms/dotted-globe/LLM.md",
   "hotspots": {
     "copyData": [
@@ -59,8 +59,8 @@
   },
   "platform": {
     "outDir": "dist",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-dotted-globe&template=dotted-globe&name=atlas-globe",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-dotted-globe&seed=dotted-globe",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fdotted-globe&template=dotted-globe&name=atlas-globe",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fdotted-globe&seed=dotted-globe",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=dotted-globe&name=atlas-globe"
   }
 }

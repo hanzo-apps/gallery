@@ -1,0 +1,68 @@
+{
+  "seed": "canvas",
+  "name": "Canvas",
+  "slug": "canvas",
+  "framework": "Next.js 14.2 + GSAP",
+  "category": "Portfolio",
+  "repo": "https://github.com/hanzo-apps/canvas",
+  "llmMd": "https://gallery.hanzo.ai/llms/canvas/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/constants/",
+      "src/mocks/",
+      "app/page.tsx"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "components/",
+      "app/"
+    ],
+    "stylingTokens": [
+      "app/globals.css",
+      "tailwind.config.ts"
+    ],
+    "preserveDoNotBreak": [
+      "next.config.mjs",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "project-showcase-grid",
+    "case-study-detail",
+    "about-bio",
+    "contact-form",
+    "portfolio",
+    "gsap",
+    "studio"
+  ],
+  "params": {
+    "brandName": "Canvas",
+    "tagline": "Design studios",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_canvas",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/canvas\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_canvas",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/canvas",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "out",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fcanvas&template=canvas&name=canvas",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fcanvas&seed=canvas",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=canvas&name=canvas"
+  }
+}

@@ -4,7 +4,7 @@
   "slug": "orbital-core",
   "framework": "Three.js + React 19 + TS",
   "category": "3D & Shaders",
-  "repo": "https://github.com/hanzo-apps/template-animated-rings",
+  "repo": "https://github.com/hanzo-apps/animated-rings",
   "llmMd": "https://gallery.hanzo.ai/llms/animated-rings/LLM.md",
   "hotspots": {
     "copyData": [
@@ -54,8 +54,8 @@
   },
   "platform": {
     "outDir": "dist",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-animated-rings&template=animated-rings&name=orbital-core",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-animated-rings&seed=animated-rings",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fanimated-rings&template=animated-rings&name=orbital-core",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fanimated-rings&seed=animated-rings",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=animated-rings&name=orbital-core"
   }
 }

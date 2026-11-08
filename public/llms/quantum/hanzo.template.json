@@ -1,0 +1,68 @@
+{
+  "seed": "quantum",
+  "name": "Quantum Analytics",
+  "slug": "quantum-analytics",
+  "framework": "React 19 + Vite + TS",
+  "category": "Dashboard",
+  "repo": "https://github.com/hanzo-apps/quantum",
+  "llmMd": "https://gallery.hanzo.ai/llms/quantum/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/",
+      "src/constants/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "src/pages/",
+      "src/App.tsx"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "sidebar-nav",
+    "kpi-stat-cards",
+    "revenue-chart",
+    "activity-table",
+    "realtime-charts",
+    "telemetry-grid",
+    "command-bar"
+  ],
+  "params": {
+    "brandName": "Quantum Analytics",
+    "tagline": "Quantitative & AI ops dashboards",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_quantum",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/quantum\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_quantum",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/quantum-analytics",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fquantum&template=quantum&name=quantum-analytics",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fquantum&seed=quantum",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=quantum&name=quantum-analytics"
+  }
+}

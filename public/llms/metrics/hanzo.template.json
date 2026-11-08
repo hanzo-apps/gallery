@@ -4,7 +4,7 @@
   "slug": "metrics",
   "framework": "Next.js 13.3 + TS",
   "category": "Dashboard",
-  "repo": "https://github.com/hanzo-apps/template-metrics",
+  "repo": "https://github.com/hanzo-apps/metrics",
   "llmMd": "https://gallery.hanzo.ai/llms/metrics/LLM.md",
   "hotspots": {
     "copyData": [
@@ -61,8 +61,8 @@
   },
   "platform": {
     "outDir": "out",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-metrics&template=metrics&name=metrics",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-metrics&seed=metrics",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fmetrics&template=metrics&name=metrics",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fmetrics&seed=metrics",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=metrics&name=metrics"
   }
 }

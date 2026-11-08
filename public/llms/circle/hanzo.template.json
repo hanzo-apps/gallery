@@ -4,7 +4,7 @@
   "slug": "circle",
   "framework": "Next.js 14.2 + TS",
   "category": "Social Media",
-  "repo": "https://github.com/hanzo-apps/template-circle",
+  "repo": "https://github.com/hanzo-apps/circle",
   "llmMd": "https://gallery.hanzo.ai/llms/circle/LLM.md",
   "hotspots": {
     "copyData": [
@@ -61,8 +61,8 @@
   },
   "platform": {
     "outDir": "out",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-circle&template=circle&name=circle",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-circle&seed=circle",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fcircle&template=circle&name=circle",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fcircle&seed=circle",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=circle&name=circle"
   }
 }

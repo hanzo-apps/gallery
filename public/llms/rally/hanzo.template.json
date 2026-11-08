@@ -1,0 +1,70 @@
+{
+  "seed": "rally",
+  "name": "Event Rally",
+  "slug": "event-rally",
+  "framework": "Vite + React 19 + @hanzo/gui + @hanzo/base",
+  "category": "Landing",
+  "repo": "https://github.com/hanzo-apps/rally",
+  "llmMd": "https://gallery.hanzo.ai/llms/rally/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "schema.sql",
+      "src/views/",
+      "src/app.tsx"
+    ],
+    "uiComponents": [
+      "src/views/",
+      "src/ui.tsx",
+      "src/icons.tsx"
+    ],
+    "stylingTokens": [
+      "src/theme.ts",
+      "src/gui.config.ts"
+    ],
+    "preserveDoNotBreak": [
+      "src/providers.tsx",
+      "src/lib/base.ts",
+      "src/iam.config.ts",
+      "vite.config.ts"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "one-tap-rsvp",
+    "guest-wall",
+    "event-countdown"
+  ],
+  "params": {
+    "brandName": "Event Rally",
+    "tagline": "Single-event invites & launch parties",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_rally",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/rally\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_rally",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/event-rally",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Frally&template=rally&name=event-rally",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Frally&seed=rally",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=rally&name=event-rally"
+  }
+}

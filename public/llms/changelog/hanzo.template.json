@@ -1,0 +1,68 @@
+{
+  "seed": "changelog",
+  "name": "Changelog",
+  "slug": "changelog",
+  "framework": "Next.js 15.3 + TS",
+  "category": "Blog",
+  "repo": "https://github.com/hanzo-apps/changelog",
+  "llmMd": "https://gallery.hanzo.ai/llms/changelog/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/constants/",
+      "src/mocks/",
+      "app/page.tsx"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "components/",
+      "app/"
+    ],
+    "stylingTokens": [
+      "app/globals.css",
+      "tailwind.config.ts"
+    ],
+    "preserveDoNotBreak": [
+      "next.config.mjs",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "hanzo-cloud",
+    "responsive",
+    "typescript"
+  ],
+  "params": {
+    "brandName": "Changelog",
+    "tagline": "Changelog",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_changelog",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/changelog\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_changelog",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/changelog",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "out",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fchangelog&template=changelog&name=changelog",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fchangelog&seed=changelog",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=changelog&name=changelog"
+  }
+}

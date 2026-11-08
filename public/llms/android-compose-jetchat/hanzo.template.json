@@ -1,0 +1,68 @@
+{
+  "seed": "android-compose-jetchat",
+  "name": "Compose Jetchat",
+  "slug": "compose-jetchat",
+  "framework": "Jetpack Compose + Kotlin",
+  "category": "Mobile App",
+  "repo": "https://github.com/hanzo-apps/android-compose-jetchat",
+  "llmMd": "https://gallery.hanzo.ai/llms/android-compose-jetchat/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/",
+      "src/constants/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "src/pages/",
+      "src/App.tsx"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "material-3",
+    "jetpack-compose",
+    "chat-ui"
+  ],
+  "params": {
+    "brandName": "Compose Jetchat",
+    "tagline": "Android messaging & AI chat apps",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_android-compose-jetchat",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npx serve .",
+    "build": "echo \"Static build ready\"",
+    "deploy": "npx hanzo deploy --static --path \"apps/android-compose-jetchat\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_android-compose-jetchat",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/compose-jetchat",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fandroid-compose-jetchat&template=android-compose-jetchat&name=compose-jetchat",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fandroid-compose-jetchat&seed=android-compose-jetchat",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=android-compose-jetchat&name=compose-jetchat"
+  }
+}

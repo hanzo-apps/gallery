@@ -1,0 +1,68 @@
+{
+  "seed": "saas",
+  "name": "SaaS Core",
+  "slug": "saas-core",
+  "framework": "Next.js 15 + React 19 + TS",
+  "category": "SaaS",
+  "repo": "https://github.com/hanzo-apps/saas",
+  "llmMd": "https://gallery.hanzo.ai/llms/saas/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/constants/",
+      "src/mocks/",
+      "app/page.tsx"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "components/",
+      "app/"
+    ],
+    "stylingTokens": [
+      "app/globals.css",
+      "tailwind.config.ts"
+    ],
+    "preserveDoNotBreak": [
+      "next.config.mjs",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "hero-cta",
+    "feature-bento",
+    "pricing-tiers",
+    "testimonials",
+    "multi-tenant",
+    "api-key-manager",
+    "team-billing"
+  ],
+  "params": {
+    "brandName": "SaaS Core",
+    "tagline": "B2B SaaS products & portals",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_saas",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/saas\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_saas",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/saas-core",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "out",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fsaas&template=saas&name=saas-core",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fsaas&seed=saas",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=saas&name=saas-core"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "seed": "blog-platform",
+  "name": "Blog Platform",
+  "slug": "blog-platform",
+  "framework": "Next.js 14.2 + TS",
+  "category": "Blog",
+  "repo": "https://github.com/hanzo-apps/blog-platform",
+  "llmMd": "https://gallery.hanzo.ai/llms/blog-platform/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/constants/",
+      "src/mocks/",
+      "app/page.tsx"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "components/",
+      "app/"
+    ],
+    "stylingTokens": [
+      "app/globals.css",
+      "tailwind.config.ts"
+    ],
+    "preserveDoNotBreak": [
+      "next.config.mjs",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "hanzo-cloud",
+    "responsive",
+    "typescript"
+  ],
+  "params": {
+    "brandName": "Blog Platform",
+    "tagline": "Blog Platform",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_blog-platform",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/blog-platform\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_blog-platform",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/blog-platform",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "out",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fblog-platform&template=blog-platform&name=blog-platform",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fblog-platform&seed=blog-platform",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=blog-platform&name=blog-platform"
+  }
+}

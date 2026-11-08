@@ -4,7 +4,7 @@
   "slug": "nova-ai",
   "framework": "React 19 + Vite + TS",
   "category": "AI/SaaS",
-  "repo": "https://github.com/hanzo-apps/template-nova",
+  "repo": "https://github.com/hanzo-apps/nova",
   "llmMd": "https://gallery.hanzo.ai/llms/nova/LLM.md",
   "hotspots": {
     "copyData": [
@@ -64,8 +64,8 @@
   },
   "platform": {
     "outDir": "dist",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-nova&template=nova&name=nova-ai",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-nova&seed=nova",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fnova&template=nova&name=nova-ai",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fnova&seed=nova",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=nova&name=nova-ai"
   }
 }

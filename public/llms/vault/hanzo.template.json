@@ -4,7 +4,7 @@
   "slug": "vault",
   "framework": "HTML/CSS/JS",
   "category": "Portfolio",
-  "repo": "https://github.com/hanzo-apps/template-vault",
+  "repo": "https://github.com/hanzo-apps/vault",
   "llmMd": "https://gallery.hanzo.ai/llms/vault/LLM.md",
   "hotspots": {
     "copyData": [
@@ -61,8 +61,8 @@
   },
   "platform": {
     "outDir": ".",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-vault&template=vault&name=vault",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-vault&seed=vault",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fvault&template=vault&name=vault",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fvault&seed=vault",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=vault&name=vault"
   }
 }

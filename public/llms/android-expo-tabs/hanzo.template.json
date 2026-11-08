@@ -1,0 +1,68 @@
+{
+  "seed": "android-expo-tabs",
+  "name": "Expo Tabs Starter",
+  "slug": "expo-tabs-starter",
+  "framework": "Expo + React Native + TS",
+  "category": "Mobile App",
+  "repo": "https://github.com/hanzo-apps/android-expo-tabs",
+  "llmMd": "https://gallery.hanzo.ai/llms/android-expo-tabs/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/",
+      "src/constants/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "src/pages/",
+      "src/App.tsx"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "typed-routes",
+    "bottom-tabs",
+    "modal-sheets"
+  ],
+  "params": {
+    "brandName": "Expo Tabs Starter",
+    "tagline": "Multi-tab iOS & Android apps",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_android-expo-tabs",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npm start",
+    "build": "npm run build",
+    "deploy": "npx hanzo deploy --path \"apps/android-expo-tabs\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_android-expo-tabs",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/expo-tabs-starter",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fandroid-expo-tabs&template=android-expo-tabs&name=expo-tabs-starter",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fandroid-expo-tabs&seed=android-expo-tabs",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=android-expo-tabs&name=expo-tabs-starter"
+  }
+}

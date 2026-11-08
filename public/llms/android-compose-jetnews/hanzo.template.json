@@ -1,0 +1,68 @@
+{
+  "seed": "android-compose-jetnews",
+  "name": "Compose Jetnews",
+  "slug": "compose-jetnews",
+  "framework": "Jetpack Compose + Kotlin",
+  "category": "Mobile App",
+  "repo": "https://github.com/hanzo-apps/android-compose-jetnews",
+  "llmMd": "https://gallery.hanzo.ai/llms/android-compose-jetnews/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/",
+      "src/constants/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "src/pages/",
+      "src/App.tsx"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "adaptive-layout",
+    "material-3",
+    "article-reader"
+  ],
+  "params": {
+    "brandName": "Compose Jetnews",
+    "tagline": "Android media & news readers",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_android-compose-jetnews",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npx serve .",
+    "build": "echo \"Static build ready\"",
+    "deploy": "npx hanzo deploy --static --path \"apps/android-compose-jetnews\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_android-compose-jetnews",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/compose-jetnews",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fandroid-compose-jetnews&template=android-compose-jetnews&name=compose-jetnews",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fandroid-compose-jetnews&seed=android-compose-jetnews",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=android-compose-jetnews&name=compose-jetnews"
+  }
+}

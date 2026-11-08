@@ -1,0 +1,70 @@
+{
+  "seed": "links",
+  "name": "Onepage Links",
+  "slug": "onepage-links",
+  "framework": "Vite + React 19 + @hanzo/gui + @hanzo/base",
+  "category": "Portfolio",
+  "repo": "https://github.com/hanzo-apps/links",
+  "llmMd": "https://gallery.hanzo.ai/llms/links/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "schema.sql",
+      "src/views/",
+      "src/app.tsx"
+    ],
+    "uiComponents": [
+      "src/views/",
+      "src/ui.tsx",
+      "src/icons.tsx"
+    ],
+    "stylingTokens": [
+      "src/theme.ts",
+      "src/gui.config.ts"
+    ],
+    "preserveDoNotBreak": [
+      "src/providers.tsx",
+      "src/lib/base.ts",
+      "src/iam.config.ts",
+      "vite.config.ts"
+    ]
+  },
+  "blocks": [
+    "project-showcase-grid",
+    "case-study-detail",
+    "about-bio",
+    "contact-form",
+    "link-in-bio",
+    "click-analytics",
+    "profile-editor"
+  ],
+  "params": {
+    "brandName": "Onepage Links",
+    "tagline": "Creator link-in-bio pages",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_links",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/links\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_links",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/onepage-links",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Flinks&template=links&name=onepage-links",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Flinks&seed=links",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=links&name=onepage-links"
+  }
+}

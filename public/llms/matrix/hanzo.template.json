@@ -1,0 +1,68 @@
+{
+  "seed": "matrix",
+  "name": "Matrix",
+  "slug": "matrix",
+  "framework": "HTML/Gulp",
+  "category": "Bento Cards",
+  "repo": "https://github.com/hanzo-apps/matrix",
+  "llmMd": "https://gallery.hanzo.ai/llms/matrix/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/",
+      "src/constants/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "src/pages/",
+      "src/App.tsx"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "bento-layout",
+    "ai-theme",
+    "next-js"
+  ],
+  "params": {
+    "brandName": "Matrix",
+    "tagline": "AI-focused bento card layouts",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_matrix",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npx gulp",
+    "build": "npx gulp build",
+    "deploy": "npx hanzo deploy --static --path \"apps/matrix\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_matrix",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/matrix",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "build",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fmatrix&template=matrix&name=matrix",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fmatrix&seed=matrix",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=matrix&name=matrix"
+  }
+}

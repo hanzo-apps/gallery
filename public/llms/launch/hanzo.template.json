@@ -4,7 +4,7 @@
   "slug": "launch",
   "framework": "Next.js 13",
   "category": "SaaS",
-  "repo": "https://github.com/hanzo-apps/template-launch",
+  "repo": "https://github.com/hanzo-apps/launch",
   "llmMd": "https://gallery.hanzo.ai/llms/launch/LLM.md",
   "hotspots": {
     "copyData": [
@@ -61,8 +61,8 @@
   },
   "platform": {
     "outDir": "out",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-launch&template=launch&name=launch",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-launch&seed=launch",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Flaunch&template=launch&name=launch",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Flaunch&seed=launch",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=launch&name=launch"
   }
 }

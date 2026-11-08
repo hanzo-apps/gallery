@@ -1,0 +1,68 @@
+{
+  "seed": "unfixed",
+  "name": "Unfixed Studio",
+  "slug": "unfixed-studio",
+  "framework": "Next.js 15 + React 19 + TS",
+  "category": "Portfolio",
+  "repo": "https://github.com/hanzo-apps/unfixed",
+  "llmMd": "https://gallery.hanzo.ai/llms/unfixed/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/constants/",
+      "src/mocks/",
+      "app/page.tsx"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "components/",
+      "app/"
+    ],
+    "stylingTokens": [
+      "app/globals.css",
+      "tailwind.config.ts"
+    ],
+    "preserveDoNotBreak": [
+      "next.config.mjs",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "project-showcase-grid",
+    "case-study-detail",
+    "about-bio",
+    "contact-form",
+    "fluid-typography",
+    "case-studies",
+    "smooth-scroll"
+  ],
+  "params": {
+    "brandName": "Unfixed Studio",
+    "tagline": "Design studios & creative agencies",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_unfixed",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/unfixed\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_unfixed",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/unfixed-studio",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "out",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Funfixed&template=unfixed&name=unfixed-studio",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Funfixed&seed=unfixed",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=unfixed&name=unfixed-studio"
+  }
+}

@@ -4,7 +4,7 @@
   "slug": "savor",
   "framework": "Next.js 14.2 + TS",
   "category": "E-commerce",
-  "repo": "https://github.com/hanzo-apps/template-savor",
+  "repo": "https://github.com/hanzo-apps/savor",
   "llmMd": "https://gallery.hanzo.ai/llms/savor/LLM.md",
   "hotspots": {
     "copyData": [
@@ -61,8 +61,8 @@
   },
   "platform": {
     "outDir": "out",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-savor&template=savor&name=savor",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-savor&seed=savor",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fsavor&template=savor&name=savor",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fsavor&seed=savor",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=savor&name=savor"
   }
 }

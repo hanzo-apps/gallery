@@ -4,7 +4,7 @@
   "slug": "serif",
   "framework": "HTML/Sass",
   "category": "Portfolio",
-  "repo": "https://github.com/hanzo-apps/template-serif",
+  "repo": "https://github.com/hanzo-apps/serif",
   "llmMd": "https://gallery.hanzo.ai/llms/serif/LLM.md",
   "hotspots": {
     "copyData": [
@@ -61,8 +61,8 @@
   },
   "platform": {
     "outDir": ".",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-serif&template=serif&name=serif",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-serif&seed=serif",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fserif&template=serif&name=serif",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fserif&seed=serif",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=serif&name=serif"
   }
 }

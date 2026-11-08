@@ -1,0 +1,70 @@
+{
+  "seed": "launchpad",
+  "name": "Launchpad",
+  "slug": "launchpad",
+  "framework": "Vite + React 19 + @hanzo/gui + @hanzo/base",
+  "category": "Landing",
+  "repo": "https://github.com/hanzo-apps/launchpad",
+  "llmMd": "https://gallery.hanzo.ai/llms/launchpad/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "schema.sql",
+      "src/views/",
+      "src/app.tsx"
+    ],
+    "uiComponents": [
+      "src/views/",
+      "src/ui.tsx",
+      "src/icons.tsx"
+    ],
+    "stylingTokens": [
+      "src/theme.ts",
+      "src/gui.config.ts"
+    ],
+    "preserveDoNotBreak": [
+      "src/providers.tsx",
+      "src/lib/base.ts",
+      "src/iam.config.ts",
+      "vite.config.ts"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "launch-countdown",
+    "live-signup-counter",
+    "email-capture"
+  ],
+  "params": {
+    "brandName": "Launchpad",
+    "tagline": "Product launches & pre-order campaigns",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_launchpad",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/launchpad\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_launchpad",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/launchpad",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Flaunchpad&template=launchpad&name=launchpad",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Flaunchpad&seed=launchpad",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=launchpad&name=launchpad"
+  }
+}

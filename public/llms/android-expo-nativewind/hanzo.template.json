@@ -1,0 +1,68 @@
+{
+  "seed": "android-expo-nativewind",
+  "name": "Expo NativeWind",
+  "slug": "expo-nativewind",
+  "framework": "Expo + React Native + NativeWind",
+  "category": "Mobile App",
+  "repo": "https://github.com/hanzo-apps/android-expo-nativewind",
+  "llmMd": "https://gallery.hanzo.ai/llms/android-expo-nativewind/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/",
+      "src/constants/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "src/pages/",
+      "src/App.tsx"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "nativewind",
+    "expo-router",
+    "universal-app"
+  ],
+  "params": {
+    "brandName": "Expo NativeWind",
+    "tagline": "Cross-platform Tailwind mobile apps",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_android-expo-nativewind",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npm start",
+    "build": "npm run build",
+    "deploy": "npx hanzo deploy --path \"apps/android-expo-nativewind\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_android-expo-nativewind",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/expo-nativewind",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fandroid-expo-nativewind&template=android-expo-nativewind&name=expo-nativewind",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fandroid-expo-nativewind&seed=android-expo-nativewind",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=android-expo-nativewind&name=expo-nativewind"
+  }
+}

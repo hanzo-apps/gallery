@@ -4,7 +4,7 @@
   "slug": "lighthouse-world",
   "framework": "React 19 + Canvas + TS",
   "category": "App",
-  "repo": "https://github.com/hanzo-apps/template-lighthouse",
+  "repo": "https://github.com/hanzo-apps/lighthouse",
   "llmMd": "https://gallery.hanzo.ai/llms/lighthouse/LLM.md",
   "hotspots": {
     "copyData": [
@@ -58,8 +58,8 @@
   },
   "platform": {
     "outDir": "dist",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-lighthouse&template=lighthouse&name=lighthouse-world",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-lighthouse&seed=lighthouse",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Flighthouse&template=lighthouse&name=lighthouse-world",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Flighthouse&seed=lighthouse",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=lighthouse&name=lighthouse-world"
   }
 }

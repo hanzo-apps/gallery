@@ -4,7 +4,7 @@
   "slug": "mint",
   "framework": "Next.js 14 + TS",
   "category": "Portfolio",
-  "repo": "https://github.com/hanzo-apps/template-mint",
+  "repo": "https://github.com/hanzo-apps/mint",
   "llmMd": "https://gallery.hanzo.ai/llms/mint/LLM.md",
   "hotspots": {
     "copyData": [
@@ -61,8 +61,8 @@
   },
   "platform": {
     "outDir": "out",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-mint&template=mint&name=mint",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-mint&seed=mint",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fmint&template=mint&name=mint",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fmint&seed=mint",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=mint&name=mint"
   }
 }

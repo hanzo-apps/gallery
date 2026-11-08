@@ -1,6 +1,6 @@
 # LLM.md — Hanzo Agent Build Playbook for Folio Contact (`folio-contact`)
 
-> **Agent Directive:** Read this file before modifying any code. This repository is a Hanzo Cloud-optimized seed template (`https://github.com/hanzo-apps/template-folio-contact`). Use the Hotspot File Map, Parameterization Contract, and `src/lib/hanzo.ts` SDK below to customize and ship the user's application in minimal turns with zero broken builds.
+> **Agent Directive:** Read this file before modifying any code. This repository is a Hanzo Cloud-optimized seed template (`https://github.com/hanzo-apps/folio-contact`). Use the Hotspot File Map, Parameterization Contract, and `src/lib/hanzo.ts` SDK below to customize and ship the user's application in minimal turns with zero broken builds.
 
 ## 1. Template Identity & Stack
 - **Template Seed:** `folio-contact` (Folio Contact)

@@ -4,7 +4,7 @@
   "slug": "oasis",
   "framework": "HTML/CSS",
   "category": "Hospitality",
-  "repo": "https://github.com/hanzo-apps/template-oasis",
+  "repo": "https://github.com/hanzo-apps/oasis",
   "llmMd": "https://gallery.hanzo.ai/llms/oasis/LLM.md",
   "hotspots": {
     "copyData": [
@@ -61,8 +61,8 @@
   },
   "platform": {
     "outDir": ".",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-oasis&template=oasis&name=oasis",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-oasis&seed=oasis",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Foasis&template=oasis&name=oasis",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Foasis&seed=oasis",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=oasis&name=oasis"
   }
 }

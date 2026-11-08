@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curriculum — Resume</title>
+    <meta
+      name="description"
+      content="Curriculum — a polished, print-friendly online resume. Structure your experience, projects and skills, then publish or print it clean."
+    />
+    <!--
+      Page-level print setup only (not a UI kit): a comfortable print margin and
+      honoring background colors. The app hides its toolbar on `beforeprint`, so
+      what prints is the resume alone — one clean page of typography.
+    -->
+    <style>
+      @page {
+        margin: 16mm;
+      }
+      @media print {
+        html,
+        body {
+          background: #fff;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+      }
+    </style>
+    <script type="module" crossorigin src="./assets/index-BozuoHBT.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

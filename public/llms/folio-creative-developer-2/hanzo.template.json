@@ -4,7 +4,7 @@
   "slug": "folio-creative-developer-2",
   "framework": "HTML/Gulp",
   "category": "Folio Portfolio",
-  "repo": "https://github.com/hanzo-apps/template-folio-creative-developer-2",
+  "repo": "https://github.com/hanzo-apps/folio-creative-developer-2",
   "llmMd": "https://gallery.hanzo.ai/llms/folio-creative-developer-2/LLM.md",
   "hotspots": {
     "copyData": [
@@ -61,8 +61,8 @@
   },
   "platform": {
     "outDir": "build",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-folio-creative-developer-2&template=folio-creative-developer-2&name=folio-creative-developer-2",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-folio-creative-developer-2&seed=folio-creative-developer-2",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ffolio-creative-developer-2&template=folio-creative-developer-2&name=folio-creative-developer-2",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ffolio-creative-developer-2&seed=folio-creative-developer-2",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=folio-creative-developer-2&name=folio-creative-developer-2"
   }
 }

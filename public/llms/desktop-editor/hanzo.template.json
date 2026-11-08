@@ -1,0 +1,67 @@
+{
+  "seed": "desktop-editor",
+  "name": "Editor",
+  "slug": "editor",
+  "framework": "Tauri v2 + CodeMirror 6",
+  "category": "Desktop",
+  "repo": "https://github.com/hanzo-apps/desktop-editor",
+  "llmMd": "https://gallery.hanzo.ai/llms/desktop-editor/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/App.tsx",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/App.tsx",
+      "src/"
+    ],
+    "stylingTokens": [
+      "src/styles.css",
+      "index.html"
+    ],
+    "preserveDoNotBreak": [
+      "src-tauri/src/lib.rs",
+      "src-tauri/tauri.conf.json",
+      "vite.config.ts"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "filesystem-tree",
+    "syntax-highlight",
+    "folder-picker"
+  ],
+  "params": {
+    "brandName": "Editor",
+    "tagline": "Editors and developer tools",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_desktop-editor",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npx serve .",
+    "build": "echo \"Static build ready\"",
+    "deploy": "npx hanzo deploy --static --path \"apps/desktop-editor\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_desktop-editor",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/editor",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fdesktop-editor&template=desktop-editor&name=editor",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fdesktop-editor&seed=desktop-editor",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=desktop-editor&name=editor"
+  }
+}

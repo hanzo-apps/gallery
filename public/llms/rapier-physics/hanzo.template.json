@@ -1,0 +1,67 @@
+{
+  "seed": "rapier-physics",
+  "name": "Fracture Yard",
+  "slug": "fracture-yard",
+  "framework": "Rapier3D + three.js",
+  "category": "Games/3D",
+  "repo": "https://github.com/hanzo-apps/rapier-physics",
+  "llmMd": "https://gallery.hanzo.ai/llms/rapier-physics/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/",
+      "src/constants/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "src/pages/",
+      "src/App.tsx"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "webgl-canvas-stage",
+    "interactive-camera",
+    "hud-overlay",
+    "wasm-physics",
+    "ccd-projectiles",
+    "live-solver-cost"
+  ],
+  "params": {
+    "brandName": "Fracture Yard",
+    "tagline": "Simulation, training and physics-driven demos",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_rapier-physics",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npx serve .",
+    "build": "echo \"Static build ready\"",
+    "deploy": "npx hanzo deploy --static --path \"apps/rapier-physics\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_rapier-physics",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/fracture-yard",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Frapier-physics&template=rapier-physics&name=fracture-yard",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Frapier-physics&seed=rapier-physics",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=rapier-physics&name=fracture-yard"
+  }
+}

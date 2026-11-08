@@ -4,7 +4,7 @@
   "slug": "bestiary-3d",
   "framework": "React + Three.js + TS",
   "category": "Component Library",
-  "repo": "https://github.com/hanzo-apps/template-bestiary",
+  "repo": "https://github.com/hanzo-apps/bestiary",
   "llmMd": "https://gallery.hanzo.ai/llms/bestiary/LLM.md",
   "hotspots": {
     "copyData": [
@@ -60,8 +60,8 @@
   },
   "platform": {
     "outDir": "dist",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-bestiary&template=bestiary&name=bestiary-3d",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-bestiary&seed=bestiary",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fbestiary&template=bestiary&name=bestiary-3d",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fbestiary&seed=bestiary",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=bestiary&name=bestiary-3d"
   }
 }

@@ -1,0 +1,68 @@
+{
+  "seed": "flutter-chat",
+  "name": "Hanzo Chat (Flutter)",
+  "slug": "hanzo-chat-flutter",
+  "framework": "Flutter 3.44 + http",
+  "category": "Mobile App",
+  "repo": "https://github.com/hanzo-apps/flutter-chat",
+  "llmMd": "https://gallery.hanzo.ai/llms/flutter-chat/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/",
+      "src/constants/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "src/pages/",
+      "src/App.tsx"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "sse-streaming",
+    "hanzo-v1",
+    "runtime-config"
+  ],
+  "params": {
+    "brandName": "Hanzo Chat (Flutter)",
+    "tagline": "AI assistants on mobile",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_flutter-chat",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npx serve .",
+    "build": "echo \"Static build ready\"",
+    "deploy": "npx hanzo deploy --static --path \"apps/flutter-chat\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_flutter-chat",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/hanzo-chat-flutter",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fflutter-chat&template=flutter-chat&name=hanzo-chat-flutter",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fflutter-chat&seed=flutter-chat",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=flutter-chat&name=hanzo-chat-flutter"
+  }
+}

@@ -4,7 +4,7 @@
   "slug": "kinetic",
   "framework": "Next.js 14.2 + TS",
   "category": "Portfolio",
-  "repo": "https://github.com/hanzo-apps/template-kinetic",
+  "repo": "https://github.com/hanzo-apps/kinetic",
   "llmMd": "https://gallery.hanzo.ai/llms/kinetic/LLM.md",
   "hotspots": {
     "copyData": [
@@ -61,8 +61,8 @@
   },
   "platform": {
     "outDir": "out",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-kinetic&template=kinetic&name=kinetic",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-kinetic&seed=kinetic",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fkinetic&template=kinetic&name=kinetic",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fkinetic&seed=kinetic",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=kinetic&name=kinetic"
   }
 }

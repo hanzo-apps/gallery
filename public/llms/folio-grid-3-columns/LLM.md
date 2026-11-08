@@ -1,6 +1,6 @@
 # LLM.md — Hanzo Agent Build Playbook for Folio Grid 3 Columns (`folio-grid-3-columns`)
 
-> **Agent Directive:** Read this file before modifying any code. This repository is a Hanzo Cloud-optimized seed template (`https://github.com/hanzo-apps/template-folio-grid-3-columns`). Use the Hotspot File Map, Parameterization Contract, and `src/lib/hanzo.ts` SDK below to customize and ship the user's application in minimal turns with zero broken builds.
+> **Agent Directive:** Read this file before modifying any code. This repository is a Hanzo Cloud-optimized seed template (`https://github.com/hanzo-apps/folio-grid-3-columns`). Use the Hotspot File Map, Parameterization Contract, and `src/lib/hanzo.ts` SDK below to customize and ship the user's application in minimal turns with zero broken builds.
 
 ## 1. Template Identity & Stack
 - **Template Seed:** `folio-grid-3-columns` (Folio Grid 3 Columns)

@@ -4,7 +4,7 @@
   "slug": "emptykit-3d",
   "framework": "React + Three.js + SVG",
   "category": "Component Library",
-  "repo": "https://github.com/hanzo-apps/template-emptykit",
+  "repo": "https://github.com/hanzo-apps/emptykit",
   "llmMd": "https://gallery.hanzo.ai/llms/emptykit/LLM.md",
   "hotspots": {
     "copyData": [
@@ -57,8 +57,8 @@
   },
   "platform": {
     "outDir": "dist",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-emptykit&template=emptykit&name=emptykit-3d",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-emptykit&seed=emptykit",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Femptykit&template=emptykit&name=emptykit-3d",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Femptykit&seed=emptykit",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=emptykit&name=emptykit-3d"
   }
 }

@@ -4,7 +4,7 @@
   "slug": "hyperion-tunnel",
   "framework": "Three.js WebGPU + React 19",
   "category": "3D & Shaders",
-  "repo": "https://github.com/hanzo-apps/template-warp-tunnel",
+  "repo": "https://github.com/hanzo-apps/warp-tunnel",
   "llmMd": "https://gallery.hanzo.ai/llms/warp-tunnel/LLM.md",
   "hotspots": {
     "copyData": [
@@ -58,8 +58,8 @@
   },
   "platform": {
     "outDir": "dist",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-warp-tunnel&template=warp-tunnel&name=hyperion-tunnel",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-warp-tunnel&seed=warp-tunnel",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fwarp-tunnel&template=warp-tunnel&name=hyperion-tunnel",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fwarp-tunnel&seed=warp-tunnel",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=warp-tunnel&name=hyperion-tunnel"
   }
 }

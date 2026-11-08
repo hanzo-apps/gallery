@@ -1,0 +1,68 @@
+{
+  "seed": "flutter",
+  "name": "Hanzo Flutter",
+  "slug": "hanzo-flutter",
+  "framework": "Flutter 3.44 + Material 3",
+  "category": "Mobile App",
+  "repo": "https://github.com/hanzo-apps/flutter",
+  "llmMd": "https://gallery.hanzo.ai/llms/flutter/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/",
+      "src/constants/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "src/pages/",
+      "src/App.tsx"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "material-3",
+    "navigationbar",
+    "search"
+  ],
+  "params": {
+    "brandName": "Hanzo Flutter",
+    "tagline": "Cross-platform mobile apps",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_flutter",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npx serve .",
+    "build": "echo \"Static build ready\"",
+    "deploy": "npx hanzo deploy --static --path \"apps/flutter\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_flutter",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/hanzo-flutter",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fflutter&template=flutter&name=hanzo-flutter",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fflutter&seed=flutter",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=flutter&name=hanzo-flutter"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "seed": "android-rn-obytes",
+  "name": "React Native Production Kit",
+  "slug": "react-native-production-kit",
+  "framework": "Expo + React Native + TS",
+  "category": "Mobile App",
+  "repo": "https://github.com/hanzo-apps/android-rn-obytes",
+  "llmMd": "https://gallery.hanzo.ai/llms/android-rn-obytes/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/",
+      "src/constants/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "src/pages/",
+      "src/App.tsx"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "react-query",
+    "zustand",
+    "mmkv-storage"
+  ],
+  "params": {
+    "brandName": "React Native Production Kit",
+    "tagline": "Enterprise React Native apps",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_android-rn-obytes",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npm start",
+    "build": "npm run build",
+    "deploy": "npx hanzo deploy --path \"apps/android-rn-obytes\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_android-rn-obytes",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/react-native-production-kit",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fandroid-rn-obytes&template=android-rn-obytes&name=react-native-production-kit",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fandroid-rn-obytes&seed=android-rn-obytes",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=android-rn-obytes&name=react-native-production-kit"
+  }
+}

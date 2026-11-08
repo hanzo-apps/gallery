@@ -4,7 +4,7 @@
   "slug": "studio",
   "framework": "HTML/CSS/JS",
   "category": "Portfolio",
-  "repo": "https://github.com/hanzo-apps/template-studio",
+  "repo": "https://github.com/hanzo-apps/studio",
   "llmMd": "https://gallery.hanzo.ai/llms/studio/LLM.md",
   "hotspots": {
     "copyData": [
@@ -61,8 +61,8 @@
   },
   "platform": {
     "outDir": ".",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-studio&template=studio&name=studio",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-studio&seed=studio",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fstudio&template=studio&name=studio",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fstudio&seed=studio",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=studio&name=studio"
   }
 }

@@ -4,7 +4,7 @@
   "slug": "forge",
   "framework": "HTML/Gulp",
   "category": "Dashboard",
-  "repo": "https://github.com/hanzo-apps/template-forge",
+  "repo": "https://github.com/hanzo-apps/forge",
   "llmMd": "https://gallery.hanzo.ai/llms/forge/LLM.md",
   "hotspots": {
     "copyData": [
@@ -61,8 +61,8 @@
   },
   "platform": {
     "outDir": "build",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-forge&template=forge&name=forge",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-forge&seed=forge",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fforge&template=forge&name=forge",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fforge&seed=forge",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=forge&name=forge"
   }
 }

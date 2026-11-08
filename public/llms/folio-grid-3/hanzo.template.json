@@ -4,7 +4,7 @@
   "slug": "folio-grid-3-columns",
   "framework": "HTML/Gulp",
   "category": "Folio Portfolio",
-  "repo": "https://github.com/hanzo-apps/template-folio-grid-3-columns",
+  "repo": "https://github.com/hanzo-apps/folio-grid-3-columns",
   "llmMd": "https://gallery.hanzo.ai/llms/folio-grid-3-columns/LLM.md",
   "hotspots": {
     "copyData": [
@@ -61,8 +61,8 @@
   },
   "platform": {
     "outDir": "build",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-folio-grid-3-columns&template=folio-grid-3-columns&name=folio-grid-3-columns",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-folio-grid-3-columns&seed=folio-grid-3-columns",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ffolio-grid-3-columns&template=folio-grid-3-columns&name=folio-grid-3-columns",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ffolio-grid-3-columns&seed=folio-grid-3-columns",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=folio-grid-3-columns&name=folio-grid-3-columns"
   }
 }

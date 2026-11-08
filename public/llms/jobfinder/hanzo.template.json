@@ -4,7 +4,7 @@
   "slug": "job-finder",
   "framework": "React Native",
   "category": "Mobile App",
-  "repo": "https://github.com/hanzo-apps/template-jobfinder",
+  "repo": "https://github.com/hanzo-apps/jobfinder",
   "llmMd": "https://gallery.hanzo.ai/llms/jobfinder/LLM.md",
   "hotspots": {
     "copyData": [
@@ -61,8 +61,8 @@
   },
   "platform": {
     "outDir": "build",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-jobfinder&template=jobfinder&name=job-finder",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-jobfinder&seed=jobfinder",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fjobfinder&template=jobfinder&name=job-finder",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fjobfinder&seed=jobfinder",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=jobfinder&name=job-finder"
   }
 }

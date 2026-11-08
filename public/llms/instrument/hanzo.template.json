@@ -4,7 +4,7 @@
   "slug": "instrument-lab",
   "framework": "React 19 + Vite + TS",
   "category": "Portfolio",
-  "repo": "https://github.com/hanzo-apps/template-instrument",
+  "repo": "https://github.com/hanzo-apps/instrument",
   "llmMd": "https://gallery.hanzo.ai/llms/instrument/LLM.md",
   "hotspots": {
     "copyData": [
@@ -63,8 +63,8 @@
   },
   "platform": {
     "outDir": "dist",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-instrument&template=instrument&name=instrument-lab",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-instrument&seed=instrument",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Finstrument&template=instrument&name=instrument-lab",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Finstrument&seed=instrument",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=instrument&name=instrument-lab"
   }
 }

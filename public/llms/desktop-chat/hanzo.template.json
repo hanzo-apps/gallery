@@ -1,0 +1,67 @@
+{
+  "seed": "desktop-chat",
+  "name": "Chat",
+  "slug": "chat",
+  "framework": "Tauri v2 + React 19",
+  "category": "Desktop",
+  "repo": "https://github.com/hanzo-apps/desktop-chat",
+  "llmMd": "https://gallery.hanzo.ai/llms/desktop-chat/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/App.tsx",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/App.tsx",
+      "src/"
+    ],
+    "stylingTokens": [
+      "src/styles.css",
+      "index.html"
+    ],
+    "preserveDoNotBreak": [
+      "src-tauri/src/lib.rs",
+      "src-tauri/tauri.conf.json",
+      "vite.config.ts"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "sse-streaming",
+    "threads",
+    "key-off-page"
+  ],
+  "params": {
+    "brandName": "Chat",
+    "tagline": "AI assistants and chat clients",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_desktop-chat",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npm start",
+    "build": "npm run build",
+    "deploy": "npx hanzo deploy --path \"apps/desktop-chat\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_desktop-chat",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/chat",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fdesktop-chat&template=desktop-chat&name=chat",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fdesktop-chat&seed=desktop-chat",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=desktop-chat&name=chat"
+  }
+}

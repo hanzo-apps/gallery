@@ -1,0 +1,67 @@
+{
+  "seed": "voxel-craft",
+  "name": "Chunk",
+  "slug": "chunk",
+  "framework": "three.js 0.185",
+  "category": "Games/3D",
+  "repo": "https://github.com/hanzo-apps/voxel-craft",
+  "llmMd": "https://gallery.hanzo.ai/llms/voxel-craft/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/",
+      "src/constants/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "src/pages/",
+      "src/App.tsx"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "webgl-canvas-stage",
+    "interactive-camera",
+    "hud-overlay",
+    "procedural-terrain",
+    "chunk-meshing",
+    "pointer-lock"
+  ],
+  "params": {
+    "brandName": "Chunk",
+    "tagline": "Sandbox games and world builders",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_voxel-craft",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npx serve .",
+    "build": "echo \"Static build ready\"",
+    "deploy": "npx hanzo deploy --static --path \"apps/voxel-craft\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_voxel-craft",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/chunk",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fvoxel-craft&template=voxel-craft&name=chunk",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fvoxel-craft&seed=voxel-craft",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=voxel-craft&name=chunk"
+  }
+}

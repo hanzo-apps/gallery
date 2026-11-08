@@ -4,7 +4,7 @@
   "slug": "fluid-core",
   "framework": "Three.js WebGPU + React 19",
   "category": "3D & Shaders",
-  "repo": "https://github.com/hanzo-apps/template-warp-shader",
+  "repo": "https://github.com/hanzo-apps/warp-shader",
   "llmMd": "https://gallery.hanzo.ai/llms/warp-shader/LLM.md",
   "hotspots": {
     "copyData": [
@@ -55,8 +55,8 @@
   },
   "platform": {
     "outDir": "dist",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-warp-shader&template=warp-shader&name=fluid-core",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-warp-shader&seed=warp-shader",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fwarp-shader&template=warp-shader&name=fluid-core",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fwarp-shader&seed=warp-shader",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=warp-shader&name=fluid-core"
   }
 }

@@ -1,0 +1,68 @@
+{
+  "seed": "beta",
+  "name": "Beta",
+  "slug": "beta",
+  "framework": "HTML/Gulp",
+  "category": "Dashboard",
+  "repo": "https://github.com/hanzo-apps/beta",
+  "llmMd": "https://gallery.hanzo.ai/llms/beta/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/",
+      "src/constants/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "src/pages/",
+      "src/App.tsx"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "sidebar-nav",
+    "kpi-stat-cards",
+    "revenue-chart",
+    "activity-table",
+    "crm",
+    "dashboard",
+    "business"
+  ],
+  "params": {
+    "brandName": "Beta",
+    "tagline": "CRM dashboards",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_beta",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npx gulp",
+    "build": "npx gulp build",
+    "deploy": "npx hanzo deploy --static --path \"apps/beta\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_beta",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/beta",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "build",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fbeta&template=beta&name=beta",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fbeta&seed=beta",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=beta&name=beta"
+  }
+}

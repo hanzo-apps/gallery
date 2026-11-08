@@ -4,7 +4,7 @@
   "slug": "pixel",
   "framework": "HTML/CSS/JS",
   "category": "Portfolio",
-  "repo": "https://github.com/hanzo-apps/template-pixel",
+  "repo": "https://github.com/hanzo-apps/pixel",
   "llmMd": "https://gallery.hanzo.ai/llms/pixel/LLM.md",
   "hotspots": {
     "copyData": [
@@ -61,8 +61,8 @@
   },
   "platform": {
     "outDir": ".",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-pixel&template=pixel&name=pixel",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-pixel&seed=pixel",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fpixel&template=pixel&name=pixel",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fpixel&seed=pixel",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=pixel&name=pixel"
   }
 }

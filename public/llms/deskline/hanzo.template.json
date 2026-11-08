@@ -1,0 +1,70 @@
+{
+  "seed": "deskline",
+  "name": "Deskline",
+  "slug": "deskline",
+  "framework": "Vite + React 19 + @hanzo/gui + @hanzo/base",
+  "category": "SaaS",
+  "repo": "https://github.com/hanzo-apps/deskline",
+  "llmMd": "https://gallery.hanzo.ai/llms/deskline/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "schema.sql",
+      "src/views/",
+      "src/app.tsx"
+    ],
+    "uiComponents": [
+      "src/views/",
+      "src/ui.tsx",
+      "src/icons.tsx"
+    ],
+    "stylingTokens": [
+      "src/theme.ts",
+      "src/gui.config.ts"
+    ],
+    "preserveDoNotBreak": [
+      "src/providers.tsx",
+      "src/lib/base.ts",
+      "src/iam.config.ts",
+      "vite.config.ts"
+    ]
+  },
+  "blocks": [
+    "hero-cta",
+    "feature-bento",
+    "pricing-tiers",
+    "testimonials",
+    "ticket-queue",
+    "split-pane-triage",
+    "hanzo-base-sync"
+  ],
+  "params": {
+    "brandName": "Deskline",
+    "tagline": "Customer support & helpdesk queues",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_deskline",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/deskline\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_deskline",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/deskline",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fdeskline&template=deskline&name=deskline",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fdeskline&seed=deskline",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=deskline&name=deskline"
+  }
+}

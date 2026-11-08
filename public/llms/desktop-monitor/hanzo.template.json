@@ -1,0 +1,67 @@
+{
+  "seed": "desktop-monitor",
+  "name": "Monitor",
+  "slug": "monitor",
+  "framework": "Tauri v2 + React 19 + sysinfo",
+  "category": "Desktop",
+  "repo": "https://github.com/hanzo-apps/desktop-monitor",
+  "llmMd": "https://gallery.hanzo.ai/llms/desktop-monitor/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/App.tsx",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/App.tsx",
+      "src/"
+    ],
+    "stylingTokens": [
+      "src/styles.css",
+      "index.html"
+    ],
+    "preserveDoNotBreak": [
+      "src-tauri/src/lib.rs",
+      "src-tauri/tauri.conf.json",
+      "vite.config.ts"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "per-core-cpu",
+    "processes",
+    "disks"
+  ],
+  "params": {
+    "brandName": "Monitor",
+    "tagline": "System utilities and dashboards",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_desktop-monitor",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npm start",
+    "build": "npm run build",
+    "deploy": "npx hanzo deploy --path \"apps/desktop-monitor\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_desktop-monitor",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/monitor",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fdesktop-monitor&template=desktop-monitor&name=monitor",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fdesktop-monitor&seed=desktop-monitor",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=desktop-monitor&name=monitor"
+  }
+}

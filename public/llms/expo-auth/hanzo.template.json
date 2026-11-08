@@ -1,0 +1,68 @@
+{
+  "seed": "expo-auth",
+  "name": "Hanzo Auth",
+  "slug": "hanzo-auth",
+  "framework": "Expo SDK 54 + expo-auth-session",
+  "category": "Mobile App",
+  "repo": "https://github.com/hanzo-apps/expo-auth",
+  "llmMd": "https://gallery.hanzo.ai/llms/expo-auth/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/",
+      "src/constants/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "src/pages/",
+      "src/App.tsx"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "pkce",
+    "hanzo-iam",
+    "keychain-storage"
+  ],
+  "params": {
+    "brandName": "Hanzo Auth",
+    "tagline": "Authenticated mobile apps",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_expo-auth",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npx serve .",
+    "build": "echo \"Static build ready\"",
+    "deploy": "npx hanzo deploy --static --path \"apps/expo-auth\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_expo-auth",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/hanzo-auth",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fexpo-auth&template=expo-auth&name=hanzo-auth",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fexpo-auth&seed=expo-auth",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=expo-auth&name=hanzo-auth"
+  }
+}

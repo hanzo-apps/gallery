@@ -1,0 +1,68 @@
+{
+  "seed": "startup",
+  "name": "Startup Launch",
+  "slug": "startup-launch",
+  "framework": "Next.js 15 + React 19 + TS",
+  "category": "Landing",
+  "repo": "https://github.com/hanzo-apps/startup",
+  "llmMd": "https://gallery.hanzo.ai/llms/startup/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/constants/",
+      "src/mocks/",
+      "app/page.tsx"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "components/",
+      "app/"
+    ],
+    "stylingTokens": [
+      "app/globals.css",
+      "tailwind.config.ts"
+    ],
+    "preserveDoNotBreak": [
+      "next.config.mjs",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "product-tour",
+    "social-proof",
+    "pricing-tiers"
+  ],
+  "params": {
+    "brandName": "Startup Launch",
+    "tagline": "High-growth startup websites",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_startup",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/startup\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_startup",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/startup-launch",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "out",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fstartup&template=startup&name=startup-launch",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fstartup&seed=startup",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=startup&name=startup-launch"
+  }
+}

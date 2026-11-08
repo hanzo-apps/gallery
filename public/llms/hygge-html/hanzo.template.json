@@ -4,7 +4,7 @@
   "slug": "hygge-html",
   "framework": "HTML/Gulp",
   "category": "E-commerce",
-  "repo": "https://github.com/hanzo-apps/template-hygge-html",
+  "repo": "https://github.com/hanzo-apps/hygge-html",
   "llmMd": "https://gallery.hanzo.ai/llms/hygge-html/LLM.md",
   "hotspots": {
     "copyData": [
@@ -61,8 +61,8 @@
   },
   "platform": {
     "outDir": "build",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-hygge-html&template=hygge-html&name=hygge-html",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-hygge-html&seed=hygge-html",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fhygge-html&template=hygge-html&name=hygge-html",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fhygge-html&seed=hygge-html",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=hygge-html&name=hygge-html"
   }
 }

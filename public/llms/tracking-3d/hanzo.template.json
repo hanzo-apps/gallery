@@ -4,7 +4,7 @@
   "slug": "vision-hud",
   "framework": "Three.js + React 19 + TS",
   "category": "3D & Shaders",
-  "repo": "https://github.com/hanzo-apps/template-tracking-3d",
+  "repo": "https://github.com/hanzo-apps/tracking-3d",
   "llmMd": "https://gallery.hanzo.ai/llms/tracking-3d/LLM.md",
   "hotspots": {
     "copyData": [
@@ -58,8 +58,8 @@
   },
   "platform": {
     "outDir": "dist",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-tracking-3d&template=tracking-3d&name=vision-hud",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-tracking-3d&seed=tracking-3d",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftracking-3d&template=tracking-3d&name=vision-hud",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftracking-3d&seed=tracking-3d",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=tracking-3d&name=vision-hud"
   }
 }

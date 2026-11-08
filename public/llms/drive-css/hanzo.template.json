@@ -4,7 +4,7 @@
   "slug": "drive",
   "framework": "HTML/CSS",
   "category": "Business",
-  "repo": "https://github.com/hanzo-apps/template-drive",
+  "repo": "https://github.com/hanzo-apps/drive",
   "llmMd": "https://gallery.hanzo.ai/llms/drive/LLM.md",
   "hotspots": {
     "copyData": [
@@ -61,8 +61,8 @@
   },
   "platform": {
     "outDir": ".",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-drive&template=drive&name=drive",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-drive&seed=drive",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fdrive&template=drive&name=drive",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fdrive&seed=drive",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=drive&name=drive"
   }
 }

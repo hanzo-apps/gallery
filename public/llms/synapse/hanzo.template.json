@@ -4,7 +4,7 @@
   "slug": "synapse",
   "framework": "Next.js 14.2 + TS",
   "category": "AI/SaaS",
-  "repo": "https://github.com/hanzo-apps/template-synapse",
+  "repo": "https://github.com/hanzo-apps/synapse",
   "llmMd": "https://gallery.hanzo.ai/llms/synapse/LLM.md",
   "hotspots": {
     "copyData": [
@@ -61,8 +61,8 @@
   },
   "platform": {
     "outDir": "out",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-synapse&template=synapse&name=synapse",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-synapse&seed=synapse",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fsynapse&template=synapse&name=synapse",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fsynapse&seed=synapse",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=synapse&name=synapse"
   }
 }

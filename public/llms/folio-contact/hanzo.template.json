@@ -4,7 +4,7 @@
   "slug": "folio-contact",
   "framework": "HTML/Gulp",
   "category": "Folio Portfolio",
-  "repo": "https://github.com/hanzo-apps/template-folio-contact",
+  "repo": "https://github.com/hanzo-apps/folio-contact",
   "llmMd": "https://gallery.hanzo.ai/llms/folio-contact/LLM.md",
   "hotspots": {
     "copyData": [
@@ -61,8 +61,8 @@
   },
   "platform": {
     "outDir": "build",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-folio-contact&template=folio-contact&name=folio-contact",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-folio-contact&seed=folio-contact",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ffolio-contact&template=folio-contact&name=folio-contact",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ffolio-contact&seed=folio-contact",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=folio-contact&name=folio-contact"
   }
 }

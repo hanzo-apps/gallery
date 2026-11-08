@@ -4,7 +4,7 @@
   "slug": "tensile-studio",
   "framework": "Astro 5 + Sanity + TS",
   "category": "Portfolio",
-  "repo": "https://github.com/hanzo-apps/template-tensile",
+  "repo": "https://github.com/hanzo-apps/tensile",
   "llmMd": "https://gallery.hanzo.ai/llms/tensile/LLM.md",
   "hotspots": {
     "copyData": [
@@ -60,8 +60,8 @@
   },
   "platform": {
     "outDir": "dist",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-tensile&template=tensile&name=tensile-studio",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-tensile&seed=tensile",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftensile&template=tensile&name=tensile-studio",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftensile&seed=tensile",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=tensile&name=tensile-studio"
   }
 }

@@ -19,7 +19,7 @@ const llmsTxtLines = [
   '## How an Agent Should Build From a Hanzo Template',
   '1. Fetch the template `LLM.md` playbook: `https://gallery.hanzo.ai/llms/<slug>/LLM.md`',
   '2. Fetch the machine-readable manifest: `https://gallery.hanzo.ai/llms/<slug>/hanzo.template.json`',
-  '3. Clone the repository (`https://github.com/hanzo-apps/template-<slug>`), update the Hotspot files listed in `LLM.md`, wire `src/lib/hanzo.ts`, verify `pnpm build`, and deploy via `npx @hanzo/cli deploy --platform --insights`.',
+  '3. Clone the repository (`https://github.com/hanzo-apps/<slug>`), update the Hotspot files listed in `LLM.md`, wire `src/lib/hanzo.ts`, verify `pnpm build`, and deploy via `npx @hanzo/cli deploy --platform --insights`.',
   '',
   '## Templates Catalog',
 ];
@@ -44,10 +44,28 @@ for (const tpl of templates) {
   const slugs = [tpl.slug, tpl.name, ...(ALIAS_MAP[tpl.slug] || [])];
   const uniqueSlugs = Array.from(new Set(slugs));
 
+  let llmContent = assembled.llmMd;
+  const metaPath = `/tmp/hanzo-gui-meta/${tpl.slug}.json`;
+  if (fs.existsSync(metaPath)) {
+    try {
+      const meta = JSON.parse(fs.readFileSync(metaPath, 'utf8'));
+      const extra = [];
+      if (meta.schema_sql) {
+        extra.push('## 7. Hanzo Base SQLite Schema (`schema.sql`)', '', '```sql', meta.schema_sql.trim(), '```', '');
+      }
+      if (meta.llm_md) {
+        extra.push('## 8. Upstream Repository Notes (`LLM.md`)', '', meta.llm_md.trim(), '');
+      }
+      if (extra.length) {
+        llmContent = llmContent + '\n\n' + extra.join('\n');
+      }
+    } catch {}
+  }
+
   for (const s of uniqueSlugs) {
     const dir = path.join(llmsDir, s);
     fs.mkdirSync(dir, { recursive: true });
-    fs.writeFileSync(path.join(dir, 'LLM.md'), assembled.llmMd + '\n', 'utf8');
+    fs.writeFileSync(path.join(dir, 'LLM.md'), llmContent + '\n', 'utf8');
     fs.writeFileSync(path.join(dir, 'hanzo.template.json'), assembled.manifestJson + '\n', 'utf8');
     fs.writeFileSync(path.join(dir, 'hanzo.ts'), assembled.hanzoSdkCode + '\n', 'utf8');
   }

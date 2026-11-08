@@ -1,0 +1,70 @@
+{
+  "seed": "essays",
+  "name": "Longform Essays",
+  "slug": "longform-essays",
+  "framework": "Vite + React 19 + @hanzo/gui + @hanzo/base",
+  "category": "Portfolio",
+  "repo": "https://github.com/hanzo-apps/essays",
+  "llmMd": "https://gallery.hanzo.ai/llms/essays/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "schema.sql",
+      "src/views/",
+      "src/app.tsx"
+    ],
+    "uiComponents": [
+      "src/views/",
+      "src/ui.tsx",
+      "src/icons.tsx"
+    ],
+    "stylingTokens": [
+      "src/theme.ts",
+      "src/gui.config.ts"
+    ],
+    "preserveDoNotBreak": [
+      "src/providers.tsx",
+      "src/lib/base.ts",
+      "src/iam.config.ts",
+      "vite.config.ts"
+    ]
+  },
+  "blocks": [
+    "project-showcase-grid",
+    "case-study-detail",
+    "about-bio",
+    "contact-form",
+    "serif-typography",
+    "reading-time",
+    "author-notes"
+  ],
+  "params": {
+    "brandName": "Longform Essays",
+    "tagline": "Personal essayists & writers",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_essays",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/essays\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_essays",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/longform-essays",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fessays&template=essays&name=longform-essays",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fessays&seed=essays",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=essays&name=longform-essays"
+  }
+}

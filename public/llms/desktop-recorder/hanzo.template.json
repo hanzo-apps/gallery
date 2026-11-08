@@ -1,0 +1,67 @@
+{
+  "seed": "desktop-recorder",
+  "name": "Recorder",
+  "slug": "recorder",
+  "framework": "Electron 43 + Forge + React 19",
+  "category": "Desktop",
+  "repo": "https://github.com/hanzo-apps/desktop-recorder",
+  "llmMd": "https://gallery.hanzo.ai/llms/desktop-recorder/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/App.tsx",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/App.tsx",
+      "src/"
+    ],
+    "stylingTokens": [
+      "src/styles.css",
+      "index.html"
+    ],
+    "preserveDoNotBreak": [
+      "src-tauri/src/lib.rs",
+      "src-tauri/tauri.conf.json",
+      "vite.config.ts"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "desktopcapturer",
+    "mediarecorder",
+    "thumbnails"
+  ],
+  "params": {
+    "brandName": "Recorder",
+    "tagline": "Screen capture and streaming tools",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_desktop-recorder",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npm start",
+    "build": "npm run build",
+    "deploy": "npx hanzo deploy --path \"apps/desktop-recorder\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_desktop-recorder",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/recorder",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fdesktop-recorder&template=desktop-recorder&name=recorder",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fdesktop-recorder&seed=desktop-recorder",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=desktop-recorder&name=recorder"
+  }
+}

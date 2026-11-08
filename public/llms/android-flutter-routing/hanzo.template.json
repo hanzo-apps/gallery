@@ -1,0 +1,68 @@
+{
+  "seed": "android-flutter-routing",
+  "name": "Flutter Declarative Routing",
+  "slug": "flutter-declarative-routing",
+  "framework": "Flutter 3 + Dart",
+  "category": "Mobile App",
+  "repo": "https://github.com/hanzo-apps/android-flutter-routing",
+  "llmMd": "https://gallery.hanzo.ai/llms/android-flutter-routing/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/",
+      "src/constants/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "src/pages/",
+      "src/App.tsx"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "deep-linking",
+    "auth-guards",
+    "nested-nav"
+  ],
+  "params": {
+    "brandName": "Flutter Declarative Routing",
+    "tagline": "Multi-route production Flutter apps",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_android-flutter-routing",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npx serve .",
+    "build": "echo \"Static build ready\"",
+    "deploy": "npx hanzo deploy --static --path \"apps/android-flutter-routing\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_android-flutter-routing",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/flutter-declarative-routing",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fandroid-flutter-routing&template=android-flutter-routing&name=flutter-declarative-routing",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fandroid-flutter-routing&seed=android-flutter-routing",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=android-flutter-routing&name=flutter-declarative-routing"
+  }
+}

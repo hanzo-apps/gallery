@@ -4,7 +4,7 @@
   "slug": "folio-masonry-2-columns",
   "framework": "HTML/Gulp",
   "category": "Folio Portfolio",
-  "repo": "https://github.com/hanzo-apps/template-folio-masonry-2-columns",
+  "repo": "https://github.com/hanzo-apps/folio-masonry-2-columns",
   "llmMd": "https://gallery.hanzo.ai/llms/folio-masonry-2-columns/LLM.md",
   "hotspots": {
     "copyData": [
@@ -61,8 +61,8 @@
   },
   "platform": {
     "outDir": "build",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-folio-masonry-2-columns&template=folio-masonry-2-columns&name=folio-masonry-2-columns",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-folio-masonry-2-columns&seed=folio-masonry-2-columns",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ffolio-masonry-2-columns&template=folio-masonry-2-columns&name=folio-masonry-2-columns",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ffolio-masonry-2-columns&seed=folio-masonry-2-columns",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=folio-masonry-2-columns&name=folio-masonry-2-columns"
   }
 }

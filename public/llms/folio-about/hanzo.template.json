@@ -4,7 +4,7 @@
   "slug": "folio-about",
   "framework": "HTML/Gulp",
   "category": "Folio Portfolio",
-  "repo": "https://github.com/hanzo-apps/template-folio-about",
+  "repo": "https://github.com/hanzo-apps/folio-about",
   "llmMd": "https://gallery.hanzo.ai/llms/folio-about/LLM.md",
   "hotspots": {
     "copyData": [
@@ -61,8 +61,8 @@
   },
   "platform": {
     "outDir": "build",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-folio-about&template=folio-about&name=folio-about",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-folio-about&seed=folio-about",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ffolio-about&template=folio-about&name=folio-about",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ffolio-about&seed=folio-about",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=folio-about&name=folio-about"
   }
 }

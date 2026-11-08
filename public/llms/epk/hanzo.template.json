@@ -1,0 +1,70 @@
+{
+  "seed": "epk",
+  "name": "Pressroom EPK",
+  "slug": "pressroom-epk",
+  "framework": "Vite + React 19 + @hanzo/gui + @hanzo/base",
+  "category": "Portfolio",
+  "repo": "https://github.com/hanzo-apps/epk",
+  "llmMd": "https://gallery.hanzo.ai/llms/epk/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "schema.sql",
+      "src/views/",
+      "src/app.tsx"
+    ],
+    "uiComponents": [
+      "src/views/",
+      "src/ui.tsx",
+      "src/icons.tsx"
+    ],
+    "stylingTokens": [
+      "src/theme.ts",
+      "src/gui.config.ts"
+    ],
+    "preserveDoNotBreak": [
+      "src/providers.tsx",
+      "src/lib/base.ts",
+      "src/iam.config.ts",
+      "vite.config.ts"
+    ]
+  },
+  "blocks": [
+    "project-showcase-grid",
+    "case-study-detail",
+    "about-bio",
+    "contact-form",
+    "artist-bio",
+    "release-hub",
+    "tour-dates"
+  ],
+  "params": {
+    "brandName": "Pressroom EPK",
+    "tagline": "Musician & artist electronic press kits",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_epk",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/epk\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_epk",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/pressroom-epk",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fepk&template=epk&name=pressroom-epk",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fepk&seed=epk",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=epk&name=pressroom-epk"
+  }
+}

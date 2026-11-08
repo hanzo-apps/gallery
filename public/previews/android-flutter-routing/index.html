@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Android Flutter Routing — Hanzo App Preview</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: radial-gradient(circle at 20% 0%, #0f1915 0%, #080d0b 70%);
+    color: #f4f4f5;
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: #34d399;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+  .chip {
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    font-size: 12px;
+    color: #d4d4d8;
+  }
+  .browser-frame {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: #09090b;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.6);
+  }
+  .browser-bar {
+    height: 42px;
+    background: rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+  }
+  .dots { display: flex; gap: 6px; }
+  .dots span { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.2); }
+  .addr {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 12px;
+    color: #a1a1aa;
+    background: rgba(0,0,0,0.4);
+    padding: 4px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+  .status { display: flex; align-items: center; gap: 6px; font-size: 11px; color: #34d399; font-weight: 600; }
+  .pulse { width: 7px; height: 7px; border-radius: 50%; background: #34d399; box-shadow: 0 0 8px #34d399; }
+  .shot-wrap img { width: 100%; display: block; }
+  .phone-stage {
+    max-width: 1080px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .phone-frame {
+    width: 320px;
+    height: 640px;
+    border-radius: 40px;
+    padding: 12px;
+    background: #050507;
+    border: 2px solid rgba(255,255,255,0.18);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.75);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .phone-notch {
+    width: 96px;
+    height: 22px;
+    background: #000;
+    border-radius: 999px;
+    margin: 4px auto 12px;
+  }
+  .phone-ui {
+    flex: 1;
+    background: linear-gradient(180deg, #0f1915 0%, #080d0b 100%);
+    border-radius: 28px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .phone-top { display: flex; justify-content: space-between; font-size: 11px; color: #a1a1aa; font-weight: 600; }
+  .phone-header h3 { font-size: 20px; margin: 6px 0; }
+  .phone-header p { font-size: 12px; color: #a1a1aa; line-height: 1.45; }
+  .phone-badge { font-size: 10px; color: #34d399; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; }
+  .phone-cards { display: flex; flex-direction: column; gap: 10px; margin: 14px 0; }
+  .p-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 14px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .p-dot { width: 8px; height: 8px; border-radius: 50%; background: #34d399; flex-shrink: 0; }
+  .p-card strong { display: block; font-size: 12px; color: #fff; }
+  .p-card span { font-size: 11px; color: #a1a1aa; }
+  .phone-cta {
+    background: #34d399;
+    color: #09090b;
+    text-align: center;
+    padding: 11px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 12px;
+  }
+  .stage-meta h2 { font-size: 36px; margin-bottom: 12px; letter-spacing: -0.02em; }
+  .desc { font-size: 15px; line-height: 1.6; color: #a1a1aa; max-width: 640px; }
+  .code-box {
+    margin-top: 20px;
+    background: rgba(0,0,0,0.55);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .code-title { font-size: 11px; color: #71717a; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+  pre { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: #e4e4e7; line-height: 1.5; white-space: pre-wrap; }
+  .app-sim {
+    max-width: 1160px;
+    width: 100%;
+    margin: auto;
+    min-height: 560px;
+    background: rgba(12,13,18,0.9);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    overflow: hidden;
+    box-shadow: 0 24px 70px rgba(0,0,0,0.65);
+  }
+  .sim-sidebar {
+    background: rgba(255,255,255,0.02);
+    border-right: 1px solid rgba(255,255,255,0.08);
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .sim-brand { font-weight: 700; font-size: 15px; display: flex; align-items: center; gap: 8px; }
+  .sim-brand .dot { width: 10px; height: 10px; border-radius: 50%; background: #34d399; }
+  .sim-nav { display: flex; flex-direction: column; gap: 6px; margin: 24px 0 auto; }
+  .sim-nav button {
+    text-align: left;
+    background: transparent;
+    color: #a1a1aa;
+    border: 1px solid transparent;
+    padding: 9px 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .sim-nav button.active, .sim-nav button:hover {
+    background: rgba(255,255,255,0.06);
+    color: #fff;
+    border-color: rgba(255,255,255,0.1);
+  }
+  .sim-footer { font-size: 11px; color: #71717a; line-height: 1.6; }
+  .sim-main { padding: 32px; display: flex; flex-direction: column; justify-content: space-between; }
+  .sim-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+  .sim-top h1 { font-size: 32px; letter-spacing: -0.02em; }
+  .metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 20px 0; }
+  .m-card {
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 18px;
+  }
+  .m-label { font-size: 11px; color: #71717a; text-transform: uppercase; letter-spacing: 0.05em; }
+  .m-val { font-size: 22px; font-weight: 700; margin: 6px 0 4px; color: #34d399; }
+  .m-sub { font-size: 12px; color: #a1a1aa; }
+</style>
+</head>
+<body>
+  
+        <div class="phone-stage">
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            
+          <div class="phone-ui">
+            <div class="phone-top"><span>9:41</span><span>5G · 100%</span></div>
+            <div class="phone-header">
+              <div class="phone-badge">Android · Jetpack Compose / Flutter</div>
+              <h3>Android Flutter Routing</h3>
+              <p>Android · Flutter · fork of flutter/samples (BSD-3-Clause)</p>
+            </div>
+            <div class="phone-cards">
+              <div class="p-card"><div class="p-dot"></div><div><strong>Hanzo IAM PKCE Auth</strong><span>hanzo.id · OAuth 2.0 S256</span></div></div>
+              <div class="p-card"><div class="p-dot"></div><div><strong>Hanzo Base Realtime</strong><span>api.hanzo.ai · SQLite + SSE</span></div></div>
+              <div class="p-card"><div class="p-dot"></div><div><strong>Zen LLM Gateway</strong><span>api.hanzo.ai/v1/chat/completions</span></div></div>
+            </div>
+            <div class="phone-cta">Connected to Hanzo Cloud</div>
+          </div>
+          </div>
+          <div class="stage-meta">
+            <div class="badge">Android · Jetpack Compose / Flutter</div>
+            <h2>Android Flutter Routing</h2>
+            <p class="desc">Android · Flutter · fork of flutter/samples (BSD-3-Clause)</p>
+            <div class="chips"><span class="chip">Hanzo IAM SSO</span><span class="chip">Hanzo Base Sync</span><span class="chip">Edge CDN</span><span class="chip">Responsive UI</span><span class="chip">Dark Mode</span></div>
+            <div class="code-box">
+              <div class="code-title">Quickstart · github.com/hanzo-apps/android-flutter-routing</div>
+              <pre>git clone https://github.com/hanzo-apps/android-flutter-routing.git
+cd android-flutter-routing
+# Wired to https://api.hanzo.ai &amp; https://hanzo.id</pre>
+            </div>
+          </div>
+        </div>
+</body>
+</html>

@@ -4,7 +4,7 @@
   "slug": "state-matrix",
   "framework": "React 19 + Vite + TS",
   "category": "Component Library",
-  "repo": "https://github.com/hanzo-apps/template-component-states",
+  "repo": "https://github.com/hanzo-apps/component-states",
   "llmMd": "https://gallery.hanzo.ai/llms/component-states/LLM.md",
   "hotspots": {
     "copyData": [
@@ -60,8 +60,8 @@
   },
   "platform": {
     "outDir": "dist",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-component-states&template=component-states&name=state-matrix",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-component-states&seed=component-states",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fcomponent-states&template=component-states&name=state-matrix",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fcomponent-states&seed=component-states",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=component-states&name=state-matrix"
   }
 }

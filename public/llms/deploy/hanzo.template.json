@@ -4,7 +4,7 @@
   "slug": "deploy",
   "framework": "Next.js 14",
   "category": "Landing",
-  "repo": "https://github.com/hanzo-apps/template-deploy",
+  "repo": "https://github.com/hanzo-apps/deploy",
   "llmMd": "https://gallery.hanzo.ai/llms/deploy/LLM.md",
   "hotspots": {
     "copyData": [
@@ -61,8 +61,8 @@
   },
   "platform": {
     "outDir": "out",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-deploy&template=deploy&name=deploy",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-deploy&seed=deploy",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fdeploy&template=deploy&name=deploy",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fdeploy&seed=deploy",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=deploy&name=deploy"
   }
 }

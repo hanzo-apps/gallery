@@ -4,7 +4,7 @@
   "slug": "aerva-ai",
   "framework": "React 19 + Vite + TS",
   "category": "AI/SaaS",
-  "repo": "https://github.com/hanzo-apps/template-aerva",
+  "repo": "https://github.com/hanzo-apps/aerva",
   "llmMd": "https://gallery.hanzo.ai/llms/aerva/LLM.md",
   "hotspots": {
     "copyData": [
@@ -60,8 +60,8 @@
   },
   "platform": {
     "outDir": "dist",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-aerva&template=aerva&name=aerva-ai",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-aerva&seed=aerva",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Faerva&template=aerva&name=aerva-ai",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Faerva&seed=aerva",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=aerva&name=aerva-ai"
   }
 }

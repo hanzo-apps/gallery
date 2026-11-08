@@ -4,7 +4,7 @@
   "slug": "holo-deck",
   "framework": "Three.js + React 19 + TS",
   "category": "3D & Shaders",
-  "repo": "https://github.com/hanzo-apps/template-holo",
+  "repo": "https://github.com/hanzo-apps/holo",
   "llmMd": "https://gallery.hanzo.ai/llms/holo/LLM.md",
   "hotspots": {
     "copyData": [
@@ -58,8 +58,8 @@
   },
   "platform": {
     "outDir": "dist",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-holo&template=holo&name=holo-deck",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-holo&seed=holo",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fholo&template=holo&name=holo-deck",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fholo&seed=holo",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=holo&name=holo-deck"
   }
 }

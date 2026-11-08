@@ -1,0 +1,68 @@
+{
+  "seed": "swiftui-chat",
+  "name": "SwiftUI AI Chat",
+  "slug": "swiftui-ai-chat",
+  "framework": "SwiftUI + iOS 17",
+  "category": "Mobile App",
+  "repo": "https://github.com/hanzo-apps/swiftui-chat",
+  "llmMd": "https://gallery.hanzo.ai/llms/swiftui-chat/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/",
+      "src/constants/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "src/pages/",
+      "src/App.tsx"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "streaming-sse",
+    "-observable",
+    "zen-ai-gateway"
+  ],
+  "params": {
+    "brandName": "SwiftUI AI Chat",
+    "tagline": "Native iOS AI assistant apps",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_swiftui-chat",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npx serve .",
+    "build": "echo \"Static build ready\"",
+    "deploy": "npx hanzo deploy --static --path \"apps/swiftui-chat\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_swiftui-chat",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/swiftui-ai-chat",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fswiftui-chat&template=swiftui-chat&name=swiftui-ai-chat",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fswiftui-chat&seed=swiftui-chat",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=swiftui-chat&name=swiftui-ai-chat"
+  }
+}

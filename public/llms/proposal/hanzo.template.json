@@ -1,0 +1,70 @@
+{
+  "seed": "proposal",
+  "name": "Quotewright",
+  "slug": "quotewright",
+  "framework": "Vite + React 19 + @hanzo/gui + @hanzo/base",
+  "category": "Business",
+  "repo": "https://github.com/hanzo-apps/proposal",
+  "llmMd": "https://gallery.hanzo.ai/llms/proposal/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "schema.sql",
+      "src/views/",
+      "src/app.tsx"
+    ],
+    "uiComponents": [
+      "src/views/",
+      "src/ui.tsx",
+      "src/icons.tsx"
+    ],
+    "stylingTokens": [
+      "src/theme.ts",
+      "src/gui.config.ts"
+    ],
+    "preserveDoNotBreak": [
+      "src/providers.tsx",
+      "src/lib/base.ts",
+      "src/iam.config.ts",
+      "vite.config.ts"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "line-item-quotes",
+    "automatic-totals",
+    "shareable-links"
+  ],
+  "params": {
+    "brandName": "Quotewright",
+    "tagline": "Client proposals & B2B quotes",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_proposal",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/proposal\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_proposal",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/quotewright",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fproposal&template=proposal&name=quotewright",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fproposal&seed=proposal",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=proposal&name=quotewright"
+  }
+}

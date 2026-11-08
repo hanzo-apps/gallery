@@ -1,0 +1,68 @@
+{
+  "seed": "ecommerce-storefront",
+  "name": "Ecommerce Storefront",
+  "slug": "ecommerce-storefront",
+  "framework": "Next.js 14.2 + TS",
+  "category": "E-commerce",
+  "repo": "https://github.com/hanzo-apps/ecommerce-storefront",
+  "llmMd": "https://gallery.hanzo.ai/llms/ecommerce-storefront/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/constants/",
+      "src/mocks/",
+      "app/page.tsx"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "components/",
+      "app/"
+    ],
+    "stylingTokens": [
+      "app/globals.css",
+      "tailwind.config.ts"
+    ],
+    "preserveDoNotBreak": [
+      "next.config.mjs",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "product-grid",
+    "cart-drawer",
+    "category-filter",
+    "checkout-flow",
+    "hanzo-cloud",
+    "responsive",
+    "typescript"
+  ],
+  "params": {
+    "brandName": "Ecommerce Storefront",
+    "tagline": "Ecommerce Storefront",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_ecommerce-storefront",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/ecommerce-storefront\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_ecommerce-storefront",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/ecommerce-storefront",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "out",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fecommerce-storefront&template=ecommerce-storefront&name=ecommerce-storefront",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fecommerce-storefront&seed=ecommerce-storefront",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=ecommerce-storefront&name=ecommerce-storefront"
+  }
+}

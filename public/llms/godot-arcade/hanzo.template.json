@@ -1,0 +1,67 @@
+{
+  "seed": "godot-arcade",
+  "name": "Orb Runner",
+  "slug": "orb-runner",
+  "framework": "Godot 4.4 (Web export)",
+  "category": "Games/3D",
+  "repo": "https://github.com/hanzo-apps/godot-arcade",
+  "llmMd": "https://gallery.hanzo.ai/llms/godot-arcade/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/",
+      "src/constants/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "src/pages/",
+      "src/App.tsx"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "webgl-canvas-stage",
+    "interactive-camera",
+    "hud-overlay",
+    "3d-physics",
+    "wasm-engine",
+    "keyboard-gamepad"
+  ],
+  "params": {
+    "brandName": "Orb Runner",
+    "tagline": "Browser games and 3D product demos",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_godot-arcade",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npx serve .",
+    "build": "echo \"Static build ready\"",
+    "deploy": "npx hanzo deploy --static --path \"apps/godot-arcade\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_godot-arcade",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/orb-runner",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fgodot-arcade&template=godot-arcade&name=orb-runner",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fgodot-arcade&seed=godot-arcade",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=godot-arcade&name=orb-runner"
+  }
+}

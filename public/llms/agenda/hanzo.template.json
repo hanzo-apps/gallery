@@ -1,0 +1,70 @@
+{
+  "seed": "agenda",
+  "name": "Sched Agenda",
+  "slug": "sched-agenda",
+  "framework": "Vite + React 19 + @hanzo/gui + @hanzo/base",
+  "category": "Business",
+  "repo": "https://github.com/hanzo-apps/agenda",
+  "llmMd": "https://gallery.hanzo.ai/llms/agenda/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "schema.sql",
+      "src/views/",
+      "src/app.tsx"
+    ],
+    "uiComponents": [
+      "src/views/",
+      "src/ui.tsx",
+      "src/icons.tsx"
+    ],
+    "stylingTokens": [
+      "src/theme.ts",
+      "src/gui.config.ts"
+    ],
+    "preserveDoNotBreak": [
+      "src/providers.tsx",
+      "src/lib/base.ts",
+      "src/iam.config.ts",
+      "vite.config.ts"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "multi-track-grid",
+    "session-bookmarks",
+    "speaker-bios"
+  ],
+  "params": {
+    "brandName": "Sched Agenda",
+    "tagline": "Conferences, summits & event schedules",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_agenda",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/agenda\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_agenda",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/sched-agenda",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fagenda&template=agenda&name=sched-agenda",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fagenda&seed=agenda",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=agenda&name=sched-agenda"
+  }
+}

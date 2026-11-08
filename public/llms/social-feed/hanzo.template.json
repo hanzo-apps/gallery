@@ -1,0 +1,68 @@
+{
+  "seed": "social-feed",
+  "name": "Social Feed",
+  "slug": "social-feed",
+  "framework": "Next.js 15 + React 19 + TS",
+  "category": "Social Media",
+  "repo": "https://github.com/hanzo-apps/social-feed",
+  "llmMd": "https://gallery.hanzo.ai/llms/social-feed/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/constants/",
+      "src/mocks/",
+      "app/page.tsx"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "components/",
+      "app/"
+    ],
+    "stylingTokens": [
+      "app/globals.css",
+      "tailwind.config.ts"
+    ],
+    "preserveDoNotBreak": [
+      "next.config.mjs",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "activity-stream",
+    "nested-replies",
+    "media-uploads"
+  ],
+  "params": {
+    "brandName": "Social Feed",
+    "tagline": "Community networks & social apps",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_social-feed",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/social-feed\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_social-feed",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/social-feed",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "out",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fsocial-feed&template=social-feed&name=social-feed",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fsocial-feed&seed=social-feed",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=social-feed&name=social-feed"
+  }
+}

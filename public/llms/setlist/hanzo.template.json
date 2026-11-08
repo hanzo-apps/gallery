@@ -1,0 +1,70 @@
+{
+  "seed": "setlist",
+  "name": "Band Setlist",
+  "slug": "band-setlist",
+  "framework": "Vite + React 19 + @hanzo/gui + @hanzo/base",
+  "category": "Hospitality",
+  "repo": "https://github.com/hanzo-apps/setlist",
+  "llmMd": "https://gallery.hanzo.ai/llms/setlist/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "schema.sql",
+      "src/views/",
+      "src/app.tsx"
+    ],
+    "uiComponents": [
+      "src/views/",
+      "src/ui.tsx",
+      "src/icons.tsx"
+    ],
+    "stylingTokens": [
+      "src/theme.ts",
+      "src/gui.config.ts"
+    ],
+    "preserveDoNotBreak": [
+      "src/providers.tsx",
+      "src/lib/base.ts",
+      "src/iam.config.ts",
+      "vite.config.ts"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "tour-calendar",
+    "setlist-archive",
+    "venue-log"
+  ],
+  "params": {
+    "brandName": "Band Setlist",
+    "tagline": "Live music acts & touring bands",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_setlist",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "pnpm install",
+    "dev": "pnpm dev",
+    "build": "pnpm build",
+    "deploy": "npx hanzo deploy --path \"apps/setlist\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_setlist",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/band-setlist",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "dist",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fsetlist&template=setlist&name=band-setlist",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fsetlist&seed=setlist",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=setlist&name=band-setlist"
+  }
+}

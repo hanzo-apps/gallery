@@ -4,7 +4,7 @@
   "slug": "soar",
   "framework": "React 18 + CRA",
   "category": "Fitness",
-  "repo": "https://github.com/hanzo-apps/template-soar",
+  "repo": "https://github.com/hanzo-apps/soar",
   "llmMd": "https://gallery.hanzo.ai/llms/soar/LLM.md",
   "hotspots": {
     "copyData": [
@@ -61,8 +61,8 @@
   },
   "platform": {
     "outDir": "build",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-soar&template=soar&name=soar",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-soar&seed=soar",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fsoar&template=soar&name=soar",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fsoar&seed=soar",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=soar&name=soar"
   }
 }

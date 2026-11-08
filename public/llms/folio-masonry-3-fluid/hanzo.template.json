@@ -4,7 +4,7 @@
   "slug": "folio-masonry-3-fluid",
   "framework": "HTML/Gulp",
   "category": "Folio Portfolio",
-  "repo": "https://github.com/hanzo-apps/template-folio-masonry-3-fluid",
+  "repo": "https://github.com/hanzo-apps/folio-masonry-3-fluid",
   "llmMd": "https://gallery.hanzo.ai/llms/folio-masonry-3-fluid/LLM.md",
   "hotspots": {
     "copyData": [
@@ -61,8 +61,8 @@
   },
   "platform": {
     "outDir": "build",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-folio-masonry-3-fluid&template=folio-masonry-3-fluid&name=folio-masonry-3-fluid",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-folio-masonry-3-fluid&seed=folio-masonry-3-fluid",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ffolio-masonry-3-fluid&template=folio-masonry-3-fluid&name=folio-masonry-3-fluid",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ffolio-masonry-3-fluid&seed=folio-masonry-3-fluid",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=folio-masonry-3-fluid&name=folio-masonry-3-fluid"
   }
 }

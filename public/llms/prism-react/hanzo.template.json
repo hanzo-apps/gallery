@@ -4,7 +4,7 @@
   "slug": "prism-react",
   "framework": "React 18 + Vite",
   "category": "SaaS",
-  "repo": "https://github.com/hanzo-apps/template-prism-react",
+  "repo": "https://github.com/hanzo-apps/prism-react",
   "llmMd": "https://gallery.hanzo.ai/llms/prism-react/LLM.md",
   "hotspots": {
     "copyData": [
@@ -61,8 +61,8 @@
   },
   "platform": {
     "outDir": "dist",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-prism-react&template=prism-react&name=prism-react",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-prism-react&seed=prism-react",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fprism-react&template=prism-react&name=prism-react",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fprism-react&seed=prism-react",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=prism-react&name=prism-react"
   }
 }

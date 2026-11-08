@@ -4,7 +4,7 @@
   "slug": "cipher-react",
   "framework": "React 17",
   "category": "Dashboard",
-  "repo": "https://github.com/hanzo-apps/template-cipher-react",
+  "repo": "https://github.com/hanzo-apps/cipher-react",
   "llmMd": "https://gallery.hanzo.ai/llms/cipher-react/LLM.md",
   "hotspots": {
     "copyData": [
@@ -61,8 +61,8 @@
   },
   "platform": {
     "outDir": "build",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-cipher-react&template=cipher-react&name=cipher-react",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-cipher-react&seed=cipher-react",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fcipher-react&template=cipher-react&name=cipher-react",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fcipher-react&seed=cipher-react",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=cipher-react&name=cipher-react"
   }
 }

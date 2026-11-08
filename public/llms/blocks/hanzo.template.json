@@ -1,0 +1,68 @@
+{
+  "seed": "blocks",
+  "name": "Blocks",
+  "slug": "blocks",
+  "framework": "HTML/Gulp",
+  "category": "Bento Cards",
+  "repo": "https://github.com/hanzo-apps/blocks",
+  "llmMd": "https://gallery.hanzo.ai/llms/blocks/LLM.md",
+  "hotspots": {
+    "copyData": [
+      "src/data/",
+      "src/constants/",
+      "index.html"
+    ],
+    "uiComponents": [
+      "src/components/",
+      "src/pages/",
+      "src/App.tsx"
+    ],
+    "stylingTokens": [
+      "src/styles/",
+      "index.css"
+    ],
+    "preserveDoNotBreak": [
+      "vite.config.ts",
+      "package.json"
+    ]
+  },
+  "blocks": [
+    "hero-section",
+    "feature-grid",
+    "cta-banner",
+    "responsive-footer",
+    "bento-layout",
+    "cards",
+    "v3"
+  ],
+  "params": {
+    "brandName": "Blocks",
+    "tagline": "SaaS feature sections",
+    "hanzoApiKey": "hz_live_your_api_key",
+    "hanzoAiModel": "zen4",
+    "hanzoAnalyticsId": "hz_ins_blocks",
+    "hanzoIamOrg": "hanzo",
+    "accentColor": "#ffffff",
+    "themeMode": "dark"
+  },
+  "commands": {
+    "install": "npm install",
+    "dev": "npx gulp",
+    "build": "npx gulp build",
+    "deploy": "npx hanzo deploy --static --path \"apps/blocks\""
+  },
+  "cloud": {
+    "aiGateway": "https://api.hanzo.ai/v1",
+    "defaultModel": "zen4",
+    "analyticsId": "hz_ins_blocks",
+    "insightsUrl": "https://analytics.hanzo.ai/projects/blocks",
+    "apiKeysUrl": "https://console.hanzo.ai/keys",
+    "iamOrg": "hanzo"
+  },
+  "platform": {
+    "outDir": "build",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fblocks&template=blocks&name=blocks",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fblocks&seed=blocks",
+    "hanzoEditUrl": "https://hanzo.ai/chat?template=blocks&name=blocks"
+  }
+}

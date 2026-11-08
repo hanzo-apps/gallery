@@ -4,7 +4,7 @@
   "slug": "construct",
   "framework": "Next.js 14",
   "category": "Landing",
-  "repo": "https://github.com/hanzo-apps/template-construct",
+  "repo": "https://github.com/hanzo-apps/construct",
   "llmMd": "https://gallery.hanzo.ai/llms/construct/LLM.md",
   "hotspots": {
     "copyData": [
@@ -61,8 +61,8 @@
   },
   "platform": {
     "outDir": "out",
-    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-construct&template=construct&name=construct",
-    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Ftemplate-construct&seed=construct",
+    "deployUrl": "https://platform.hanzo.ai/new?repo=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fconstruct&template=construct&name=construct",
+    "studioUrl": "https://hanzo.app/new?template=https%3A%2F%2Fgithub.com%2Fhanzo-apps%2Fconstruct&seed=construct",
     "hanzoEditUrl": "https://hanzo.ai/chat?template=construct&name=construct"
   }
 }
